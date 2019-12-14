@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1120">
+	<defaultcontrol>55</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+	<control type="multiimage">
+			<depth>DepthBackground</depth>
+			<right>0</right>
+            <top>0</top>
+            <width>1511</width>
+            <height>850</height>
+			<aspectratio>scale</aspectratio>
+			<fadetime>600</fadetime>
+			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+			<animation effect="fade" time="400">VisibleChange</animation>
+			<imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
+			<visible>!Player.HasMedia</visible>
+		</control>
+		<control type="button" id="55">
+			<texturefocus></texturefocus>
+			<texturenofocus></texturenofocus>
+			<onfocus>Control.SetFocus(50,0)</onfocus>
+		</control>
+		<control type="group">
+		<animation effect="slide" start="0" end="-337" time="150" reversible="true" condition="ControlGroup(2100).HasFocus(0)">Conditional</animation>
+		<animation effect="fade" start="100" end="0" time="200" reversible="true" condition="ControlGroup(2100).HasFocus(0)">Conditional</animation>
+		<control type="label">
+			<left>137</left>
+          	<top>72</top>
+			<width>500</width>
+			<height>72</height>
+			<font>38px_Bold</font>
+			<label>Actores</label>
+			<align>left</align>
+			<aligny>center</aligny>
+			<textcolor>FFEEEEEE</textcolor>
+		</control>
+		<control type="fixedlist" id="50">
+          	<left>137</left>
+          	<top>144</top>
+          	<width>500</width>
+          	<height>792</height>
+          	<visible>true</visible>
+          	<onup>noop</onup>
+          	<ondown>noop</ondown>
+          	<onleft>noop</onleft>
+          	<onright>2100</onright>
+          	<movement>5</movement>
+          	<focusposition>5</focusposition>
+          	<orientation>vertical</orientation>
+          	<itemlayout width="500" height="72">
+					<control type="group">
+						 <control type="textbox">
+							<width>500</width>
+							<height>72</height>
+							<font>27px_Bold</font>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>FFBCBCBC</textcolor>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="500" height="72">
+						<control type="textbox">
+							<width>500</width>
+							<height>72</height>
+							<font>27px_Bold</font>
+							<label>$INFO[ListItem.Label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>FFEEEEEE</textcolor>
+						</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>Adam Sandler</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/20thCenturyFox.jpg</thumb>
+					</item>
+					<item id="2">
+						<label>Angelina Jolie</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/20thCenturyFox.jpg</thumb>
+					</item>
+					<item id="3">
+						<label>Anthony Hopkins</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/ColumbiaPictures.jpg</thumb>
+					</item>
+					<item id="4">
+						<label>Antonio Banderas</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/ColumbiaPictures.jpg</thumb>
+					</item>
+					<item id="5">
+						<label>Arnold Schwarzenegger</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/ColumbiaPictures.jpg</thumb>
+					</item>
+					<item id="6">
+						<label>Ben Affleck</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Lionsgate.jpg</thumb>
+					</item>
+					<item id="7">
+						<label>Ben Stiller</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Lionsgate.jpg</thumb>
+					</item>
+					<item id="8">
+						<label>Brad Pitt</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/LucasFilm.jpg</thumb>
+					</item>
+					<item id="9">
+						<label>Brendan Fraser</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/LucasFilm.jpg</thumb>
+					</item>
+					<item id="10">
+						<label>Bruce Willis</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Marvel.jpg</thumb>
+					</item>
+					<item id="11">
+						<label>Cameron Diaz</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Marvel.jpg</thumb>
+					</item>
+					<item id="12">
+						<label>Carrie Fisher</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Metro-Goldwyn-Mayer.jpg</thumb>
+					</item>
+					<item id="13">
+						<label>Chris Hemsworth</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Netflix.jpg</thumb>
+					</item>
+					<item id="14">
+						<label>Clint Eastwood</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/NewLineCinema.jpg</thumb>
+					</item>
+					<item id="15">
+						<label>Danny DeVito</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/ParamountPictures.jpg</thumb>
+					</item>
+					<item id="16">
+						<label>Demi Moore</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/ParamountPictures.jpg</thumb>
+					</item>
+					<item id="17">
+						<label>Doris Day</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/UniversalPictures.jpg</thumb>
+					</item>
+					<item id="18">
+						<label>Dwayne Johnson</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Disney.png</thumb>
+					</item>
+					<item id="19">
+						<label>Eddie Murphy</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>studios/Warner.jpg</thumb>
+					</item>
+					<item id="20">
+						<label>Elijah Wood</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="21">
+						<label>Emilia Clarke</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="22">
+						<label>Gary Oldman</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="23">
+						<label>George Clooney</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="24">
+						<label>Halle Berry</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="25">
+						<label>Harrison Ford</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="26">
+						<label>Heath Ledger</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="27">
+						<label>Helena Bonham Carter</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="28">
+						<label>Jack Black</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="29">
+						<label>Jack Nicholson</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="29">
+						<label>Jackie Chan</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="30">
+						<label>Javier Bardem</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="31">
+						<label>Jennifer Aniston</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="32">
+						<label>Jim Carrey</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="33">
+						<label>Joaquin Phoenix</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="34">
+						<label>John Travolta</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="35">
+						<label>Johnny Depp</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="36">
+						<label>Jude Law</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="37">
+						<label>Julia Roberts</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="38">
+						<label>Keanu Reeves</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="39">
+						<label>Keira Knightley</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="40">
+						<label>Leonardo DiCaprio</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="41">
+						<label>Leslie Nielsen</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="42">
+						<label>Liam Neeson</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="43">
+						<label>Lucy Liu</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="44">
+						<label>Marilyn Monroe</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="45">
+						<label>Matt Damon</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="46">
+						<label>Meg Ryan</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="47">
+						<label>Mel Gibson</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="48">
+						<label>Meryl Streep</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="49">
+						<label>Michael J. Fox</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="50">
+						<label>Mike Myers</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="51">
+						<label>Morgan Freeman</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="52">
+						<label>Natalie Portman</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="53">
+						<label>Nicholas Cage</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="54">
+						<label>Nicole Kidman</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="55">
+						<label>Owen Wilson</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="56">
+						<label>Paco Martínez Soria</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="57">
+						<label>Penélope Cruz</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="58">
+						<label>Richard Gere</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="59">
+						<label>Riley Keough</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="60">
+						<label>Robert De Niro</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="61">
+						<label>Robert Downey Jr.</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="62">
+						<label>Robin Williams</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="63">
+						<label>Ryan Gosling</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="64">
+						<label>Ryan Reynolds</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="65">
+						<label>Samuel L Jackson</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="66">
+						<label>Sandra Bullock</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="67">
+						<label>Scarlett Johansson</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="68">
+						<label>Sean Connery</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="69">
+						<label>Steve Carell</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="70">
+						<label>Steve Martin</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="71">
+						<label>Sylvester Stallone</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="72">
+						<label>Tom Cruise</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="73">
+						<label>Tom Hanks</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="74">
+						<label>Tom Hardy</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="75">
+						<label>Tom Hiddleston</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="76">
+						<label>Uma Thurman</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="77">
+						<label>Vin Diesel</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="78">
+						<label>Whoopi Goldberg</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="79">
+						<label>Will Smith</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+					<item id="80">
+						<label>Winona Ryder</label>
+						<onclick>SetFocus(2100)</onclick>
+						<thumb>DefaultFanart.jpg</thumb>
+					</item>
+				</content>
+    		</control>
+            	<control type="image">
+            		<left>120</left>
+		    		<top>144</top>
+		        	<width>460</width>
+					<height>72</height>
+			    	<texture border="5" background="true">lists/landscape_focus.gif</texture>
+			    	<visible>!ControlGroup(2100).HasFocus(0)</visible>
+			    	<animation effect="fade" start="100" end="0" time="500" reversible="true" condition="ControlGroup(2100).HasFocus(0)">Conditional</animation>
+			    	<animation effect="slide" end="0" time="150" reversible="true" condition="Container.Row(0)">Conditional</animation>
+			    	<animation effect="slide" end="0,72" time="150" reversible="true" condition="Container.Row(1)">Conditional</animation>
+			    	<animation effect="slide" end="0,144" time="150" reversible="true" condition="Container.Row(2)">Conditional</animation>
+			    	<animation effect="slide" end="0,216" time="150" reversible="true" condition="Container.Row(3)">Conditional</animation>
+			    	<animation effect="slide" end="0,288" time="150" reversible="true" condition="Container.Row(4)">Conditional</animation>
+			    	<animation effect="slide" end="0,360" time="150" reversible="true" condition="Container.Row(5)">Conditional</animation>
+			    	<animation effect="slide" end="0,432" time="150" reversible="true" condition="Container.Row(6)">Conditional</animation>
+			    	<animation effect="slide" end="0,504" time="150" reversible="true" condition="Container.Row(7)">Conditional</animation>
+			    	<animation effect="slide" end="0,576" time="150" reversible="true" condition="Container.Row(8)">Conditional</animation>
+			    	<animation effect="slide" end="0,648" time="150" reversible="true" condition="Container.Row(9)">Conditional</animation>
+			    	<animation effect="slide" end="0,720" time="150" reversible="true" condition="Container.Row(10)">Conditional</animation>
+			    	<animation effect="slide" end="0,792" time="150" reversible="true" condition="Container.Row(11)">Conditional</animation>
+		   		</control>
+    		</control>
+    		<control type="group">
+    		<animation effect="slide" start="0" end="550" time="150" reversible="true" condition="!ControlGroup(2100).HasFocus(0)">Conditional</animation>
+    		<animation effect="fade" start="100" end="0" time="200" reversible="true" condition="!ControlGroup(2100).HasFocus(0)">Conditional</animation>
+    		<visible>ControlGroup(2100).HasFocus(0)</visible>
+    		<include>WidgetInfo</include>
+    		</control>
+    		
+    		<control type="group" id="2100">
+                <top>655</top>
+                <left>125</left>
+                <height>425</height>
+                <width>1780</width>
+                <preloaditems>2</preloaditems>
+                <onleft>50</onleft>
+                <onunfocus>ClearProperty(listposition,home)</onunfocus>
+                <include>WidgetGroupListCommon</include>
+                <scrolltime tween="cubic" easing="out">200</scrolltime>
+                <animation effect="slide" start="0" end="550" time="150" reversible="true" condition="!ControlGroup(2100).HasFocus(0)">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Window.IsActive(movieinformation)">Conditional</animation>
+              	<include>FixedVertical</include>
+				<pagecontrol>2010</pagecontrol>
+				
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Adam_Sandler.xsp"/>
+					<param name="widget_header" value="Adam Sandler"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(1)"/>
+					<param name="list_id" value="9002"/>
+				</include>
+                <include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Angelina_Jolie.xsp"/>
+					<param name="widget_header" value="Angelina Jolie"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(2)"/>
+					<param name="list_id" value="9003"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Anthony_Hopkins.xsp"/>
+					<param name="widget_header" value="Anthony Hopkins"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(3)"/>
+					<param name="list_id" value="9004"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Antonio_Banderas.xsp"/>
+					<param name="widget_header" value="Antonio Banderas"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(4)"/>
+					<param name="list_id" value="9005"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(5)"/>
+					<param name="list_id" value="9006"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Ben_Affleck.xsp"/>
+					<param name="widget_header" value="Ben Affleck"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(6)"/>
+					<param name="list_id" value="9007"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Ben_Stiller.xsp"/>
+					<param name="widget_header" value="Ben Stiller"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(7)"/>
+					<param name="list_id" value="9008"/>
+				</include>
+                <include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Brad_Pitt.xsp"/>
+					<param name="widget_header" value="Brad Pitt"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(8)"/>
+					<param name="list_id" value="9009"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Brendan_Fraser.xsp"/>
+					<param name="widget_header" value="Brendan Fraser"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(9)"/>
+					<param name="list_id" value="90010"/>
+				</include>
+                <include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Bruce_Willis.xsp"/>
+					<param name="widget_header" value="Bruce Willis"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(10)"/>
+					<param name="list_id" value="90011"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Cameron_Diaz.xsp"/>
+					<param name="widget_header" value="Cameron Diaz"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(11)"/>
+					<param name="list_id" value="90012"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Carrie_Fisher.xsp"/>
+					<param name="widget_header" value="Carrie Fisher"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(12)"/>
+					<param name="list_id" value="90013"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Chris_Hemsworth.xsp"/>
+					<param name="widget_header" value="Chris Hemsworth"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(13)"/>
+					<param name="list_id" value="90014"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Clint_Eastwood.xsp"/>
+					<param name="widget_header" value="Clint Eastwood"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(14)"/>
+					<param name="list_id" value="90015"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Danny_DeVito.xsp"/>
+					<param name="widget_header" value="Danny DeVito"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(15)"/>
+					<param name="list_id" value="90016"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(16)"/>
+					<param name="list_id" value="90017"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(17)"/>
+					<param name="list_id" value="90018"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(18)"/>
+					<param name="list_id" value="90019"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(19)"/>
+					<param name="list_id" value="90020"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(20)"/>
+					<param name="list_id" value="90021"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(21)"/>
+					<param name="list_id" value="90022"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(22)"/>
+					<param name="list_id" value="90023"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(23)"/>
+					<param name="list_id" value="90024"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(24)"/>
+					<param name="list_id" value="90025"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(25)"/>
+					<param name="list_id" value="90026"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(26)"/>
+					<param name="list_id" value="90027"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(27)"/>
+					<param name="list_id" value="90028"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(28)"/>
+					<param name="list_id" value="90029"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(29)"/>
+					<param name="list_id" value="90030"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(30)"/>
+					<param name="list_id" value="90031"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(31)"/>
+					<param name="list_id" value="90032"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(32)"/>
+					<param name="list_id" value="90033"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(33)"/>
+					<param name="list_id" value="90034"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(34)"/>
+					<param name="list_id" value="90035"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(35)"/>
+					<param name="list_id" value="90036"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(36)"/>
+					<param name="list_id" value="90037"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(37)"/>
+					<param name="list_id" value="90038"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(38)"/>
+					<param name="list_id" value="90039"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(39)"/>
+					<param name="list_id" value="90040"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(40)"/>
+					<param name="list_id" value="90041"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(41)"/>
+					<param name="list_id" value="90042"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(42)"/>
+					<param name="list_id" value="90043"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(44)"/>
+					<param name="list_id" value="90045"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(45)"/>
+					<param name="list_id" value="90046"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(46)"/>
+					<param name="list_id" value="90047"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(47)"/>
+					<param name="list_id" value="90048"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(48)"/>
+					<param name="list_id" value="90049"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(49)"/>
+					<param name="list_id" value="90050"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(50)"/>
+					<param name="list_id" value="90051"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(51)"/>
+					<param name="list_id" value="90052"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(52)"/>
+					<param name="list_id" value="90053"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(53)"/>
+					<param name="list_id" value="90054"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(54)"/>
+					<param name="list_id" value="90055"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(55)"/>
+					<param name="list_id" value="90056"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(56)"/>
+					<param name="list_id" value="90057"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(57)"/>
+					<param name="list_id" value="90058"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(58)"/>
+					<param name="list_id" value="90059"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(59)"/>
+					<param name="list_id" value="90060"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(60)"/>
+					<param name="list_id" value="90061"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(61)"/>
+					<param name="list_id" value="90062"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(62)"/>
+					<param name="list_id" value="90063"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(63)"/>
+					<param name="list_id" value="90064"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(64)"/>
+					<param name="list_id" value="90065"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(65)"/>
+					<param name="list_id" value="90066"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(66)"/>
+					<param name="list_id" value="90067"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(67)"/>
+					<param name="list_id" value="90068"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(68)"/>
+					<param name="list_id" value="90069"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(69)"/>
+					<param name="list_id" value="90070"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(70)"/>
+					<param name="list_id" value="90071"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(71)"/>
+					<param name="list_id" value="90072"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(72)"/>
+					<param name="list_id" value="90073"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(73)"/>
+					<param name="list_id" value="90074"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(74)"/>
+					<param name="list_id" value="90075"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(75)"/>
+					<param name="list_id" value="90076"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(76)"/>
+					<param name="list_id" value="90077"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(77)"/>
+					<param name="list_id" value="90078"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(78)"/>
+					<param name="list_id" value="90079"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(79)"/>
+					<param name="list_id" value="90080"/>
+				</include>
+				<include content="WidgetListPanel" condition="Library.HasContent(movies)">
+					<param name="content_path" value="special://skin/playlists/movies/actors/Arnold_Schwarzenegger.xsp"/>
+					<param name="widget_header" value="Arnold Schwarzenegger"/>
+					<param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="Container(50).HasFocus(80)"/>
+					<param name="list_id" value="90081"/>
+				</include>
+            </control>
+            <control type="group">
+            	<left>125</left>
+		    	<top>655</top>
+            	<animation effect="slide" start="0" end="0,195" time="150" reversible="true" condition="Container.Row(1)">Conditional</animation>
+            	<animation effect="slide" start="0" end="337" time="150" reversible="true" condition="Container.Column(1)">Conditional</animation>
+            	<animation effect="slide" start="0" end="674" time="150" reversible="true" condition="Container.Column(2)">Conditional</animation>
+            	<animation effect="slide" start="0" end="1011" time="150" reversible="true" condition="Container.Column(3)">Conditional</animation>
+            	<animation effect="slide" start="0" end="1348" time="150" reversible="true" condition="Container.Column(4)">Conditional</animation>
+            	<animation effect="slide" start="0" end="1685" time="150" reversible="true" condition="Container.Column(5)">Conditional</animation>
+            	<animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Window.IsActive(movieinformation)">Conditional</animation>
+            	<control type="image">
+			    	<width>325</width>
+					<height>183</height>
+			   		<texture  background="true">lists/landscape_shadow.png</texture>
+		    	</control> 
+            	<control type="image">
+		        	<left>-5</left>
+		        	<top>-5</top>
+		        	<width>335</width>
+					<height>193</height>
+			    	<texture border="5" background="true">lists/landscape_focus.gif</texture>
+		   		</control> 
+        	</control>
+    	
+	</controls>
+</window>

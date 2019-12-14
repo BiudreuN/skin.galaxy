@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1119">
+	<defaultcontrol>55</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include content="CustomLibrary">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+		
+			<param name="item1" value="20th Century Fox"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/movies/studios/20th_Century_Fox.xsp"/>
+        
+        	<param name="item2" value="Columbia Pictures"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/movies/studios/Columbia_Pictures.xsp"/>
+        	
+        	<param name="item3" value="Dimension Films"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/movies/studios/Dimensions.xsp"/>
+        	
+        	<param name="item4" value="DreamWorks"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/movies/studios/Dreamworks.xsp"/>
+        	
+        	<param name="item5" value="HBO Films"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/movies/studios/HBO.xsp"/>
+        
+        	<param name="item6" value="Lionsgate"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/movies/studios/Lionsgate.xsp"/>
+        
+        	<param name="item7" value="LucasFilm"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/movies/studios/LucasFilm.xsp"/>
+        
+        	<param name="item8" value="Marvel Studios"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/movies/studios/Marvel.xsp"/>
+        
+        	<param name="item9" value="Metro Goldwyn Mayer Pictures"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/movies/studios/Metro-Goldwyn-Mayer.xsp"/>
+        	
+        	<param name="item10" value="Miramax"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/movies/studios/Miramax.xsp"/>
+        
+        	<param name="item11" value="Netflix"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/movies/studios/Netflix.xsp"/>
+        
+        	<param name="item12" value="New Line Cinema"/>
+			<param name="item12_content" value="Películas"/>
+        	<param name="item12_path" value="special://skin/playlists/movies/studios/New_Line_Cinema.xsp"/>
+        
+        	<param name="item13" value="Paramount Pictures"/>
+			<param name="item13_content" value="Películas"/>
+        	<param name="item13_path" value="special://skin/playlists/movies/studios/Paramount_Pictures.xsp"/>
+        	
+        	<param name="item14" value="RKO Pictures"/>
+			<param name="item14_content" value="Películas"/>
+        	<param name="item14_path" value="special://skin/playlists/movies/studios/RKO.xsp"/>
+        	
+        	<param name="item15" value="TriStar Pictures"/>
+			<param name="item15_content" value="Películas"/>
+        	<param name="item15_path" value="special://skin/playlists/movies/studios/TriStar.xsp"/>
+        
+        	<param name="item16" value="Universal Pictures"/>
+			<param name="item16_content" value="Películas"/>
+        	<param name="item16_path" value="special://skin/playlists/movies/studios/Universal_Pictures.xsp"/>
+        
+        	<param name="item17" value="Walt Disney Pictures"/>
+			<param name="item17_content" value="Películas"/>
+        	<param name="item17_path" value="special://skin/playlists/movies/studios/Disney.xsp"/>
+        
+        	<param name="item18" value="Warner Bros. Pictures"/>
+			<param name="item18_content" value="Películas"/>
+        	<param name="item18_path" value="special://skin/playlists/movies/studios/Warner.xsp"/>
+        
+        	<param name="item19" value="Otros"/>
+			<param name="item19_content" value="Películas"/>
+        	<param name="item19_path" value="special://skin/playlists/movies/studios/Otros.xsp"/>
+		</include>
+	</controls>
+</window>

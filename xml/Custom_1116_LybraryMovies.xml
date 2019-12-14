@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1116">
+	<defaultcontrol always="true">55</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<control type="button" id="55">
+			<texturefocus></texturefocus>
+			<texturenofocus></texturenofocus>
+			<onfocus condition="String.IsEqual(Window(home).Property(Content),Custom_1111_MoviesHub.xml">Control.SetFocus(9001)</onfocus>
+			<onfocus condition="String.IsEqual(Window(home).Property(Content),Custom_1112_TvShowsHub.xml">Control.SetFocus(9002)</onfocus>
+			<onfocus condition="String.IsEqual(Window(home).Property(Content),Custom_1113_KidsHub.xml1">Control.SetFocus(9003)</onfocus>
+			<onfocus condition="String.IsEqual(Window(home).Property(Content),Custom_1113_KidsHub.xml2">Control.SetFocus(9004)</onfocus>
+			<onfocus condition="String.IsEqual(Window(home).Property(Content),Custom_1114_AnimeHub.xml1">Control.SetFocus(9005)</onfocus>
+			<onfocus condition="String.IsEqual(Window(home).Property(Content),Custom_1114_AnimeHub.xml2">Control.SetFocus(9006)</onfocus>
+		</control>
+		<control type="multiimage">
+			<depth>DepthBackground</depth>
+			<right>0</right>
+            <top>0</top>
+            <width>1511</width>
+            <height>850</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<fadetime>600</fadetime>
+			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+			<animation effect="fade" time="300" >VisibleChange</animation>
+			<imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
+			<visible>!Player.HasMedia</visible>
+		</control>
+		<include>WidgetInfo</include>
+		<control type="group">
+                <top>655</top>
+                <left>125</left>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Window.IsActive(movieinformation)">Conditional</animation>
+		
+			<control type="image">
+				<left>765</left>
+		       	<top>-100</top>
+		        <width>150</width>
+				<height>100</height>
+			    <texture colordiffuse="FFEEEEEE">overlays/arrowup.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <animation effect="zoom" center="60,0" start="100,0" end="100,100" time="200" reversible="true">VisibleChange</animation>
+                <animation effect="fade" start="0" end="100" time="200" reversible="true">VisibleChange</animation>
+           		<visible>Container.HasPrevious</visible>
+		    </control>
+		    <include content="WidgetListLibrary" condition="Library.HasContent(movies)">
+				<param name="content_path" value="special://skin/playlists/movies/library/all.xsp"/>
+				<param name="widget_header" value="Películas"/>
+				<param name="widget_target" value="videos"/>
+            	<param name="widget_limit" value="all"/>
+            	<param name="visible" value="String.IsEqual(Window(home).Property(Content),Custom_1111_MoviesHub.xml)"/>
+				<param name="list_id" value="9001"/>
+			</include>
+			<include content="WidgetListLibrary" condition="Library.HasContent(tvshows)">
+				<param name="content_path" value="special://skin/playlists/tvshows/tvshows.xsp"/>
+				<param name="widget_header" value="Series"/>
+				<param name="widget_target" value="videos"/>
+            	<param name="widget_limit" value="all"/>
+            	<param name="visible" value="String.IsEqual(Window(home).Property(Content),Custom_1112_TvShowsHub.xml"/>
+				<param name="list_id" value="9002"/>
+			</include>
+			<include content="WidgetListLibrary" condition="Library.HasContent(movies)">
+				<param name="content_path" value="special://skin/playlists/kids/movies.xsp"/>
+				<param name="widget_header" value="Películas"/>
+				<param name="widget_target" value="videos"/>
+            	<param name="widget_limit" value="all"/>
+            	<param name="visible" value="String.IsEqual(Window(home).Property(Content),Custom_1113_KidsHub.xml1"/>
+				<param name="list_id" value="9003"/>
+			</include>
+			<include content="WidgetListLibrary" condition="Library.HasContent(tvshows)">
+				<param name="content_path" value="special://skin/playlists/kids/tvshows.xsp"/>
+				<param name="widget_header" value="Series"/>
+				<param name="widget_target" value="videos"/>
+            	<param name="widget_limit" value="all"/>
+            	<param name="visible" value="String.IsEqual(Window(home).Property(Content),Custom_1113_KidsHub.xml2"/>
+				<param name="list_id" value="9004"/>
+			</include>
+			<include content="WidgetListLibrary" condition="Library.HasContent(movies)">
+				<param name="content_path" value="special://skin/playlists/anime/movies.xsp"/>
+				<param name="widget_header" value="Películas"/>
+				<param name="widget_target" value="videos"/>
+            	<param name="widget_limit" value="all"/>
+            	<param name="visible" value="String.IsEqual(Window(home).Property(Content),Custom_1114_AnimeHub.xml1"/>
+				<param name="list_id" value="9005"/>
+			</include>
+			<include content="WidgetListLibrary" condition="Library.HasContent(tvshows)">
+				<param name="content_path" value="special://skin/playlists/anime/tvshows.xsp"/>
+				<param name="widget_header" value="Series"/>
+				<param name="widget_target" value="videos"/>
+            	<param name="widget_limit" value="all"/>
+            	<param name="visible" value="String.IsEqual(Window(home).Property(Content),Custom_1114_AnimeHub.xml2"/>
+				<param name="list_id" value="9006"/>
+			</include>
+			<control type="scrollbar" id="500">
+				<left>1690</left>
+				<top>0</top>
+				<width>5</width>
+				<height>380</height>
+				<texturesliderbackground colordiffuse="FF373737">colors/white.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="FFEEEEEE">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="button_focus">colors/white.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<enable>false</enable>
+				 <animation effect="fade" start="0" end="100" time="100" reversible="true">Visible</animation>
+				<animation effect="fade" start="100" end="0" delay="500" time="200" reversible="true">Hidden</animation>
+				 <visible>Container(9001).Scrolling</visible>
+			</control>
+			</control>
+
+            <control type="group">
+            	<left>125</left>
+		    	<top>655</top>
+            	<animation effect="slide" start="0" end="0,195" time="150" reversible="true" condition="Container.Row(1)">Conditional</animation>
+            	<animation effect="slide" start="0" end="337" time="150" reversible="true" condition="Container.Column(1)">Conditional</animation>
+            	<animation effect="slide" start="0" end="674" time="150" reversible="true" condition="Container.Column(2)">Conditional</animation>
+            	<animation effect="slide" start="0" end="1011" time="150" reversible="true" condition="Container.Column(3)">Conditional</animation>
+            	<animation effect="slide" start="0" end="1348" time="150" reversible="true" condition="Container.Column(4)">Conditional</animation>
+            	<animation effect="slide" start="0" end="1685" time="150" reversible="true" condition="Container.Column(5)">Conditional</animation>
+            	<animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Window.IsActive(movieinformation)">Conditional</animation>
+            	
+		   		<control type="image">
+			    	<width>325</width>
+					<height>183</height>
+			   		<texture>lists/landscape_shadow.png</texture>
+		    	</control>
+            	<control type="image">
+		        	<left>-5</left>
+		        	<top>-5</top>
+		        	<width>335</width>
+			    	<height>193</height>
+			    	<texture border="10" colordiffuse="button_focus">lists/focus_border.png</texture>
+		    	</control>
+        	</control>
+	</controls>
+</window>

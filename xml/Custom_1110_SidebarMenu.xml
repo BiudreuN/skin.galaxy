@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1110">
+	<defaultcontrol>9000</defaultcontrol>
+    <animation type="WindowOpen" reversible="true">
+        <effect type="fade" start="0" end="100" time="200" tween="cubic" easing="out" />
+	</animation>
+	<controls>
+		<control type="group">
+			<depth>DepthSideBlade</depth>
+            <control type="group">
+                <animation effect="slide" start="-441" end="0" time="200">WindowOpen</animation>
+                <animation effect="slide" start="0" end="-441" time="150">WindowClose</animation>
+                <animation effect="slide" end="0,-244" time="100" reversible="true"
+                	condition="[Control.HasFocus(750)]">Conditional</animation>
+                <animation effect="zoom" start="100" end="100,110" time="100" reversible="true"
+                	condition="[Control.HasFocus(750)]">Conditional</animation>
+                <animation effect="zoom" start="100" end="100,70" time="100" reversible="true"
+                	condition="[Control.HasFocus(700)]">Conditional</animation>
+                <animation effect="slide" end="0,281" time="100" reversible="true"
+                	condition="[Container(9000).Row(0)]">Conditional</animation>
+                <animation effect="slide" end="0,355" time="100" reversible="true"
+                	condition="[Container(9000).Row(1)]">Conditional</animation>
+                <animation effect="slide" end="0,429" time="100" reversible="true"
+                	condition="[Container(9000).Row(2)]">Conditional</animation>
+                <animation effect="slide" end="0,503" time="100" reversible="true"
+                	condition="[Container(9000).Row(3)]">Conditional</animation>
+                <animation effect="slide" end="0,577" time="100" reversible="true"
+                	condition="[Container(9000).Row(4)]">Conditional</animation>
+                <animation effect="slide" end="0,651" time="100" reversible="true"
+                	condition="[Container(9000).Row(5)]">Conditional</animation>
+                <animation effect="slide" end="0,720" time="100" reversible="true"
+                	condition="[Container(9000).Row(6)]">Conditional</animation>
+                <animation effect="slide" end="0,650" time="100" reversible="true"
+                	condition="[Control.HasFocus(700)+Container(700).Row(0)]">Conditional</animation>
+                <animation effect="slide" end="0,722" time="100" reversible="true"
+                	condition="[Container(700).Row(1)]">Conditional</animation>
+                <control type="image">
+		        	<left>0</left>
+	        	    <top>0</top>
+		       	    <width>420</width>
+		            <height>72</height>
+		            <texture colordiffuse="E6464646">colors/white.png</texture>
+		            <aspectratio>scale</aspectratio>
+				</control>
+                <control type="image">
+		        	<left>415</left>
+	        	    <top>0</top>
+		       	    <width>5</width>
+		            <height>72</height>
+		            <texture colordiffuse="button_focus">colors/white.png</texture>
+                    <animation effect="fade" start="100" end="0" time="100" reversible="true"
+                    	condition="[!Control.HasFocus(9000)]">Conditional</animation>
+				</control>                        
+			</control>
+            <control type="group">
+            	<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<control type="fixedlist" id="9000">
+				    <left>0</left>
+				    <top>280</top>
+				    <width>500</width>
+					<movement>10</movement>
+					<focusposition>1</focusposition>
+					<onright>back</onright>
+					<ondown>700</ondown>
+               	    <onup>750</onup>
+					<scrolltime tween="cubic" easing="out">200</scrolltime>
+					<focusedlayout height="74">
+                	    <control type="group">
+							<animation effect="fade" start="100" end="0" time="0" reversible="true"
+								condition="!Control.HasFocus(9000)">Conditional</animation>
+							<include content="LabelShadow">
+								<param name="left" value="95"/>
+								<param name="shadow" value="2"/>
+								<param name="width" value="500"/>
+								<param name="height" value="74"/>
+               					<param name="align" value="left"/>
+								<param name="aligny" value="center"/>
+								<param name="label" value="$INFO[ListItem.Label]"/>
+								<param name="font" value="26px_Regular"/>
+								<param name="textcolor" value="FFEEEEEE"/>
+							</include>
+							<include content="ImageShadow">
+								<param name="top" value="24"/>
+								<param name="left" value="35"/>
+								<param name="shadow" value="2"/>
+								<param name="width" value="27"/>
+								<param name="height" value="27"/>
+								<param name="texture" value="$INFO[ListItem.Art(thumb)]"/>
+								<param name="colordiffuse" value="FFEEEEEE"/>
+							</include>
+						</control>
+						<control type="group">
+							<animation effect="fade" start="100" end="0" time="0" reversible="true"
+								condition="Control.HasFocus(9000)">Conditional</animation>
+                	    	<include content="LabelShadow">
+								<param name="left" value="95"/>
+								<param name="shadow" value="2"/>
+								<param name="width" value="500"/>
+								<param name="height" value="74"/>
+               					<param name="align" value="left"/>
+								<param name="aligny" value="center"/>
+								<param name="label" value="$INFO[ListItem.Label]"/>
+								<param name="font" value="26px_Regular"/>
+								<param name="textcolor" value="grey"/>
+							</include>
+							<include content="ImageShadow">
+								<param name="top" value="24"/>
+								<param name="left" value="35"/>
+								<param name="shadow" value="2"/>
+								<param name="width" value="27"/>
+								<param name="height" value="27"/>
+								<param name="texture" value="$INFO[ListItem.Art(thumb)]"/>
+								<param name="colordiffuse" value="grey"/>
+							</include>
+                   		</control>
+					</focusedlayout>
+					<itemlayout height="74">
+                	    <include content="LabelShadow">
+							<param name="left" value="95"/>
+							<param name="shadow" value="2"/>
+							<param name="width" value="500"/>
+							<param name="height" value="74"/>
+               				<param name="align" value="left"/>
+							<param name="aligny" value="center"/>
+							<param name="label" value="$INFO[ListItem.Label]"/>
+							<param name="font" value="26px_Regular"/>
+							<param name="textcolor" value="grey"/>
+						</include>
+						<include content="ImageShadow">
+							<param name="top" value="24"/>
+							<param name="left" value="35"/>
+							<param name="shadow" value="2"/>
+							<param name="width" value="27"/>
+							<param name="height" value="27"/>
+							<param name="texture" value="$INFO[ListItem.Art(thumb)]"/>
+							<param name="colordiffuse" value="grey"/>
+						</include>
+					</itemlayout>
+					<content>
+                       	<include>SidebarItems</include>
+					</content>
+				</control>
+                <control type="list" id="700">
+					<left>0</left>
+					<top>913</top>
+					<width>500</width>
+                    <height>100</height>
+					<movement>10</movement>
+					<focusposition>0</focusposition>
+					<onright>back</onright>
+					<ondown>noop</ondown>
+                    <onup>9000</onup>
+					<scrolltime tween="cubic" easing="out">200</scrolltime>
+					<focusedlayout height="50">
+						<control type="group">
+							<animation effect="fade" start="100" end="0" time="0" reversible="true"
+								condition="!Control.HasFocus(700)">Conditional</animation>
+							<include content="LabelShadow">
+								<param name="top" value="0"/>
+								<param name="left" value="45"/>
+								<param name="shadow" value="2"/>
+								<param name="width" value="500"/>
+								<param name="height" value="45"/>
+               					<param name="align" value="left"/>
+								<param name="aligny" value="center"/>
+								<param name="label" value="$INFO[ListItem.Label]"/>
+								<param name="font" value="24px_Light"/>
+								<param name="textcolor" value="FFEEEEEE"/>
+							</include>
+						</control>
+						<control type="group">
+							<animation effect="fade" start="100" end="0" time="0" reversible="true"
+								condition="Control.HasFocus(700)">Conditional</animation>
+                	    	<include content="LabelShadow">
+								<param name="top" value="0"/>
+								<param name="left" value="45"/>
+								<param name="shadow" value="2"/>
+								<param name="width" value="500"/>
+								<param name="height" value="45"/>
+               					<param name="align" value="left"/>
+								<param name="aligny" value="center"/>
+								<param name="label" value="$INFO[ListItem.Label]"/>
+								<param name="font" value="24px_Light"/>
+								<param name="textcolor" value="grey"/>
+							</include>
+                   		</control>
+					</focusedlayout>
+					<itemlayout height="50">
+						<include content="LabelShadow">
+							<param name="top" value="0"/>
+							<param name="left" value="45"/>
+							<param name="shadow" value="2"/>
+							<param name="width" value="500"/>
+							<param name="height" value="45"/>
+               				<param name="align" value="left"/>
+							<param name="aligny" value="center"/>
+							<param name="label" value="$INFO[ListItem.Label]"/>
+							<param name="font" value="24px_Light"/>
+							<param name="textcolor" value="grey"/>
+						</include>
+					</itemlayout>
+					<content>
+                        <item>
+							<label>$LOCALIZE[21417]</label>
+							<onclick>dialog.close(1110)</onclick>
+                			<onclick>ActivateWindow(Settings),return</onclick>
+						</item>
+						<item>
+							<label>$LOCALIZE[13012]</label>
+							<onclick>Quit()</onclick>
+							<visible>System.ShowExitButton</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[13016]</label>
+							<onclick>Powerdown()</onclick>
+							<visible>System.CanPowerDown</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[20150]</label>
+							<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+							<visible>!System.HasAlarm(shutdowntimer)</visible>
+							<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[20151] $INFO[System.AlarmPos,(,)]</label>
+							<onclick>CancelAlarm(shutdowntimer)</onclick>
+							<visible>System.HasAlarm(shutdowntimer)</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[13011]</label>
+							<onclick>Suspend()</onclick>
+							<visible>System.CanSuspend</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[13010]</label>
+							<onclick>Hibernate()</onclick>
+							<visible>System.CanHibernate</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[13013]</label>
+							<onclick>Reset()</onclick>
+							<visible>System.CanReboot</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+							<onclick>dialog.close(all,true)</onclick>
+							<onclick>System.LogOff</onclick>
+							<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
+							<visible>System.Loggedon</visible>
+						</item>
+						<item>
+							<label>$VAR[MasterModeLabel]</label>
+							<onclick>mastermode</onclick>
+							<visible>System.HasLocks</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[13017]</label>
+							<onclick>InhibitIdleShutdown(true)</onclick>
+							<visible>System.HasShutdown +!System.IsInhibit</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[13018]</label>
+							<onclick>InhibitIdleShutdown(false)</onclick>
+							<visible>System.HasShutdown + System.IsInhibit</visible>
+						</item>
+					</content>
+				</control>
+                <control type="group" id="9995">
+                	<animation effect="slide" start="0" end="15,50" time="200" reversible="true">WindowOpen</animation>
+                	<animation effect="slide" start="15,50" end="0" time="200" reversible="true">WindowClose</animation>
+                    <control type="button" id="750">
+                        <top>75</top>
+                        <width>420</width>
+                        <height>60</height>
+                        <onclick>dialog.close(all,true)</onclick>
+						<onclick>System.LogOff</onclick>
+                        <ondown>9000</ondown>
+                        <texturefocus></texturefocus>
+                        <texturenofocus></texturenofocus>
+                    </control>
+                    <control type="multiimage">
+			            <depth>DepthBackground</depth>
+			            <left>17</left>
+                        <top>24</top>
+                        <width>60</width>
+			            <height>60</height>
+			            <fadetime>100</fadetime>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+			            <imagepath background="true">$VAR[MenuBarUserVar]</imagepath>
+		            </control>
+                    <control type="image">
+			            <left>12</left>
+				        <top>62</top>
+				        <width>70</width>
+				        <height>22</height>
+				        <texture>icons/logo-text.png</texture>
+                        <animation effect="fade" start="100" end="0" time="100" reversible="true">WindowOpen</animation>
+                        <animation effect="fade" start="0" end="100" time="100" reversible="true">WindowClose</animation>
+			        </control>
+                </control>
+				<include content="LabelShadow">
+					<param name="top" value="75"/>
+					<param name="left" value="110"/>
+					<param name="shadow" value="1"/>
+					<param name="width" value="500"/>
+					<param name="height" value="27"/>
+               		<param name="align" value="left"/>
+					<param name="aligny" value="center"/>
+					<param name="label" value="$INFO[System.ProfileName]"/>
+					<param name="font" value="27px_Bold"/>
+					<param name="textcolor" value="FFEEEEEE"/>
+				</include>
+				<include content="LabelShadow">
+					<param name="top" value="105"/>
+					<param name="left" value="110"/>
+					<param name="shadow" value="1"/>
+					<param name="width" value="800"/>
+					<param name="height" value="22"/>
+               		<param name="align" value="left"/>
+					<param name="aligny" value="center"/>
+					<param name="label" value="Cambiar de Usuario"/>
+					<param name="font" value="22px_Regular"/>
+					<param name="textcolor" value="grey"/>
+				</include>
+	        </control>
+        </control>
+        <control type="group">
+        	<visible>Control.HasFocus(700)</visible>
+        	<animation type="Visible" reversible="true">
+        		<effect type="fade" start="0" end="100" time="500" tween="cubic" easing="out" />
+        		<effect type="slide" start="1500" end="0" time="500" tween="cubic" easing="out" />
+			</animation>
+			<animation type="Hidden" reversible="true">
+        		<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="in" />
+        		<effect type="slide" start="0" end="1500" time="500" tween="cubic" easing="in" />
+			</animation>
+        	<control type="image">
+				<left>420</left>
+            	<width>100%</width>
+				<height>100%</height>
+            	<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture background="true" border="5" flipx="true">frame/sidebar_full.png</texture>
+			</control>
+			<control type="group">
+				<top>100</top>
+				<include content="LabelShadow">
+					<param name="top" value="0"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="1500"/>
+					<param name="height" value="38"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="center"/>
+					<param name="label" value="[B]·[/B] INFO DE VERSIÓN [B]·[/B]"/>
+					<param name="font" value="38px_Bold"/>
+					<param name="textcolor" value="button_focus"/>
+				</include>
+				<include content="TextboxShadow">
+					<param name="top" value="50"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="1500"/>
+					<param name="height" value="266"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="top"/>
+					<param name="label" value="$INFO[System.FriendlyName] $INFO[System.BuildVersion] - $INFO[System.BuildDate][CR]Skin Galaxy [B]·[/B] Versión: 1.0.0[CR]$INFO[System.OSVersionInfo]"/>
+					<param name="font" value="30px_Regular"/>
+					<param name="textcolor" value="FFEEEEEE"/>
+					<param name="scrolltime" value="200"/>
+					<param name="delay" value="10000"/>
+					<param name="time" value="2000"/>
+					<param name="repeat" value="10000"/>
+               		<param name="autoscroll" value="true"/>
+				</include>
+				<include content="LabelShadow">
+					<param name="top" value="200"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="1500"/>
+					<param name="height" value="38"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="center"/>
+					<param name="label" value="[B]·[/B] INFO DEL SISTEMA [B]·[/B]"/>
+					<param name="font" value="38px_Bold"/>
+					<param name="textcolor" value="button_focus"/>
+				</include>
+				<include content="TextboxShadow">
+					<param name="top" value="250"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="1500"/>
+					<param name="height" value="266"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="top"/>
+					<param name="label" value="Resolución de pantalla: $INFO[System.ScreenResolution][CR]Encendido hace: $INFO[System.Uptime][CR]Tiempo total encendido: $INFO[System.TotalUptime][CR]Dirección IP: $INFO[Network.IPAddress] - Dirección MAC: $INFO[Network.MacAddress] - $INFO[Network.LinkState]"/>
+					<param name="font" value="30px_Regular"/>
+					<param name="textcolor" value="FFEEEEEE"/>
+					<param name="scrolltime" value="200"/>
+					<param name="delay" value="10000"/>
+					<param name="time" value="2000"/>
+					<param name="repeat" value="10000"/>
+               		<param name="autoscroll" value="true"/>
+				</include>
+				<include content="LabelShadow">
+					<param name="top" value="430"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="1500"/>
+					<param name="height" value="38"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="center"/>
+					<param name="label" value="[B]·[/B] INFO DEL HARDWARE [B]·[/B]"/>
+					<param name="font" value="38px_Bold"/>
+					<param name="textcolor" value="button_focus"/>
+				</include>
+				<include content="LabelShadow">
+					<param name="top" value="480"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="1500"/>
+					<param name="height" value="30"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="center"/>
+					<param name="label" value="Uso de CPU: $INFO[System.CpuUsage]"/>
+					<param name="font" value="30px_Regular"/>
+					<param name="textcolor" value="FFEEEEEE"/>
+				</include>
+				<control type="progress">
+					<posy>520</posy>
+					<left>670</left>
+					<width>1000</width>
+					<height>15</height>
+					<texturebg border="3">progress/texturebg_border_white.png</texturebg>
+					<midtexture colordiffuse="button_focus" border="3">progress/texturebg_white.png</midtexture>
+					<lefttexture></lefttexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
+					<info>System.CpuUsage</info>
+				</control>
+				<include content="LabelShadow">
+					<param name="top" value="550"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="1500"/>
+					<param name="height" value="30"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="center"/>
+					<param name="label" value="Uso de memoria del sistema: $INFO[System.Memory(used)][B]/[/B]$INFO[System.Memory(total)] [B]-[/B] $INFO[System.Memory(used.percent)] usado"/>
+					<param name="font" value="30px_Regular"/>
+					<param name="textcolor" value="FFEEEEEE"/>
+				</include>
+				<control type="progress">
+					<posy>590</posy>
+					<left>670</left>
+					<width>1000</width>
+					<height>15</height>
+					<texturebg border="3">progress/texturebg_border_white.png</texturebg>
+					<midtexture colordiffuse="button_focus" border="3">progress/texturebg_white.png</midtexture>
+					<lefttexture></lefttexture>
+					<righttexture></righttexture>
+					<overlaytexture></overlaytexture>
+					<info>System.Memory(used)</info>
+				</control>
+				<include content="ImageShadow">
+					<param name="top" value="710"/>
+					<param name="left" value="755"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="80"/>
+					<param name="height" value="80"/>
+					<param name="texture" value="icons/sidemenu/movies.png"/>
+					<param name="colordiffuse" value="FFEEEEEE"/>
+				</include>
+				<include content="TextboxShadow">
+					<param name="top" value="800"/>
+					<param name="left" value="420"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="750"/>
+					<param name="height" value="266"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="top"/>
+					<param name="label" value="$INFO[Window(Home).Property(Movies.Count)] Películas[CR]$INFO[Window(Home).Property(Movies.Watched)] Películas vistas[CR]$INFO[Window(Home).Property(Movies.UnWatched)] Películas sin ver"/>
+					<param name="font" value="30px_Regular"/>
+					<param name="textcolor" value="FFEEEEEE"/>
+					<param name="scrolltime" value="200"/>
+					<param name="delay" value="10000"/>
+					<param name="time" value="2000"/>
+					<param name="repeat" value="10000"/>
+               		<param name="autoscroll" value="true"/>
+				</include>
+				<include content="ImageShadow">
+					<param name="top" value="710"/>
+					<param name="left" value="1505"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="80"/>
+					<param name="height" value="80"/>
+					<param name="texture" value="icons/sidemenu/tv.png"/>
+					<param name="colordiffuse" value="FFEEEEEE"/>
+				</include>
+				<include content="TextboxShadow">
+					<param name="top" value="800"/>
+					<param name="left" value="1170"/>
+					<param name="shadow" value="2"/>
+					<param name="width" value="750"/>
+					<param name="height" value="266"/>
+               		<param name="align" value="center"/>
+					<param name="aligny" value="top"/>
+					<param name="label" value="$INFO[Window(Home).Property(TVShows.Count)] Series[CR]$INFO[Window(Home).Property(TVShows.Watched)] Series vistas[CR]$INFO[Window(Home).Property(TVShows.UnWatched)] Series sin ver"/>
+					<param name="font" value="30px_Regular"/>
+					<param name="textcolor" value="FFEEEEEE"/>
+					<param name="scrolltime" value="200"/>
+					<param name="delay" value="10000"/>
+					<param name="time" value="2000"/>
+					<param name="repeat" value="10000"/>
+               		<param name="autoscroll" value="true"/>
+				</include>
+			</control>
+		</control>
+	</controls>
+</window>

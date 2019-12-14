@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Lionsgate</name>
+    <match>all</match>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="tag" operator="doesnotcontain">anime</rule>
+    <rule field="genre" operator="doesnotcontain">
+        <value>animation</value>
+        <value>animación</value>
+    </rule>
+    <rule field="studio" operator="contain">
+        <value>Lionsgate</value>
+        <value>Lions gate</value>
+        <value>Summit Entertainment</value>
+    </rule>
+    <limit>all</limit>
+    <order direction="ascending">title</order>
+</smartplaylist>

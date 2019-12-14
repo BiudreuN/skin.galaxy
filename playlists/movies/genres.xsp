@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>genres movies</name>
+    <match>all</match>
+    <rule field="genre" operator="doesnotcontain">
+        <value>anime</value>
+    </rule>
+    <rule field="tag" operator="doesnotcontain">
+        <value>anime</value>
+    </rule>
+    <rule field="genre" operator="doesnotcontain">
+        <value>animation</value>
+        <value>animación</value>
+    </rule>
+    <group>genres</group>
+    <order direction="descending">random</order>
+</smartplaylist>

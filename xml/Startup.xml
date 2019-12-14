@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>10</defaultcontrol>
+    <onunload>PlayerControl(Stop)</onunload>
+    <controls>
+        <control type="button" id="10">
+            <left>-10</left>
+            <width>1</width>
+            <height>1</height>
+            <onfocus>PlayMedia(special://skin/extras/splash.mp4,1)</onfocus>
+            <onfocus>SetFocus(11)</onfocus>
+            <animation effect="fade" end="100" time="100">Focus</animation>
+        </control>
+        <control type="button" id="11">
+            <left>-10</left>
+            <width>1</width>
+            <height>1</height>
+            <onup>ReplaceWindow($INFO[System.StartupWindow])</onup>
+            <ondown>ReplaceWindow($INFO[System.StartupWindow])</ondown>
+            <onleft>ReplaceWindow($INFO[System.StartupWindow])</onleft>
+            <onright>ReplaceWindow($INFO[System.StartupWindow])</onright>
+            <onclick>ReplaceWindow($INFO[System.StartupWindow])</onclick>
+            <onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
+            <animation effect="fade" end="100" time="7000">Focus</animation>
+        </control>
+        <control type="group">
+            <visible>Player.HasVideo</visible>
+            <control type="videowindow">
+                <width>$INFO[System.ScreenWidth]</width>
+                <height>$INFO[System.ScreenHeight]</height>
+            </control>
+        </control>
+    </controls>
+</window>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Comedia & Romance</name>
+    <match>all</match>
+    <rule field="genre" operator="contain">
+        <value>comedia</value>
+        <value>comedy</value>
+        <value>romance</value>
+        <value>romantic</value>
+        <value>romantica</value>
+    </rule>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="tag" operator="doesnotcontain">anime</rule>
+    <rule field="genre" operator="doesnotcontain">
+        <value>animation</value>
+        <value>animación</value>
+    </rule>
+    <limit>all</limit>
+    <order>random</order>
+</smartplaylist>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Películas</name>
+    <match>all</match>
+    <rule field="playlist" operator="isnot">
+        <value>Anime movies</value>
+    </rule>
+    <rule field="playlist" operator="isnot">
+        <value>Kids movies</value>
+    </rule>
+    <order direction="ascending">title</order>
+</smartplaylist>

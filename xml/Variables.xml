@@ -89,20 +89,39 @@
         <value condition="Window.Next(1113)|Window.Is(1113)">4</value>
         <value condition="Window.Next(1114)|Window.Is(1114)">5</value>
     </variable>
-    <variable name="FixedlistVar">
-        <value condition="Integer.IsGreater(Container(50).NumItems,11)">5</value>
+    <variable name="SeasonListVar">
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,1)">0</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,2)">1</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,3)">2</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,4)">3</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,5)">4</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,6)">5</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,7)">6</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,8)">7</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,9)">8</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,10)">9</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,11)">10</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,12)">11</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,13)">12</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,14)">13</value>
+        <value condition="Integer.IsEqual(Container(500).ListItem.Season,15)">14</value>
         <value>0</value>
     </variable>
+	<variable name="FixedlistVar">
+		<value condition="Integer.IsGreater(Container(50).NumItems,11)">5</value>
+		<value>1</value>
+	</variable>
     <!--Year Info -->
 	<variable name="GetYear">
 		<value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
 		<value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Year))">$INFO[Window(Home).Property(ListItem.Year)]</value>
 	</variable>
     <variable name="Similar4Var">
+    	<value condition="String.Contains(Listitem.Genre,anime)|String.Contains(Listitem.Tag,anime)">%2C%7B%22field%22%3A%22playlist%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22TV Anime</value>
         <value condition="String.Contains(Listitem.Genre,família|
         	String.Contains(Listitem.Genre,family|
         	String.Contains(Listitem.Genre,familia)">%22%2C%22família%22%2C%22family%22%2C%22familia</value>
-        <value condition="String.Contains(Listitem.Genre,anime)|String.Contains(Listitem.Tag,anime)">%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime</value>
+        
         <value condition="String.Contains(Listitem.Genre,comedia)|
             String.Contains(Listitem.Genre,comedy|String.Contains(Listitem.Genre,romántica)|
             String.Contains(Listitem.Genre,romantica)|
@@ -118,39 +137,43 @@
         <value></value>
     </variable>
     <variable name="Similar3Var">
-        <value condition="String.Contains(Listitem.Genre,anima)">%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D</value>
-        <value condition="String.Contains(Listitem.Genre,anime)|String.Contains(Listitem.Tag,anime)">%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%5D%7D</value>
-        <value>%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%2C%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anime%22%5D%7D</value>
+    	<value condition="ListItem.IsFolder+[String.Contains(Listitem.Genre,anime)|String.Contains(Listitem.Tag,anime)]">is%22%2C%22value%22%3A%5B%22TV Anime</value>
+    	<value condition="ListItem.IsFolder+[!String.Contains(Listitem.Genre,anime)|!String.Contains(Listitem.Tag,anime)]">isnot%22%2C%22value%22%3A%5B%22TV Anime</value>
+    	<value condition="!ListItem.IsFolder+[String.Contains(Listitem.Genre,anime)|String.Contains(Listitem.Tag,anime)]">is%22%2C%22value%22%3A%5B%22Movies Anime</value>
+    	<value condition="!ListItem.IsFolder+[!String.Contains(Listitem.Genre,anime)|!String.Contains(Listitem.Tag,anime)]">isnot%22%2C%22value%22%3A%5B%22Movies Anime</value>
+    	<value></value>
+    </variable>
+    <variable name="Similar2Var">
+    	<value condition="!String.Contains(Listitem.Genre,anima)">anima</value>
+    	<value>anime</value>
     </variable>
     <variable name="SimilarVar">
-        <value condition="String.Contains(Listitem.Genre,acción)|
-        	String.Contains(Listitem.Genre,action)|
-        	String.Contains(Listitem.Genre,aventura)|
-            String.Contains(Listitem.Genre,adventure)">acción%22%2C%22action%22%2C%22aventura%22%2C%22adventure$VAR[Similar4Var]</value>
-        <value condition="String.Contains(Listitem.Genre,bélica)|
-        	String.Contains(Listitem.Genre,war)">bélica%22%2C%22war$VAR[Similar4Var]</value>
-        <value condition="String.Contains(Listitem.Genre,ciencia)|
-            String.Contains(Listitem.Genre,sci)">ciencia%22%2C%22sci$VAR[Similar4Var]</value>
+        <value condition="String.Contains(Listitem.Genre,anime)|
+        	String.Contains(Listitem.Tag,anime)"></value>
+        <value condition="String.Contains(Listitem.Genre,anima)">anima</value>
         <value condition="String.Contains(Listitem.Genre,comedia)|
-            String.Contains(Listitem.Genre,comedy)">comedia%22%2C%22comedy$VAR[Similar4Var]</value>
-        <value condition="String.Contains(Listitem.Genre,drama)">drama$VAR[Similar4Var]</value>
-        <value condition="String.Contains(Listitem.Genre,fantas)">fantas$VAR[Similar4Var]</value>
+            String.Contains(Listitem.Genre,comedy)">comedia%22%2C%22comedy</value>
+        <value condition="String.Contains(Listitem.Genre,ciencia)|
+            String.Contains(Listitem.Genre,sci)">ciencia%22%2C%22sci</value>
+        
+        <value condition="String.Contains(Listitem.Genre,drama)">drama</value>
+        <value condition="String.Contains(Listitem.Genre,fantas)">fantas</value>
         <value condition="String.Contains(Listitem.Genre,music)|
             String.Contains(Listitem.Genre,música)|
-            String.Contains(Listitem.Genre,musical)">música%22%2C%22music$VAR[Similar4Var]</value>
+            String.Contains(Listitem.Genre,musical)">música%22%2C%22music</value>
         <value condition="String.Contains(Listitem.Genre,romántica)|
             String.Contains(Listitem.Genre,romantica)|
-            String.Contains(Listitem.Genre,romance)">romántica%22%2C%22roman$VAR[Similar4Var]</value>
+            String.Contains(Listitem.Genre,romance)">romántica%22%2C%22roman</value>
         <value condition="String.Contains(Listitem.Genre,misterio)|
             String.Contains(Listitem.Genre,mystery)|
             String.Contains(Listitem.Genre,mistery)|
         	String.Contains(Listitem.Genre,suspense)|
             String.Contains(Listitem.Genre,thriller)|
-            String.Contains(Listitem.Genre,crimen)">mister%22%2C%22myster%22%2C%22suspense%22%2C%22thriller%22%2C%22crimen$VAR[Similar4Var]</value>
-        <value condition="String.Contains(Listitem.Genre,western)">western$VAR[Similar4Var]</value>
+            String.Contains(Listitem.Genre,crimen)">mister%22%2C%22myster%22%2C%22suspense%22%2C%22thriller%22%2C%22crimen</value>
+        <value condition="String.Contains(Listitem.Genre,western)">western</value>
         <value></value>
     </variable>
-    <variable name="Similar2Var">
+    <variable name="Similar4Var">
     	<value condition="String.Contains(Listitem.Genre,terror)|
             String.Contains(Listitem.Genre,horror)">terror%22%2C%22horror%22%2C%22suspense%22%2C%22thriller%22%2C%22crimen$VAR[Similar4Var]</value>
            <value condition="String.Contains(Listitem.Genre,ciencia)|
@@ -476,6 +499,22 @@
         [String.IsEqual(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.Title) + String.IsEqual(Window(Home).Property(LatestEpisode.1.EpisodeSeason),1)]">Nuevo</value>
     </variable>
 
+	<variable name="PlotEpisodeVar">
+		<value condition="Window.IsActive(movieinformation)">$INFO[ListItem.Plot]</value>
+		<value>$INFO[Container.ShowPlot]</value>
+	</variable>
+	<variable name="SeasonsEpisodeVar">
+		<value condition="Window.IsActive(movieinformation)">$VAR[TimeVar]</value>
+		<value>$INFO[Window(Home).Property(Seasons)]</value>
+	</variable>
+	<variable name="YearEpisodeVar">
+		<value condition="Window.IsActive(movieinformation)">$INFO[ListItem.Premiered]</value>
+		<value>$INFO[Window(Home).Property(Year)]</value>
+	</variable>
+	<variable name="RatingEpisodeVar">
+		<value condition="Window.IsActive(movieinformation)">$VAR[RatingVar]</value>
+		<value>$INFO[Window(Home).Property(Rating)]</value>
+	</variable>
     <variable name="MenuBarUserVar">
         <value condition="Window.IsActive(1110)">$INFO[System.ProfileThumb]</value>
         <value>icons/logo.png</value>
@@ -494,11 +533,22 @@
         <value condition="String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Art(Poster)]</value>
         <value>$INFO[ListItem.Art(fanart)]</value>
     </variable>
+    <variable name="SpotlightFanartVar">
+        <value condition="String.IsEmpty(Container(9001).ListItem.Art(fanart))">$INFO[Container(9001).ListItem.Thumb]</value>
+        <value condition="String.IsEmpty(Container(9001).ListItem.Thumb)">$INFO[Container(9001).ListItem.Art(Poster)]</value>
+        <value>$INFO[Container(9001).ListItem.Art(fanart)]</value>
+    </variable>
     <variable name="ThumbnailVar">
     	<value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
         <value condition="String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Thumb]</value>
         <value condition="String.IsEmpty(ListItem.Thumb)">colors/black.png</value>
         <value>$INFO[ListItem.Art(fanart)]</value>
+    </variable>
+    <variable name="SpothlightThumbnailVar">
+    	<value condition="!String.IsEmpty(Container(9001).ListItem.Art(landscape))">$INFO[Container(9001).ListItem.Art(landscape)]</value>
+        <value condition="String.IsEmpty(Container(9001).ListItem.Art(fanart))">$INFO[Container(9001).ListItem.Thumb]</value>
+        <value condition="String.IsEmpty(Container(9001).ListItem.Thumb)">colors/black.png</value>
+        <value>$INFO[Container(9001).ListItem.Art(fanart)]</value>
     </variable>
 
     <variable name="OverlayVar">
@@ -531,8 +581,8 @@
         <value>SR</value>
     </variable>
     <variable name="VideoResolutionVar">
-        <value condition="String.IsEqual(ListItem.VideoResolution,4K)">Ultra HD 4K</value>
-        <value condition="String.IsEqual(Container(5040).ListItem.VideoResolution,4K)">Ultra HD 4K</value>
+        <value condition="String.IsEqual(ListItem.VideoResolution,4K)">Ultra HD</value>
+        <value condition="String.IsEqual(Container(5040).ListItem.VideoResolution,4K)">Ultra HD</value>
         <value condition="String.IsEqual(ListItem.VideoResolution,1080)">Full HD</value>
         <value condition="String.IsEqual(Container(5040).ListItem.VideoResolution,1080)">Full HD</value>
         <value condition="String.IsEqual(ListItem.VideoResolution,720)">HD</value>

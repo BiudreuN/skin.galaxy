@@ -3,7 +3,7 @@
     <name>Recommended movies</name>
     <match>all</match>
     <rule field="rating" operator="greaterthan">7</rule>
-    <rule field="genre" operator="contain">anime</rule>
+    <rule field="playlist" operator="is">Movies Anime</rule>
     <limit>all</limit>
     <order direction="descending">random</order>
 </smartplaylist>

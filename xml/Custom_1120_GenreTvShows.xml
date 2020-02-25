@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1120">
+	<defaultcontrol>55</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/tvshows/genre/action.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/tvshows/genre/adventure.xsp"/>
+        
+        	<param name="item3" value="Artes Marciales"/>
+			<param name="item3_content" value="Series"/>
+        	<param name="item3_path" value="special://skin/playlists/tvshows/genre/artes_marciales.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/tvshows/genre/belica.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/tvshows/genre/ciencia_ficcion.xsp"/>
+        
+        	<param name="item6" value="Retro"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/tvshows/genre/clasicas.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/tvshows/genre/comedia.xsp"/>
+        
+        	<param name="item8" value="Drama"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/tvshows/genre/drama.xsp"/>
+        
+        	<param name="item10" value="Familiar"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/tvshows/genre/familiar.xsp"/>
+        
+        	<param name="item11" value="Fantasía"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/tvshows/genre/fantasy.xsp"/>
+        
+        	<param name="item12" value="Misterio"/>
+			<param name="item12_content" value="Series"/>
+        	<param name="item12_path" value="special://skin/playlists/tvshows/genre/misterio.xsp"/>
+        
+        	<param name="item13" value="Músical"/>
+			<param name="item13_content" value="Series"/>
+        	<param name="item13_path" value="special://skin/playlists/tvshows/genre/musical.xsp"/>
+        	
+        	<param name="item14" value="Románticas"/>
+			<param name="item14_content" value="Series"/>
+        	<param name="item14_path" value="special://skin/playlists/tvshows/genre/romance.xsp"/>
+        	
+        	<param name="item15" value="Suspense"/>
+			<param name="item15_content" value="Series"/>
+        	<param name="item15_path" value="special://skin/playlists/tvshows/genre/suspense.xsp"/>
+        	
+        	<param name="item16" value="Terror"/>
+			<param name="item16_content" value="Series"/>
+        	<param name="item16_path" value="special://skin/playlists/tvshows/genre/terror.xsp"/>
+        	
+        	<param name="item17" value="Western"/>
+			<param name="item17_content" value="Series"/>
+        	<param name="item17_path" value="special://skin/playlists/tvshows/genre/western.xsp"/>
+		</include>
+	</controls>
+</window>

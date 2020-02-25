@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Otros</name>
+    <match>all</match>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="tag" operator="doesnotcontain">anime</rule>
+    <rule field="genre" operator="doesnotcontain">
+        <value>animation</value>
+        <value>animación</value>
+    </rule>
+    <rule field="studio" operator="doesnotcontain">
+        <value>20th Century Fox</value>
+        <value>Columbia</value>
+        <value>Lionsgate</value>
+        <value>Lions gate</value>
+        <value>LucasFilm</value>
+        <value>Marvel</value>
+        <value>Metro-Goldwyn-Mayer</value>
+        <value>Netflix</value>
+        <value>New Line Cinema</value>
+        <value>Paramount</value>
+        <value>Universal</value>
+        <value>Disney</value>
+        <value>Warner</value>
+        <value>Dimension</value>
+        <value>RKO</value>
+        <value>TriStar</value>
+        <value>Miramax</value>
+        <value>HBO</value>
+        <value>Dreamworks</value>
+    </rule>
+    <limit>all</limit>
+    <order direction="ascending">title</order>
+</smartplaylist>

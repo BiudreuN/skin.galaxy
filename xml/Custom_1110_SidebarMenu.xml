@@ -10,34 +10,24 @@
             <control type="group">
                 <animation effect="slide" start="-441" end="0" time="200">WindowOpen</animation>
                 <animation effect="slide" start="0" end="-441" time="150">WindowClose</animation>
-                <animation effect="slide" end="0,-244" time="100" reversible="true"
-                	condition="[Control.HasFocus(750)]">Conditional</animation>
-                <animation effect="zoom" start="100" end="100,110" time="100" reversible="true"
-                	condition="[Control.HasFocus(750)]">Conditional</animation>
-                <animation effect="zoom" start="100" end="100,70" time="100" reversible="true"
-                	condition="[Control.HasFocus(700)]">Conditional</animation>
-                <animation effect="slide" end="0,281" time="100" reversible="true"
-                	condition="[Container(9000).Row(0)]">Conditional</animation>
-                <animation effect="slide" end="0,355" time="100" reversible="true"
-                	condition="[Container(9000).Row(1)]">Conditional</animation>
-                <animation effect="slide" end="0,429" time="100" reversible="true"
-                	condition="[Container(9000).Row(2)]">Conditional</animation>
-                <animation effect="slide" end="0,503" time="100" reversible="true"
-                	condition="[Container(9000).Row(3)]">Conditional</animation>
-                <animation effect="slide" end="0,577" time="100" reversible="true"
-                	condition="[Container(9000).Row(4)]">Conditional</animation>
-                <animation effect="slide" end="0,651" time="100" reversible="true"
-                	condition="[Container(9000).Row(5)]">Conditional</animation>
-                <animation effect="slide" end="0,720" time="100" reversible="true"
-                	condition="[Container(9000).Row(6)]">Conditional</animation>
-                <animation effect="slide" end="0,650" time="100" reversible="true"
-                	condition="[Control.HasFocus(700)+Container(700).Row(0)]">Conditional</animation>
-                <animation effect="slide" end="0,722" time="100" reversible="true"
-                	condition="[Container(700).Row(1)]">Conditional</animation>
+                <animation effect="slide" end="0,-244" time="120" reversible="true" condition="[Control.HasFocus(750)]">Conditional</animation>
+                <animation effect="zoom" start="100" end="100,110" time="100" reversible="true" condition="[Control.HasFocus(750)]">Conditional</animation>
+                <animation effect="zoom" start="100" end="100,70" time="100" reversible="true" condition="[Control.HasFocus(700)]">Conditional</animation>
+                	
+                <animation effect="slide" end="0,281" time="70" reversible="true" condition="[Container(9000).Row(0)]">Conditional</animation>
+                <animation effect="slide" end="0,355" time="70" reversible="true" condition="[Container(9000).Row(1)]">Conditional</animation>
+                <animation effect="slide" end="0,429" time="70" reversible="true" condition="[Container(9000).Row(2)]">Conditional</animation>
+                <animation effect="slide" end="0,503" time="70" reversible="true" condition="[Container(9000).Row(3)]">Conditional</animation>
+                <animation effect="slide" end="0,577" time="70" reversible="true" condition="[Container(9000).Row(4)]">Conditional</animation>
+                <animation effect="slide" end="0,651" time="70" reversible="true" condition="[Container(9000).Row(5)]">Conditional</animation>
+                <animation effect="slide" end="0,720" time="70" reversible="true" condition="[Container(9000).Row(6)]">Conditional</animation>
+                
+                <animation effect="slide" end="0,650" time="100" reversible="true" condition="[Control.HasFocus(700)+Container(700).Row(0)]">Conditional</animation>
+                <animation effect="slide" end="0,722" time="100" reversible="true" condition="[Container(700).Row(1)]">Conditional</animation>
                 <control type="image">
 		        	<left>0</left>
 	        	    <top>0</top>
-		       	    <width>420</width>
+		       	    <width>419</width>
 		            <height>72</height>
 		            <texture colordiffuse="E6464646">colors/white.png</texture>
 		            <aspectratio>scale</aspectratio>
@@ -76,8 +66,8 @@
 								<param name="height" value="74"/>
                					<param name="align" value="left"/>
 								<param name="aligny" value="center"/>
-								<param name="label" value="$INFO[ListItem.Label]"/>
-								<param name="font" value="26px_Regular"/>
+								<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+								<param name="font" value="24px_Regular"/>
 								<param name="textcolor" value="FFEEEEEE"/>
 							</include>
 							<include content="ImageShadow">
@@ -100,8 +90,8 @@
 								<param name="height" value="74"/>
                					<param name="align" value="left"/>
 								<param name="aligny" value="center"/>
-								<param name="label" value="$INFO[ListItem.Label]"/>
-								<param name="font" value="26px_Regular"/>
+								<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+								<param name="font" value="24px_Regular"/>
 								<param name="textcolor" value="grey"/>
 							</include>
 							<include content="ImageShadow">
@@ -123,8 +113,8 @@
 							<param name="height" value="74"/>
                				<param name="align" value="left"/>
 							<param name="aligny" value="center"/>
-							<param name="label" value="$INFO[ListItem.Label]"/>
-							<param name="font" value="26px_Regular"/>
+							<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+								<param name="font" value="24px_Regular"/>
 							<param name="textcolor" value="grey"/>
 						</include>
 						<include content="ImageShadow">
@@ -164,8 +154,8 @@
 								<param name="height" value="45"/>
                					<param name="align" value="left"/>
 								<param name="aligny" value="center"/>
-								<param name="label" value="$INFO[ListItem.Label]"/>
-								<param name="font" value="24px_Light"/>
+								<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+								<param name="font" value="22px_Regular"/>
 								<param name="textcolor" value="FFEEEEEE"/>
 							</include>
 						</control>
@@ -180,8 +170,8 @@
 								<param name="height" value="45"/>
                					<param name="align" value="left"/>
 								<param name="aligny" value="center"/>
-								<param name="label" value="$INFO[ListItem.Label]"/>
-								<param name="font" value="24px_Light"/>
+								<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+								<param name="font" value="22px_Regular"/>
 								<param name="textcolor" value="grey"/>
 							</include>
                    		</control>
@@ -195,8 +185,8 @@
 							<param name="height" value="45"/>
                				<param name="align" value="left"/>
 							<param name="aligny" value="center"/>
-							<param name="label" value="$INFO[ListItem.Label]"/>
-							<param name="font" value="24px_Light"/>
+							<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+								<param name="font" value="22px_Regular"/>
 							<param name="textcolor" value="grey"/>
 						</include>
 					</itemlayout>
@@ -308,7 +298,7 @@
                		<param name="align" value="left"/>
 					<param name="aligny" value="center"/>
 					<param name="label" value="$INFO[System.ProfileName]"/>
-					<param name="font" value="27px_Bold"/>
+					<param name="font" value="25px_Bold"/>
 					<param name="textcolor" value="FFEEEEEE"/>
 				</include>
 				<include content="LabelShadow">
@@ -319,8 +309,8 @@
 					<param name="height" value="22"/>
                		<param name="align" value="left"/>
 					<param name="aligny" value="center"/>
-					<param name="label" value="Cambiar de Usuario"/>
-					<param name="font" value="22px_Regular"/>
+					<param name="label" value="[B]Cambiar de Usuario[/B]"/>
+					<param name="font" value="19px_Regular"/>
 					<param name="textcolor" value="grey"/>
 				</include>
 	        </control>

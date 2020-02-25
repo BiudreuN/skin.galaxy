@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1127">
+	<defaultcontrol>55</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/anime/genre/action.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/anime/genre/adventure.xsp"/>
+        
+        	<param name="item3" value="Artes Marciales"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/anime/genre/artes_marciales.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/anime/genre/belica.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/anime/genre/ciencia_ficcion.xsp"/>
+        
+        	<param name="item6" value="Clásicas"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/anime/genre/clasicas.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/anime/genre/comedia.xsp"/>
+        
+        	<param name="item8" value="Drama"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/anime/genre/drama.xsp"/>
+        	
+        	<param name="item9" value="Española"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/anime/genre/española.xsp"/>
+        
+        	<param name="item10" value="Familiar"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/anime/genre/familiar.xsp"/>
+        
+        	<param name="item11" value="Fantasía"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/anime/genre/fantasy.xsp"/>
+        
+        	<param name="item12" value="Misterio"/>
+			<param name="item12_content" value="Películas"/>
+        	<param name="item12_path" value="special://skin/playlists/anime/genre/misterio.xsp"/>
+        
+        	<param name="item13" value="Músical"/>
+			<param name="item13_content" value="Películas"/>
+        	<param name="item13_path" value="special://skin/playlists/anime/genre/musical.xsp"/>
+        	
+        	<param name="item14" value="Románticas"/>
+			<param name="item14_content" value="Películas"/>
+        	<param name="item14_path" value="special://skin/playlists/anime/genre/romance.xsp"/>
+        	
+        	<param name="item15" value="Suspense"/>
+			<param name="item15_content" value="Películas"/>
+        	<param name="item15_path" value="special://skin/playlists/anime/genre/suspense.xsp"/>
+        	
+        	<param name="item16" value="Terror"/>
+			<param name="item16_content" value="Películas"/>
+        	<param name="item16_path" value="special://skin/playlists/anime/genre/terror.xsp"/>
+        	
+        	<param name="item17" value="Western"/>
+			<param name="item17_content" value="Películas"/>
+        	<param name="item17_path" value="special://skin/playlists/anime/genre/western.xsp"/>
+		</include>
+	</controls>
+</window>

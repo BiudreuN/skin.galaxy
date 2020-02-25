@@ -4,12 +4,8 @@
     <match>all</match>
     <rule field="playcount" operator="greaterthan">0</rule>
     <rule field="inprogress" operator="false"/>
-    <rule field="genre" operator="doesnotcontain">anime</rule>
-    <rule field="tag" operator="doesnotcontain">anime</rule>
-    <rule field="genre" operator="doesnotcontain">
-        <value>animation</value>
-        <value>animación</value>
-    </rule>
+    <rule field="genre" operator="doesnotcontain">anima</rule>
+	<rule field="playlist" operator="isnot">TV Anime</rule>
     <limit>all</limit>
     <order direction="descending">lastplayed</order>
 </smartplaylist>

@@ -3,7 +3,7 @@
     <name>Spotlight movies</name>
     <match>all</match>
     <rule field="playcount" operator="is">0</rule>
-	<rule field="genre" operator="contain">anime</rule>
+	<rule field="playlist" operator="is">Movies Anime</rule>
     <limit>5</limit>
     <order direction="descending">random</order>
 </smartplaylist>

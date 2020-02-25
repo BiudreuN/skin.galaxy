@@ -2,12 +2,8 @@
 <smartplaylist type="tvshows">
     <name>Estrenos tvshows</name>
     <match>all</match>
-    <rule field="genre" operator="doesnotcontain">anime</rule>
-    <rule field="tag" operator="doesnotcontain">anime</rule>
-    <rule field="genre" operator="doesnotcontain">
-        <value>animation</value>
-        <value>animación</value>
-    </rule>
+    <rule field="genre" operator="doesnotcontain">anima</rule>
+	<rule field="playlist" operator="isnot">TV Anime</rule>
     <limit>all</limit>
     <order direction="descending">year</order>
 </smartplaylist>

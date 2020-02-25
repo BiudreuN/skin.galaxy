@@ -4,7 +4,7 @@
     <match>all</match>
     <rule field="playcount" operator="greaterthan">0</rule>
     <rule field="inprogress" operator="false"/>
-    <rule field="genre" operator="contain">anime</rule>
+    <rule field="playlist" operator="is">TV Anime</rule>
     <limit>all</limit>
     <order direction="descending">lastplayed</order>
 </smartplaylist>

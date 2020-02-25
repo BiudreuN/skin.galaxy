@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1122">
+	<defaultcontrol>55</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include content="CustomLibrary">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+		
+			<param name="item1" value="ABC"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/tvshows/studios/ABC.xsp"/>
+        
+        	<param name="item2" value="Amazon"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/tvshows/studios/Amazon.xsp"/>
+        	
+        	<param name="item3" value="BBC One"/>
+			<param name="item3_content" value="Series"/>
+        	<param name="item3_path" value="special://skin/playlists/tvshows/studios/BBC One.xsp"/>
+        	
+        	<param name="item4" value="CBS"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/tvshows/studios/CBS.xsp"/>
+
+        	<param name="item5" value="Disney"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/tvshows/studios/Disney.xsp"/>
+
+        	<param name="item6" value="Fox"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/tvshows/studios/Fox.xsp"/>
+
+        	<param name="item7" value="HBO"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/tvshows/studios/HBO.xsp"/>
+
+        	<param name="item8" value="NBC"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/tvshows/studios/NBC.xsp"/>
+
+        	<param name="item9" value="Netflix"/>
+			<param name="item9_content" value="Series"/>
+        	<param name="item9_path" value="special://skin/playlists/tvshows/studios/Netflix.xsp"/>
+
+        	<param name="item10" value="Syfy"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/tvshows/studios/Syfy.xsp"/>
+
+        	<param name="item11" value="The CW"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/tvshows/studios/TheCW.xsp"/>
+
+        	<param name="item12" value="UPN"/>
+			<param name="item12_content" value="Series"/>
+        	<param name="item12_path" value="special://skin/playlists/tvshows/studios/UPN.xsp"/>
+
+        	<param name="item13" value="USA Network"/>
+			<param name="item13_content" value="Series"/>
+        	<param name="item13_path" value="special://skin/playlists/tvshows/studios/USA Network.xsp"/>
+
+        	<param name="item19" value="Otros"/>
+			<param name="item19_content" value="Series"/>
+        	<param name="item19_path" value="special://skin/playlists/tvshows/studios/Otros.xsp"/>
+		</include>
+	</controls>
+</window>

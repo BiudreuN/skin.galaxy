@@ -7,16 +7,31 @@
 		<control type="multiimage">
 			<depth>DepthBackground</depth>
 			<right>0</right>
-            <top>0</top>
-            <width>1511</width>
-            <height>850</height>
+			<top>0</top>
+			<width>1511</width>
+			<height>850</height>
 			<aspectratio scalediffuse="false">scale</aspectratio>
 			<fadetime>600</fadetime>
 			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-			<animation effect="fade" time="300" >VisibleChange</animation>
+			<animation effect="fade" time="200" >VisibleChange</animation>
 			<imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
 			<visible>!ControlGroup(2000).HasFocus(9001)|Window.IsActive(movieinformation)</visible>
-			<visible>!Player.HasMedia</visible>
+			<visible>!ControlGroup(2000).HasFocus(9150)</visible>
+			<visible>!ControlGroup(2000).HasFocus(9250)</visible>
+		</control>
+		<control type="multiimage">
+			<depth>DepthBackground</depth>
+			<right>0</right>
+			<top>0</top>
+			<width>1511</width>
+			<height>850</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<fadetime>600</fadetime>
+			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+			<animation effect="fade" time="200" >VisibleChange</animation>
+			<imagepath diffuse="overlays/corner.png" background="true" colordiffuse="button_focus">special://skin/extras/backgrounds/pattern3.jpg</imagepath>
+			<visible>!ControlGroup(2000).HasFocus(9001)|Window.IsActive(movieinformation)</visible>
+			<visible>ControlGroup(2000).HasFocus(9150)|ControlGroup(2000).HasFocus(9250)</visible>
 		</control>
         <control type="group" id="2000">
             <left>0</left>
@@ -25,7 +40,7 @@
 				<param name="content_path" value="special://skin/playlists/tvshows/spotlight_tvshows.xsp"/>
 				<param name="widget_header" value="Spotlight"/>
 				<param name="widget_target" value="videos"/>
-                <param name="widget_limit" value="3"/>
+                <param name="widget_limit" value="1"/>
 				<param name="list_id" value="9001"/>
 			</include>
             <control type="grouplist" id="2100">
@@ -39,54 +54,57 @@
                 <scrolltime tween="cubic" easing="out">200</scrolltime>
               	<include>FixedVertical</include>
 				<pagecontrol>2010</pagecontrol>
-                <include content="WidgetListThumb" condition="Library.HasContent(movies)">
+                <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
 					<param name="content_path" value="special://skin/playlists/tvshows/recent_tvshows.xsp"/>
 					<param name="widget_header" value="Añadidas recientemente"/>
 					<param name="widget_target" value="videos"/>
                     <param name="widget_limit" value="50"/>
-					<param name="list_id" value="9002"/>
+					<param name="list_id" value="9101"/>
 				</include>
-				<include content="WidgetListThumb" condition="Library.HasContent(movies)">
+				<include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
 					<param name="content_path" value="special://skin/playlists/tvshows/inprogress_tvshows.xsp"/>
 					<param name="widget_header" value="Series En progreso"/>
 					<param name="widget_target" value="videos"/>
                     <param name="widget_limit" value="50"/>
-					<param name="list_id" value="9003"/>
-				</include>		
-				<include content="WidgetListThumb" condition="Library.HasContent(movies)">
+					<param name="list_id" value="9102"/>
+				</include>
+				<include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
 					<param name="content_path" value="special://skin/playlists/tvshows/unwatched_tvshows.xsp"/>
 					<param name="widget_header" value="Series Sin Ver"/>
 					<param name="widget_target" value="videos"/>
                     <param name="widget_limit" value="50"/>
-					<param name="list_id" value="9004"/>
+					<param name="list_id" value="9103"/>
 				</include>
-                <include content="WidgetListThumb" condition="Library.HasContent(movies)">
+                <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
 					<param name="content_path" value="special://skin/playlists/tvshows/estrenos_tvshows.xsp"/>
 					<param name="widget_header" value="Últimos Estrenos"/>
 					<param name="widget_target" value="videos"/>
                     <param name="widget_limit" value="50"/>
-					<param name="list_id" value="9005"/>
+					<param name="list_id" value="9104"/>
 				</include>
-                <include content="WidgetListThumb" condition="Library.HasContent(movies)">
+                <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
 					<param name="content_path" value="special://skin/playlists/tvshows/watched_tvshows.xsp"/>
 					<param name="widget_header" value="Visto Recientemente"/>
 					<param name="widget_target" value="videos"/>
                     <param name="widget_limit" value="50"/>
-					<param name="list_id" value="9006"/>
+					<param name="list_id" value="9105"/>
 				</include>
-				<include content="WidgetListThumb" condition="Library.HasContent(movies)">
+				<include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
 					<param name="content_path" value="special://skin/playlists/tvshows/top100.xsp"/>
 					<param name="widget_header" value="Mejores Series"/>
 					<param name="widget_target" value="videos"/>
                     <param name="widget_limit" value="50"/>
-					<param name="list_id" value="9007"/>
+					<param name="list_id" value="9106"/>
 				</include>
-				<include>WidgetListCategory</include>
-				<include content="WidgetListSpotlight" condition="Library.HasContent(movies)">
+				<include content="WidgetListCategory" condition="Library.HasContent(tvshows)">
+					<param name="list_id" value="9150"/>
+					<param name="content_path" value="TvShowsHub"/>
+				</include>
+				<include content="WidgetListSpotlight" condition="Library.HasContent(tvshows)">
 					<param name="widget_header" value="Destacado"/>
 					<param name="widget_target" value="videos"/>
             	    <param name="widget_limit" value="1"/>
-					<param name="list_id" value="90051"/>
+					<param name="list_id" value="9151"/>
 				</include>
             </control>
         </control>

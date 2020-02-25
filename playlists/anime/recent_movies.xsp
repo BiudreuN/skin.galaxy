@@ -2,7 +2,7 @@
 <smartplaylist type="movies">
     <name>Recent Kids</name>
     <match>all</match>
-    <rule field="genre" operator="contain">anime</rule>
+    <rule field="playlist" operator="is">Movies Anime</rule>
     <limit>all</limit>
     <order direction="descending">dateadded</order>
 </smartplaylist>

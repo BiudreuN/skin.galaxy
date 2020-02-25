@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1129">
+	<defaultcontrol>55</defaultcontrol>
+	<backgroundcolor>background</backgroundcolor>
+	<controls>
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/anime/years/2020s.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/anime/years/2010s.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/anime/years/2000s.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/anime/years/1990s.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/anime/years/1980s.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/anime/years/1970s.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/anime/years/1960s.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/anime/years/1950s.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/anime/years/1940s.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/anime/years/1930s.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/anime/years/1920s.xsp"/>
+		</include>
+	</controls>
+</window>

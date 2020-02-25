@@ -75,6 +75,5 @@
 			<param name="item17_content" value="Películas"/>
         	<param name="item17_path" value="special://skin/playlists/movies/genre/western.xsp"/>
 		</include>
-		<include>GoBack</include>
 	</controls>
 </window>

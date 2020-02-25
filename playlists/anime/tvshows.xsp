@@ -2,7 +2,7 @@
 <smartplaylist type="tvshows">
     <name>Series</name>
     <match>all</match>
-    <rule field="genre" operator="contain">anime</rule>
+    <rule field="playlist" operator="is">TV Anime</rule>
     <limit>all</limit>
     <order direction="ascending">title</order>
 </smartplaylist>

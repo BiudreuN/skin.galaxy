@@ -3,7 +3,7 @@
     <name>Spotlight kids</name>
     <match>all</match>
     <rule field="playcount" operator="is">0</rule>
-	<rule field="genre" operator="contain">anime</rule>
+	<rule field="playlist" operator="is">TV Anime</rule>
     <limit>5</limit>
     <order direction="descending">random</order>
 </smartplaylist>

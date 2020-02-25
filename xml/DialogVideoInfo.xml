@@ -52,8 +52,8 @@
 					<param name="height" value="74"/>
           			<param name="align" value="left"/>
 					<param name="aligny" value="center"/>
-					<param name="label" value="$INFO[ListItem.Label]"/>
-					<param name="font" value="26px_Regular"/>
+					<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+					<param name="font" value="23px_Regular"/>
 					<param name="textcolor" value="FFEEEEEE"/>
 				</include>
 				<include content="ImageShadow">
@@ -71,9 +71,9 @@
 						<height>74</height>
 						<align>right</align>
 						<aligny>center</aligny>
-						<font>26px_Bold</font>
-                        <textcolor>FFEEEEEE</textcolor>
-						<label>$INFO[ListItem.Label2]</label>
+						<font>22px_Regular</font>
+                        <textcolor>grey</textcolor>
+						<label>[B]$INFO[ListItem.Label2][/B]</label>
 					<visible>!String.IsEmpty(ListItem.Label2)+!String.IsEqual(ListItem.Label,Continuar viendo)</visible>
 					</control>
 				<control type="group">
@@ -106,8 +106,8 @@
 					<param name="height" value="74"/>
           			<param name="align" value="left"/>
 					<param name="aligny" value="center"/>
-					<param name="label" value="$INFO[ListItem.Label]"/>
-					<param name="font" value="26px_Regular"/>
+					<param name="label" value="[B]$INFO[ListItem.Label][/B]"/>
+					<param name="font" value="23px_Regular"/>
 					<param name="textcolor" value="grey"/>
 				</include>
                 <include content="ImageShadow">
@@ -146,26 +146,25 @@
                 <item>
 					<label>Más episodios</label>
 					<label2>$INFO[ListItem.Property(TotalEpisodes)] Episodios</label2>
+                    <onclick>SetProperty(VideoResolution,$VAR[VideoResolutionVar],Home)</onclick>
+                    <onclick>SetProperty(AudioChannels,$VAR[AudioChannelsVar],Home)</onclick>
                     <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                     <onclick>SetProperty(Rating,$VAR[RatingVar],Home)</onclick>
                     <onclick>SetProperty(Year,$INFO[ListItem.year],Home)</onclick>
+                    <onclick>SetProperty(TotalSeasons,$INFO[ListItem.Property(TotalSeasons)],Home)</onclick>
                     <onclick>SetProperty(Seasons,$INFO[ListItem.Property(TotalSeasons)] $VAR[SeasonVar],Home)</onclick>
-                    <onclick>SetProperty(Video,$VAR[VideoResolutionVar],Home)</onclick>
-                    <onclick>SetProperty(Audio,$VAR[AudioChannelsVar],Home)</onclick>
                     <onclick>SetProperty(BaseWindow,1,Home)</onclick>
                     <onclick>Dialog.Close(movieinformation)</onclick>
                     <!-- activate ALL EPISODES view -->
-                    <!-- from episode infodialog -->
-                    <onclick condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">SetProperty(KeepTVShowID,1,Home)</onclick>
-                    <onclick condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[Window(Home).Property(ListItem.TVShowID)]/-2/,return)</onclick>
                     <!-- from tvshow infodialog for library content -->
-                    <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">SetProperty(ListItem.TVShowID,$INFO[ListItem.DBID],Home)</onclick>
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">SetProperty(ListItem.TVShowID2,$INFO[ListItem.DBID],Home)</onclick>
                     <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">SetProperty(KeepTVShowID,1,Home)</onclick>
                     <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/,return)</onclick>
                     <!-- from tvshow infodialog for non-library content -->
                     <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
 					<thumb>icons/infodialogs/more_episodes.png</thumb>
-                    <visible>ListItem.IsFolder</visible>
+                    <visible>String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+                    
 				</item>
 				<item>
 					<label>Reparto</label>
@@ -234,19 +233,19 @@
 			<include content="WidgetVideoInfo">
                 <param name="list_id" value="4055" />
                 <param name="sortby" value="random" />
-                <param name="content_path" value="videodb://$VAR[ContentVideoInfoVar]/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A%22false%22%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$VAR[SimilarVar]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$VAR[Similar2Var]%22%5D%7D%2C%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22$INFO[ListItem.Title]%22%5D%7D$VAR[Similar3Var]%5D%7D%2C%22type%22%3A%22$VAR[ContentVideoInfoVar]%22%7D" />
+                <param name="content_path" value="videodb://$VAR[ContentVideoInfoVar]/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A%22false%22%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22playlist%22%2C%22operator%22%3A%22$VAR[Similar3Var]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22$VAR[Similar2Var]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$VAR[SimilarVar]%22%5D%7D%2C%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22$INFO[ListItem.Title]%22%5D%7D%5D%7D%2C%22type%22%3A%22$VAR[ContentVideoInfoVar]%22%7D" />
             </include>
 			<!-- Director -->
 			<include content="WidgetVideoInfo">
                 <param name="list_id" value="5055" />
                 <param name="sortby" value="random" />
-                <param name="content_path" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[ListItem.Director]%22%5D%7D%2C%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22$INFO[ListItem.Title]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D" />
+                <param name="content_path" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[ListItem.Director]%22%5D%7D%2C%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22$INFO[ListItem.Title]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D" />
             </include>
             <!-- Saga -->
 			<include content="WidgetVideoInfo">
                 <param name="list_id" value="7055" />
                 <param name="sortby" value="year" />
-                <param name="content_path" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[ListItem.Set]%22%5D%7D%2C%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D" />
+                <param name="content_path" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[ListItem.Set]%22%5D%7D%2C%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D" />
             </include>
             <!-- Actores -->
         	<include>WidgetActorInfo</include>

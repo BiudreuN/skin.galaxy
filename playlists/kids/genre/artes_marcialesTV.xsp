@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>TV Artes Marciales</name>
+    <match>all</match>
+    <rule field="genre" operator="contain">
+        <value>artes marciales</value>
+        <value>pelea</value>
+        <value>karate</value>
+    </rule>
+    <rule field="playlist" operator="isnot">TV Anime</rule>
+    <rule field="genre" operator="contain">anima</rule>
+    <limit>all</limit>
+    <order>title</order>
+</smartplaylist>

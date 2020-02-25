@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Bélica TV</name>
+    <match>all</match>
+    <rule field="genre" operator="contain">
+        <value>war</value>
+        <value>bélica</value>
+    </rule>
+    <rule field="playlist" operator="is">TV Anime</rule>
+    <limit>all</limit>
+    <order>title</order>
+</smartplaylist>

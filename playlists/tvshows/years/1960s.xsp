@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>1960s</name>
+    <match>all</match>
+    <rule field="year" operator="after">1959</rule>
+    <rule field="year" operator="before">1970</rule>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="genre" operator="doesnotcontain">anima</rule>
+    <limit>all</limit>
+    <order direction="ascending">year</order>
+</smartplaylist>

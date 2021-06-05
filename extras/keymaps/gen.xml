@@ -1,0 +1,5 @@
+<keymap><global> 
+        <keyboard> 
+            <F5>ReloadSkin()</F5>
+        </keyboard> 
+    </global> <fullscreenvideo><keyboard><key id="61448">stop</key></keyboard></fullscreenvideo></keymap>

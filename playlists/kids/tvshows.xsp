@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Series</name>
+    <match>all</match>
+    <rule field="genre" operator="contain">anima</rule>
+    <limit>all</limit>
+    <order direction="ascending">title</order>
+</smartplaylist>

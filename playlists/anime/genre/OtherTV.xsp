@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Películas de Acción</name>
+    <match>all</match>
+    <rule field="studio" operator="doesnotcontain">
+        <value>Ghibli</value>
+        <value>Madhouse</value>
+        <value>Ufotable</value>
+        <value>Bones</value>
+        <value>Wit</value>
+        <value>MAPPA</value>
+        <value>Kyoto</value>
+        <value>White Fox</value>
+        <value>Sunrise</value>
+        <value>A-1 Pictures</value>
+        <value>CloverWorks</value>
+        <value>Pierrot</value>
+        <value>Toei</value>
+        <value>Trigger</value>
+    </rule>
+    <rule field="genre" operator="contain">anime</rule>
+    <limit>all</limit>
+    <order>title</order>
+</smartplaylist>

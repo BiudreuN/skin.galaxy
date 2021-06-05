@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1154">
+	<visible>!String.IsEmpty(Window(Home).Property(SpaceSearchTerm))</visible>
+	<visible>Window.IsVisible(virtualkeyboard)+Window.IsActive(home)</visible>
+	<!-- space action-->
+	<onload>SendClick(10103,32)</onload>
+	<!-- done action-->
+	<onload>SendClick(10103,300)</onload>
+	<onunload>ClearProperty(SpaceSearchTerm,home)</onunload>
+	<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+	<controls/>
+</window>

@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">990</defaultcontrol>
+
+	<controls>
+    <control type="multiimage">
+        <depth>DepthBackground</depth>
+        <right>0</right>
+        <top>0</top>
+        <width>100%</width>
+        <height>100%</height>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <fadetime>300</fadetime>
+        <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+        <animation effect="fade" time="300" >VisibleChange</animation>
+        <imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
+        <include>OpenClose_Fade</include>
+    </control>
+	<control type="group">
+        <include>OpenClose_FadeSlide_Right</include>
+        <control type="list" id="5040">
+        	<visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID)</visible>
+            <visible>Integer.IsGreater(Container(5040).NumItems,0) + !Container(5040).IsUpdating</visible>
+            <visible>Container.Content(tvshows)</visible>
+			<left>-100</left>
+			<top>-100</top>
+			<preloaditems>1</preloaditems>
+			<itemlayout/>
+			<focusedlayout/>
+			<content sortorder="ascending" sortby="playcount" limit="1" target="videos">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
+		</control>
+		<control type="list" id="5041">
+        	<visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+            <visible>Integer.IsGreater(Container(5041).NumItems,0) + !Container(5041).IsUpdating</visible>
+			<left>-100</left>
+			<top>-100</top>
+			<preloaditems>1</preloaditems>
+			<itemlayout/>
+			<focusedlayout/>
+			<content sortorder="descending" sortby="date" limit="1">videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
+		</control>
+		<control type="list" id="5050">
+        	<visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+            <visible>Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating</visible>
+			<left>-100</left>
+			<top>-100</top>
+			<preloaditems>1</preloaditems>
+			<itemlayout/>
+			<focusedlayout/>
+			<content sortorder="ascending" sortby="playcount" limit="1">$VAR[InfoDialogNextUpContent]</content>
+		</control>
+		<control type="list" id="5051">
+        	<visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+            <visible>Integer.IsGreater(Container(5051).NumItems,0) + !Container(5051).IsUpdating</visible>
+			<left>-100</left>
+			<top>-100</top>
+			<preloaditems>1</preloaditems>
+			<itemlayout/>
+			<focusedlayout/>
+			<content sortorder="ascending" sortby="date" limit="1">videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
+		</control>
+        <control type="grouplist">
+            <orientation>vertical</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <top>120</top>
+            <left>110</left>
+            <width>100%</width>
+            <height>100%</height>
+            <itemgap>5</itemgap>
+            <align>left</align>
+            <onleft>noop</onleft>
+            <onright>801</onright>
+            <ondown>50</ondown>
+            <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            <control type="group">
+                <left>10</left>
+                <width>1000</width>
+                <height>250</height>
+                <control type="grouplist">
+                    <height>250</height>
+                    <align>right</align>
+                    <orientation>vertical</orientation>
+                    <control type="textbox">
+                        <height max="250">auto</height>
+                        <width>1000</width>
+                        <font>56px_Regular</font>
+                        <label>$VAR[TitleVar]</label>
+                        <textcolor>FFEEEEEE</textcolor>
+                        <shadowcolor>text_shadow</shadowcolor>
+                        <visible>String.EndsWith(Control.GetLabel(15),color_transparent.png)</visible>
+                        <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
+                    </control>
+                </control>
+                <control type="image" id="15">
+                    <width>700</width>
+                    <height>250</height>
+                    <align>left</align>
+                    <fadetime>400</fadetime>
+                    <aspectratio align="left" aligny="bottom">keep</aspectratio>
+                    <texture background="true" fallback="colors/color_transparent.png">$VAR[ClearlogoVar]</texture>
+                </control>
+            </control>
+            <control type="grouplist" id="900">
+
+                <itemgap>0</itemgap>
+                <orientation>horizontal</orientation>
+                <align>left</align>
+                <height>80</height>
+                <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+                <control type="button" id="990">
+                    <width>auto</width>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
+                    <textoffsetx>30</textoffsetx>
+                    <textcolor>FFEEEEEE</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <texturefocus border="65,20,20,20">buttons/videoinfo-play.png</texturefocus>
+                    <texturenofocus border="65,20,20,20" colordiffuse="FFEEEEEE">buttons/videoinfo-play-nf.png</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onclick condition="ListItem.IsResumable+!Container.Content(tvshows)">SendClick(9)</onclick>
+                    <onclick condition="!ListItem.IsResumable+!Container.Content(tvshows)">SendClick(8)</onclick>
+                    <onclick condition="Container.Content(tvshows)">PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick>
+                    <onclick condition="Container.Content(tvshows)">Dialog.Close(movieinformation)</onclick>
+                </control>
+                <control type="button" id="991">
+                    <width>auto</width>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <label>       [UPPERCASE]Episodios[/UPPERCASE]</label>
+                    <textoffsetx>30</textoffsetx>
+                    <textcolor>FFEEEEEE</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <texturefocus border="65,20,20,20">buttons/videoinfo-episode.png</texturefocus>
+                    <texturenofocus border="65,20,20,20" colordiffuse="FFEEEEEE">buttons/videoinfo-episode-nf.png</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onclick>SetProperty(VideoResolution,$VAR[VideoResolutionVar],Home)</onclick>
+                    <onclick>SetProperty(AudioChannels,$VAR[AudioChannelsVar],Home)</onclick>
+                    <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                    <onclick>SetProperty(Rating,$VAR[RatingVar],Home)</onclick>
+                    <onclick>SetProperty(Year,$INFO[Listitem.Year],Home)</onclick>
+                    <onclick>SetProperty(TotalSeasons,$INFO[ListItem.Property(TotalSeasons)],Home)</onclick>
+                    <onclick>SetProperty(Seasons,$VAR[SeasonVar],Home)</onclick>
+                    <onclick>SetProperty(BaseWindow,1,Home)</onclick>
+                    <onclick>Dialog.Close(movieinformation)</onclick>
+                    <!-- activate ALL EPISODES view -->
+                    <!-- from tvshow infodialog for library content -->
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">SetProperty(ListItem.TVShowID2,$INFO[ListItem.DBID],Home)</onclick>
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">SetProperty(KeepTVShowID,1,Home)</onclick>
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/,return)</onclick>
+                    <!-- from tvshow infodialog for non-library content -->
+                    <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
+                    <visible>Container.Content(tvshows)</visible>
+                </control>
+                <control type="button" id="992">
+                    <width>auto</width>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <label>       [UPPERCASE]Reiniciar[/UPPERCASE]</label>
+                    <textoffsetx>30</textoffsetx>
+                    <textcolor>FFEEEEEE</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <texturefocus border="65,20,20,20">buttons/videoinfo-reset.png</texturefocus>
+                    <texturenofocus border="65,20,20,20" colordiffuse="FFEEEEEE">buttons/videoinfo-reset-nf.png</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <visible>ListItem.IsResumable</visible>
+                    <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
+                    <onclick>Dialog.Close(movieinformation)</onclick>
+                </control>
+                <control type="radiobutton" id="993">
+                    <width>80</width>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <radioposx>16</radioposx>
+                    <radioposy>1</radioposy>
+                    <radiowidth>50</radiowidth>
+                    <radioheight>80</radioheight>
+                    <label></label>
+                    <textoffsetx>50</textoffsetx>
+                    <textcolor>FFEEEEEE</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <textureradioonfocus colordiffuse="button_focus">icons/videoinfo/check.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="black">icons/videoinfo/add.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="button_focus">icons/videoinfo/check.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="FFEEEEEE">icons/videoinfo/add.png</textureradiooffnofocus>
+                    <texturefocus>dialogs/keyboard/key3.png</texturefocus>
+                    <texturenofocus colordiffuse="FFEEEEEE">dialogs/keyboard/key-nf3.png</texturenofocus>
+                    <pulseonselect>false</pulseonselect>
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)+!String.IsEqual(Skin.String(MyList1),ListItem.Title)+!String.IsEqual(Skin.String(MyList2),ListItem.Title)+!String.IsEqual(Skin.String(MyList3),ListItem.Title)+!String.IsEqual(Skin.String(MyList4),ListItem.Title)+!String.IsEqual(Skin.String(MyList5),ListItem.Title)+!String.IsEqual(Skin.String(MyList6),ListItem.Title)+!String.IsEqual(Skin.String(MyList7),ListItem.Title)+!String.IsEqual(Skin.String(MyList8),ListItem.Title)+!String.IsEqual(Skin.String(MyList9),ListItem.Title)+!String.IsEqual(Skin.String(MyList10),ListItem.Title)+!String.IsEqual(Skin.String(MyList11),ListItem.Title)+!String.IsEqual(Skin.String(MyList12),ListItem.Title)+!String.IsEqual(Skin.String(MyList13),ListItem.Title)+!String.IsEqual(Skin.String(MyList14),ListItem.Title)+!String.IsEqual(Skin.String(MyList15),ListItem.Title)+!String.IsEqual(Skin.String(MyList16),ListItem.Title)+!String.IsEqual(Skin.String(MyList17),ListItem.Title)+!String.IsEqual(Skin.String(MyList18),ListItem.Title)+!String.IsEqual(Skin.String(MyList19),ListItem.Title)+!String.IsEqual(Skin.String(MyList20),ListItem.Title)+!String.IsEqual(Skin.String(MyList21),ListItem.Title)+!String.IsEqual(Skin.String(MyList22),ListItem.Title)+!String.IsEqual(Skin.String(MyList23),ListItem.Title)+!String.IsEqual(Skin.String(MyList24),ListItem.Title)+!String.IsEqual(Skin.String(MyList25),ListItem.Title)+!String.IsEqual(Skin.String(MyList26),ListItem.Title)+!String.IsEqual(Skin.String(MyList27),ListItem.Title)+!String.IsEqual(Skin.String(MyList28),ListItem.Title)+!String.IsEqual(Skin.String(MyList29),ListItem.Title)+!String.IsEqual(Skin.String(MyList30),ListItem.Title)+!String.IsEqual(Skin.String(MyList31),ListItem.Title)+!String.IsEqual(Skin.String(MyList32),ListItem.Title)+!String.IsEqual(Skin.String(MyList33),ListItem.Title)+!String.IsEqual(Skin.String(MyList34),ListItem.Title)+!String.IsEqual(Skin.String(MyList35),ListItem.Title)+!String.IsEqual(Skin.String(MyList36),ListItem.Title)+!String.IsEqual(Skin.String(MyList37),ListItem.Title)+!String.IsEqual(Skin.String(MyList38),ListItem.Title)+!String.IsEqual(Skin.String(MyList39),ListItem.Title)+!String.IsEqual(Skin.String(MyList40),ListItem.Title)+!String.IsEqual(Skin.String(MyList41),ListItem.Title)+!String.IsEqual(Skin.String(MyList42),ListItem.Title)+!String.IsEqual(Skin.String(MyList43),ListItem.Title)+!String.IsEqual(Skin.String(MyList44),ListItem.Title)+!String.IsEqual(Skin.String(MyList45),ListItem.Title)+!String.IsEqual(Skin.String(MyList46),ListItem.Title)+!String.IsEqual(Skin.String(MyList47),ListItem.Title)+!String.IsEqual(Skin.String(MyList48),ListItem.Title)+!String.IsEqual(Skin.String(MyList49),ListItem.Title)+!String.IsEqual(Skin.String(MyList50),ListItem.Title)+!String.IsEqual(Skin.String(MyList51),ListItem.Title)+!String.IsEqual(Skin.String(MyList52),ListItem.Title)+!String.IsEqual(Skin.String(MyList53),ListItem.Title)+!String.IsEqual(Skin.String(MyList54),ListItem.Title)+!String.IsEqual(Skin.String(MyList55),ListItem.Title)+!String.IsEqual(Skin.String(MyList56),ListItem.Title)+!String.IsEqual(Skin.String(MyList57),ListItem.Title)+!String.IsEqual(Skin.String(MyList58),ListItem.Title)+!String.IsEqual(Skin.String(MyList59),ListItem.Title)+!String.IsEqual(Skin.String(MyList60),ListItem.Title)+!String.IsEqual(Skin.String(MyList61),ListItem.Title)+!String.IsEqual(Skin.String(MyList62),ListItem.Title)+!String.IsEqual(Skin.String(MyList63),ListItem.Title)+!String.IsEqual(Skin.String(MyList64),ListItem.Title)+!String.IsEqual(Skin.String(MyList65),ListItem.Title)+!String.IsEqual(Skin.String(MyList66),ListItem.Title)+!String.IsEqual(Skin.String(MyList67),ListItem.Title)+!String.IsEqual(Skin.String(MyList68),ListItem.Title)+!String.IsEqual(Skin.String(MyList69),ListItem.Title)+!String.IsEqual(Skin.String(MyList70),ListItem.Title)+!String.IsEqual(Skin.String(MyList71),ListItem.Title)+!String.IsEqual(Skin.String(MyList72),ListItem.Title)+!String.IsEqual(Skin.String(MyList73),ListItem.Title)+!String.IsEqual(Skin.String(MyList74),ListItem.Title)+!String.IsEqual(Skin.String(MyList75),ListItem.Title)+!String.IsEqual(Skin.String(MyList76),ListItem.Title)+!String.IsEqual(Skin.String(MyList77),ListItem.Title)+!String.IsEqual(Skin.String(MyList78),ListItem.Title)+!String.IsEqual(Skin.String(MyList79),ListItem.Title)+!String.IsEqual(Skin.String(MyList80),ListItem.Title)+!String.IsEqual(Skin.String(MyList81),ListItem.Title)+!String.IsEqual(Skin.String(MyList82),ListItem.Title)+!String.IsEqual(Skin.String(MyList83),ListItem.Title)+!String.IsEqual(Skin.String(MyList84),ListItem.Title)+!String.IsEqual(Skin.String(MyList85),ListItem.Title)+!String.IsEqual(Skin.String(MyList86),ListItem.Title)+!String.IsEqual(Skin.String(MyList87),ListItem.Title)+!String.IsEqual(Skin.String(MyList88),ListItem.Title)+!String.IsEqual(Skin.String(MyList89),ListItem.Title)+!String.IsEqual(Skin.String(MyList90),ListItem.Title)+!String.IsEqual(Skin.String(MyList91),ListItem.Title)+!String.IsEqual(Skin.String(MyList92),ListItem.Title)+!String.IsEqual(Skin.String(MyList93),ListItem.Title)+!String.IsEqual(Skin.String(MyList94),ListItem.Title)+!String.IsEqual(Skin.String(MyList95),ListItem.Title)+!String.IsEqual(Skin.String(MyList96),ListItem.Title)+!String.IsEqual(Skin.String(MyList97),ListItem.Title)+!String.IsEqual(Skin.String(MyList98),ListItem.Title)+!String.IsEqual(Skin.String(MyList99),ListItem.Title)+!String.IsEqual(Skin.String(MyList100),ListItem.Title)">$VAR[MyListVar]</onclick>
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)+[String.IsEqual(Skin.String(MyList1),ListItem.Title)|String.IsEqual(Skin.String(MyList2),ListItem.Title)|String.IsEqual(Skin.String(MyList3),ListItem.Title)|String.IsEqual(Skin.String(MyList4),ListItem.Title)|String.IsEqual(Skin.String(MyList5),ListItem.Title)|String.IsEqual(Skin.String(MyList6),ListItem.Title)|String.IsEqual(Skin.String(MyList7),ListItem.Title)|String.IsEqual(Skin.String(MyList8),ListItem.Title)|String.IsEqual(Skin.String(MyList9),ListItem.Title)|String.IsEqual(Skin.String(MyList10),ListItem.Title)|String.IsEqual(Skin.String(MyList11),ListItem.Title)|String.IsEqual(Skin.String(MyList12),ListItem.Title)|String.IsEqual(Skin.String(MyList13),ListItem.Title)|String.IsEqual(Skin.String(MyList14),ListItem.Title)|String.IsEqual(Skin.String(MyList15),ListItem.Title)|String.IsEqual(Skin.String(MyList16),ListItem.Title)|String.IsEqual(Skin.String(MyList17),ListItem.Title)|String.IsEqual(Skin.String(MyList18),ListItem.Title)|String.IsEqual(Skin.String(MyList19),ListItem.Title)|String.IsEqual(Skin.String(MyList20),ListItem.Title)|String.IsEqual(Skin.String(MyList21),ListItem.Title)|String.IsEqual(Skin.String(MyList22),ListItem.Title)|String.IsEqual(Skin.String(MyList23),ListItem.Title)|String.IsEqual(Skin.String(MyList24),ListItem.Title)|String.IsEqual(Skin.String(MyList25),ListItem.Title)|String.IsEqual(Skin.String(MyList26),ListItem.Title)|String.IsEqual(Skin.String(MyList27),ListItem.Title)|String.IsEqual(Skin.String(MyList28),ListItem.Title)|String.IsEqual(Skin.String(MyList29),ListItem.Title)|String.IsEqual(Skin.String(MyList30),ListItem.Title)|String.IsEqual(Skin.String(MyList31),ListItem.Title)|String.IsEqual(Skin.String(MyList32),ListItem.Title)|String.IsEqual(Skin.String(MyList33),ListItem.Title)|String.IsEqual(Skin.String(MyList34),ListItem.Title)|String.IsEqual(Skin.String(MyList35),ListItem.Title)|String.IsEqual(Skin.String(MyList36),ListItem.Title)|String.IsEqual(Skin.String(MyList37),ListItem.Title)|String.IsEqual(Skin.String(MyList38),ListItem.Title)|String.IsEqual(Skin.String(MyList39),ListItem.Title)|String.IsEqual(Skin.String(MyList40),ListItem.Title)|String.IsEqual(Skin.String(MyList41),ListItem.Title)|String.IsEqual(Skin.String(MyList42),ListItem.Title)|String.IsEqual(Skin.String(MyList43),ListItem.Title)|String.IsEqual(Skin.String(MyList44),ListItem.Title)|String.IsEqual(Skin.String(MyList45),ListItem.Title)|String.IsEqual(Skin.String(MyList46),ListItem.Title)|String.IsEqual(Skin.String(MyList47),ListItem.Title)|String.IsEqual(Skin.String(MyList48),ListItem.Title)|String.IsEqual(Skin.String(MyList49),ListItem.Title)|String.IsEqual(Skin.String(MyList50),ListItem.Title)|String.IsEqual(Skin.String(MyList51),ListItem.Title)|String.IsEqual(Skin.String(MyList52),ListItem.Title)|String.IsEqual(Skin.String(MyList53),ListItem.Title)|String.IsEqual(Skin.String(MyList54),ListItem.Title)|String.IsEqual(Skin.String(MyList55),ListItem.Title)|String.IsEqual(Skin.String(MyList56),ListItem.Title)|String.IsEqual(Skin.String(MyList57),ListItem.Title)|String.IsEqual(Skin.String(MyList58),ListItem.Title)|String.IsEqual(Skin.String(MyList59),ListItem.Title)|String.IsEqual(Skin.String(MyList60),ListItem.Title)|String.IsEqual(Skin.String(MyList61),ListItem.Title)|String.IsEqual(Skin.String(MyList62),ListItem.Title)|String.IsEqual(Skin.String(MyList63),ListItem.Title)|String.IsEqual(Skin.String(MyList64),ListItem.Title)|String.IsEqual(Skin.String(MyList65),ListItem.Title)|String.IsEqual(Skin.String(MyList66),ListItem.Title)|String.IsEqual(Skin.String(MyList67),ListItem.Title)|String.IsEqual(Skin.String(MyList68),ListItem.Title)|String.IsEqual(Skin.String(MyList69),ListItem.Title)|String.IsEqual(Skin.String(MyList70),ListItem.Title)|String.IsEqual(Skin.String(MyList71),ListItem.Title)|String.IsEqual(Skin.String(MyList72),ListItem.Title)|String.IsEqual(Skin.String(MyList73),ListItem.Title)|String.IsEqual(Skin.String(MyList74),ListItem.Title)|String.IsEqual(Skin.String(MyList75),ListItem.Title)|String.IsEqual(Skin.String(MyList76),ListItem.Title)|String.IsEqual(Skin.String(MyList77),ListItem.Title)|String.IsEqual(Skin.String(MyList78),ListItem.Title)|String.IsEqual(Skin.String(MyList79),ListItem.Title)|String.IsEqual(Skin.String(MyList80),ListItem.Title)|String.IsEqual(Skin.String(MyList81),ListItem.Title)|String.IsEqual(Skin.String(MyList82),ListItem.Title)|String.IsEqual(Skin.String(MyList83),ListItem.Title)|String.IsEqual(Skin.String(MyList84),ListItem.Title)|String.IsEqual(Skin.String(MyList85),ListItem.Title)|String.IsEqual(Skin.String(MyList86),ListItem.Title)|String.IsEqual(Skin.String(MyList87),ListItem.Title)|String.IsEqual(Skin.String(MyList88),ListItem.Title)|String.IsEqual(Skin.String(MyList89),ListItem.Title)|String.IsEqual(Skin.String(MyList90),ListItem.Title)|String.IsEqual(Skin.String(MyList91),ListItem.Title)|String.IsEqual(Skin.String(MyList92),ListItem.Title)|String.IsEqual(Skin.String(MyList93),ListItem.Title)|String.IsEqual(Skin.String(MyList94),ListItem.Title)|String.IsEqual(Skin.String(MyList95),ListItem.Title)|String.IsEqual(Skin.String(MyList96),ListItem.Title)|String.IsEqual(Skin.String(MyList97),ListItem.Title)|String.IsEqual(Skin.String(MyList98),ListItem.Title)|String.IsEqual(Skin.String(MyList99),ListItem.Title)|String.IsEqual(Skin.String(MyList100),ListItem.Title)]">$VAR[ClearMyListVar]</onclick>
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)+!String.IsEqual(Skin.String(MyList1TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList2TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList3TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList4TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList5TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList6TV),ListItem.Title)+!Skin.String(MyList7TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList8TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList9TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList10TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList11TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList12TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList13TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList14TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList15TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList16TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList17TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList18TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList19TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList20TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList21TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList22TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList23TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList24TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList25TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList26TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList27TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList28TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList29TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList30TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList31TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList32TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList33TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList34TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList35TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList36TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList37TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList38TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList39TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList40TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList41TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList42TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList43TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList44TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList45TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList46TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList47TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList48TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList49TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList50TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList51TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList52TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList53TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList54TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList55TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList56TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList57TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList58TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList59TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList60TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList61TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList62TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList63TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList64TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList65TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList66TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList67TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList68TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList69TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList70TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList71TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList72TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList73TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList74TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList75TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList76TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList77TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList78TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList79TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList80TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList81TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList82TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList83TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList84TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList85TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList86TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList87TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList88TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList89TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList90TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList91TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList92TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList93TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList94TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList95TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList96TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList97TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList98TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList99TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList100TV),ListItem.Title)">$VAR[MyListTVVar]</onclick>
+                    <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)+[String.IsEqual(Skin.String(MyList1TV),ListItem.Title)|String.IsEqual(Skin.String(MyList2TV),ListItem.Title)|String.IsEqual(Skin.String(MyList3TV),ListItem.Title)|String.IsEqual(Skin.String(MyList4TV),ListItem.Title)|String.IsEqual(Skin.String(MyList5TV),ListItem.Title)|String.IsEqual(Skin.String(MyList6TV),ListItem.Title)|String.IsEqual(Skin.String(MyList7TV),ListItem.Title)|String.IsEqual(Skin.String(MyList8TV),ListItem.Title)|String.IsEqual(Skin.String(MyList9TV),ListItem.Title)|String.IsEqual(Skin.String(MyList10TV),ListItem.Title)|String.IsEqual(Skin.String(MyList11TV),ListItem.Title)|String.IsEqual(Skin.String(MyList12TV),ListItem.Title)|String.IsEqual(Skin.String(MyList13TV),ListItem.Title)|String.IsEqual(Skin.String(MyList14TV),ListItem.Title)|String.IsEqual(Skin.String(MyList15TV),ListItem.Title)|String.IsEqual(Skin.String(MyList16TV),ListItem.Title)|String.IsEqual(Skin.String(MyList17TV),ListItem.Title)|String.IsEqual(Skin.String(MyList18TV),ListItem.Title)|String.IsEqual(Skin.String(MyList19TV),ListItem.Title)|String.IsEqual(Skin.String(MyList20TV),ListItem.Title)|String.IsEqual(Skin.String(MyList21TV),ListItem.Title)|String.IsEqual(Skin.String(MyList22TV),ListItem.Title)|String.IsEqual(Skin.String(MyList23TV),ListItem.Title)|String.IsEqual(Skin.String(MyList24TV),ListItem.Title)|String.IsEqual(Skin.String(MyList25TV),ListItem.Title)|String.IsEqual(Skin.String(MyList26TV),ListItem.Title)|String.IsEqual(Skin.String(MyList27TV),ListItem.Title)|String.IsEqual(Skin.String(MyList28TV),ListItem.Title)|String.IsEqual(Skin.String(MyList29TV),ListItem.Title)|String.IsEqual(Skin.String(MyList30TV),ListItem.Title)|String.IsEqual(Skin.String(MyList31TV),ListItem.Title)|String.IsEqual(Skin.String(MyList32TV),ListItem.Title)|String.IsEqual(Skin.String(MyList33TV),ListItem.Title)|String.IsEqual(Skin.String(MyList34TV),ListItem.Title)|String.IsEqual(Skin.String(MyList35TV),ListItem.Title)|String.IsEqual(Skin.String(MyList36TV),ListItem.Title)|String.IsEqual(Skin.String(MyList37TV),ListItem.Title)|String.IsEqual(Skin.String(MyList38TV),ListItem.Title)|String.IsEqual(Skin.String(MyList39TV),ListItem.Title)|String.IsEqual(Skin.String(MyList40TV),ListItem.Title)|String.IsEqual(Skin.String(MyList41TV),ListItem.Title)|String.IsEqual(Skin.String(MyList42TV),ListItem.Title)|String.IsEqual(Skin.String(MyList43TV),ListItem.Title)|String.IsEqual(Skin.String(MyList44TV),ListItem.Title)|String.IsEqual(Skin.String(MyList45TV),ListItem.Title)|String.IsEqual(Skin.String(MyList46TV),ListItem.Title)|String.IsEqual(Skin.String(MyList47TV),ListItem.Title)|String.IsEqual(Skin.String(MyList48TV),ListItem.Title)|String.IsEqual(Skin.String(MyList49TV),ListItem.Title)|String.IsEqual(Skin.String(MyList50TV),ListItem.Title)|String.IsEqual(Skin.String(MyList51TV),ListItem.Title)|String.IsEqual(Skin.String(MyList52TV),ListItem.Title)|String.IsEqual(Skin.String(MyList53TV),ListItem.Title)|String.IsEqual(Skin.String(MyList54TV),ListItem.Title)|String.IsEqual(Skin.String(MyList55TV),ListItem.Title)|String.IsEqual(Skin.String(MyList56TV),ListItem.Title)|String.IsEqual(Skin.String(MyList57TV),ListItem.Title)|String.IsEqual(Skin.String(MyList58TV),ListItem.Title)|String.IsEqual(Skin.String(MyList59TV),ListItem.Title)|String.IsEqual(Skin.String(MyList60TV),ListItem.Title)|String.IsEqual(Skin.String(MyList61TV),ListItem.Title)|String.IsEqual(Skin.String(MyList62TV),ListItem.Title)|String.IsEqual(Skin.String(MyList63TV),ListItem.Title)|String.IsEqual(Skin.String(MyList64TV),ListItem.Title)|String.IsEqual(Skin.String(MyList65TV),ListItem.Title)|String.IsEqual(Skin.String(MyList66TV),ListItem.Title)|String.IsEqual(Skin.String(MyList67TV),ListItem.Title)|String.IsEqual(Skin.String(MyList68TV),ListItem.Title)|String.IsEqual(Skin.String(MyList69TV),ListItem.Title)|String.IsEqual(Skin.String(MyList70TV),ListItem.Title)|String.IsEqual(Skin.String(MyList71TV),ListItem.Title)|String.IsEqual(Skin.String(MyList72TV),ListItem.Title)|String.IsEqual(Skin.String(MyList73TV),ListItem.Title)|String.IsEqual(Skin.String(MyList74TV),ListItem.Title)|String.IsEqual(Skin.String(MyList75TV),ListItem.Title)|String.IsEqual(Skin.String(MyList76TV),ListItem.Title)|String.IsEqual(Skin.String(MyList77TV),ListItem.Title)|String.IsEqual(Skin.String(MyList78TV),ListItem.Title)|String.IsEqual(Skin.String(MyList79TV),ListItem.Title)|String.IsEqual(Skin.String(MyList80TV),ListItem.Title)|String.IsEqual(Skin.String(MyList81TV),ListItem.Title)|String.IsEqual(Skin.String(MyList82TV),ListItem.Title)|String.IsEqual(Skin.String(MyList83TV),ListItem.Title)|String.IsEqual(Skin.String(MyList84TV),ListItem.Title)|String.IsEqual(Skin.String(MyList85TV),ListItem.Title)|String.IsEqual(Skin.String(MyList86TV),ListItem.Title)|String.IsEqual(Skin.String(MyList87TV),ListItem.Title)|String.IsEqual(Skin.String(MyList88TV),ListItem.Title)|String.IsEqual(Skin.String(MyList89TV),ListItem.Title)|String.IsEqual(Skin.String(MyList90TV),ListItem.Title)|String.IsEqual(Skin.String(MyList91TV),ListItem.Title)|String.IsEqual(Skin.String(MyList92TV),ListItem.Title)|String.IsEqual(Skin.String(MyList93TV),ListItem.Title)|String.IsEqual(Skin.String(MyList94TV),ListItem.Title)|String.IsEqual(Skin.String(MyList95TV),ListItem.Title)|String.IsEqual(Skin.String(MyList96TV),ListItem.Title)|String.IsEqual(Skin.String(MyList97TV),ListItem.Title)|String.IsEqual(Skin.String(MyList98TV),ListItem.Title)|String.IsEqual(Skin.String(MyList99TV),ListItem.Title)|String.IsEqual(Skin.String(MyList100TV),ListItem.Title)]">$VAR[ClearMyListTVVar]</onclick>
+                    <selected>[String.IsEqual(ListItem.DBTYPE,movie)+[String.IsEqual(Skin.String(MyList1),ListItem.Title)|String.IsEqual(Skin.String(MyList2),ListItem.Title)|String.IsEqual(Skin.String(MyList3),ListItem.Title)|String.IsEqual(Skin.String(MyList4),ListItem.Title)|String.IsEqual(Skin.String(MyList5),ListItem.Title)|String.IsEqual(Skin.String(MyList6),ListItem.Title)|String.IsEqual(Skin.String(MyList7),ListItem.Title)|String.IsEqual(Skin.String(MyList8),ListItem.Title)|String.IsEqual(Skin.String(MyList9),ListItem.Title)|String.IsEqual(Skin.String(MyList10),ListItem.Title)|String.IsEqual(Skin.String(MyList11),ListItem.Title)|String.IsEqual(Skin.String(MyList12),ListItem.Title)|String.IsEqual(Skin.String(MyList13),ListItem.Title)|String.IsEqual(Skin.String(MyList14),ListItem.Title)|String.IsEqual(Skin.String(MyList15),ListItem.Title)|String.IsEqual(Skin.String(MyList16),ListItem.Title)|String.IsEqual(Skin.String(MyList17),ListItem.Title)|String.IsEqual(Skin.String(MyList18),ListItem.Title)|String.IsEqual(Skin.String(MyList19),ListItem.Title)|String.IsEqual(Skin.String(MyList20),ListItem.Title)|String.IsEqual(Skin.String(MyList21),ListItem.Title)|String.IsEqual(Skin.String(MyList22),ListItem.Title)|String.IsEqual(Skin.String(MyList23),ListItem.Title)|String.IsEqual(Skin.String(MyList24),ListItem.Title)|String.IsEqual(Skin.String(MyList25),ListItem.Title)|String.IsEqual(Skin.String(MyList26),ListItem.Title)|String.IsEqual(Skin.String(MyList27),ListItem.Title)|String.IsEqual(Skin.String(MyList28),ListItem.Title)|String.IsEqual(Skin.String(MyList29),ListItem.Title)|String.IsEqual(Skin.String(MyList30),ListItem.Title)|String.IsEqual(Skin.String(MyList31),ListItem.Title)|String.IsEqual(Skin.String(MyList32),ListItem.Title)|String.IsEqual(Skin.String(MyList33),ListItem.Title)|String.IsEqual(Skin.String(MyList34),ListItem.Title)|String.IsEqual(Skin.String(MyList35),ListItem.Title)|String.IsEqual(Skin.String(MyList36),ListItem.Title)|String.IsEqual(Skin.String(MyList37),ListItem.Title)|String.IsEqual(Skin.String(MyList38),ListItem.Title)|String.IsEqual(Skin.String(MyList39),ListItem.Title)|String.IsEqual(Skin.String(MyList40),ListItem.Title)|String.IsEqual(Skin.String(MyList41),ListItem.Title)|String.IsEqual(Skin.String(MyList42),ListItem.Title)|String.IsEqual(Skin.String(MyList43),ListItem.Title)|String.IsEqual(Skin.String(MyList44),ListItem.Title)|String.IsEqual(Skin.String(MyList45),ListItem.Title)|String.IsEqual(Skin.String(MyList46),ListItem.Title)|String.IsEqual(Skin.String(MyList47),ListItem.Title)|String.IsEqual(Skin.String(MyList48),ListItem.Title)|String.IsEqual(Skin.String(MyList49),ListItem.Title)|String.IsEqual(Skin.String(MyList50),ListItem.Title)|String.IsEqual(Skin.String(MyList51),ListItem.Title)|String.IsEqual(Skin.String(MyList52),ListItem.Title)|String.IsEqual(Skin.String(MyList53),ListItem.Title)|String.IsEqual(Skin.String(MyList54),ListItem.Title)|String.IsEqual(Skin.String(MyList55),ListItem.Title)|String.IsEqual(Skin.String(MyList56),ListItem.Title)|String.IsEqual(Skin.String(MyList57),ListItem.Title)|String.IsEqual(Skin.String(MyList58),ListItem.Title)|String.IsEqual(Skin.String(MyList59),ListItem.Title)|String.IsEqual(Skin.String(MyList60),ListItem.Title)|String.IsEqual(Skin.String(MyList61),ListItem.Title)|String.IsEqual(Skin.String(MyList62),ListItem.Title)|String.IsEqual(Skin.String(MyList63),ListItem.Title)|String.IsEqual(Skin.String(MyList64),ListItem.Title)|String.IsEqual(Skin.String(MyList65),ListItem.Title)|String.IsEqual(Skin.String(MyList66),ListItem.Title)|String.IsEqual(Skin.String(MyList67),ListItem.Title)|String.IsEqual(Skin.String(MyList68),ListItem.Title)|String.IsEqual(Skin.String(MyList69),ListItem.Title)|String.IsEqual(Skin.String(MyList70),ListItem.Title)|String.IsEqual(Skin.String(MyList71),ListItem.Title)|String.IsEqual(Skin.String(MyList72),ListItem.Title)|String.IsEqual(Skin.String(MyList73),ListItem.Title)|String.IsEqual(Skin.String(MyList74),ListItem.Title)|String.IsEqual(Skin.String(MyList75),ListItem.Title)|String.IsEqual(Skin.String(MyList76),ListItem.Title)|String.IsEqual(Skin.String(MyList77),ListItem.Title)|String.IsEqual(Skin.String(MyList78),ListItem.Title)|String.IsEqual(Skin.String(MyList79),ListItem.Title)|String.IsEqual(Skin.String(MyList80),ListItem.Title)|String.IsEqual(Skin.String(MyList81),ListItem.Title)|String.IsEqual(Skin.String(MyList82),ListItem.Title)|String.IsEqual(Skin.String(MyList83),ListItem.Title)|String.IsEqual(Skin.String(MyList84),ListItem.Title)|String.IsEqual(Skin.String(MyList85),ListItem.Title)|String.IsEqual(Skin.String(MyList86),ListItem.Title)|String.IsEqual(Skin.String(MyList87),ListItem.Title)|String.IsEqual(Skin.String(MyList88),ListItem.Title)|String.IsEqual(Skin.String(MyList89),ListItem.Title)|String.IsEqual(Skin.String(MyList90),ListItem.Title)|String.IsEqual(Skin.String(MyList91),ListItem.Title)|String.IsEqual(Skin.String(MyList92),ListItem.Title)|String.IsEqual(Skin.String(MyList93),ListItem.Title)|String.IsEqual(Skin.String(MyList94),ListItem.Title)|String.IsEqual(Skin.String(MyList95),ListItem.Title)|String.IsEqual(Skin.String(MyList96),ListItem.Title)|String.IsEqual(Skin.String(MyList97),ListItem.Title)|String.IsEqual(Skin.String(MyList98),ListItem.Title)|String.IsEqual(Skin.String(MyList99),ListItem.Title)|String.IsEqual(Skin.String(MyList100),ListItem.Title)]]|[String.IsEqual(ListItem.DBTYPE,tvshow)+[String.IsEqual(Skin.String(MyList1TV),ListItem.Title)|String.IsEqual(Skin.String(MyList2TV),ListItem.Title)|String.IsEqual(Skin.String(MyList3TV),ListItem.Title)|String.IsEqual(Skin.String(MyList4TV),ListItem.Title)|String.IsEqual(Skin.String(MyList5TV),ListItem.Title)|String.IsEqual(Skin.String(MyList6TV),ListItem.Title)|String.IsEqual(Skin.String(MyList7TV),ListItem.Title)|String.IsEqual(Skin.String(MyList8TV),ListItem.Title)|String.IsEqual(Skin.String(MyList9TV),ListItem.Title)|String.IsEqual(Skin.String(MyList10TV),ListItem.Title)|String.IsEqual(Skin.String(MyList11TV),ListItem.Title)|String.IsEqual(Skin.String(MyList12TV),ListItem.Title)|String.IsEqual(Skin.String(MyList13TV),ListItem.Title)|String.IsEqual(Skin.String(MyList14TV),ListItem.Title)|String.IsEqual(Skin.String(MyList15TV),ListItem.Title)|String.IsEqual(Skin.String(MyList16TV),ListItem.Title)|String.IsEqual(Skin.String(MyList17TV),ListItem.Title)|String.IsEqual(Skin.String(MyList18TV),ListItem.Title)|String.IsEqual(Skin.String(MyList19TV),ListItem.Title)|String.IsEqual(Skin.String(MyList20TV),ListItem.Title)|String.IsEqual(Skin.String(MyList21TV),ListItem.Title)|String.IsEqual(Skin.String(MyList22TV),ListItem.Title)|String.IsEqual(Skin.String(MyList23TV),ListItem.Title)|String.IsEqual(Skin.String(MyList24TV),ListItem.Title)|String.IsEqual(Skin.String(MyList25TV),ListItem.Title)|String.IsEqual(Skin.String(MyList26TV),ListItem.Title)|String.IsEqual(Skin.String(MyList27TV),ListItem.Title)|String.IsEqual(Skin.String(MyList28TV),ListItem.Title)|String.IsEqual(Skin.String(MyList29TV),ListItem.Title)|String.IsEqual(Skin.String(MyList30TV),ListItem.Title)|String.IsEqual(Skin.String(MyList31TV),ListItem.Title)|String.IsEqual(Skin.String(MyList32TV),ListItem.Title)|String.IsEqual(Skin.String(MyList33TV),ListItem.Title)|String.IsEqual(Skin.String(MyList34TV),ListItem.Title)|String.IsEqual(Skin.String(MyList35TV),ListItem.Title)|String.IsEqual(Skin.String(MyList36TV),ListItem.Title)|String.IsEqual(Skin.String(MyList37TV),ListItem.Title)|String.IsEqual(Skin.String(MyList38TV),ListItem.Title)|String.IsEqual(Skin.String(MyList39TV),ListItem.Title)|String.IsEqual(Skin.String(MyList40TV),ListItem.Title)|String.IsEqual(Skin.String(MyList41TV),ListItem.Title)|String.IsEqual(Skin.String(MyList42TV),ListItem.Title)|String.IsEqual(Skin.String(MyList43TV),ListItem.Title)|String.IsEqual(Skin.String(MyList44TV),ListItem.Title)|String.IsEqual(Skin.String(MyList45TV),ListItem.Title)|String.IsEqual(Skin.String(MyList46TV),ListItem.Title)|String.IsEqual(Skin.String(MyList47TV),ListItem.Title)|String.IsEqual(Skin.String(MyList48TV),ListItem.Title)|String.IsEqual(Skin.String(MyList49TV),ListItem.Title)|String.IsEqual(Skin.String(MyList50TV),ListItem.Title)|String.IsEqual(Skin.String(MyList51TV),ListItem.Title)|String.IsEqual(Skin.String(MyList52TV),ListItem.Title)|String.IsEqual(Skin.String(MyList53TV),ListItem.Title)|String.IsEqual(Skin.String(MyList54TV),ListItem.Title)|String.IsEqual(Skin.String(MyList55TV),ListItem.Title)|String.IsEqual(Skin.String(MyList56TV),ListItem.Title)|String.IsEqual(Skin.String(MyList57TV),ListItem.Title)|String.IsEqual(Skin.String(MyList58TV),ListItem.Title)|String.IsEqual(Skin.String(MyList59TV),ListItem.Title)|String.IsEqual(Skin.String(MyList60TV),ListItem.Title)|String.IsEqual(Skin.String(MyList61TV),ListItem.Title)|String.IsEqual(Skin.String(MyList62TV),ListItem.Title)|String.IsEqual(Skin.String(MyList63TV),ListItem.Title)|String.IsEqual(Skin.String(MyList64TV),ListItem.Title)|String.IsEqual(Skin.String(MyList65TV),ListItem.Title)|String.IsEqual(Skin.String(MyList66TV),ListItem.Title)|String.IsEqual(Skin.String(MyList67TV),ListItem.Title)|String.IsEqual(Skin.String(MyList68TV),ListItem.Title)|String.IsEqual(Skin.String(MyList69TV),ListItem.Title)|String.IsEqual(Skin.String(MyList70TV),ListItem.Title)|String.IsEqual(Skin.String(MyList71TV),ListItem.Title)|String.IsEqual(Skin.String(MyList72TV),ListItem.Title)|String.IsEqual(Skin.String(MyList73TV),ListItem.Title)|String.IsEqual(Skin.String(MyList74TV),ListItem.Title)|String.IsEqual(Skin.String(MyList75TV),ListItem.Title)|String.IsEqual(Skin.String(MyList76TV),ListItem.Title)|String.IsEqual(Skin.String(MyList77TV),ListItem.Title)|String.IsEqual(Skin.String(MyList78TV),ListItem.Title)|String.IsEqual(Skin.String(MyList79TV),ListItem.Title)|String.IsEqual(Skin.String(MyList80TV),ListItem.Title)|String.IsEqual(Skin.String(MyList81TV),ListItem.Title)|String.IsEqual(Skin.String(MyList82TV),ListItem.Title)|String.IsEqual(Skin.String(MyList83TV),ListItem.Title)|String.IsEqual(Skin.String(MyList84TV),ListItem.Title)|String.IsEqual(Skin.String(MyList85TV),ListItem.Title)|String.IsEqual(Skin.String(MyList86TV),ListItem.Title)|String.IsEqual(Skin.String(MyList87TV),ListItem.Title)|String.IsEqual(Skin.String(MyList88TV),ListItem.Title)|String.IsEqual(Skin.String(MyList89TV),ListItem.Title)|String.IsEqual(Skin.String(MyList90TV),ListItem.Title)|String.IsEqual(Skin.String(MyList91TV),ListItem.Title)|String.IsEqual(Skin.String(MyList92TV),ListItem.Title)|String.IsEqual(Skin.String(MyList93TV),ListItem.Title)|String.IsEqual(Skin.String(MyList94TV),ListItem.Title)|String.IsEqual(Skin.String(MyList95TV),ListItem.Title)|String.IsEqual(Skin.String(MyList96TV),ListItem.Title)|String.IsEqual(Skin.String(MyList97TV),ListItem.Title)|String.IsEqual(Skin.String(MyList98TV),ListItem.Title)|String.IsEqual(Skin.String(MyList99TV),ListItem.Title)|String.IsEqual(Skin.String(MyList100TV),ListItem.Title)]]</selected>
+                </control>
+
+            </control>
+            <control type="grouplist">
+                <left>10</left>
+        	    	<orientation>horizontal</orientation>
+        	        <usecontrolcoords>true</usecontrolcoords>
+        	        <width>854</width>
+        	        <height>30</height>
+        	        <itemgap>15</itemgap>
+        	        <control type="label">
+                	    <width min="0" max="400">auto</width>
+                	    <height>29</height>
+                	    <align>left</align>
+                	    <aligny>center</aligny>
+                	    <label>$VAR[RatingVar]% le ha gustado</label>
+                	    <font>20px_Bold</font>
+                	    <textcolor>limegreen</textcolor>
+                	    <shadowcolor>text_shadow</shadowcolor>
+                	</control>
+                	<control type="label">
+                	    <width min="0" max="400">auto</width>
+                	    <height>29</height>
+                	    <align>left</align>
+                	    <aligny>center</aligny>
+                	    <label>$INFO[Listitem.Year]</label>
+                	    <font>20px_Bold</font>
+                	    <textcolor>gainsboro</textcolor>
+                	    <shadowcolor>text_shadow</shadowcolor>
+                	</control>
+                    <control type="label">
+                	    <width min="0" max="400">auto</width>
+                	    <height>29</height>
+                	    <align>left</align>
+                	    <aligny>center</aligny>
+                	    <label>[B][COLOR $VAR[MpaaColorVar]]|[/COLOR][/B]$VAR[MpaaVar]</label>
+                	    <font>20px_Bold</font>
+                	    <textcolor>gainsboro</textcolor>
+                	    <shadowcolor>text_shadow</shadowcolor>
+                	</control>
+                	<control type="label">
+                	    <width min="0" max="300">auto</width>
+                	    <height>29</height>
+                	    <align>left</align>
+                	    <aligny>center</aligny>
+                	    <label>$VAR[TimeVar]</label>
+                	    <font>20px_Bold</font>
+                	    <textcolor>gainsboro</textcolor>
+                	    <shadowcolor>text_shadow</shadowcolor>
+						<visible>!ListItem.IsFolder</visible>
+                	</control>
+					<control type="label">
+                	    <width min="0" max="300">auto</width>
+                	    <height>29</height>
+                	    <align>left</align>
+                	    <aligny>center</aligny>
+                	    <label>$VAR[SeasonVar]</label>
+                	    <font>20px_Bold</font>
+                	    <textcolor>gainsboro</textcolor>
+                	    <shadowcolor>text_shadow</shadowcolor>
+						<visible>ListItem.IsFolder</visible>
+                	</control>
+		        	<control type="button">
+		        		<centertop>50%</centertop>
+                	    <width min="0" max="400">auto</width>
+                	    <height>27</height>
+		        	    <texturenofocus border="5" colordiffuse="silver">flags/flag.png</texturenofocus>
+                	    <label>$VAR[VideoResolutionVar]</label>
+                	    <font>19px_Bold</font>
+                	    <textcolor>gainsboro</textcolor>
+                	    <shadowcolor>text_shadow</shadowcolor>
+                	    <align>center</align>
+                	    <aligny>center</aligny>
+                	</control>
+		        	<control type="button">
+		        		<centertop>50%</centertop>
+                    	<width min="0" max="400">auto</width>
+                    	<height>27</height>
+		            	<texturenofocus border="5" colordiffuse="silver">flags/flag.png</texturenofocus>
+                    	<label>$VAR[AudioChannelsVar]</label>
+                    	<font>19px_Bold</font>
+                    	<textcolor>gainsboro</textcolor>
+                    	<shadowcolor>text_shadow</shadowcolor>
+                    	<align>center</align>
+                    	<aligny>center</aligny>
+            		</control>
+            	</control>
+                <control type="textbox">
+                    <left>10</left>
+                    <width>900</width>
+                    <height>210</height>
+                    <label>$VAR[PlotVar]</label>
+                    <font>25px_Medium</font>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <autoscroll delay="8000" time="1500" repeat="8000">Window.IsActive(movieinformation)</autoscroll>
+                </control>
+        </control>
+        <include>DialogVideoInfoProgressBar</include>
+        <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <texture>colors/black80.png</texture>
+            <visible>ControlGroup(11).HasFocus</visible>
+            <animation effect="fade" tween="cubic" easing="inout" time="300" reversible="true">VisibleChange</animation>
+        </control>
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <centerbottom>50</centerbottom>
+			<width>300</width>
+			<height>60</height>
+            <visible>Integer.IsGreater(Container(50).NumItems,0)|Container(50).IsUpdating</visible>
+            <animation effect="slide" end="0,-980" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            <control type="label">
+                <height>20</height>
+                <align>center</align>
+                <aligny>top</aligny>
+                <font>20px_Bold</font>
+                <label>REPARTO</label>
+                <textcolor>lightgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <visible>!ControlGroup(11).HasFocus</visible>
+                <animation effect="fade" tween="cubic" easing="inout" time="300">VisibleChange</animation>
+            </control>
+            <control type="image">
+                <centerleft>50%</centerleft>
+                <bottom>0</bottom>
+                <width>50</width>
+                <height>50</height>
+                <texture colordiffuse="lightgray">icons/arrow_down.png</texture>
+                <visible>!Container(50).HasPrevious</visible>
+                <animation effect="fade" tween="cubic" easing="out" time="400">VisibleChange</animation>
+                <animation effect="rotate" start="0" end="180" center="auto" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            </control>
+        </control>
+        <control type="group" id="11">
+            <top>100%</top>
+            <left>120</left>
+            <height>1080</height>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+            <defaultcontrol>50</defaultcontrol>
+            <usecontrolcoords>true</usecontrolcoords>
+            <animation effect="slide" end="0,-1080" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+
+            <control type="scrollbar" id="51">
+                <top>10</top>
+                <bottom>10</bottom>
+                <right>10</right>
+                <width>5</width>
+                <onleft>50</onleft>
+                <onback>50</onback>
+                <texturesliderbackground colordiffuse="4D373737" border="0,5,0,5"></texturesliderbackground>
+                <texturesliderbar colordiffuse="gray" border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+                <textureslidernib/>
+                <textureslidernibfocus/>
+                <showonepage>false</showonepage>
+                <orientation>vertical</orientation>
+            </control>
+        <control type="panel" id="50">
+            <width>100%</width>
+            <height>1080</height>
+            <scrolltime tween="cubic" easing="out">400</scrolltime>
+            <preloaditems>3</preloaditems>
+            <orientation>vertical</orientation>
+            <pagecontrol>51</pagecontrol>
+            <onup>900</onup>
+            <onback>Control.SetFocus(50,0,absolute)</onback>
+            <onback>900</onback>
+            <onright>51</onright>
+            <onleft>noop</onleft>
+            <ondown>noop</ondown>
+            <itemlayout width="285" height="400">
+                <control type="group">
+                    <top>120</top>
+                    <width>253</width>
+                    <height>253</height>
+                    <control type="image">
+                        <texture fallback="DefaultActorSolid" diffuse="lists/round.png">DefaultActorSolid.png</texture>
+                        <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                        <bordertexture>frame/round_shadow.png</bordertexture>
+                        <bordersize>5</bordersize>
+                    </control>
+                    <control type="image">
+                        <texture fallback="DefaultActorSolid" diffuse="lists/round.png" background="true">$INFO[ListItem.Thumb]</texture>
+                        <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                        <bordertexture>frame/round_shadow.png</bordertexture>
+                        <bordersize>5</bordersize>
+                    </control>
+                    <control type="label">
+                        <left>0</left>
+                        <right>0</right>
+                        <height>20</height>
+                        <bottom>-35</bottom>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>22px_Medium</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="textbox">
+                        <left>0</left>
+                        <right>0</right>
+                        <height>50</height>
+                        <bottom>-90</bottom>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <font>22px_Regular</font>
+                        <textcolor>silver</textcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </control>
+            </itemlayout>
+            <focusedlayout width="285" height="400">
+                <control type="group">
+                    <top>120</top>
+                    <width>253</width>
+                    <height>253</height>
+                    <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
+                    <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+                    <control type="image">
+                        <texture diffuse="lists/round.png">DefaultActorSolid.png</texture>
+                        <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                        <bordertexture>frame/round_shadow.png</bordertexture>
+                        <bordersize>5</bordersize>
+                    </control>
+                    <control type="image">
+                        <texture diffuse="lists/round.png" background="true">$INFO[ListItem.Thumb]</texture>
+                        <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                        <bordertexture>frame/round_shadow.png</bordertexture>
+                        <bordersize>5</bordersize>
+                    </control>
+                    <control type="image">
+                        <texture>frame/round_focus.png</texture>
+                        <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                        <animation effect="fade" start="100" end="70" pulse="true" reversible="true" delay="800" time="800" condition="true">Conditional</animation>
+                        <animation type="Focus" reversible="true">
+                    <effect type="fade" end="100" tween="cubic" easing="out" time="10" />
+                </animation>
+                <animation type="Unfocus" reversible="true">
+                    <effect type="fade" end="0" tween="cubic" easing="out" time="10" />
+                </animation>
+                    </control>
+                    <control type="label">
+                        <left>0</left>
+                        <right>0</right>
+                        <height>20</height>
+                        <bottom>-35</bottom>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>22px_Medium</font>
+                        <label>$INFO[ListItem.Label]</label>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="textbox">
+                        <left>0</left>
+                        <right>0</right>
+                        <height>50</height>
+                        <bottom>-90</bottom>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <font>22px_Regular</font>
+                        <textcolor>silver</textcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
+                    </control>
+                </control>
+            </focusedlayout>
+        </control>
+        </control>
+        <control type="grouplist" id="800">
+            <orientation>vertical</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <right>35</right>
+            <top>-165</top>
+            <width>500</width>
+            <height>165</height>
+            <itemgap>5</itemgap>
+            <onleft>900</onleft>
+            <animation effect="slide" end="0,190" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(800).HasFocus">Conditional</animation>
+            <control type="radiobutton" id="801">
+                <right>0</right>
+                <height>80</height>
+                <width>80</width>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>27px_Medium</font>
+                <radioposx>21</radioposx>
+                <radioposy>1</radioposy>
+                <radiowidth>40</radiowidth>
+                <radioheight>80</radioheight>
+                <label>IMAGEN</label>
+                <textoffsetx>90</textoffsetx>
+                <textcolor>silver</textcolor>
+                <focusedcolor>FFEEEEEE</focusedcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <textureradioonfocus colordiffuse="black">icons/videoinfo/image.png</textureradioonfocus>
+                <textureradioofffocus colordiffuse="black">icons/videoinfo/image.png</textureradioofffocus>
+                <textureradioonnofocus colordiffuse="FFEEEEEE">icons/videoinfo/image.png</textureradioonnofocus>
+                <textureradiooffnofocus colordiffuse="FFEEEEEE">icons/videoinfo/image.png</textureradiooffnofocus>
+                <texturefocus>dialogs/keyboard/key3.png</texturefocus>
+                <texturenofocus colordiffuse="FFEEEEEE">dialogs/keyboard/key-nf3.png</texturenofocus>
+                <pulseonselect>false</pulseonselect>
+                <textwidth>500</textwidth>
+                <onclick>SendClick(10)</onclick>
+            </control>
+            <control type="radiobutton" id="802">
+                <right>0</right>
+                <height>80</height>
+                <width>80</width>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>27px_Medium</font>
+                <radioposx>21</radioposx>
+                <radioposy>1</radioposy>
+                <radiowidth>40</radiowidth>
+                <radioheight>80</radioheight>
+                <label>ACTUALIZAR</label>
+                <textoffsetx>90</textoffsetx>
+                <textcolor>silver</textcolor>
+                <focusedcolor>FFEEEEEE</focusedcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <textureradioonfocus colordiffuse="black">icons/videoinfo/update2.png</textureradioonfocus>
+                <textureradioofffocus colordiffuse="black">icons/videoinfo/update2.png</textureradioofffocus>
+                <textureradioonnofocus colordiffuse="FFEEEEEE">icons/videoinfo/update2.png</textureradioonnofocus>
+                <textureradiooffnofocus colordiffuse="FFEEEEEE">icons/videoinfo/update2.png</textureradiooffnofocus>
+                <texturefocus>dialogs/keyboard/key3.png</texturefocus>
+                <texturenofocus colordiffuse="FFEEEEEE">dialogs/keyboard/key-nf3.png</texturenofocus>
+                <pulseonselect>false</pulseonselect>
+                <textwidth>500</textwidth>
+                <onclick>SendClick(6)</onclick>
+            </control>
+        </control>
+            <control type="grouplist">
+            		<orientation>vertical</orientation>
+            		<usecontrolcoords>true</usecontrolcoords>
+                    <left>120</left>
+                    <bottom>50</bottom>
+            		<width>450</width>
+            		<height>300</height>
+            		<itemgap>5</itemgap>
+                    <align>right</align>
+                    <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+                    <control type="label">
+						<width>450</width>
+						<height>25</height>
+						<font>20px_Medium</font>
+						<textcolor>silver</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>DIRECTOR</label>
+            			<visible>!String.IsEmpty(ListItem.Director)|!String.IsEmpty(Container(5050).ListItem.Director)</visible>
+						<align>left</align>
+					</control>
+					<control type="textbox">
+						<width>450</width>
+						<height>auto</height>
+						<font>20px_Regular</font>
+						<textcolor>darkgray</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>$INFO[ListItem.Director][CR] </label>
+            			<visible>!String.IsEmpty(ListItem.Director)</visible>
+						<align>left</align>
+					</control>
+                    <control type="textbox">
+						<width>450</width>
+						<height>auto</height>
+						<font>20px_Regular</font>
+						<textcolor>darkgray</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>$INFO[Container(5050).ListItem.Director][CR] </label>
+                        <visible>!String.IsEmpty(Container(5050).ListItem.Director)</visible>
+            			<visible>String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+						<align>left</align>
+					</control>
+
+                    <control type="label">
+						<width>450</width>
+						<height>25</height>
+						<font>20px_Medium</font>
+						<textcolor>silver</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>ESTUDIO</label>
+            			<visible>!String.IsEmpty(ListItem.Studio)</visible>
+						<align>left</align>
+					</control>
+                    <control type="textbox">
+						<width>450</width>
+						<height>auto</height>
+						<font>20px_Regular</font>
+						<textcolor>darkgray</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>$INFO[ListItem.Studio][CR] </label>
+            			<visible>!String.IsEmpty(ListItem.Studio)</visible>
+						<align>left</align>
+					</control>
+                    <control type="label">
+						<width>450</width>
+						<height>25</height>
+						<font>20px_Medium</font>
+						<textcolor>silver</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>GÉNERO</label>
+            			<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<align>left</align>
+					</control>
+					<control type="textbox">
+						<width>450</width>
+						<height>auto</height>
+						<font>20px_Regular</font>
+						<textcolor>darkgray</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>$VAR[Genre1Var]$VAR[Genre2Var]$VAR[Genre3Var]$VAR[Genre4Var]$VAR[Genre5Var]$VAR[Genre6Var]$VAR[Genre7Var]$VAR[Genre8Var]$VAR[Genre9Var]$VAR[Genre10Var]$VAR[Genre11Var]$VAR[Genre12Var]$VAR[Genre13Var][CR] </label>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<align>left</align>
+					</control>
+        		</control>
+		</control>
+
+	</controls>
+</window>

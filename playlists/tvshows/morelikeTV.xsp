@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Watched tvshows</name>
+    <match>all</match>
+    <rule field="numwatched" operator="greaterthan">0</rule>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="genre" operator="doesnotcontain">anima</rule>
+    <limit>all</limit>
+    <order direction="descending" limit="20">lastplayed</order>
+</smartplaylist>

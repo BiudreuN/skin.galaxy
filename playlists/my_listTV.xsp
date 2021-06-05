@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Series</name>
+    <match>all</match>
+    <rule field="userrating" operator="is">10</rule>
+    <limit>all</limit>
+    <order direction="ascending">LastPlayed</order>
+</smartplaylist>

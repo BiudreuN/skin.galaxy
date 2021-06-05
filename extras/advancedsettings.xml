@@ -1,0 +1,5 @@
+<advancedsettings version="1.0">
+  <videolibrary>
+    <itemseparator>, </itemseparator>  <!-- separator used for multiple artists/genres in tags. Note, this is *space* *slash* *space* -->
+  </videolibrary>
+</advancedsettings>

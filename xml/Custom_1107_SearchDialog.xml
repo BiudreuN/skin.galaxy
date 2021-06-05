@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1107">
+	<defaultcontrol>1001</defaultcontrol>
+    <backgroundcolor>0</backgroundcolor>
+	<previouswindow>1110</previouswindow>
+	<onload>SetProperty(CustomSearch,1,home)</onload>
+    <onunload>ClearProperty(SuggestionPath)</onunload>
+    <onunload>ClearProperty(CustomSearchTerm)</onunload>
+    <include>CustomWinProps</include>
+    <onload>Action(Stop)</onload>
+	<controls>
+        <control type="group">
+            <animation effect="fade" start="0" end="100" time="200" tween="cubic" easing="in" reversible="true">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" time="200" tween="cubic" easing="out" reversible="true">WindowClose</animation>
+            <control type="multiimage">
+                    <height>100%</height>
+                    <width>100%</width>
+                    <animation effect="fade" time="350" >VisibleChange</animation>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <fadetime>350</fadetime>
+                    <imagepath>special://skin/extras/backgrounds/pattern3.jpg</imagepath>
+                    <colordiffuse>primary_background</colordiffuse>
+                </control>
+            <control type="group">
+                <visible>Window.IsActive(movieinformation)</visible>
+                <animation effect="fade" time="350">VisibleChange</animation>
+                <control type="multiimage">
+                    <depth>DepthBackground</depth>
+                    <right>0</right>
+                    <width>1600</width>
+                    <height>900</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <fadetime>350</fadetime>
+                    <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+                    <animation effect="fade" time="350" >VisibleChange</animation>
+                    <imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
+                </control>
+                <include>WidgetInfo</include>
+            </control>
+            <control type="group">
+                <animation effect="fade" time="350">VisibleChange</animation>
+                <visible>!Window.IsActive(movieinformation)</visible>
+                
+                <!-- ########## Left Layout ########## -->
+                <control type="label">
+                    <top>135</top>
+                    <left>120</left>
+                    <width>550</width>
+                    <height>60</height>
+                    <font>38px_Medium</font>
+                    <label>[COLOR 0D000000]$VAR[SearchString][/COLOR][LIGHT]|[/LIGHT]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <textcolor>FFEEEEEE</textcolor>
+                    <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+                    <animation effect="fade" start="100" end="0" time="350" tween="Circle" easing="out" condition="Control.HasFocus(990)">Condition</animation>
+                    <animation effect="fade" start="100" end="0" delay="500" time="350" pulse="true" tween="Circle" easing="out" condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Condition</animation>
+                </control>
+                <!-- Pseudo-Keyboard Layout -->
+                <control type="grouplist" id="9000">
+                    <top>135</top>
+                    <left>110</left>
+                    <height>1900</height>
+                    <orientation>vertical</orientation>
+                    <itemgap>-10</itemgap>
+                    <defaultcontrol>1001</defaultcontrol>
+                    <onup>9900</onup>
+                    <ondown>noop</ondown>
+                    <onleft>ActivateWindow(1110)</onleft>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    
+                    <onright condition="!Integer.IsGreater(Container(77777).NumItems,0)">77777</onright>
+                    <onback>900</onback>
+                    <!-- Space / Backspace Row -->
+                    <include content="SearchKeyboardRow">
+                        <param name="id" value="1000" />
+                        <param name="onleft" value="ActivateWindow(1110)" />
+                        <param name="onright" value="77777" />
+                        <param name="row_include" value="SearchKeyboardRow_BackspaceAndSpace_Row" />
+                    </include>
+                    <!-- First Row -->
+                    <include content="SearchKeyboardRow">
+                        <param name="id" value="1001" />
+                        <param name="onleft" value="ActivateWindow(1110)" />
+                        <param name="onright" value="77777" />
+                        <param name="row_include" value="SearchKeyboardRow_First_Row" />
+                    </include>
+                    <!-- Second Row -->
+                    <include content="SearchKeyboardRow">
+                        <param name="id" value="1002" />
+                        <param name="onleft" value="ActivateWindow(1110)" />
+                        <param name="onright" value="77777" />
+                        <param name="row_include" value="SearchKeyboardRow_Second_Row" />
+                    </include>
+                    <!-- Third Row -->
+                    <include content="SearchKeyboardRow">
+                        <param name="id" value="1003" />
+                        <param name="onleft" value="ActivateWindow(1110)" />
+                        <param name="onright" value="77777" />
+                        <param name="row_include" value="SearchKeyboardRow_Third_Row" />
+                    </include>
+                    <!-- Fourth Row -->
+                    <include content="SearchKeyboardRow">
+                        <param name="id" value="1004" />
+                        <param name="onleft" value="ActivateWindow(1110)" />
+                        <param name="onright" value="77777" />
+                        <param name="row_include" value="SearchKeyboardRow_Fourth_Row" />
+                    </include>
+                    <!-- Fifth Row -->
+                    <include content="SearchKeyboardRow">
+                        <param name="id" value="1005" />
+                        <param name="onleft" value="ActivateWindow(1110)" />
+                        <param name="onright" value="77777" />
+                        <param name="row_include" value="SearchKeyboardRow_Fifth_Row" />
+                    </include>
+                    <!-- Auto-Complete & Static Suggestions List -->
+                    <include content="Search_Suggestions_Container">
+                        <param name="id" value="1007" />
+                        <param name="top" value="30" />
+                        <param name="left" value="10" />
+                        <param name="width" value="420" />
+                        <param name="height" value="780" />
+                        <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.label])" />
+                        <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
+                        <animation effect="slide" end="0,-370" time="350" reversible="true" condition="Integer.IsEqual(Window.Property(Suggestions),1)">Conditional</animation>
+                        <onleft>SetProperty(KeepSuggestions,1)</onleft>
+                        <onleft>ActivateWindow(1110)</onleft>
+                        <onright>77777</onright>
+                        <animation effect="fade" start="100" end="50" time="350" reversible="true" condition="[Control.HasFocus(500)|Control.HasFocus(510)|Control.HasFocus(50)]+Integer.IsEqual(Window.Property(Suggestions),1)">Conditional</animation>
+                        <onup>9000</onup>
+                        <onback>ActivateWindow(1110)</onback>
+                        <onfocus>ClearProperty(KeepSuggestions)</onfocus>
+                        <onfocus>SetProperty(Suggestions,1)</onfocus>
+                        <enable>Integer.IsGreater(Container(1007).NumItems,0)+!Container(1007).IsUpdating</enable>
+                        <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
+                        <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">Control.SetFocus(77777,0,absolute)</onclick>
+                        
+                        <content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
+                        <include>Search_Suggestions_Content</include>
+                    </include>
+                </control>
+                <control type="image">
+                    <top>600</top>
+                    <left>120</left>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio aligny="center" align="center">keep</aspectratio>
+                    <texture>dialogs/extendedprogress/loading.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                    <animation effect="fade" time="350" start="0" end="100" delay="100" condition="Container(1007).IsUpdating">Conditional</animation>
+                    <visible>Container(1007).IsUpdating</visible>
+                </control>
+                <control type="scrollbar" id="1050">
+                    <left>735</left>
+                    <top>585</top>
+                    <width>5</width>
+                    <height>780</height>
+                    <texturesliderbackground/>
+                    <texturesliderbar colordiffuse="silver">colors/white.png</texturesliderbar>
+                    <texturesliderbarfocus>colors/white.png</texturesliderbarfocus>
+                    <textureslidernib/>
+                    <textureslidernibfocus/>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <animation effect="fade" start="100" end="0" time="350" reversible="true" condition="!Integer.IsEqual(Window.Property(Suggestions),1)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="350" reversible="true" condition="!Control.HasFocus(1007)">Conditional</animation>
+                    <animation effect="slide" end="0,-370" time="350" reversible="true" condition="Integer.IsEqual(Window.Property(Suggestions),1)">Conditional</animation>
+                </control>
+                <control type="image">
+                    <depth>1</depth>
+                    <left>737</left>
+                    <top>585</top>
+                    <width>1</width>
+                    <height>780</height>
+                    <texture>dialogs/separatorv-grey.png</texture>
+                    <animation effect="fade" start="100" end="0" time="350" reversible="true" condition="!Integer.IsEqual(Window.Property(Suggestions),1)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="350" reversible="true" condition="[Control.HasFocus(500)|Control.HasFocus(510)]+Integer.IsEqual(Window.Property(Suggestions),1)">Conditional</animation>
+                    <animation effect="slide" end="0,-370" time="350" reversible="true" condition="Integer.IsEqual(Window.Property(Suggestions),1)">Conditional</animation>
+                </control>
+                <!--- ########## Right Layout ########## -->
+                <control type="image">
+                    <top>380</top>
+                    <right>55</right>
+                    <width>1000</width>
+                    <height>150</height>
+                    <texture colordiffuse="silver">dialogs/close.png</texture>
+                    <aspectratio>keep</aspectratio>
+                    <animation effect="fade"  time="350" reversible="true">Visible</animation>
+                    <visible>[!String.IsEmpty(Skin.String(CustomSearchTerm))+!Integer.IsGreater(Container(510).NumItems,0)]|[String.IsEmpty(Skin.String(CustomSearchTerm))+!String.IsEmpty(Window.Property(SuggestionPath))+!Integer.IsGreater(Container(500).NumItems,0)]</visible>
+                    <visible>!Container(500).IsUpdating|!Container(510).IsUpdating</visible>
+                </control>
+                <control type="label">
+                    <right>55</right>
+                    <width>1000</width>
+                    <height>100%</height>
+                    <font>56px_Regular</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <wrapmultiline>true</wrapmultiline>
+                    <textcolor>silver</textcolor>
+                    <label>Sin resultados</label>
+                    <animation effect="fade"  time="350" reversible="true">Visible</animation>
+                    <visible>[!String.IsEmpty(Skin.String(CustomSearchTerm))+!Integer.IsGreater(Container(510).NumItems,0)]|[String.IsEmpty(Skin.String(CustomSearchTerm))+!String.IsEmpty(Window.Property(SuggestionPath))+!Integer.IsGreater(Container(500).NumItems,0)]</visible>
+                    <visible>!Container(500).IsUpdating|!Container(510).IsUpdating</visible>
+                </control>
+
+                <!-- Results -->
+                <control type="group">
+                    <top>150</top>
+                    <right>55</right>
+                    <width>1000</width>
+                    <height>1094</height>
+                    <animation effect="fade"  time="350" reversible="true">VisibleChange</animation>
+                    <visible>String.IsEmpty(Skin.String(CustomSearchTerm))+[!ControlGroup(77777).HasFocus()+!Control.HasFocus(1007)+!Control.HasFocus(50)]</visible>
+                    <control type="image">
+                        <top>200</top>
+                        <left>300</left>
+                        <width>150</width>
+                        <height>150</height>
+						<texture colordiffuse="silver">icons/round_movie_white_48dp.png</texture>
+					</control>
+                    <control type="label">
+                        <top>200</top>
+                        <left>300</left>
+                        <right>300</right>
+                        <height>150</height>
+                        <font>38px_Medium</font>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <wrapmultiline>true</wrapmultiline>
+                        <textcolor>silver</textcolor>
+                        <label>o</label>
+                    </control>
+                    <control type="image">
+                        <top>200</top>
+                        <right>300</right>
+                        <width>150</width>
+                        <height>150</height>
+						<texture colordiffuse="silver">icons/round_tv_white_48dp.png</texture>
+					</control>
+                    <control type="label">
+                        <top>350</top>
+                        <left>100</left>
+                        <right>100</right>
+                        <height>100%</height>
+                        <font>38px_Medium</font>
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <wrapmultiline>true</wrapmultiline>
+                        <textcolor>silver</textcolor>
+                        <label>Buscar por Título, Género, Año, Estudio, Actor, Director, Etiqueta o Saga</label>
+                    </control>
+                </control>
+                <control type="scrollbar" id="50">
+                    <right>-5</right>
+                    <top>0</top>
+                    <width>10</width>
+                    <height>100%</height>
+                    <texturesliderbackground></texturesliderbackground>
+                    <texturesliderbar colordiffuse="silver">colors/white.png</texturesliderbar>
+                    <texturesliderbarfocus>colors/white.png</texturesliderbarfocus>
+                    <textureslidernib></textureslidernib>
+                    <textureslidernibfocus></textureslidernibfocus>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <onleft>77777</onleft>
+                    <onback>77777</onback>
+                    <visible>Integer.IsGreater(Container(77777).NumItems,0)</visible>
+                    
+                    <animation effect="fade"  time="350" reversible="true">VisibleChange</animation>
+                    <animation effect="fade" start="100" end="70" pulse="true" reversible="true" time="800" condition="Control.HasFocus(50)">Conditional</animation>
+                    <animation effect="slide" end="-5" time="350" reversible="true" condition="Control.HasFocus(50)">conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="350" delay="800" reversible="true" condition="[!Container(500).OnScrollNext+!Container(500).OnScrollPrevious+!Container(510).OnScrollNext+!Container(510).OnScrollPrevious]+!Control.HasFocus(50)">conditional</animation>
+                    <visible>Control.HasFocus(500)|Control.HasFocus(510)|Control.HasFocus(50)</visible>
+                </control>
+                <control type="grouplist" id="77777">
+                    <top>-15</top>
+                    <right>55</right>
+                    <width>1000</width>
+                    <height>1094</height>
+                    <orientation>vertical</orientation>
+                    <pagecontrol>666</pagecontrol>
+                    <onright>666</onright>
+                    <onleft>9000</onleft>
+                    <onback>9000</onback>
+                    <!-- Suggestions Result -->
+                    <include content="WidgetListSearch">
+                        <param name="content_path" value="special://skin/playlists/search/$INFO[Window.Property(SuggestionPath)].xsp"/>
+                        <param name="target" value="videos"/>
+                        <param name="visible_widget" value="[String.IsEmpty(Skin.String(CustomSearchTerm))+!String.IsEmpty(Window.Property(SuggestionPath))]+[ControlGroup(77777).HasFocus()|Control.HasFocus(1007)|Control.HasFocus(50)|[Control.HasFocus(900)+!String.IsEmpty(Window.Property(KeepSuggestions))]]"/>
+                        <param name="list_id" value="500"/>
+                        <param name="limit" value="all"/>
+                        <param name="sortby" value="title"/>
+                    </include>
+                    
+                    <!-- By Title (Movies & TV Shows) -->
+                    <include content="WidgetListSearch">
+                        <param name="content_path" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22originaltitle%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22writers%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+                        <param name="content_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22originaltitle%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+                        <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Título &quot;,&quot;]"/>
+                        <param name="target" value="videos"/>
+                        <param name="visible_widget" value="!String.IsEmpty(Skin.String(CustomSearchTerm))"/>
+                        <param name="list_id" value="510"/>
+                        <param name="limit" value="100"/>
+                        <param name="sortby" value="title"/>
+                    </include>
+                </control>
+                <control type="group">
+                   <top>400</top>
+                    <right>55</right>
+                    <width>1000</width>
+                    <height>150</height>
+                    <control type="image">
+                        <aspectratio aligny="center" align="center">keep</aspectratio>
+                        <texture>dialogs/extendedprogress/loading.png</texture>
+                        <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                        <animation effect="fade" time="350" start="0" end="100" delay="100" condition="Container(500).IsUpdating">Conditional</animation>
+                        <visible>[String.IsEmpty(Skin.String(CustomSearchTerm))+!String.IsEmpty(Window.Property(SuggestionPath))]+[ControlGroup(77777).HasFocus()|Control.HasFocus(1007)|Control.HasFocus(50)|[Control.HasFocus(900)+!String.IsEmpty(Window.Property(KeepSuggestions))]]</visible>
+                        <visible>Container(500).IsUpdating</visible>
+                    </control>
+                    <control type="image">
+                        <aspectratio aligny="center" align="center">keep</aspectratio>
+                        <texture>dialogs/extendedprogress/loading.png</texture>
+                        <animation effect="fade" time="350" start="0" end="100" delay="100" condition="Container(510).IsUpdating">Conditional</animation>
+                        <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                        <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))+Integer.IsGreater(Container(510).NumItems,0)</visible>
+                        <visible>Container(510).IsUpdating</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>865</left>
+                <top>165</top>
+                    <animation effect="slide" end="250" time="300" reversible="true" condition="Integer.IsGreater(Container(510).Column,0)">Conditional</animation>
+                    <animation effect="slide" end="250" time="300" reversible="true" condition="Integer.IsGreater(Container(510).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="250" time="300" reversible="true" condition="Integer.IsGreater(Container(510).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="0,375" time="300" reversible="true" condition="Integer.IsGreater(Container(510).Row,0)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="350" reversible="true" condition="Window.IsActive(movieinformation)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="!Control.HasFocus(510)">Conditional</animation>
+                    <control type="image">
+                        <top>-5</top>
+                        <left>-5</left>
+                        <width>255</width>
+                    <height>350</height>
+                        <texture border="10">lists/focus_border.png</texture>
+                        <animation effect="fade" start="100" end="70" pulse="true" reversible="true" time="800" condition="true">Conditional</animation>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>865</left>
+                <top>165</top>
+                    <animation effect="slide" end="250" time="300" reversible="true" condition="Integer.IsGreater(Container(500).Column,0)">Conditional</animation>
+                    <animation effect="slide" end="250" time="300" reversible="true" condition="Integer.IsGreater(Container(500).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="250" time="300" reversible="true" condition="Integer.IsGreater(Container(500).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="0,375" time="300" reversible="true" condition="Integer.IsGreater(Container(500).Row,0)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="350" reversible="true" condition="Window.IsActive(movieinformation)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
+                    <control type="image">
+                        <top>-5</top>
+                        <left>-5</left>
+                        <width>255</width>
+                    <height>350</height>
+                        <texture border="10">lists/focus_border.png</texture>
+                        <animation effect="fade" start="100" end="70" pulse="true" reversible="true" time="800" condition="true">Conditional</animation>
+                    </control>
+                </control>
+                <!-- Loading Suggestions -->
+                <include content="Busy_Spinner">
+                    <param name="centerleft" value="65%"/>
+                    <param name="centertop" value="48%"/>
+                    <param name="visibility" value="Control.IsVisible(510) + Container(510).IsUpdating + !Integer.IsGreater(Container(510).NumItems,0)"/>
+                    <param name="size" value="100"/>
+                </include>
+            </control>
+        </control>
+		<include>SidebarMenu</include>
+	</controls>
+</window>

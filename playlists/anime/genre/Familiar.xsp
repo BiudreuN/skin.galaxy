@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Familiar</name>
+    <match>all</match>
+    <rule field="genre" operator="contain">anime</rule>
+    <rule field="genre" operator="contain">
+        <value>familia</value>
+        <value>familiar</value>
+        <value>family</value>
+        <value>kids</value>
+    </rule>
+    <order direction="ascending">Title</order>
+</smartplaylist>

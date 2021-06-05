@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Películas</name>
+    <match>all</match>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="genre" operator="doesnotcontain">anima</rule>
+    <order direction="ascending">title</order>
+</smartplaylist>

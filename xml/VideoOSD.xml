@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<onload condition="VideoPlayer.Content(LiveTV) + !Player.PauseEnabled">SetFocus(603)</onload>
+	<depth>DepthOSD</depth>
+	<defaultcontrol always="true">602</defaultcontrol>
+    <include>OpenClose_Fade</include>
+	<controls>
+		<control type="button">
+			<description>background close area</description>
+			<left>0</left>
+			<top>0</top>
+			<width>100%</width>
+			<bottom>280</bottom>
+			<texturefocus />
+			<texturenofocus />
+			<onclick>Action(close)</onclick>
+		</control>
+		<control type="group">
+			<bottom>0</bottom>
+			<height>100</height>
+			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(OSDAudioDSPSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(playerprocessinfo) | Window.IsVisible(osdcmssettings) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(pvrchannelguide)]</visible>
+			<animation effect="fade" time="200">VisibleChange</animation>
+			<control type="label">
+				<right>100</right>
+				<top>-60</top>
+				<align>right</align>
+				<textoffsetx>0</textoffsetx>
+				<aligny>center</aligny>
+				<width>1000</width>
+				<height>60</height>
+                <font>27px_Medium</font>
+				<label>$VAR[VideoOSDHelpTextVar]</label>
+				<visible>!Player.ShowInfo + !PVR.IsTimeShift</visible>
+			</control>
+			<control type="group" id="200">
+				<control type="grouplist" id="201">
+					<left>100</left>
+					<centertop>50%</centertop>
+					<width>100%</width>
+					<height>60</height>
+					<itemgap>10</itemgap>
+					<scrolltime tween="sine">200</scrolltime>
+					<orientation>horizontal</orientation>
+					<onup>87</onup>
+					<ondown>noop</ondown>
+					<onleft>noop</onleft>
+					<onright>699</onright>
+					<control type="radiobutton" id="600">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/previous.png"/>
+						</include>
+						<onclick>PlayerControl(Previous)</onclick>
+						<visible>!VideoPlayer.Content(livetv)</visible>
+					</control>
+					<control type="radiobutton" id="602">
+						<textureradioonfocus colordiffuse="black">osd/fullscreen/buttons/play.png</textureradioonfocus>
+						<textureradioonnofocus>osd/fullscreen/buttons/play.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="black">osd/fullscreen/buttons/pause.png</textureradioofffocus>
+						<textureradiooffnofocus>osd/fullscreen/buttons/pause.png</textureradiooffnofocus>
+						<texturefocus>osd/fullscreen/buttons/button-fo.png</texturefocus>
+						<width>60</width>
+						<animation center="auto" effect="zoom" end="100" reversible="false" start="95" time="480" tween="back">Focus</animation>
+						<height>60</height>
+						<radiowidth>60</radiowidth>
+						<radioheight>60</radioheight>
+						<font></font>
+						<texturenofocus />
+						<radioposx>1</radioposx>
+						<radioposy>0</radioposy>
+						<selected>Player.Paused</selected>
+						<onclick>PlayerControl(Play)</onclick>
+						<visible>Player.PauseEnabled</visible>
+					</control>
+					<control type="radiobutton" id="605">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/next.png"/>
+						</include>
+						<onclick>PlayerControl(Next)</onclick>
+						<visible>!VideoPlayer.Content(livetv) + [Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1)]</visible>
+					</control>
+					<control type="radiobutton" id="804">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/home.png"/>
+						</include>
+						<onclick>PlayerControl(ShowVideoMenu)</onclick>
+						<visible>VideoPlayer.HasMenu</visible>
+					</control>
+				</control>
+				<control type="grouplist" id="202">
+					<right>100</right>
+					<centertop>50%</centertop>
+					<width>1800</width>
+					<height>60</height>
+					<align>right</align>
+					<itemgap>10</itemgap>
+					<scrolltime tween="sine">200</scrolltime>
+					<orientation>horizontal</orientation>
+					<onup>87</onup>
+					<ondown condition="Control.HasFocus(70043)">11104</ondown>
+					<ondown condition="Control.HasFocus(704)">12104</ondown>
+					<ondown condition="Control.HasFocus(255)">13103</ondown>
+					<onleft>804</onleft>
+					<onright>noop</onright>
+                    <control type="radiobutton" id="699">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/information.png"/>
+						</include>
+                        <onclick>Action(info)</onclick>
+						<onfocus condition="!Player.ShowInfo">Action(info)</onfocus>
+                        <onunfocus condition="Player.ShowInfo">Action(info)</onunfocus>
+						<visible>!VideoPlayer.Content(livetv)</visible>
+					</control>
+					<control type="radiobutton" id="70040">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/channels.png"/>
+						</include>
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(PVROSDChannels)</onclick>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+					<control type="radiobutton" id="70041">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/guide.png"/>
+						</include>
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(pvrchannelguide)</onclick>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+
+					<control type="radiobutton" id="703">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/teletext.png"/>
+						</include>
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(Teletext)</onclick>
+						<visible>VideoPlayer.HasTeletext</visible>
+					</control>
+                    <control type="radiobutton" id="705">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/audio.png"/>
+						</include>
+                        <onclick>Action(AudioNextLanguage)</onclick>
+						<visible>!VideoPlayer.Content(LiveTV)</visible>
+					</control>
+					<control type="radiobutton" id="704">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/settings-subtitle.png"/>
+                            <param name="texture2" value="osd/fullscreen/buttons/settings-subtitle-off.png"/>
+						</include>
+                        <enable>VideoPlayer.HasSubtitles</enable>
+						<onclick>Action(NextSubtitle)</onclick>
+						<visible>!VideoPlayer.Content(LiveTV)</visible>
+					</control>
+
+					<control type="radiobutton" id="255">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/stereoscopic.png"/>
+						</include>
+						<visible>VideoPlayer.IsStereoscopic</visible>
+						<onclick>SetProperty(settingslist_content,3d,home)</onclick>
+						<onclick>SetProperty(settingslist_header,$LOCALIZE[36501],home)</onclick>
+						<onclick>ActivateWindow(1101)</onclick>
+					</control>
+                    <control type="radiobutton" id="700">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/bookmarks.png"/>
+						</include>
+						<onclick>ActivateWindow(videobookmarks)</onclick>
+						<visible>!VideoPlayer.Content(livetv)</visible>
+					</control>
+					<control type="radiobutton" id="70043">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/settings.png"/>
+						</include>
+						<onclick>SetProperty(settingslist_content,osd,home)</onclick>
+						<onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
+						<onclick>ActivateWindow(1101)</onclick>
+					</control>
+				</control>
+                <control type="grouplist">
+					<right>100</right>
+					<centertop>50%</centertop>
+					<width>1800</width>
+					<height>60</height>
+					<align>right</align>
+					<itemgap>10</itemgap>
+					<scrolltime tween="sine">200</scrolltime>
+					<orientation>horizontal</orientation>
+					<control type="group">
+                        <width>60</width>
+                        <height>60</height>
+                        <animation center="auto" effect="zoom" end="100" reversible="false" start="95" time="480" tween="back" condition="Control.HasFocus(699)">Conditional</animation>
+                        <control type="image">
+                            <centerleft>51%</centerleft>
+                            <bottom>8</bottom>
+                            <width>34</width>
+                            <height>3</height>
+                            <texture border="5,0,5,0" colordiffuse="button_focus">dialogs/progress.png</texture>
+                            <visible>Player.ShowInfo</visible>
+                            <animation center="auto" effect="zoom" end="100" reversible="false" start="0,100" tween="cubic" easing="inout" time="200">VisibleChange</animation>
+                            <aspectratio>stretch</aspectratio>
+                            <visible>false</visible>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <width>60</width>
+                        <height>60</height>
+                        <animation center="auto" effect="zoom" end="100" reversible="false" start="95" time="480" tween="back" condition="Control.HasFocus(705)">Conditional</animation>
+                        <control type="button">
+                            <top>10</top>
+                            <centerright>15</centerright>
+                            <width>34</width>
+                            <height>12</height>
+                            <aligny>top</aligny>
+                            <align>center</align>
+                            <font>18px_Medium</font>
+                            <texturefocus/>
+                            <texturenofocus colordiffuse="dialog_tint" border="12">buttons/button-nofo2.png</texturenofocus>
+                            <textoffsety>2</textoffsety>
+                            <onclick>noop</onclick>
+                            <textcolor>silver</textcolor>
+                            <shadowcolor>text_shadow</shadowcolor>
+                            <label>$INFO[VideoPlayer.AudioLanguage]</label>
+                            <visible>!String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+                        </control>
+                        <control type="button">
+                            <top>10</top>
+                            <centerright>15</centerright>
+                            <width>22</width>
+                            <height>12</height>
+                            <aligny>top</aligny>
+                            <align>right</align>
+                            <font>18px_Medium</font>
+                            <texturefocus/>
+                            <texturenofocus colordiffuse="dialog_tint" border="12">buttons/button-nofo2.png</texturenofocus>
+                            <textoffsety>3</textoffsety>
+                            <onclick>noop</onclick>
+                            <textcolor>silver</textcolor>
+                            <shadowcolor>text_shadow</shadowcolor>
+                            <label>?</label>
+                            <visible>String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <width>60</width>
+                        <height>60</height>
+                        <animation center="auto" effect="zoom" end="100" reversible="false" start="95" time="480" tween="back" condition="Control.HasFocus(704)">Conditional</animation>
+                        <control type="image">
+                            <centerleft>51%</centerleft>
+                            <bottom>8</bottom>
+                            <width>34</width>
+                            <height>3</height>
+                            <texture border="5,0,5,0" colordiffuse="button_focus">dialogs/progress.png</texture>
+                            <visible>VideoPlayer.SubtitlesEnabled</visible>
+                            <animation center="auto" effect="zoom" end="100" reversible="false" start="0,100" tween="cubic" easing="inout" time="200">VisibleChange</animation>
+                            <aspectratio>stretch</aspectratio>
+                            <visible>VideoPlayer.HasSubtitles</visible>
+                        </control>
+                        <control type="button">
+                            <top>10</top>
+                            <centerright>15</centerright>
+                            <width>34</width>
+                            <height>12</height>
+                            <aligny>top</aligny>
+                            <align>center</align>
+                            <font>18px_Medium</font>
+                            <texturefocus/>
+                            <texturenofocus colordiffuse="dialog_tint" border="12">buttons/button-nofo2.png</texturenofocus>
+                            <textoffsety>2</textoffsety>
+                            <onclick>noop</onclick>
+                            <textcolor>silver</textcolor>
+                            <shadowcolor>text_shadow</shadowcolor>
+                            <label>$INFO[VideoPlayer.SubtitlesLanguage]</label>
+                            <visible>VideoPlayer.SubtitlesEnabled</visible>
+                            <visible>VideoPlayer.HasSubtitles</visible>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <width>60</width>
+                        <height>60</height>
+                    </control>
+                    <control type="group">
+                        <width>60</width>
+                        <height>60</height>
+
+                    </control>
+                </control>
+			</control>
+			<control type="group" id="6000">
+				<centertop>50%</centertop>
+                <centerleft>50%</centerleft>
+				<visible>Player.SeekEnabled</visible>
+				<control type="button" id="87">
+					<include>HiddenObject</include>
+					<onup>200</onup>
+					<onunfocus condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onunfocus>
+					<ondown>200</ondown>
+					<onright>StepForward</onright>
+					<onleft>StepBack</onleft>
+					<onclick condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onclick>
+				</control>
+
+			</control>
+		</control>
+	</controls>
+</window>

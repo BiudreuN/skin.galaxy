@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Recommended tvshows</name>
+    <match>all</match>
+    <rule field="rating" operator="greaterthan">7</rule>
+    <rule field="genre" operator="contain">anima</rule>
+    <limit>all</limit>
+    <order direction="descending">random</order>
+</smartplaylist>

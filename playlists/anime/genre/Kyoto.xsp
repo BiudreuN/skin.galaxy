@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Películas de Acción</name>
+    <match>all</match>
+    <rule field="studio" operator="contain">
+        <value>Kyoto</value>
+    </rule>
+    <rule field="genre" operator="contain">anime</rule>
+    <limit>all</limit>
+    <order>title</order>
+</smartplaylist>

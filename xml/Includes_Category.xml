@@ -1,0 +1,1367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="PosterLayout">
+        <param name="focus">false</param>
+        <param name="top">0</param>
+        <param name="left">0</param>
+        <definition>
+		<control type="group">
+			<width>253</width>
+			<height>361</height>
+            <top>$PARAM[top]</top>
+            <left>$PARAM[left]</left>
+            <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
+            <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+            <control type="image">
+                <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+                <bordersize>5</bordersize>
+                <bordertexture>frame/panel_border.png</bordertexture>
+                <aspectratio scalediffuse="false">stretch</aspectratio>
+            </control>
+			<control type="progress">
+				<bottom>-10</bottom>
+				<left>24</left>
+				<right>24</right>
+				<height>4</height>
+				<texturebg border="5,0,5,0" colordiffuse="90grey">dialogs/progress.png</texturebg>
+				<lefttexture></lefttexture>
+				<midtexture border="5,0,5,0" colordiffuse="button_focus">dialogs/progress.png</midtexture>
+				<righttexture></righttexture>
+				<overlaytexture></overlaytexture>
+				<info>ListItem.PercentPlayed</info>
+                <visible>ListItem.IsResumable</visible>
+			</control>
+            <control type="image">
+                <include condition="$PARAM[focus]">FocusTexture</include>
+                <aspectratio>stretch</aspectratio>
+                <visible>Control.HasFocus($PARAM[list_id])</visible>
+                <animation effect="fade" start="100" end="70" pulse="true" reversible="true" delay="800" time="800" condition="true">Conditional</animation>
+                <animation type="Focus" reversible="true">
+                    <effect type="fade" end="100" tween="cubic" easing="out" time="10" />
+                </animation>
+                <animation type="Unfocus" reversible="true">
+                    <effect type="fade" end="0" tween="cubic" easing="out" time="10" />
+                </animation>
+            </control>
+		</control>
+        
+        </definition>
+	</include>
+	<include name="GenreHome1">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/home/genre/action.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/home/genre/adventure.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/home/genre/belica.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/home/genre/ciencia_ficcion.xsp"/>
+        
+        	<param name="item6" value="Clásicas"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/home/genre/clasicas.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/home/genre/comedia.xsp"/>
+        
+        	<param name="item9" value="Drama"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/home/genre/drama.xsp"/>
+        	
+        	<param name="item11" value="Española"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/home/genre/española.xsp"/>
+        
+        	<param name="item12" value="Familiar"/>
+			<param name="item12_content" value="Películas"/>
+        	<param name="item12_path" value="special://skin/playlists/home/genre/familiar.xsp"/>
+        
+        	<param name="item13" value="Fantasía"/>
+			<param name="item13_content" value="Películas"/>
+        	<param name="item13_path" value="special://skin/playlists/home/genre/fantasy.xsp"/>
+        
+        	<param name="item14" value="Misterio"/>
+			<param name="item14_content" value="Películas"/>
+        	<param name="item14_path" value="special://skin/playlists/home/genre/misterio.xsp"/>
+        
+        	<param name="item15" value="Músical"/>
+			<param name="item15_content" value="Películas"/>
+        	<param name="item15_path" value="special://skin/playlists/home/genre/musical.xsp"/>
+        	
+        	<param name="item17" value="Romántica"/>
+			<param name="item17_content" value="Películas"/>
+        	<param name="item17_path" value="special://skin/playlists/home/genre/romance.xsp"/>
+        	
+        	<param name="item18" value="Suspense"/>
+			<param name="item18_content" value="Películas"/>
+        	<param name="item18_path" value="special://skin/playlists/home/genre/suspense.xsp"/>
+        	
+        	<param name="item19" value="Terror"/>
+			<param name="item19_content" value="Películas"/>
+        	<param name="item19_path" value="special://skin/playlists/home/genre/terror.xsp"/>
+        	
+        	<param name="item20" value="Western"/>
+			<param name="item20_content" value="Películas"/>
+        	<param name="item20_path" value="special://skin/playlists/home/genre/western.xsp"/>
+		</include>
+	</include>
+	<include name="GenreHome2">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/home/genre/actionTV.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/home/genre/adventureTV.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/home/genre/belicaTV.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/home/genre/ciencia_ficcionTV.xsp"/>
+        
+        	<param name="item6" value="Retro"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/home/genre/clasicasTV.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/home/genre/comediaTV.xsp"/>
+        
+        	<param name="item9" value="Drama"/>
+			<param name="item9_content" value="Series"/>
+        	<param name="item9_path" value="special://skin/playlists/home/genre/dramaTV.xsp"/>
+        
+        	<param name="item11" value="Familiar"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/home/genre/familiarTV.xsp"/>
+        
+        	<param name="item12" value="Fantasía"/>
+			<param name="item12_content" value="Series"/>
+        	<param name="item12_path" value="special://skin/playlists/home/genre/fantasyTV.xsp"/>
+        
+        	<param name="item13" value="Misterio"/>
+			<param name="item13_content" value="Series"/>
+        	<param name="item13_path" value="special://skin/playlists/home/genre/misterioTV.xsp"/>
+        
+        	<param name="item14" value="Músical"/>
+			<param name="item14_content" value="Series"/>
+        	<param name="item14_path" value="special://skin/playlists/home/genre/musicalTV.xsp"/>
+        	
+        	<param name="item16" value="Romántica"/>
+			<param name="item16_content" value="Series"/>
+        	<param name="item16_path" value="special://skin/playlists/home/genre/romanceTV.xsp"/>
+        	
+        	<param name="item17" value="Suspense"/>
+			<param name="item17_content" value="Series"/>
+        	<param name="item17_path" value="special://skin/playlists/home/genre/suspenseTV.xsp"/>
+        	
+        	<param name="item18" value="Terror"/>
+			<param name="item18_content" value="Series"/>
+        	<param name="item18_path" value="special://skin/playlists/home/genre/terrorTV.xsp"/>
+        	
+        	<param name="item19" value="Western"/>
+			<param name="item19_content" value="Series"/>
+        	<param name="item19_path" value="special://skin/playlists/home/genre/westernTV.xsp"/>
+		</include>
+	</include>
+	<include name="GenreMovies">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/movies/genre/Acción.xsp"/>
+            
+            <param name="item2" value="Artes Marciales"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/movies/genre/Artes Marciales.xsp"/>
+        
+        	<param name="item3" value="Aventuras"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/movies/genre/Aventuras.xsp"/>
+            
+        	<param name="item4" value="Ciencia Ficción"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/movies/genre/Ciencia Ficción.xsp"/>
+        
+        	<param name="item5" value="Clásicas"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/movies/genre/Clásicas.xsp"/>
+        
+        	<param name="item6" value="Comedia"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/movies/genre/Comedia.xsp"/>
+            
+            <param name="item7" value="Crimen"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/movies/genre/Crimen.xsp"/>
+        
+        	<param name="item8" value="Drama"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/movies/genre/Drama.xsp"/>
+        
+        	<param name="item10" value="Familiar"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/movies/genre/Familiar.xsp"/>
+        
+        	<param name="item11" value="Fantasía"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/movies/genre/Fantasía.xsp"/>
+        
+        	<param name="item12" value="Misterio"/>
+			<param name="item12_content" value="Películas"/>
+        	<param name="item12_path" value="special://skin/playlists/movies/genre/Misterio.xsp"/>
+        
+        	<param name="item13" value="Musical"/>
+			<param name="item13_content" value="Películas"/>
+        	<param name="item13_path" value="special://skin/playlists/movies/genre/Musical.xsp"/>
+        	
+        	<param name="item14" value="Romántica"/>
+			<param name="item14_content" value="Películas"/>
+        	<param name="item14_path" value="special://skin/playlists/movies/genre/Romántica.xsp"/>
+        	
+        	<param name="item15" value="Suspense"/>
+			<param name="item15_content" value="Películas"/>
+        	<param name="item15_path" value="special://skin/playlists/movies/genre/Suspense.xsp"/>
+        	
+        	<param name="item16" value="Terror"/>
+			<param name="item16_content" value="Películas"/>
+        	<param name="item16_path" value="special://skin/playlists/movies/genre/Terror.xsp"/>
+		</include>
+	</include>
+	<include name="GenreTvShows">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/tvshows/genre/Acción.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/tvshows/genre/Aventuras.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/tvshows/genre/Ciencia Ficción.xsp"/>
+        
+        	<param name="item6" value="Retro"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/tvshows/genre/Clasicas.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/tvshows/genre/Comedia.xsp"/>
+        
+        	<param name="item8" value="Drama"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/tvshows/genre/Drama.xsp"/>
+        
+        	<param name="item10" value="Familiar"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/tvshows/genre/Familiar.xsp"/>
+        
+        	<param name="item11" value="Fantasía"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/tvshows/genre/Fantasía.xsp"/>
+        
+        	<param name="item12" value="Misterio"/>
+			<param name="item12_content" value="Series"/>
+        	<param name="item12_path" value="special://skin/playlists/tvshows/genre/Misterio.xsp"/>
+        
+        	<param name="item13" value="Músical"/>
+			<param name="item13_content" value="Series"/>
+        	<param name="item13_path" value="special://skin/playlists/tvshows/genre/Musical.xsp"/>
+        	
+        	<param name="item14" value="Romántica"/>
+			<param name="item14_content" value="Series"/>
+        	<param name="item14_path" value="special://skin/playlists/tvshows/genre/Romántica.xsp"/>
+        	
+        	<param name="item15" value="Suspense"/>
+			<param name="item15_content" value="Series"/>
+        	<param name="item15_path" value="special://skin/playlists/tvshows/genre/Suspense.xsp"/>
+        	
+        	<param name="item16" value="Terror"/>
+			<param name="item16_content" value="Series"/>
+        	<param name="item16_path" value="special://skin/playlists/tvshows/genre/Terror.xsp"/>
+		</include>
+	</include>
+	<include name="GenreKids1">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/kids/genre/action.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/kids/genre/adventure.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/kids/genre/belica.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/kids/genre/ciencia_ficcion.xsp"/>
+        
+        	<param name="item6" value="Clásicas"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/kids/genre/clasicas.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/kids/genre/comedia.xsp"/>
+        
+        	<param name="item9" value="Drama"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/kids/genre/drama.xsp"/>
+        	
+        	<param name="item11" value="Española"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/kids/genre/española.xsp"/>
+        
+        	<param name="item12" value="Familiar"/>
+			<param name="item12_content" value="Películas"/>
+        	<param name="item12_path" value="special://skin/playlists/kids/genre/familiar.xsp"/>
+        
+        	<param name="item13" value="Fantasía"/>
+			<param name="item13_content" value="Películas"/>
+        	<param name="item13_path" value="special://skin/playlists/kids/genre/fantasy.xsp"/>
+        
+        	<param name="item14" value="Misterio"/>
+			<param name="item14_content" value="Películas"/>
+        	<param name="item14_path" value="special://skin/playlists/kids/genre/misterio.xsp"/>
+        
+        	<param name="item15" value="Músical"/>
+			<param name="item15_content" value="Películas"/>
+        	<param name="item15_path" value="special://skin/playlists/kids/genre/musical.xsp"/>
+        	
+        	<param name="item17" value="Romántica"/>
+			<param name="item17_content" value="Películas"/>
+        	<param name="item17_path" value="special://skin/playlists/kids/genre/romance.xsp"/>
+        	
+        	<param name="item18" value="Suspense"/>
+			<param name="item18_content" value="Películas"/>
+        	<param name="item18_path" value="special://skin/playlists/kids/genre/suspense.xsp"/>
+        	
+        	<param name="item19" value="Terror"/>
+			<param name="item19_content" value="Películas"/>
+        	<param name="item19_path" value="special://skin/playlists/kids/genre/terror.xsp"/>
+        	
+        	<param name="item20" value="Western"/>
+			<param name="item20_content" value="Películas"/>
+        	<param name="item20_path" value="special://skin/playlists/kids/genre/western.xsp"/>
+		</include>
+	</include>
+	<include name="GenreKids2">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/kids/genre/actionTV.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/kids/genre/adventureTV.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/kids/genre/belicaTV.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/kids/genre/ciencia_ficcionTV.xsp"/>
+        
+        	<param name="item6" value="Retro"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/kids/genre/clasicasTV.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/kids/genre/comediaTV.xsp"/>
+        
+        	<param name="item9" value="Drama"/>
+			<param name="item9_content" value="Series"/>
+        	<param name="item9_path" value="special://skin/playlists/kids/genre/dramaTV.xsp"/>
+        
+        	<param name="item11" value="Familiar"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/kids/genre/familiarTV.xsp"/>
+        
+        	<param name="item12" value="Fantasía"/>
+			<param name="item12_content" value="Series"/>
+        	<param name="item12_path" value="special://skin/playlists/kids/genre/fantasyTV.xsp"/>
+        
+        	<param name="item13" value="Misterio"/>
+			<param name="item13_content" value="Series"/>
+        	<param name="item13_path" value="special://skin/playlists/kids/genre/misterioTV.xsp"/>
+        
+        	<param name="item14" value="Músical"/>
+			<param name="item14_content" value="Series"/>
+        	<param name="item14_path" value="special://skin/playlists/kids/genre/musicalTV.xsp"/>
+        	
+        	<param name="item16" value="Romántica"/>
+			<param name="item16_content" value="Series"/>
+        	<param name="item16_path" value="special://skin/playlists/kids/genre/romanceTV.xsp"/>
+        	
+        	<param name="item17" value="Suspense"/>
+			<param name="item17_content" value="Series"/>
+        	<param name="item17_path" value="special://skin/playlists/kids/genre/suspenseTV.xsp"/>
+        	
+        	<param name="item18" value="Terror"/>
+			<param name="item18_content" value="Series"/>
+        	<param name="item18_path" value="special://skin/playlists/kids/genre/terrorTV.xsp"/>
+        	
+        	<param name="item19" value="Western"/>
+			<param name="item19_content" value="Series"/>
+        	<param name="item19_path" value="special://skin/playlists/kids/genre/westernTV.xsp"/>
+		</include>
+	</include>
+	<include name="GenreAnime1">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/anime/genre/action.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/anime/genre/adventure.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/anime/genre/belica.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/anime/genre/ciencia_ficcion.xsp"/>
+        
+        	<param name="item6" value="Clásicas"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/anime/genre/clasicas.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/anime/genre/comedia.xsp"/>
+        
+        	<param name="item8" value="Drama"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/anime/genre/drama.xsp"/>
+        	
+        	<param name="item9" value="Española"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/anime/genre/española.xsp"/>
+        
+        	<param name="item10" value="Familiar"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/anime/genre/familiar.xsp"/>
+        
+        	<param name="item11" value="Fantasía"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/anime/genre/fantasy.xsp"/>
+        
+        	<param name="item13" value="Misterio"/>
+			<param name="item13_content" value="Películas"/>
+        	<param name="item13_path" value="special://skin/playlists/anime/genre/misterio.xsp"/>
+        
+        	<param name="item14" value="Músical"/>
+			<param name="item14_content" value="Películas"/>
+        	<param name="item14_path" value="special://skin/playlists/anime/genre/musical.xsp"/>
+        	
+        	<param name="item15" value="Románticas"/>
+			<param name="item15_content" value="Película"/>
+        	<param name="item15_path" value="special://skin/playlists/anime/genre/romance.xsp"/>
+        	
+        	<param name="item16" value="Suspense"/>
+			<param name="item16_content" value="Películas"/>
+        	<param name="item16_path" value="special://skin/playlists/anime/genre/suspense.xsp"/>
+        	
+        	<param name="item17" value="Terror"/>
+			<param name="item17_content" value="Películas"/>
+        	<param name="item17_path" value="special://skin/playlists/anime/genre/terror.xsp"/>
+        	
+        	<param name="item18" value="Western"/>
+			<param name="item18_content" value="Películas"/>
+        	<param name="item18_path" value="special://skin/playlists/anime/genre/western.xsp"/>
+		</include>
+	</include>
+	<include name="GenreAnime2">
+		<include content="CustomLibrary">
+			<param name="title" value="Géneros"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultgenre.png"/>
+		
+			<param name="item1" value="Acción"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/anime/genre/actionTV.xsp"/>
+        
+        	<param name="item2" value="Aventuras"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/anime/genre/adventureTV.xsp"/>
+        
+        	<param name="item3" value="Artes Marciales"/>
+			<param name="item3_content" value="Series"/>
+        	<param name="item3_path" value="special://skin/playlists/anime/genre/artes_marcialesTV.xsp"/>
+        
+        	<param name="item4" value="Bélicas"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/anime/genre/belicaTV.xsp"/>
+        
+        	<param name="item5" value="Ciencia Ficción"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/anime/genre/ciencia_ficcionTV.xsp"/>
+        
+        	<param name="item6" value="Retro"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/anime/genre/clasicasTV.xsp"/>
+        
+        	<param name="item7" value="Comedia"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/anime/genre/comediaTV.xsp"/>
+        
+        	<param name="item8" value="Drama"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/anime/genre/dramaTV.xsp"/>
+        
+        	<param name="item10" value="Familiar"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/anime/genre/familiarTV.xsp"/>
+        
+        	<param name="item11" value="Fantasía"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/anime/genre/fantasyTV.xsp"/>
+        
+        	<param name="item12" value="Misterio"/>
+			<param name="item12_content" value="Series"/>
+        	<param name="item12_path" value="special://skin/playlists/anime/genre/misterioTV.xsp"/>
+        
+        	<param name="item13" value="Músical"/>
+			<param name="item13_content" value="Series"/>
+        	<param name="item13_path" value="special://skin/playlists/anime/genre/musicalTV.xsp"/>
+        	
+        	<param name="item14" value="Romántica"/>
+			<param name="item14_content" value="Series"/>
+        	<param name="item14_path" value="special://skin/playlists/anime/genre/romanceTV.xsp"/>
+        	
+        	<param name="item15" value="Suspense"/>
+			<param name="item15_content" value="Series"/>
+        	<param name="item15_path" value="special://skin/playlists/anime/genre/suspenseTV.xsp"/>
+        	
+        	<param name="item16" value="Terror"/>
+			<param name="item16_content" value="Series"/>
+        	<param name="item16_path" value="special://skin/playlists/anime/genre/terrorTV.xsp"/>
+        	
+        	<param name="item17" value="Western"/>
+			<param name="item17_content" value="Series"/>
+        	<param name="item17_path" value="special://skin/playlists/anime/genre/westernTV.xsp"/>
+		</include>
+	</include>
+	<include name="YearsHome1">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/home/years/2020s.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/home/years/2010s.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/home/years/2000s.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/home/years/1990s.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/home/years/1980s.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/home/years/1970s.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/home/years/1960s.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/home/years/1950s.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/home/years/1940s.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/home/years/1930s.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/home/years/1920s.xsp"/>
+		</include>
+	</include>
+	<include name="YearsHome2">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/home/years/2020sTV.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/home/years/2010sTV.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Series"/>
+        	<param name="item3_path" value="special://skin/playlists/home/years/2000sTV.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/home/years/1990sTV.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/home/years/1980sTV.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/home/years/1970sTV.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/home/years/1960sTV.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/home/years/1950sTV.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Series"/>
+        	<param name="item9_path" value="special://skin/playlists/home/years/1940sTV.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/home/years/1930sTV.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/home/years/1920sTV.xsp"/>
+		</include>
+	</include>
+	<include name="YearsMovies">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/movies/years/2020s.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/movies/years/2010s.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/movies/years/2000s.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/movies/years/1990s.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/movies/years/1980s.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/movies/years/1970s.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/movies/years/1960s.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/movies/years/1950s.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/movies/years/1940s.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/movies/years/1930s.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/movies/years/1920s.xsp"/>
+		</include>
+	</include>
+	<include name="YearsTvShows">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/tvshows/years/2020s.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/tvshows/years/2010s.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Series"/>
+        	<param name="item3_path" value="special://skin/playlists/tvshows/years/2000s.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/tvshows/years/1990s.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/tvshows/years/1980s.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/tvshows/years/1970s.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/tvshows/years/1960s.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/tvshows/years/1950s.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Series"/>
+        	<param name="item9_path" value="special://skin/playlists/tvshows/years/1940s.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/tvshows/years/1930s.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/tvshows/years/1920s.xsp"/>
+		</include>
+	</include>
+	<include name="YearsKids1">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/kids/years/2020s.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/kids/years/2010s.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/kids/years/2000s.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/kids/years/1990s.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/kids/years/1980s.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/kids/years/1970s.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/kids/years/1960s.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/kids/years/1950s.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/kids/years/1940s.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/kids/years/1930s.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/kids/years/1920s.xsp"/>
+		</include>
+	</include>
+	<include name="YearsKids2">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/kids/years/2020sTV.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/kids/years/2010sTV.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Series"/>
+        	<param name="item3_path" value="special://skin/playlists/kids/years/2000sTV.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/kids/years/1990sTV.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/kids/years/1980sTV.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/kids/years/1970sTV.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/kids/years/1960sTV.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/kids/years/1950sTV.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Series"/>
+        	<param name="item9_path" value="special://skin/playlists/kids/years/1940sTV.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/kids/years/1930sTV.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/kids/years/1920sTV.xsp"/>
+		</include>
+	</include>
+	<include name="YearsAnime1">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Películas"/>
+        	<param name="item1_path" value="special://skin/playlists/anime/years/2020s.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Películas"/>
+        	<param name="item2_path" value="special://skin/playlists/anime/years/2010s.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Películas"/>
+        	<param name="item3_path" value="special://skin/playlists/anime/years/2000s.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Películas"/>
+        	<param name="item4_path" value="special://skin/playlists/anime/years/1990s.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Películas"/>
+        	<param name="item5_path" value="special://skin/playlists/anime/years/1980s.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Películas"/>
+        	<param name="item6_path" value="special://skin/playlists/anime/years/1970s.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Películas"/>
+        	<param name="item7_path" value="special://skin/playlists/anime/years/1960s.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Películas"/>
+        	<param name="item8_path" value="special://skin/playlists/anime/years/1950s.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Películas"/>
+        	<param name="item9_path" value="special://skin/playlists/anime/years/1940s.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Películas"/>
+        	<param name="item10_path" value="special://skin/playlists/anime/years/1930s.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Películas"/>
+        	<param name="item11_path" value="special://skin/playlists/anime/years/1920s.xsp"/>
+		</include>
+	</include>
+	<include name="YearsAnime2">
+		<include content="CustomLibrary">
+			<param name="title" value="Años"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultyear.png"/>
+		
+			<param name="item1" value="2020s"/>
+			<param name="item1_content" value="Series"/>
+        	<param name="item1_path" value="special://skin/playlists/anime/years/2020sTV.xsp"/>
+        
+        	<param name="item2" value="2010s"/>
+			<param name="item2_content" value="Series"/>
+        	<param name="item2_path" value="special://skin/playlists/anime/years/2010sTV.xsp"/>
+        
+        	<param name="item3" value="2000s"/>
+			<param name="item3_content" value="Series"/>
+        	<param name="item3_path" value="special://skin/playlists/anime/years/2000sTV.xsp"/>
+        
+        	<param name="item4" value="1990s"/>
+			<param name="item4_content" value="Series"/>
+        	<param name="item4_path" value="special://skin/playlists/anime/years/1990sTV.xsp"/>
+        
+        	<param name="item5" value="1980s"/>
+			<param name="item5_content" value="Series"/>
+        	<param name="item5_path" value="special://skin/playlists/anime/years/1980sTV.xsp"/>
+        
+        	<param name="item6" value="1970s"/>
+			<param name="item6_content" value="Series"/>
+        	<param name="item6_path" value="special://skin/playlists/anime/years/1970sTV.xsp"/>
+        
+        	<param name="item7" value="1960s"/>
+			<param name="item7_content" value="Series"/>
+        	<param name="item7_path" value="special://skin/playlists/anime/years/1960sTV.xsp"/>
+        
+        	<param name="item8" value="1950s"/>
+			<param name="item8_content" value="Series"/>
+        	<param name="item8_path" value="special://skin/playlists/anime/years/1950sTV.xsp"/>
+        
+        	<param name="item9" value="1940s"/>
+			<param name="item9_content" value="Series"/>
+        	<param name="item9_path" value="special://skin/playlists/anime/years/1940sTV.xsp"/>
+        
+        	<param name="item10" value="1930s"/>
+			<param name="item10_content" value="Series"/>
+        	<param name="item10_path" value="special://skin/playlists/anime/years/1930sTV.xsp"/>
+        
+        	<param name="item11" value="1920s"/>
+			<param name="item11_content" value="Series"/>
+        	<param name="item11_path" value="special://skin/playlists/anime/years/1920sTV.xsp"/>
+		</include>
+	</include>
+    <include name="YearsMovies1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Años"/>
+            <param name="sortbylist" value="year"/>
+			<param name="sortby" value="year"/>
+            <param name="sortorder" value="descending"/>
+			<param name="icon" value="defaultyear.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/movies/years.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22year%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsHome1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/home/actors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsHome2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/home/actorsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsMovies">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/movies/actors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsTvShows">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/tvshows/actorsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsKids1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/kids/actors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsKids2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/kids/actorsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsAnime1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/anime/actors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="ActorsAnime2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Actores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultactor.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/anime/actorsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="DirectorsHome1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Directores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultdirector.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/home/directors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="DirectorsMovies">
+		<include content="CustomLibrary2">
+			<param name="title" value="Directores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultdirector.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/movies/directors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="DirectorsKids1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Directores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultdirector.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/kids/directors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="DirectorsAnime1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Directores"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultdirector.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/anime/directors.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22director%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosHome1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/home/studios.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosHome2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/home/studiosTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosMovies">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/movies/studios.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosTvShows">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/tvshows/studiosTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosKids1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/kids/studios.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosKids2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/kids/studiosTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosAnime1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/anime/studios.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="StudiosAnime2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Estudios"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaultstudios.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/anime/studiosTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsHome1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/home/tags.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsHome2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/home/tagsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsMovies">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/movies/tags.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsTvShows">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/tvshows/tagsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsKids1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/kids/tags.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsKids2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/kids/tagsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsAnime1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/anime/tags.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="TagsAnime2">
+		<include content="CustomLibrary2">
+			<param name="title" value="Etiquetas"/>
+			<param name="sortby" value="title"/>
+			<param name="icon" value="defaulttags.png"/>
+
+			<param name="item_content" value="Series"/>
+        	<param name="item_path" value="special://skin/playlists/anime/tagsTV.xsp"/>
+        	<param name="item_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22title%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+		</include>
+	</include>
+	<include name="SetsHome1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Sagas"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultsets.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/home/sets.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22Date%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22contains%20%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="SetsMovies">
+		<include content="CustomLibrary2">
+			<param name="title" value="Sagas"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultsets.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/movies/sets.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22Date%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22doesnotcontain%22%2C%22value%22%3A%5B%22anima%22%2C%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="SetsKids1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Sagas"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultsets.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/kids/sets.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22Date%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anima%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+	<include name="SetsAnime1">
+		<include content="CustomLibrary2">
+			<param name="title" value="Sagas"/>
+			<param name="sortby" value="year"/>
+			<param name="icon" value="defaultsets.png"/>
+
+			<param name="item_content" value="Películas"/>
+        	<param name="item_path" value="special://skin/playlists/anime/sets.xsp"/>
+        	<param name="item_path2" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22Date%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Container(50).ListItem.label]%22%5D%7D%2C%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contain%22%2C%22value%22%3A%5B%22anime%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+		</include>
+	</include>
+</includes>

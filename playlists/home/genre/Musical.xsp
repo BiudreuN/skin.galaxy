@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Musical</name>
+    <match>all</match>
+    <rule field="genre" operator="contain">
+        <value>music</value>
+        <value>música</value>
+        <value>musical</value>
+    </rule>
+    <limit>all</limit>
+    <order>title</order>
+</smartplaylist>

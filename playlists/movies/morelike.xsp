@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="movies">
+    <name>Watched movies</name>
+    <match>all</match>
+    <rule field="playcount" operator="greaterthan">0</rule>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="genre" operator="doesnotcontain">anima</rule>
+    <limit>all</limit>
+    <order direction="descending" limit="20">lastplayed</order>
+</smartplaylist>

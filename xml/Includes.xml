@@ -59,7 +59,14 @@
         <onunload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunload>
         <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     </include>
-    
+    <include name="AddMyList">
+        <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)+!String.IsEqual(Skin.String(MyList1),ListItem.Title)+!String.IsEqual(Skin.String(MyList2),ListItem.Title)+!String.IsEqual(Skin.String(MyList3),ListItem.Title)+!String.IsEqual(Skin.String(MyList4),ListItem.Title)+!String.IsEqual(Skin.String(MyList5),ListItem.Title)+!String.IsEqual(Skin.String(MyList6),ListItem.Title)+!String.IsEqual(Skin.String(MyList7),ListItem.Title)+!String.IsEqual(Skin.String(MyList8),ListItem.Title)+!String.IsEqual(Skin.String(MyList9),ListItem.Title)+!String.IsEqual(Skin.String(MyList10),ListItem.Title)+!String.IsEqual(Skin.String(MyList11),ListItem.Title)+!String.IsEqual(Skin.String(MyList12),ListItem.Title)+!String.IsEqual(Skin.String(MyList13),ListItem.Title)+!String.IsEqual(Skin.String(MyList14),ListItem.Title)+!String.IsEqual(Skin.String(MyList15),ListItem.Title)+!String.IsEqual(Skin.String(MyList16),ListItem.Title)+!String.IsEqual(Skin.String(MyList17),ListItem.Title)+!String.IsEqual(Skin.String(MyList18),ListItem.Title)+!String.IsEqual(Skin.String(MyList19),ListItem.Title)+!String.IsEqual(Skin.String(MyList20),ListItem.Title)+!String.IsEqual(Skin.String(MyList21),ListItem.Title)+!String.IsEqual(Skin.String(MyList22),ListItem.Title)+!String.IsEqual(Skin.String(MyList23),ListItem.Title)+!String.IsEqual(Skin.String(MyList24),ListItem.Title)+!String.IsEqual(Skin.String(MyList25),ListItem.Title)+!String.IsEqual(Skin.String(MyList26),ListItem.Title)+!String.IsEqual(Skin.String(MyList27),ListItem.Title)+!String.IsEqual(Skin.String(MyList28),ListItem.Title)+!String.IsEqual(Skin.String(MyList29),ListItem.Title)+!String.IsEqual(Skin.String(MyList30),ListItem.Title)+!String.IsEqual(Skin.String(MyList31),ListItem.Title)+!String.IsEqual(Skin.String(MyList32),ListItem.Title)+!String.IsEqual(Skin.String(MyList33),ListItem.Title)+!String.IsEqual(Skin.String(MyList34),ListItem.Title)+!String.IsEqual(Skin.String(MyList35),ListItem.Title)+!String.IsEqual(Skin.String(MyList36),ListItem.Title)+!String.IsEqual(Skin.String(MyList37),ListItem.Title)+!String.IsEqual(Skin.String(MyList38),ListItem.Title)+!String.IsEqual(Skin.String(MyList39),ListItem.Title)+!String.IsEqual(Skin.String(MyList40),ListItem.Title)+!String.IsEqual(Skin.String(MyList41),ListItem.Title)+!String.IsEqual(Skin.String(MyList42),ListItem.Title)+!String.IsEqual(Skin.String(MyList43),ListItem.Title)+!String.IsEqual(Skin.String(MyList44),ListItem.Title)+!String.IsEqual(Skin.String(MyList45),ListItem.Title)+!String.IsEqual(Skin.String(MyList46),ListItem.Title)+!String.IsEqual(Skin.String(MyList47),ListItem.Title)+!String.IsEqual(Skin.String(MyList48),ListItem.Title)+!String.IsEqual(Skin.String(MyList49),ListItem.Title)+!String.IsEqual(Skin.String(MyList50),ListItem.Title)+!String.IsEqual(Skin.String(MyList51),ListItem.Title)+!String.IsEqual(Skin.String(MyList52),ListItem.Title)+!String.IsEqual(Skin.String(MyList53),ListItem.Title)+!String.IsEqual(Skin.String(MyList54),ListItem.Title)+!String.IsEqual(Skin.String(MyList55),ListItem.Title)+!String.IsEqual(Skin.String(MyList56),ListItem.Title)+!String.IsEqual(Skin.String(MyList57),ListItem.Title)+!String.IsEqual(Skin.String(MyList58),ListItem.Title)+!String.IsEqual(Skin.String(MyList59),ListItem.Title)+!String.IsEqual(Skin.String(MyList60),ListItem.Title)+!String.IsEqual(Skin.String(MyList61),ListItem.Title)+!String.IsEqual(Skin.String(MyList62),ListItem.Title)+!String.IsEqual(Skin.String(MyList63),ListItem.Title)+!String.IsEqual(Skin.String(MyList64),ListItem.Title)+!String.IsEqual(Skin.String(MyList65),ListItem.Title)+!String.IsEqual(Skin.String(MyList66),ListItem.Title)+!String.IsEqual(Skin.String(MyList67),ListItem.Title)+!String.IsEqual(Skin.String(MyList68),ListItem.Title)+!String.IsEqual(Skin.String(MyList69),ListItem.Title)+!String.IsEqual(Skin.String(MyList70),ListItem.Title)+!String.IsEqual(Skin.String(MyList71),ListItem.Title)+!String.IsEqual(Skin.String(MyList72),ListItem.Title)+!String.IsEqual(Skin.String(MyList73),ListItem.Title)+!String.IsEqual(Skin.String(MyList74),ListItem.Title)+!String.IsEqual(Skin.String(MyList75),ListItem.Title)+!String.IsEqual(Skin.String(MyList76),ListItem.Title)+!String.IsEqual(Skin.String(MyList77),ListItem.Title)+!String.IsEqual(Skin.String(MyList78),ListItem.Title)+!String.IsEqual(Skin.String(MyList79),ListItem.Title)+!String.IsEqual(Skin.String(MyList80),ListItem.Title)+!String.IsEqual(Skin.String(MyList81),ListItem.Title)+!String.IsEqual(Skin.String(MyList82),ListItem.Title)+!String.IsEqual(Skin.String(MyList83),ListItem.Title)+!String.IsEqual(Skin.String(MyList84),ListItem.Title)+!String.IsEqual(Skin.String(MyList85),ListItem.Title)+!String.IsEqual(Skin.String(MyList86),ListItem.Title)+!String.IsEqual(Skin.String(MyList87),ListItem.Title)+!String.IsEqual(Skin.String(MyList88),ListItem.Title)+!String.IsEqual(Skin.String(MyList89),ListItem.Title)+!String.IsEqual(Skin.String(MyList90),ListItem.Title)+!String.IsEqual(Skin.String(MyList91),ListItem.Title)+!String.IsEqual(Skin.String(MyList92),ListItem.Title)+!String.IsEqual(Skin.String(MyList93),ListItem.Title)+!String.IsEqual(Skin.String(MyList94),ListItem.Title)+!String.IsEqual(Skin.String(MyList95),ListItem.Title)+!String.IsEqual(Skin.String(MyList96),ListItem.Title)+!String.IsEqual(Skin.String(MyList97),ListItem.Title)+!String.IsEqual(Skin.String(MyList98),ListItem.Title)+!String.IsEqual(Skin.String(MyList99),ListItem.Title)+!String.IsEqual(Skin.String(MyList100),ListItem.Title)">$VAR[MyListVar]</onclick>
+        <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)+[String.IsEqual(Skin.String(MyList1),ListItem.Title)|String.IsEqual(Skin.String(MyList2),ListItem.Title)|String.IsEqual(Skin.String(MyList3),ListItem.Title)|String.IsEqual(Skin.String(MyList4),ListItem.Title)|String.IsEqual(Skin.String(MyList5),ListItem.Title)|String.IsEqual(Skin.String(MyList6),ListItem.Title)|String.IsEqual(Skin.String(MyList7),ListItem.Title)|String.IsEqual(Skin.String(MyList8),ListItem.Title)|String.IsEqual(Skin.String(MyList9),ListItem.Title)|String.IsEqual(Skin.String(MyList10),ListItem.Title)|String.IsEqual(Skin.String(MyList11),ListItem.Title)|String.IsEqual(Skin.String(MyList12),ListItem.Title)|String.IsEqual(Skin.String(MyList13),ListItem.Title)|String.IsEqual(Skin.String(MyList14),ListItem.Title)|String.IsEqual(Skin.String(MyList15),ListItem.Title)|String.IsEqual(Skin.String(MyList16),ListItem.Title)|String.IsEqual(Skin.String(MyList17),ListItem.Title)|String.IsEqual(Skin.String(MyList18),ListItem.Title)|String.IsEqual(Skin.String(MyList19),ListItem.Title)|String.IsEqual(Skin.String(MyList20),ListItem.Title)|String.IsEqual(Skin.String(MyList21),ListItem.Title)|String.IsEqual(Skin.String(MyList22),ListItem.Title)|String.IsEqual(Skin.String(MyList23),ListItem.Title)|String.IsEqual(Skin.String(MyList24),ListItem.Title)|String.IsEqual(Skin.String(MyList25),ListItem.Title)|String.IsEqual(Skin.String(MyList26),ListItem.Title)|String.IsEqual(Skin.String(MyList27),ListItem.Title)|String.IsEqual(Skin.String(MyList28),ListItem.Title)|String.IsEqual(Skin.String(MyList29),ListItem.Title)|String.IsEqual(Skin.String(MyList30),ListItem.Title)|String.IsEqual(Skin.String(MyList31),ListItem.Title)|String.IsEqual(Skin.String(MyList32),ListItem.Title)|String.IsEqual(Skin.String(MyList33),ListItem.Title)|String.IsEqual(Skin.String(MyList34),ListItem.Title)|String.IsEqual(Skin.String(MyList35),ListItem.Title)|String.IsEqual(Skin.String(MyList36),ListItem.Title)|String.IsEqual(Skin.String(MyList37),ListItem.Title)|String.IsEqual(Skin.String(MyList38),ListItem.Title)|String.IsEqual(Skin.String(MyList39),ListItem.Title)|String.IsEqual(Skin.String(MyList40),ListItem.Title)|String.IsEqual(Skin.String(MyList41),ListItem.Title)|String.IsEqual(Skin.String(MyList42),ListItem.Title)|String.IsEqual(Skin.String(MyList43),ListItem.Title)|String.IsEqual(Skin.String(MyList44),ListItem.Title)|String.IsEqual(Skin.String(MyList45),ListItem.Title)|String.IsEqual(Skin.String(MyList46),ListItem.Title)|String.IsEqual(Skin.String(MyList47),ListItem.Title)|String.IsEqual(Skin.String(MyList48),ListItem.Title)|String.IsEqual(Skin.String(MyList49),ListItem.Title)|String.IsEqual(Skin.String(MyList50),ListItem.Title)|String.IsEqual(Skin.String(MyList51),ListItem.Title)|String.IsEqual(Skin.String(MyList52),ListItem.Title)|String.IsEqual(Skin.String(MyList53),ListItem.Title)|String.IsEqual(Skin.String(MyList54),ListItem.Title)|String.IsEqual(Skin.String(MyList55),ListItem.Title)|String.IsEqual(Skin.String(MyList56),ListItem.Title)|String.IsEqual(Skin.String(MyList57),ListItem.Title)|String.IsEqual(Skin.String(MyList58),ListItem.Title)|String.IsEqual(Skin.String(MyList59),ListItem.Title)|String.IsEqual(Skin.String(MyList60),ListItem.Title)|String.IsEqual(Skin.String(MyList61),ListItem.Title)|String.IsEqual(Skin.String(MyList62),ListItem.Title)|String.IsEqual(Skin.String(MyList63),ListItem.Title)|String.IsEqual(Skin.String(MyList64),ListItem.Title)|String.IsEqual(Skin.String(MyList65),ListItem.Title)|String.IsEqual(Skin.String(MyList66),ListItem.Title)|String.IsEqual(Skin.String(MyList67),ListItem.Title)|String.IsEqual(Skin.String(MyList68),ListItem.Title)|String.IsEqual(Skin.String(MyList69),ListItem.Title)|String.IsEqual(Skin.String(MyList70),ListItem.Title)|String.IsEqual(Skin.String(MyList71),ListItem.Title)|String.IsEqual(Skin.String(MyList72),ListItem.Title)|String.IsEqual(Skin.String(MyList73),ListItem.Title)|String.IsEqual(Skin.String(MyList74),ListItem.Title)|String.IsEqual(Skin.String(MyList75),ListItem.Title)|String.IsEqual(Skin.String(MyList76),ListItem.Title)|String.IsEqual(Skin.String(MyList77),ListItem.Title)|String.IsEqual(Skin.String(MyList78),ListItem.Title)|String.IsEqual(Skin.String(MyList79),ListItem.Title)|String.IsEqual(Skin.String(MyList80),ListItem.Title)|String.IsEqual(Skin.String(MyList81),ListItem.Title)|String.IsEqual(Skin.String(MyList82),ListItem.Title)|String.IsEqual(Skin.String(MyList83),ListItem.Title)|String.IsEqual(Skin.String(MyList84),ListItem.Title)|String.IsEqual(Skin.String(MyList85),ListItem.Title)|String.IsEqual(Skin.String(MyList86),ListItem.Title)|String.IsEqual(Skin.String(MyList87),ListItem.Title)|String.IsEqual(Skin.String(MyList88),ListItem.Title)|String.IsEqual(Skin.String(MyList89),ListItem.Title)|String.IsEqual(Skin.String(MyList90),ListItem.Title)|String.IsEqual(Skin.String(MyList91),ListItem.Title)|String.IsEqual(Skin.String(MyList92),ListItem.Title)|String.IsEqual(Skin.String(MyList93),ListItem.Title)|String.IsEqual(Skin.String(MyList94),ListItem.Title)|String.IsEqual(Skin.String(MyList95),ListItem.Title)|String.IsEqual(Skin.String(MyList96),ListItem.Title)|String.IsEqual(Skin.String(MyList97),ListItem.Title)|String.IsEqual(Skin.String(MyList98),ListItem.Title)|String.IsEqual(Skin.String(MyList99),ListItem.Title)|String.IsEqual(Skin.String(MyList100),ListItem.Title)]">$VAR[ClearMyListVar]</onclick>
+        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)+!String.IsEqual(Skin.String(MyList1TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList2TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList3TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList4TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList5TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList6TV),ListItem.Title)+!Skin.String(MyList7TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList8TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList9TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList10TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList11TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList12TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList13TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList14TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList15TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList16TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList17TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList18TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList19TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList20TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList21TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList22TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList23TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList24TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList25TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList26TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList27TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList28TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList29TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList30TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList31TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList32TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList33TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList34TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList35TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList36TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList37TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList38TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList39TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList40TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList41TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList42TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList43TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList44TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList45TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList46TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList47TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList48TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList49TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList50TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList51TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList52TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList53TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList54TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList55TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList56TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList57TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList58TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList59TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList60TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList61TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList62TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList63TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList64TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList65TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList66TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList67TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList68TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList69TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList70TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList71TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList72TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList73TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList74TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList75TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList76TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList77TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList78TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList79TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList80TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList81TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList82TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList83TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList84TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList85TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList86TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList87TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList88TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList89TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList90TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList91TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList92TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList93TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList94TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList95TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList96TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList97TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList98TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList99TV),ListItem.Title)+!String.IsEqual(Skin.String(MyList100TV),ListItem.Title)">$VAR[MyListTVVar]</onclick>
+        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)+[String.IsEqual(Skin.String(MyList1TV),ListItem.Title)|String.IsEqual(Skin.String(MyList2TV),ListItem.Title)|String.IsEqual(Skin.String(MyList3TV),ListItem.Title)|String.IsEqual(Skin.String(MyList4TV),ListItem.Title)|String.IsEqual(Skin.String(MyList5TV),ListItem.Title)|String.IsEqual(Skin.String(MyList6TV),ListItem.Title)|String.IsEqual(Skin.String(MyList7TV),ListItem.Title)|String.IsEqual(Skin.String(MyList8TV),ListItem.Title)|String.IsEqual(Skin.String(MyList9TV),ListItem.Title)|String.IsEqual(Skin.String(MyList10TV),ListItem.Title)|String.IsEqual(Skin.String(MyList11TV),ListItem.Title)|String.IsEqual(Skin.String(MyList12TV),ListItem.Title)|String.IsEqual(Skin.String(MyList13TV),ListItem.Title)|String.IsEqual(Skin.String(MyList14TV),ListItem.Title)|String.IsEqual(Skin.String(MyList15TV),ListItem.Title)|String.IsEqual(Skin.String(MyList16TV),ListItem.Title)|String.IsEqual(Skin.String(MyList17TV),ListItem.Title)|String.IsEqual(Skin.String(MyList18TV),ListItem.Title)|String.IsEqual(Skin.String(MyList19TV),ListItem.Title)|String.IsEqual(Skin.String(MyList20TV),ListItem.Title)|String.IsEqual(Skin.String(MyList21TV),ListItem.Title)|String.IsEqual(Skin.String(MyList22TV),ListItem.Title)|String.IsEqual(Skin.String(MyList23TV),ListItem.Title)|String.IsEqual(Skin.String(MyList24TV),ListItem.Title)|String.IsEqual(Skin.String(MyList25TV),ListItem.Title)|String.IsEqual(Skin.String(MyList26TV),ListItem.Title)|String.IsEqual(Skin.String(MyList27TV),ListItem.Title)|String.IsEqual(Skin.String(MyList28TV),ListItem.Title)|String.IsEqual(Skin.String(MyList29TV),ListItem.Title)|String.IsEqual(Skin.String(MyList30TV),ListItem.Title)|String.IsEqual(Skin.String(MyList31TV),ListItem.Title)|String.IsEqual(Skin.String(MyList32TV),ListItem.Title)|String.IsEqual(Skin.String(MyList33TV),ListItem.Title)|String.IsEqual(Skin.String(MyList34TV),ListItem.Title)|String.IsEqual(Skin.String(MyList35TV),ListItem.Title)|String.IsEqual(Skin.String(MyList36TV),ListItem.Title)|String.IsEqual(Skin.String(MyList37TV),ListItem.Title)|String.IsEqual(Skin.String(MyList38TV),ListItem.Title)|String.IsEqual(Skin.String(MyList39TV),ListItem.Title)|String.IsEqual(Skin.String(MyList40TV),ListItem.Title)|String.IsEqual(Skin.String(MyList41TV),ListItem.Title)|String.IsEqual(Skin.String(MyList42TV),ListItem.Title)|String.IsEqual(Skin.String(MyList43TV),ListItem.Title)|String.IsEqual(Skin.String(MyList44TV),ListItem.Title)|String.IsEqual(Skin.String(MyList45TV),ListItem.Title)|String.IsEqual(Skin.String(MyList46TV),ListItem.Title)|String.IsEqual(Skin.String(MyList47TV),ListItem.Title)|String.IsEqual(Skin.String(MyList48TV),ListItem.Title)|String.IsEqual(Skin.String(MyList49TV),ListItem.Title)|String.IsEqual(Skin.String(MyList50TV),ListItem.Title)|String.IsEqual(Skin.String(MyList51TV),ListItem.Title)|String.IsEqual(Skin.String(MyList52TV),ListItem.Title)|String.IsEqual(Skin.String(MyList53TV),ListItem.Title)|String.IsEqual(Skin.String(MyList54TV),ListItem.Title)|String.IsEqual(Skin.String(MyList55TV),ListItem.Title)|String.IsEqual(Skin.String(MyList56TV),ListItem.Title)|String.IsEqual(Skin.String(MyList57TV),ListItem.Title)|String.IsEqual(Skin.String(MyList58TV),ListItem.Title)|String.IsEqual(Skin.String(MyList59TV),ListItem.Title)|String.IsEqual(Skin.String(MyList60TV),ListItem.Title)|String.IsEqual(Skin.String(MyList61TV),ListItem.Title)|String.IsEqual(Skin.String(MyList62TV),ListItem.Title)|String.IsEqual(Skin.String(MyList63TV),ListItem.Title)|String.IsEqual(Skin.String(MyList64TV),ListItem.Title)|String.IsEqual(Skin.String(MyList65TV),ListItem.Title)|String.IsEqual(Skin.String(MyList66TV),ListItem.Title)|String.IsEqual(Skin.String(MyList67TV),ListItem.Title)|String.IsEqual(Skin.String(MyList68TV),ListItem.Title)|String.IsEqual(Skin.String(MyList69TV),ListItem.Title)|String.IsEqual(Skin.String(MyList70TV),ListItem.Title)|String.IsEqual(Skin.String(MyList71TV),ListItem.Title)|String.IsEqual(Skin.String(MyList72TV),ListItem.Title)|String.IsEqual(Skin.String(MyList73TV),ListItem.Title)|String.IsEqual(Skin.String(MyList74TV),ListItem.Title)|String.IsEqual(Skin.String(MyList75TV),ListItem.Title)|String.IsEqual(Skin.String(MyList76TV),ListItem.Title)|String.IsEqual(Skin.String(MyList77TV),ListItem.Title)|String.IsEqual(Skin.String(MyList78TV),ListItem.Title)|String.IsEqual(Skin.String(MyList79TV),ListItem.Title)|String.IsEqual(Skin.String(MyList80TV),ListItem.Title)|String.IsEqual(Skin.String(MyList81TV),ListItem.Title)|String.IsEqual(Skin.String(MyList82TV),ListItem.Title)|String.IsEqual(Skin.String(MyList83TV),ListItem.Title)|String.IsEqual(Skin.String(MyList84TV),ListItem.Title)|String.IsEqual(Skin.String(MyList85TV),ListItem.Title)|String.IsEqual(Skin.String(MyList86TV),ListItem.Title)|String.IsEqual(Skin.String(MyList87TV),ListItem.Title)|String.IsEqual(Skin.String(MyList88TV),ListItem.Title)|String.IsEqual(Skin.String(MyList89TV),ListItem.Title)|String.IsEqual(Skin.String(MyList90TV),ListItem.Title)|String.IsEqual(Skin.String(MyList91TV),ListItem.Title)|String.IsEqual(Skin.String(MyList92TV),ListItem.Title)|String.IsEqual(Skin.String(MyList93TV),ListItem.Title)|String.IsEqual(Skin.String(MyList94TV),ListItem.Title)|String.IsEqual(Skin.String(MyList95TV),ListItem.Title)|String.IsEqual(Skin.String(MyList96TV),ListItem.Title)|String.IsEqual(Skin.String(MyList97TV),ListItem.Title)|String.IsEqual(Skin.String(MyList98TV),ListItem.Title)|String.IsEqual(Skin.String(MyList99TV),ListItem.Title)|String.IsEqual(Skin.String(MyList100TV),ListItem.Title)]">$VAR[ClearMyListTVVar]</onclick>
+        <selected>[String.IsEqual(ListItem.DBTYPE,movie)+[String.IsEqual(Skin.String(MyList1),ListItem.Title)|String.IsEqual(Skin.String(MyList2),ListItem.Title)|String.IsEqual(Skin.String(MyList3),ListItem.Title)|String.IsEqual(Skin.String(MyList4),ListItem.Title)|String.IsEqual(Skin.String(MyList5),ListItem.Title)|String.IsEqual(Skin.String(MyList6),ListItem.Title)|String.IsEqual(Skin.String(MyList7),ListItem.Title)|String.IsEqual(Skin.String(MyList8),ListItem.Title)|String.IsEqual(Skin.String(MyList9),ListItem.Title)|String.IsEqual(Skin.String(MyList10),ListItem.Title)|String.IsEqual(Skin.String(MyList11),ListItem.Title)|String.IsEqual(Skin.String(MyList12),ListItem.Title)|String.IsEqual(Skin.String(MyList13),ListItem.Title)|String.IsEqual(Skin.String(MyList14),ListItem.Title)|String.IsEqual(Skin.String(MyList15),ListItem.Title)|String.IsEqual(Skin.String(MyList16),ListItem.Title)|String.IsEqual(Skin.String(MyList17),ListItem.Title)|String.IsEqual(Skin.String(MyList18),ListItem.Title)|String.IsEqual(Skin.String(MyList19),ListItem.Title)|String.IsEqual(Skin.String(MyList20),ListItem.Title)|String.IsEqual(Skin.String(MyList21),ListItem.Title)|String.IsEqual(Skin.String(MyList22),ListItem.Title)|String.IsEqual(Skin.String(MyList23),ListItem.Title)|String.IsEqual(Skin.String(MyList24),ListItem.Title)|String.IsEqual(Skin.String(MyList25),ListItem.Title)|String.IsEqual(Skin.String(MyList26),ListItem.Title)|String.IsEqual(Skin.String(MyList27),ListItem.Title)|String.IsEqual(Skin.String(MyList28),ListItem.Title)|String.IsEqual(Skin.String(MyList29),ListItem.Title)|String.IsEqual(Skin.String(MyList30),ListItem.Title)|String.IsEqual(Skin.String(MyList31),ListItem.Title)|String.IsEqual(Skin.String(MyList32),ListItem.Title)|String.IsEqual(Skin.String(MyList33),ListItem.Title)|String.IsEqual(Skin.String(MyList34),ListItem.Title)|String.IsEqual(Skin.String(MyList35),ListItem.Title)|String.IsEqual(Skin.String(MyList36),ListItem.Title)|String.IsEqual(Skin.String(MyList37),ListItem.Title)|String.IsEqual(Skin.String(MyList38),ListItem.Title)|String.IsEqual(Skin.String(MyList39),ListItem.Title)|String.IsEqual(Skin.String(MyList40),ListItem.Title)|String.IsEqual(Skin.String(MyList41),ListItem.Title)|String.IsEqual(Skin.String(MyList42),ListItem.Title)|String.IsEqual(Skin.String(MyList43),ListItem.Title)|String.IsEqual(Skin.String(MyList44),ListItem.Title)|String.IsEqual(Skin.String(MyList45),ListItem.Title)|String.IsEqual(Skin.String(MyList46),ListItem.Title)|String.IsEqual(Skin.String(MyList47),ListItem.Title)|String.IsEqual(Skin.String(MyList48),ListItem.Title)|String.IsEqual(Skin.String(MyList49),ListItem.Title)|String.IsEqual(Skin.String(MyList50),ListItem.Title)|String.IsEqual(Skin.String(MyList51),ListItem.Title)|String.IsEqual(Skin.String(MyList52),ListItem.Title)|String.IsEqual(Skin.String(MyList53),ListItem.Title)|String.IsEqual(Skin.String(MyList54),ListItem.Title)|String.IsEqual(Skin.String(MyList55),ListItem.Title)|String.IsEqual(Skin.String(MyList56),ListItem.Title)|String.IsEqual(Skin.String(MyList57),ListItem.Title)|String.IsEqual(Skin.String(MyList58),ListItem.Title)|String.IsEqual(Skin.String(MyList59),ListItem.Title)|String.IsEqual(Skin.String(MyList60),ListItem.Title)|String.IsEqual(Skin.String(MyList61),ListItem.Title)|String.IsEqual(Skin.String(MyList62),ListItem.Title)|String.IsEqual(Skin.String(MyList63),ListItem.Title)|String.IsEqual(Skin.String(MyList64),ListItem.Title)|String.IsEqual(Skin.String(MyList65),ListItem.Title)|String.IsEqual(Skin.String(MyList66),ListItem.Title)|String.IsEqual(Skin.String(MyList67),ListItem.Title)|String.IsEqual(Skin.String(MyList68),ListItem.Title)|String.IsEqual(Skin.String(MyList69),ListItem.Title)|String.IsEqual(Skin.String(MyList70),ListItem.Title)|String.IsEqual(Skin.String(MyList71),ListItem.Title)|String.IsEqual(Skin.String(MyList72),ListItem.Title)|String.IsEqual(Skin.String(MyList73),ListItem.Title)|String.IsEqual(Skin.String(MyList74),ListItem.Title)|String.IsEqual(Skin.String(MyList75),ListItem.Title)|String.IsEqual(Skin.String(MyList76),ListItem.Title)|String.IsEqual(Skin.String(MyList77),ListItem.Title)|String.IsEqual(Skin.String(MyList78),ListItem.Title)|String.IsEqual(Skin.String(MyList79),ListItem.Title)|String.IsEqual(Skin.String(MyList80),ListItem.Title)|String.IsEqual(Skin.String(MyList81),ListItem.Title)|String.IsEqual(Skin.String(MyList82),ListItem.Title)|String.IsEqual(Skin.String(MyList83),ListItem.Title)|String.IsEqual(Skin.String(MyList84),ListItem.Title)|String.IsEqual(Skin.String(MyList85),ListItem.Title)|String.IsEqual(Skin.String(MyList86),ListItem.Title)|String.IsEqual(Skin.String(MyList87),ListItem.Title)|String.IsEqual(Skin.String(MyList88),ListItem.Title)|String.IsEqual(Skin.String(MyList89),ListItem.Title)|String.IsEqual(Skin.String(MyList90),ListItem.Title)|String.IsEqual(Skin.String(MyList91),ListItem.Title)|String.IsEqual(Skin.String(MyList92),ListItem.Title)|String.IsEqual(Skin.String(MyList93),ListItem.Title)|String.IsEqual(Skin.String(MyList94),ListItem.Title)|String.IsEqual(Skin.String(MyList95),ListItem.Title)|String.IsEqual(Skin.String(MyList96),ListItem.Title)|String.IsEqual(Skin.String(MyList97),ListItem.Title)|String.IsEqual(Skin.String(MyList98),ListItem.Title)|String.IsEqual(Skin.String(MyList99),ListItem.Title)|String.IsEqual(Skin.String(MyList100),ListItem.Title)]]|[String.IsEqual(ListItem.DBTYPE,tvshow)+[String.IsEqual(Skin.String(MyList1TV),ListItem.Title)|String.IsEqual(Skin.String(MyList2TV),ListItem.Title)|String.IsEqual(Skin.String(MyList3TV),ListItem.Title)|String.IsEqual(Skin.String(MyList4TV),ListItem.Title)|String.IsEqual(Skin.String(MyList5TV),ListItem.Title)|String.IsEqual(Skin.String(MyList6TV),ListItem.Title)|String.IsEqual(Skin.String(MyList7TV),ListItem.Title)|String.IsEqual(Skin.String(MyList8TV),ListItem.Title)|String.IsEqual(Skin.String(MyList9TV),ListItem.Title)|String.IsEqual(Skin.String(MyList10TV),ListItem.Title)|String.IsEqual(Skin.String(MyList11TV),ListItem.Title)|String.IsEqual(Skin.String(MyList12TV),ListItem.Title)|String.IsEqual(Skin.String(MyList13TV),ListItem.Title)|String.IsEqual(Skin.String(MyList14TV),ListItem.Title)|String.IsEqual(Skin.String(MyList15TV),ListItem.Title)|String.IsEqual(Skin.String(MyList16TV),ListItem.Title)|String.IsEqual(Skin.String(MyList17TV),ListItem.Title)|String.IsEqual(Skin.String(MyList18TV),ListItem.Title)|String.IsEqual(Skin.String(MyList19TV),ListItem.Title)|String.IsEqual(Skin.String(MyList20TV),ListItem.Title)|String.IsEqual(Skin.String(MyList21TV),ListItem.Title)|String.IsEqual(Skin.String(MyList22TV),ListItem.Title)|String.IsEqual(Skin.String(MyList23TV),ListItem.Title)|String.IsEqual(Skin.String(MyList24TV),ListItem.Title)|String.IsEqual(Skin.String(MyList25TV),ListItem.Title)|String.IsEqual(Skin.String(MyList26TV),ListItem.Title)|String.IsEqual(Skin.String(MyList27TV),ListItem.Title)|String.IsEqual(Skin.String(MyList28TV),ListItem.Title)|String.IsEqual(Skin.String(MyList29TV),ListItem.Title)|String.IsEqual(Skin.String(MyList30TV),ListItem.Title)|String.IsEqual(Skin.String(MyList31TV),ListItem.Title)|String.IsEqual(Skin.String(MyList32TV),ListItem.Title)|String.IsEqual(Skin.String(MyList33TV),ListItem.Title)|String.IsEqual(Skin.String(MyList34TV),ListItem.Title)|String.IsEqual(Skin.String(MyList35TV),ListItem.Title)|String.IsEqual(Skin.String(MyList36TV),ListItem.Title)|String.IsEqual(Skin.String(MyList37TV),ListItem.Title)|String.IsEqual(Skin.String(MyList38TV),ListItem.Title)|String.IsEqual(Skin.String(MyList39TV),ListItem.Title)|String.IsEqual(Skin.String(MyList40TV),ListItem.Title)|String.IsEqual(Skin.String(MyList41TV),ListItem.Title)|String.IsEqual(Skin.String(MyList42TV),ListItem.Title)|String.IsEqual(Skin.String(MyList43TV),ListItem.Title)|String.IsEqual(Skin.String(MyList44TV),ListItem.Title)|String.IsEqual(Skin.String(MyList45TV),ListItem.Title)|String.IsEqual(Skin.String(MyList46TV),ListItem.Title)|String.IsEqual(Skin.String(MyList47TV),ListItem.Title)|String.IsEqual(Skin.String(MyList48TV),ListItem.Title)|String.IsEqual(Skin.String(MyList49TV),ListItem.Title)|String.IsEqual(Skin.String(MyList50TV),ListItem.Title)|String.IsEqual(Skin.String(MyList51TV),ListItem.Title)|String.IsEqual(Skin.String(MyList52TV),ListItem.Title)|String.IsEqual(Skin.String(MyList53TV),ListItem.Title)|String.IsEqual(Skin.String(MyList54TV),ListItem.Title)|String.IsEqual(Skin.String(MyList55TV),ListItem.Title)|String.IsEqual(Skin.String(MyList56TV),ListItem.Title)|String.IsEqual(Skin.String(MyList57TV),ListItem.Title)|String.IsEqual(Skin.String(MyList58TV),ListItem.Title)|String.IsEqual(Skin.String(MyList59TV),ListItem.Title)|String.IsEqual(Skin.String(MyList60TV),ListItem.Title)|String.IsEqual(Skin.String(MyList61TV),ListItem.Title)|String.IsEqual(Skin.String(MyList62TV),ListItem.Title)|String.IsEqual(Skin.String(MyList63TV),ListItem.Title)|String.IsEqual(Skin.String(MyList64TV),ListItem.Title)|String.IsEqual(Skin.String(MyList65TV),ListItem.Title)|String.IsEqual(Skin.String(MyList66TV),ListItem.Title)|String.IsEqual(Skin.String(MyList67TV),ListItem.Title)|String.IsEqual(Skin.String(MyList68TV),ListItem.Title)|String.IsEqual(Skin.String(MyList69TV),ListItem.Title)|String.IsEqual(Skin.String(MyList70TV),ListItem.Title)|String.IsEqual(Skin.String(MyList71TV),ListItem.Title)|String.IsEqual(Skin.String(MyList72TV),ListItem.Title)|String.IsEqual(Skin.String(MyList73TV),ListItem.Title)|String.IsEqual(Skin.String(MyList74TV),ListItem.Title)|String.IsEqual(Skin.String(MyList75TV),ListItem.Title)|String.IsEqual(Skin.String(MyList76TV),ListItem.Title)|String.IsEqual(Skin.String(MyList77TV),ListItem.Title)|String.IsEqual(Skin.String(MyList78TV),ListItem.Title)|String.IsEqual(Skin.String(MyList79TV),ListItem.Title)|String.IsEqual(Skin.String(MyList80TV),ListItem.Title)|String.IsEqual(Skin.String(MyList81TV),ListItem.Title)|String.IsEqual(Skin.String(MyList82TV),ListItem.Title)|String.IsEqual(Skin.String(MyList83TV),ListItem.Title)|String.IsEqual(Skin.String(MyList84TV),ListItem.Title)|String.IsEqual(Skin.String(MyList85TV),ListItem.Title)|String.IsEqual(Skin.String(MyList86TV),ListItem.Title)|String.IsEqual(Skin.String(MyList87TV),ListItem.Title)|String.IsEqual(Skin.String(MyList88TV),ListItem.Title)|String.IsEqual(Skin.String(MyList89TV),ListItem.Title)|String.IsEqual(Skin.String(MyList90TV),ListItem.Title)|String.IsEqual(Skin.String(MyList91TV),ListItem.Title)|String.IsEqual(Skin.String(MyList92TV),ListItem.Title)|String.IsEqual(Skin.String(MyList93TV),ListItem.Title)|String.IsEqual(Skin.String(MyList94TV),ListItem.Title)|String.IsEqual(Skin.String(MyList95TV),ListItem.Title)|String.IsEqual(Skin.String(MyList96TV),ListItem.Title)|String.IsEqual(Skin.String(MyList97TV),ListItem.Title)|String.IsEqual(Skin.String(MyList98TV),ListItem.Title)|String.IsEqual(Skin.String(MyList99TV),ListItem.Title)|String.IsEqual(Skin.String(MyList100TV),ListItem.Title)]]</selected>
+
+    </include>
     <include name="ThumbMedia">
 		<include>WidgetInfo</include>
 		<control type="group">
@@ -1305,6 +1312,362 @@
 			</control>
 		</control>
 	</include>
+    <include name="DialogInfo">
+        <control type="grouplist">
+            <left>10</left>
+            <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <width>854</width>
+            <height>30</height>
+            <itemgap>15</itemgap>
+            <control type="label">
+                <width min="0" max="400">auto</width>
+                <height>29</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$VAR[RatingVar]% le ha gustado</label>
+                <font>20px_Bold</font>
+                <textcolor>limegreen</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+            </control>
+            <control type="label">
+                <width min="0" max="400">auto</width>
+                <height>29</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[Listitem.Year]</label>
+                <font>20px_Bold</font>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+            </control>
+            <control type="label">
+                <width min="0" max="400">auto</width>
+                <height>29</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>[B][COLOR $VAR[MpaaColorVar]]|[/COLOR][/B]$VAR[MpaaVar]</label>
+                <font>20px_Bold</font>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+            </control>
+            <control type="label">
+                <width min="0" max="300">auto</width>
+                <height>29</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$VAR[TimeVar]</label>
+                <font>20px_Bold</font>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <visible>!ListItem.IsFolder</visible>
+            </control>
+            <control type="label">
+                <width min="0" max="300">auto</width>
+                <height>29</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$VAR[SeasonVar]</label>
+                <font>20px_Bold</font>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <visible>ListItem.IsFolder</visible>
+            </control>
+            <control type="button">
+                <centertop>50%</centertop>
+                <width min="0" max="400">auto</width>
+                <height>27</height>
+                <texturenofocus border="5" colordiffuse="silver">flags/flag.png</texturenofocus>
+                <label>$VAR[VideoResolutionVar]</label>
+                <font>19px_Bold</font>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <align>center</align>
+                <aligny>center</aligny>
+            </control>
+            <control type="button">
+                <centertop>50%</centertop>
+                <width min="0" max="400">auto</width>
+                <height>27</height>
+                <texturenofocus border="5" colordiffuse="silver">flags/flag.png</texturenofocus>
+                <label>$VAR[AudioChannelsVar]</label>
+                <font>19px_Bold</font>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <align>center</align>
+                <aligny>center</aligny>
+            </control>
+        </control>
+    </include>
+    <include name="InfoMediaExtra">
+        <control type="grouplist">
+            <orientation>vertical</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <left>120</left>
+            <bottom>50</bottom>
+            <width>450</width>
+            <height>300</height>
+            <itemgap>5</itemgap>
+            <align>right</align>
+            <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            <control type="label">
+                <width>450</width>
+                <height>25</height>
+                <font>20px_Medium</font>
+                <textcolor>silver</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>DIRECTOR</label>
+                <visible>!String.IsEmpty(ListItem.Director)|!String.IsEmpty(Container(5050).ListItem.Director)</visible>
+                <align>left</align>
+            </control>
+            <control type="textbox">
+                <width>450</width>
+                <height>auto</height>
+                <font>20px_Regular</font>
+                <textcolor>darkgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>$INFO[ListItem.Director][CR] </label>
+                <visible>!String.IsEmpty(ListItem.Director)</visible>
+                <align>left</align>
+            </control>
+            <control type="textbox">
+                <width>450</width>
+                <height>auto</height>
+                <font>20px_Regular</font>
+                <textcolor>darkgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>$INFO[Container(5050).ListItem.Director][CR] </label>
+                <visible>!String.IsEmpty(Container(5050).ListItem.Director)</visible>
+                <visible>String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+                <align>left</align>
+            </control>
+            <control type="label">
+                <width>450</width>
+                <height>25</height>
+                <font>20px_Medium</font>
+                <textcolor>silver</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>ESTUDIO</label>
+                <visible>!String.IsEmpty(ListItem.Studio)</visible>
+                <align>left</align>
+            </control>
+            <control type="textbox">
+                <width>450</width>
+                <height>auto</height>
+                <font>20px_Regular</font>
+                <textcolor>darkgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>$INFO[ListItem.Studio][CR] </label>
+                <visible>!String.IsEmpty(ListItem.Studio)</visible>
+                <align>left</align>
+            </control>
+            <control type="label">
+                <width>450</width>
+                <height>25</height>
+                <font>20px_Medium</font>
+                <textcolor>silver</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>GÉNERO</label>
+                <visible>!String.IsEmpty(ListItem.Genre)</visible>
+                <align>left</align>
+            </control>
+            <control type="textbox">
+                <width>450</width>
+                <height>auto</height>
+                <font>20px_Regular</font>
+                <textcolor>darkgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>$VAR[Genre1Var]$VAR[Genre2Var]$VAR[Genre3Var]$VAR[Genre4Var]$VAR[Genre5Var]$VAR[Genre6Var]$VAR[Genre7Var]$VAR[Genre8Var]$VAR[Genre9Var]$VAR[Genre10Var]$VAR[Genre11Var]$VAR[Genre12Var]$VAR[Genre13Var]</label>
+                <visible>!String.IsEmpty(ListItem.Genre)</visible>
+                <align>left</align>
+            </control>
+        </control>
+    </include>
+    <include name="CastInfo">
+        <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <texture>colors/black80.png</texture>
+            <visible>ControlGroup(11).HasFocus</visible>
+            <animation effect="fade" tween="cubic" easing="inout" time="300" reversible="true">VisibleChange</animation>
+        </control>
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <centerbottom>50</centerbottom>
+			<width>300</width>
+			<height>60</height>
+            <visible>Integer.IsGreater(Container(50).NumItems,0)|Container(50).IsUpdating</visible>
+            <animation effect="slide" end="0,-980" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            <control type="label">
+                <height>20</height>
+                <align>center</align>
+                <aligny>top</aligny>
+                <font>20px_Bold</font>
+                <label>REPARTO</label>
+                <textcolor>lightgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <visible>!ControlGroup(11).HasFocus</visible>
+                <animation effect="fade" tween="cubic" easing="inout" time="300">VisibleChange</animation>
+            </control>
+            <control type="image">
+                <centerleft>50%</centerleft>
+                <bottom>0</bottom>
+                <width>50</width>
+                <height>50</height>
+                <texture colordiffuse="lightgray">icons/arrow_down.png</texture>
+                <visible>!Container(50).HasPrevious</visible>
+                <animation effect="fade" tween="cubic" easing="out" time="400">VisibleChange</animation>
+                <animation effect="rotate" start="0" end="180" center="auto" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            </control>
+        </control>
+        <control type="group" id="11">
+            <top>100%</top>
+            <left>120</left>
+            <height>1080</height>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+            <defaultcontrol>50</defaultcontrol>
+            <usecontrolcoords>true</usecontrolcoords>
+            <animation effect="slide" end="0,-1080" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            <control type="scrollbar" id="51">
+                <top>10</top>
+                <bottom>10</bottom>
+                <right>10</right>
+                <width>5</width>
+                <onleft>50</onleft>
+                <onback>50</onback>
+                <texturesliderbackground colordiffuse="4D373737" border="0,5,0,5"></texturesliderbackground>
+                <texturesliderbar colordiffuse="gray" border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+                <textureslidernib/>
+                <textureslidernibfocus/>
+                <showonepage>false</showonepage>
+                <orientation>vertical</orientation>
+            </control>
+            <control type="panel" id="50">
+                <width>100%</width>
+                <height>1080</height>
+                <scrolltime tween="cubic" easing="out">400</scrolltime>
+                <preloaditems>3</preloaditems>
+                <orientation>vertical</orientation>
+                <pagecontrol>51</pagecontrol>
+                <onup>900</onup>
+                <onback>Control.SetFocus(50,0,absolute)</onback>
+                <onback>900</onback>
+                <onright>51</onright>
+                <onleft>noop</onleft>
+                <ondown>noop</ondown>
+                <itemlayout width="285" height="400">
+                    <control type="group">
+                        <top>120</top>
+                        <width>253</width>
+                        <height>253</height>
+                        <control type="image">
+                            <texture fallback="DefaultActorSolid" diffuse="lists/round.png">DefaultActorSolid.png</texture>
+                            <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                            <bordertexture>frame/round_shadow.png</bordertexture>
+                            <bordersize>5</bordersize>
+                        </control>
+                        <control type="image">
+                            <texture fallback="DefaultActorSolid" diffuse="lists/round.png" background="true">$INFO[ListItem.Thumb]</texture>
+                            <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                            <bordertexture>frame/round_shadow.png</bordertexture>
+                            <bordersize>5</bordersize>
+                        </control>
+                        <control type="label">
+                            <left>0</left>
+                            <right>0</right>
+                            <height>20</height>
+                            <bottom>-35</bottom>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>22px_Medium</font>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>0</left>
+                            <right>0</right>
+                            <height>50</height>
+                            <bottom>-90</bottom>
+                            <align>center</align>
+                            <aligny>top</aligny>
+                            <font>22px_Regular</font>
+                            <textcolor>silver</textcolor>
+                            <label>$INFO[ListItem.Label2]</label>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="285" height="400">
+                    <control type="group">
+                        <top>120</top>
+                        <width>253</width>
+                        <height>253</height>
+                        <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
+                        <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+                        <control type="image">
+                            <texture diffuse="lists/round.png">DefaultActorSolid.png</texture>
+                            <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                            <bordertexture>frame/round_shadow.png</bordertexture>
+                            <bordersize>5</bordersize>
+                        </control>
+                        <control type="image">
+                            <texture diffuse="lists/round.png" background="true">$INFO[ListItem.Thumb]</texture>
+                            <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                            <bordertexture>frame/round_shadow.png</bordertexture>
+                            <bordersize>5</bordersize>
+                        </control>
+                        <control type="image">
+                            <texture>frame/round_focus.png</texture>
+                            <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
+                            <animation effect="fade" start="100" end="70" pulse="true" reversible="true" delay="800" time="800" condition="true">Conditional</animation>
+                            <animation type="Focus" reversible="true">
+                                <effect type="fade" end="100" tween="cubic" easing="out" time="10" />
+                            </animation>
+                            <animation type="Unfocus" reversible="true">
+                                <effect type="fade" end="0" tween="cubic" easing="out" time="10" />
+                            </animation>
+                        </control>
+                        <control type="label">
+                            <left>0</left>
+                            <right>0</right>
+                            <height>20</height>
+                            <bottom>-35</bottom>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>22px_Medium</font>
+                            <label>$INFO[ListItem.Label]</label>
+                            <scroll>true</scroll>
+                        </control>
+                        <control type="textbox">
+                            <left>0</left>
+                            <right>0</right>
+                            <height>50</height>
+                            <bottom>-90</bottom>
+                            <align>center</align>
+                            <aligny>top</aligny>
+                            <font>22px_Regular</font>
+                            <textcolor>silver</textcolor>
+                            <label>$INFO[ListItem.Label2]</label>
+                            <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+        </control>
+    </include>
+    <include name="ProgressBarButton">
+        <control type="button">
+            <width>auto</width>
+            <align>left</align>
+            <aligny>center</aligny>
+            <font>27px_Medium</font>
+            <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
+            <textoffsetx>30</textoffsetx>
+            <textcolor>00FFFFFF</textcolor>
+            <texturenofocus border="20" colordiffuse="button_focus">percent/$PARAM[percent].png</texturenofocus>
+            <pulseonselect>false</pulseonselect>
+            <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,$PARAM[percent])]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,$PARAM[percent])]</visible>
+        </control>
+    </include>
     <include name="DialogVideoInfoProgressBar">
         <control type="group">
             <left>110</left>
@@ -1319,1209 +1682,300 @@
                 <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
                 <textoffsetx>30</textoffsetx>
                 <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/100.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,100)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,100)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/99.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,99)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,99)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/98.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,98)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,98)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/97.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,97)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,97)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/96.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,96)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,96)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/95.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,95)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,95)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/94.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,94)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,94)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/93.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,93)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,93)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/92.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,92)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,92)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/91.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,91)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,91)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/90.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,90)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,90)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/89.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,89)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,89)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/88.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,88)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,88)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/87.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,87)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,87)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/86.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,86)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,86)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/85.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,85)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,85)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/84.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,84)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,84)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/83.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,83)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,83)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/82.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,82)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,82)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/81.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,81)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,81)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/80.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,80)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,80)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/79.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,79)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,79)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/78.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,78)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,78)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/77.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,77)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,77)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/76.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,76)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,76)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/75.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,75)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,75)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/74.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,74)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,74)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/73.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,73)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,73)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/72.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,72)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,72)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/71.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,71)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,71)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/70.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,70)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,70)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/69.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,69)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,69)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/68.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,68)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,68)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/67.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,67)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,67)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/66.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,66)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,66)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/65.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,65)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,65)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/64.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,64)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,64)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/63.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,63)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,63)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/62.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,62)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,62)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/61.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,61)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,61)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/60.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,60)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,60)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/59.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,59)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,59)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/58.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,58)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,58)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/57.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,57)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,57)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/56.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,56)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,56)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/55.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,55)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,55)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/54.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,54)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,54)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/53.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,53)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,53)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/52.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,52)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,52)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/51.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,51)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,51)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/50.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,50)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,50)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/49.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,49)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,49)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/48.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,48)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,48)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/47.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,47)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,47)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/46.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,46)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,46)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/45.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,45)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,45)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/44.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,44)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,44)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/43.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,43)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,43)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/42.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,42)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,42)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/41.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,41)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,41)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/40.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,40)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,40)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/39.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,39)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,39)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/38.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,38)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,38)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/37.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,37)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,37)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/36.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,36)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,36)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/35.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,35)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,35)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/34.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,34)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,34)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/33.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,33)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,33)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/32.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,32)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,32)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/31.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,31)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,31)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/30.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,30)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,30)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/29.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,29)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,29)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/28.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,28)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,28)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/27.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,27)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,27)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/26.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,26)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,26)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/25.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,25)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,25)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/24.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,24)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,24)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/23.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,23)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,23)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/22.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,22)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,22)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/21.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,21)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,21)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/20.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,20)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,20)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/19.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,19)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,19)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/18.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,18)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,18)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/17.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,17)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,17)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/16.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,16)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,16)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/15.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,15)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,15)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/14.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,14)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,14)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/13.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,13)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,13)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/12.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,12)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,12)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/11.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,11)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,11)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/10.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,10)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,10)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/9.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,9)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,9)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/8.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,8)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,8)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/7.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,7)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,7)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/6.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,6)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,6)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/5.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,5)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,5)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/4.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,4)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,4)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/3.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,3)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,3)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/2.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,2)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,2)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="button_focus">percent/1.png</texturenofocus>
-                <pulseonselect>false</pulseonselect>
-                <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,1)]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,1)]</visible>
-            </control>
-            <control type="button">
-                <width>auto</width>
-                <align>left</align>
-                <aligny>center</aligny>
-                <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                <textoffsetx>30</textoffsetx>
-                <textcolor>00FFFFFF</textcolor>
                 <texturenofocus border="20" colordiffuse="border_alpha">percent/100.png</texturenofocus>
                 <pulseonselect>false</pulseonselect>
             </control>
+            <include content="ProgressBarButton">
+                <param name="percent" value="99" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="98" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="97" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="96" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="95" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="94" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="93" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="92" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="91" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="90" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="89" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="88" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="87" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="86" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="85" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="84" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="83" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="82" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="81" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="80" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="79" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="78" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="77" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="76" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="75" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="74" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="73" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="72" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="71" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="70" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="69" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="68" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="67" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="66" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="65" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="64" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="63" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="62" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="61" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="60" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="59" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="58" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="57" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="56" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="55" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="54" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="53" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="52" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="51" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="50" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="49" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="48" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="47" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="46" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="45" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="44" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="43" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="42" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="41" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="39" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="38" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="37" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="36" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="35" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="34" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="33" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="32" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="31" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="30" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="29" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="28" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="27" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="26" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="25" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="24" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="23" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="22" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="21" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="20" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="19" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="18" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="16" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="15" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="14" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="13" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="12" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="11" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="10" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="9" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="8" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="7" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="6" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="5" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="4" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="3" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="2" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="1" />
+            </include>
         </control>
     </include>
 	<include name="WidgetEpisodeInfo">

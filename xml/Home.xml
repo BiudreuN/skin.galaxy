@@ -8,7 +8,6 @@
     <onunload>ClearProperty(CustomSearchTerm)</onunload>
     <include>CustomWinProps</include>
 	<controls>
-
         <control type="button" id="100">
         	<description>Dumb button</description>
             <visible allowhiddenfocus="true">false</visible>
@@ -31,39 +30,6 @@
             <focusedlayout/>
             <content limit="1" sortby="random" target="videos">special://skin/playlists/home/director.xsp</content>
         </control>
-        <control type="list" id="3147">
-            <visible allowhiddenfocus="true">Integer.IsGreater(Container(3147).NumItems,0)+!Container(3147).IsUpdating</visible>
-            <visible>String.IsEqual(Window.Property(ItemHub),Movies)</visible>
-            <visible>Container.Content(movies)</visible>
-            <left>-100</left>
-            <top>-100</top>
-            <preloaditems>1</preloaditems>
-            <itemlayout/>
-            <focusedlayout/>
-            <content limit="1" sortby="random" target="videos">special://skin/playlists/movies/director.xsp</content>
-        </control>
-        <control type="list" id="5147">
-            <visible allowhiddenfocus="true">Integer.IsGreater(Container(5147).NumItems,0)+!Container(5147).IsUpdating</visible>
-            <visible>String.IsEqual(Window.Property(ItemHub),Kids)</visible>
-            <visible>Container.Content(movies)</visible>
-			<left>-100</left>
-			<top>-100</top>
-			<preloaditems>1</preloaditems>
-			<itemlayout/>
-			<focusedlayout/>
-			<content limit="1" sortby="random" target="videos">special://skin/playlists/kids/director.xsp</content>
-		</control>
-        <control type="list" id="6147">
-            <visible allowhiddenfocus="true">Integer.IsGreater(Container(6147).NumItems,0)+!Container(6147).IsUpdating</visible>
-            <visible>String.IsEqual(Window.Property(ItemHub),Anime)</visible>
-            <visible>Container.Content(movies)</visible>
-			<left>-100</left>
-			<top>-100</top>
-			<preloaditems>1</preloaditems>
-			<itemlayout/>
-			<focusedlayout/>
-			<content limit="1" sortby="random" target="videos">special://skin/playlists/anime/director.xsp</content>
-		</control>
         <control type="image">
             <height>100%</height>
             <width>100%</width>
@@ -1356,7 +1322,7 @@
                     <param name="widget_header" value="Mi Lista"/>
                     <param name="widget_target" value="videos"/>
                     <param name="list_id" value="7150"/>
-                    <param name="onup" value="noop"/>
+                    <param name="onup" value="7001"/>
                     <param name="sortby" value="title"/>
                     <param name="sortorder" value="ascending"/>
                 </include>
@@ -1371,7 +1337,7 @@
                     <shadowcolor>text_shadow</shadowcolor>
                     <include>Animation_WidgetInfo</include>
                     <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(1900)" reversible="true">Conditional</animation>
+                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(70010)" reversible="true">Conditional</animation>
                 </control>
             </control>
             <control type="group" id="1000">
@@ -1395,8 +1361,8 @@
                     <itemgap>-10</itemgap>
                     <defaultcontrol>1011</defaultcontrol>
                     <onup>noop</onup>
-                    <ondown condition="!Control.IsVisible(1016)">179</ondown>
-                    <ondown condition="Control.IsVisible(1016)">180</ondown>
+                    <ondown condition="String.IsEmpty(Skin.String(CustomSearchTerm))">179</ondown>
+                    <ondown condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">180</ondown>
                     <onleft>143</onleft>
                     <onback>Control.SetFocus(9100,0)</onback>
                     <usecontrolcoords>true</usecontrolcoords>
@@ -1469,8 +1435,8 @@
                     <onfocus>ClearProperty(SearchWidgets)</onfocus>
                     <onleft condition="!Control.IsVisible(1016)">Control.SetFocus(9100,0)</onleft>
                     <onleft condition="Control.IsVisible(1016)">1016</onleft>
-                    <ondown condition="!Control.IsVisible(1016)">179</ondown>
-                    <ondown condition="Control.IsVisible(1016)">180</ondown>
+                    <ondown condition="String.IsEmpty(Skin.String(CustomSearchTerm))">179</ondown>
+                    <ondown condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">180</ondown>
                     <onright>1100</onright>
                     <onclick>Skin.SetString(CustomSearchTerm)</onclick>
                 </control>
@@ -1645,25 +1611,15 @@
                 </control>
                 </control>
                 <include content="Search_Suggestions_Container">
-                        <param name="id" value="1017" />
-                        <param name="top" value="250" />
-                        <param name="left" value="-1500" />
-                        <param name="width" value="420" />
-                        <param name="height" value="840" />
-                        <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.label])" />
-                        <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
-                        <onleft>SetProperty(KeepSuggestions,1)</onleft>
-                        <onleft>Control.SetFocus(9100,0)</onleft>
-                        <onright>1100</onright>
-                        <onup>noop</onup>
-                        <onback>Control.SetFocus(9100,0)</onback>
-                        <onfocus>ClearProperty(KeepSuggestions)</onfocus>
-                        <onfocus>SetProperty(Suggestions,1)</onfocus>
-                        <enable>Integer.IsGreater(Container(1016).NumItems,0)+!Container(1016).IsUpdating</enable>
-                        <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
-                        <onclick condition="String.IsEmpty(Skin.String(CustomSearchTerm))">Control.SetFocus(77777,0,absolute)</onclick>
-                        <content limit="9">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
-                    </include>
+                    <param name="id" value="1017" />
+                    <param name="top" value="250" />
+                    <param name="left" value="-1500" />
+                    <param name="width" value="420" />
+                    <param name="height" value="840" />
+                    <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.label])" />
+                    <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
+                    <content limit="9">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
+                </include>
                 <control type="image">
                     <centertop>740</centertop>
                     <centerleft>435</centerleft>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<smartplaylist type="tvshows">
+    <name>Películas de Acción</name>
+    <match>all</match>
+    <rule field="genre" operator="contain">
+        <value>accion</value>
+        <value>acción</value>
+        <value>action</value>
+        <value>adventure</value>
+        <value>aventura</value>
+        <value>aventuras</value>
+    </rule>
+    <rule field="genre" operator="contain">anime</rule>
+    <limit>all</limit>
+    <order>title</order>
+</smartplaylist>

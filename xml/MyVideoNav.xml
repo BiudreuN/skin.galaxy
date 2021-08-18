@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">500</defaultcontrol>
-	<backgroundcolor>background</backgroundcolor>
+	<backgroundcolor></backgroundcolor>
 	<views>50,52,54,55,500</views>
 	<menucontrol>9000</menucontrol>
-    <animation effect="fade" start="0" end="100" time="300" tween="cubic" easing="in" reversible="true">WindowOpen</animation>
-    <animation effect="fade" start="100" end="0" time="300" tween="cubic" easing="out" reversible="true">WindowClose</animation>
+
 	<onload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onload>
 	<onload>ClearProperty(ShowViewSubMenu,Home)</onload>
     <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
@@ -15,8 +14,34 @@
     <onunload condition="!String.IsEmpty(Window(Home).Property(KeepTVShowID))">ClearProperty(KeepTVShowID,Home)</onunload>
 	<onload>Action(Stop)</onload>
 	<controls>
+        <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture>colors/background.png</texture>
+            <colordiffuse>primary_background</colordiffuse>
+            <animation type="WindowClose" reversible="false">
+                <effect type="zoom" start="100" end="101" tween="sine" easing="out" time="500" />
+            </animation>
+        </control>
+        <control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+                <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="400" />
+            </animation>
+			</control>
+			<control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture>colors/background50.png</texture>
+				<colordiffuse>dialog_tint</colordiffuse>
+                <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="400" />
+            </animation>
+			</control>
 		<control type="group">
-			
+			<include>OpenClose_Fade</include>
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
 			<include>View_54_InfoWall</include>

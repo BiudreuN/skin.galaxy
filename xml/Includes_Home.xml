@@ -2,258 +2,237 @@
 <includes>
 	<include name="WidgetSpotlight">
 		<definition>
+            <control type="group" id="$PARAM[list_id]1">
+                <top>120</top>
+                <height>100</height>
+                <left>150</left>
+                <right>150</right>
+
+                <control type="label">
+                    <bottom>100</bottom>
+                    <width>900</width>
+                    <height>42</height>
+                    <label>[LIGHT][UPPERCASE]Destacados[/UPPERCASE][/LIGHT]</label>
+                    <font>20px_Medium</font>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                </control>
+            </control>
 			<control type="wraplist" id="2001">
-                <top>80</top>
-				<left>-1500</left>
-                <height>535</height>
+                <top>125</top>
+                <left>950</left>
+                <height>480</height>
+                <width>1268</width>
 				<onclick>Action(Info)</onclick>
-				<preloaditems>2</preloaditems>
+				<preloaditems>3</preloaditems>
                 <orientation>horizontal</orientation>
-                <onfocus>SetProperty(HomeItem,$INFO[Container(2100).CurrentItem])</onfocus>
 				<scrolltime tween="cubic" easing="out">400</scrolltime>
 				<onup>noop</onup>
-                <focusposition>1</focusposition>
+                <focusposition>0</focusposition>
                 <autoscroll time="20000">!Control.HasFocus(2001)|System.IdleTime(1)</autoscroll>
                 <movement>0</movement>
-				<itemlayout width="1650" height="535">
-
-					<control type="group">
-                        <width>1625</width>
-                        <height>515</height>
-                        <left>$PARAM[left]</left>
-                        <animation effect="zoom" start="100" end="103" center="auto" tween="cubic" easing="inout" time="300" reversible="true">Focus</animation>
-                        <animation effect="zoom" start="103" end="100" center="auto" tween="cubic" easing="inout" time="300" reversible="true">Unfocus</animation>
-
+                <enable>true</enable>
+				<itemlayout width="339" height="482">
+                    <control type="group">
+                        <width>307</width>
+                        <height>452</height>
+                        <left>-315</left>
+                        <visible>!String.IsEqual(ListItem.Label,empty)</visible>
                         <control type="image">
-                            <texture fallback="colors/black.png" diffuse="frame/spotlight.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                            <width>317</width>
+                            <height>462</height>
+                            <texture border="20">frame/shadow.png</texture>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                        </control>
+                        <control type="image">
+                            <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
                             <bordersize>5</bordersize>
-                            <bordertexture>frame/spotlight_shadow.png</bordertexture>
-                            <aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
-                        <control type="image">
-                            <top>70</top>
-                            <bottom>70</bottom>
-                            <left>70</left>
-                            <width>600</width>
-                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                            <aspectratio align="left">keep</aspectratio>
-                        </control>
-                        <control type="group">
-                            <visible>!String.IsEmpty[ListItem.Art(clearlogo)]</visible>
-                            <control type="image">
-                                <top>5</top>
-                                <left>5</left>
-                                <height>170</height>
-                                <width>750</width>
-                                <texture diffuse="frame/spotlight.png">frame/fadespotlight.png</texture>
-                            </control>
-                            <control type="textbox">
-                                <top>10</top>
-                                <left>20</left>
-                                <height>120</height>
-                                <width>700</width>
-                                <font>50px_Regular</font>
-                                <label>$INFO[ListItem.Title]</label>
-                                <textcolor>FFEEEEEE</textcolor>
-                                <shadowcolor>text_shadow</shadowcolor>
-                                <aligny>top</aligny>
-                                <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
-                            </control>
-                        </control>
-                    </control>
-                    <control type="image">
-                        <width>1625</width>
-                        <height>515</height>
-                        <texture diffuse="frame/spotlight.png">colors/black70.png</texture>
-                        <bordersize>5</bordersize>
-                        <aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
-                        <visible>!String.IsEqual(ListItem.CurrentItem,Container(2001).CurrentItem)</visible>
-                        <animation effect="fade" tween="cubic" easing="out" reversible="true" time="400">VisibleChange</animation>
                     </control>
 				</itemlayout>
-                <focusedlayout width="1650" height="535">
-                	<control type="group">
-                        <width>1625</width>
-                        <height>515</height>
-                        <animation type="Focus" reversible="true">
-                            <effect type="zoom" start="100" end="103" center="auto" tween="cubic" easing="inout" time="300" />
-                        </animation>
-                        <animation type="Unfocus" reversible="true">
-                            <effect type="zoom" start="103" end="100" center="auto" tween="cubic" easing="inout" time="300" />
-                        </animation>
+                <focusedlayout width="339" height="482">
+                    <control type="group">
+                        <left>-315</left>
+                        <width>307</width>
+                        <height>452</height>
+                        <visible>!String.IsEqual(ListItem.Label,empty)</visible>
                         <control type="image">
-                            <texture fallback="colors/black.png" diffuse="frame/spotlight.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                            <width>317</width>
+                            <height>462</height>
+                            <texture border="20">frame/shadow.png</texture>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                        </control>
+                        <control type="image">
+                            <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
                             <bordersize>5</bordersize>
-                            <bordertexture>frame/spotlight_shadow.png</bordertexture>
-                            <aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
-                        </control>
-                        <control type="image">
-                            <top>70</top>
-                            <bottom>70</bottom>
-                            <left>70</left>
-                            <width>600</width>
-                            <texture fallback="colors/color_transparent.png" background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                            <aspectratio align="left">keep</aspectratio>
-                        </control>
-                        <control type="group">
-                            <visible>!String.IsEmpty[ListItem.Art(clearlogo)]</visible>
-                            <control type="image">
-                                <top>5</top>
-                                <left>5</left>
-                                <height>170</height>
-                                <width>750</width>
-                                <texture diffuse="frame/spotlight.png">frame/fadespotlight.png</texture>
-                            </control>
-                            <control type="textbox">
-                                <top>10</top>
-                                <left>20</left>
-                                <height>120</height>
-                                <width>700</width>
-                                <font>50px_Regular</font>
-                                <label>$INFO[ListItem.Title]</label>
-                                <textcolor>FFEEEEEE</textcolor>
-                                <shadowcolor>text_shadow</shadowcolor>
-                                <aligny>top</aligny>
-                                <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
-                            </control>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
                     </control>
-                    <control type="image">
-                        <width>1625</width>
-                        <height>515</height>
-                        <texture diffuse="frame/spotlight.png">colors/black70.png</texture>
-                        <bordersize>5</bordersize>
-                        <aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
-                        <visible>!String.IsEqual(ListItem.CurrentItem,Container(2001).CurrentItem)</visible>
-                        <animation effect="fade" tween="cubic" easing="out" reversible="true" time="400">VisibleChange</animation>
-                    </control>
-                    <control type="image">
-                            <width>1625</width>
-                            <height>515</height>
-                            <texture border="20">frame/focus.png</texture>
-                            <aspectratio>stretch</aspectratio>
-                            <visible>Control.HasFocus(2001)</visible>
-                            <animation effect="fade" start="100" end="70" pulse="true" reversible="true" delay="800" time="800" condition="true">Conditional</animation>
-                            <animation type="Focus" reversible="true">
-                                <effect type="zoom" start="100" end="103" center="auto" time="300" />
-                                <effect type="fade" end="100" time="10" />
-                            </animation>
-                            <animation type="Unfocus" reversible="true">
-                                <effect type="zoom" start="103" end="100" center="auto" time="300" />
-                                <effect type="fade" end="0" time="10" />
-                            </animation>
-                        </control>
 				</focusedlayout>
 				<content target="$PARAM[widget_target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[widget_limit]">$PARAM[content_path]</content>
                 <content target="$PARAM[widget_target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
 			</control>
-            <control type="grouplist" id="$PARAM[list_id]1">
-                    <right>170</right>
 
-                    <width>1625</width>
-                    <height>270</height>
-                    <top>50</top>
-                    <orientation>horizontal</orientation>
-                    <usecontrolcoords>true</usecontrolcoords>
-                    <align>right</align>
-                    <itemgap>15</itemgap>
-                    <enable>false</enable>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <include>Animation_WidgetInfo</include>
-                    <animation effect="zoom" start="100" end="103" center="1000,0" tween="cubic" easing="inout" reversible="true" time="300" condition="Control.HasFocus(2001)">Conditional</animation>
-                    <animation effect="fade" time="300" tween="cubic" easing="inout" reversible="true">VisibleChange</animation>
-                    <control type="radiobutton">
-                        <width>20</width>
-                        <radiowidth>20</radiowidth>
-                        <radioheight>20</radioheight>
-                        <radioposx>-1</radioposx>
-                        <texturefocus/>
-                        <texturenofocus/>
-                        <textureradioonfocus></textureradioonfocus>
-                        <textureradioonnofocus>lists/round2.png</textureradioonnofocus>
-                        <textureradioofffocus></textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="dimgray">lists/round2.png</textureradiooffnofocus>
-                        <selected>Integer.IsEqual(Container(2001).CurrentItem,1)</selected>
-                        <animation effect="zoom" start="100" end="130" center="auto" reversible="true" tween="cubic" easing="inout" time="200" condition="Integer.IsEqual(Container(2001).CurrentItem,1)">Conditional</animation>
-                        <visible>Integer.IsGreaterOrEqual(Container(2001).NumItems,1)</visible>
-                    </control>
-                    <control type="radiobutton">
-                        <width>20</width>
-                        <radiowidth>20</radiowidth>
-                        <radioheight>20</radioheight>
-                        <radioposx>-1</radioposx>
-                        <texturefocus/>
-                        <texturenofocus/>
-                        <textureradioonfocus></textureradioonfocus>
-                        <textureradioonnofocus>lists/round2.png</textureradioonnofocus>
-                        <textureradioofffocus></textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="dimgray">lists/round2.png</textureradiooffnofocus>
-                        <selected>Integer.IsEqual(Container(2001).CurrentItem,2)</selected>
-                        <animation effect="zoom" start="100" end="130" center="auto" reversible="true" tween="cubic" easing="inout" time="200" condition="Integer.IsEqual(Container(2001).CurrentItem,2)">Conditional</animation>
-                        <visible>Integer.IsGreaterOrEqual(Container(2001).NumItems,2)</visible>
-                    </control>
-                    <control type="radiobutton">
-                        <width>20</width>
-                        <radiowidth>20</radiowidth>
-                        <radioheight>20</radioheight>
-                        <radioposx>-1</radioposx>
-                        <texturefocus/>
-                        <texturenofocus/>
-                        <textureradioonfocus></textureradioonfocus>
-                        <textureradioonnofocus>lists/round2.png</textureradioonnofocus>
-                        <textureradioofffocus></textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="dimgray">lists/round2.png</textureradiooffnofocus>
-                        <selected>Integer.IsEqual(Container(2001).CurrentItem,3)</selected>
-                        <animation effect="zoom" start="100" end="130" center="auto" reversible="true" tween="cubic" easing="inout" time="200" condition="Integer.IsEqual(Container(2001).CurrentItem,3)">Conditional</animation>
-                        <visible>Integer.IsGreaterOrEqual(Container(2001).NumItems,3)</visible>
-                    </control>
-                    <control type="radiobutton">
-                        <width>20</width>
-                        <radiowidth>20</radiowidth>
-                        <radioheight>20</radioheight>
-                        <radioposx>-1</radioposx>
-                        <texturefocus/>
-                        <texturenofocus/>
-                        <textureradioonfocus></textureradioonfocus>
-                        <textureradioonnofocus>lists/round2.png</textureradioonnofocus>
-                        <textureradioofffocus></textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="dimgray">lists/round2.png</textureradiooffnofocus>
-                        <selected>Integer.IsEqual(Container(2001).CurrentItem,4)</selected>
-                        <animation effect="zoom" start="100" end="130" center="auto" reversible="true" tween="cubic" easing="inout" time="200" condition="Integer.IsEqual(Container(2001).CurrentItem,4)">Conditional</animation>
-                        <visible>Integer.IsGreaterOrEqual(Container(2001).NumItems,4)</visible>
-                    </control>
-                    <control type="radiobutton">
-                        <width>20</width>
-                        <radiowidth>20</radiowidth>
-                        <radioheight>20</radioheight>
-                        <radioposx>-1</radioposx>
-                        <texturefocus/>
-                        <texturenofocus/>
-                        <textureradioonfocus></textureradioonfocus>
-                        <textureradioonnofocus>lists/round2.png</textureradioonnofocus>
-                        <textureradioofffocus></textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="dimgray">lists/round2.png</textureradiooffnofocus>
-                        <selected>Integer.IsEqual(Container(2001).CurrentItem,5)</selected>
-                        <animation effect="zoom" start="100" end="130" center="auto" reversible="true" tween="cubic" easing="inout" time="200" condition="Integer.IsEqual(Container(2001).CurrentItem,5)">Conditional</animation>
-                        <visible>Integer.IsGreaterOrEqual(Container(2001).NumItems,5)</visible>
-                    </control>
-                    <control type="radiobutton">
-                        <width>20</width>
-                        <radiowidth>20</radiowidth>
-                        <radioheight>20</radioheight>
-                        <radioposx>-1</radioposx>
-                        <texturefocus/>
-                        <texturenofocus/>
-                        <textureradioonfocus></textureradioonfocus>
-                        <textureradioonnofocus>lists/round2.png</textureradioonnofocus>
-                        <textureradioofffocus></textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="dimgray">lists/round2.png</textureradiooffnofocus>
-                        <selected>Integer.IsEqual(Container(2001).CurrentItem,6)</selected>
-                        <animation effect="zoom" start="100" end="130" center="auto" reversible="true" tween="cubic" easing="inout" time="200" condition="Integer.IsEqual(Container(2001).CurrentItem,6)">Conditional</animation>
-                        <visible>Integer.IsGreaterOrEqual(Container(2001).NumItems,6)</visible>
-                    </control>
+            <control type="group" id="2003">
+                <left>150</left>
+                <width>817</width>
+                <height>300</height>
+                <top>20</top>
+                <enable>false</enable>
+                <animation effect="zoom" end="103" center="450,50" tween="back" easing="inout" time="350" condition="Control.HasFocus(2001)" reversible="true">Conditional</animation>
+                <animation effect="zoom" end="100" center="450,50" tween="back" easing="out" time="250" condition="!Control.HasFocus(2001)" reversible="true">Conditional</animation>
+                <control type="image">
+                    <top>-270</top>
+                    <width>813</width>
+                    <height>462</height>
+                    <texture>frame/spotlight_shadow.png</texture>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
                 </control>
+                <control type="image">
+                    <top>-270</top>
+                    <width>803</width>
+                    <height>452</height>
+                    <fadetime>300</fadetime>
+                    <texture diffuse="frame/spotlight.png">colors/black.png</texture>
+                    <bordersize>5</bordersize>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                </control>
+                <control type="multiimage">
+                    <top>-265</top>
+                    <left>5</left>
+                    <width>793</width>
+                    <height>442</height>
+                    <fadetime tween="cubic" easing="out">400</fadetime>
+                    <imagepath fallback="defaultvideocover.png" diffuse="frame/spotlight.png" background="true">$VAR[SpotlightVar]</imagepath>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                </control>
+                <control type="image">
+                    <bottom>118</bottom>
+                    <width>803</width>
+                    <height>80</height>
+                    <fadetime>300</fadetime>
+                    <texture diffuse="frame/spotlight.png">colors/black80.png</texture>
+                    <aspectratio scalediffuse="true">scale</aspectratio>
+                    <visible>String.IsEmpty(Container(2001).ListItem.Art(landscape))</visible>
+                    <animation effect="fade" tween="cubic" easing="inout" time="200" reversible="true">VisibleChange</animation>
+                </control>
+                <control type="label">
+                    <left>20</left>
+                    <bottom>150</bottom>
+                    <width>800</width>
+                    <height>25</height>
+                    <font>24px_Medium</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <label>$VAR[SpotlightLabelVar]</label>
+                    <align>left</align>
+                    <visible>String.IsEmpty(Container(2001).ListItem.Art(landscape))</visible>
+                    <animation effect="fade" tween="cubic" easing="inout" time="200" reversible="true">VisibleChange</animation>
+                </control>
+                <control type="button">
+                    <top>-270</top>
+                    <width>803</width>
+                    <height>452</height>
+                    <texturenofocus border="20">frame/focus.png</texturenofocus>
+                    <pulseonselect>true</pulseonselect>
+                    <visible>Control.HasFocus(2001)</visible>
+                    <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="true" reversible="true">Conditional</animation>
+                </control>
+            </control>
+
 		</definition>
+	</include>
+    <include name="PanelHeadbar">
+        <control type="label">
+            <top>80</top>
+            <left>150</left>
+            <right>150</right>
+            <height>70</height>
+            <font>56px_Medium</font>
+            <label>[CAPITALIZE]$PARAM[title][/CAPITALIZE]</label>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>gainsboro</textcolor>
+            <include>Animation_WidgetInfo</include>
+            <visible>!Window.IsActive(movieinformation)</visible>
+        </control>
+		<control type="label">
+            <centertop>150</centertop>
+            <left>150</left>
+            <height>100</height>
+            <width>1000</width>
+            <font>38px_Regular</font>
+            <aligny>center</aligny>
+            <label>[UPPERCASE]$PARAM[title][/UPPERCASE]</label>
+            <textcolor>gainsboro</textcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+            <include>Animation_WidgetInfo</include>
+            <visible>!Window.IsActive(movieinformation)</visible>
+            <visible>false</visible>
+            <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible($PARAM[id]0010)" reversible="true">Conditional</animation>
+        </control>
+        <control type="grouplist" id="$PARAM[id]001">
+            <top>100</top>
+            <left>150</left>
+            <right>150</right>
+            <itemgap>10</itemgap>
+            <orientation>horizontal</orientation>
+            <align>right</align>
+            <height>100</height>
+            <onright>noop</onright>
+            <ondown>$PARAM[id]150</ondown>
+            <include>Animation_WidgetInfo</include>
+            <visible>!Window.IsActive(movieinformation)</visible>
+            <usecontrolcoords>true</usecontrolcoords>
+            <visible>false</visible>
+            <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible($PARAM[id]0010)" reversible="true">Conditional</animation>
+            <onleft>Control.SetFocus(9100,$PARAM[sidebar])</onleft>
+            <onback>Control.SetFocus(9100,$PARAM[sidebar])</onback>
+            <control type="togglebutton" id="$PARAM[id]002">
+                <centertop>50%</centertop>
+                <width>auto</width>
+                <height>60</height>
+                <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                <texturenofocus></texturenofocus>
+                <alttexturefocus colordiffuse="bg_overlay" border="20">buttons/button-focus.png</alttexturefocus>
+                <alttexturenofocus></alttexturenofocus>
+                <usealttexture>Window.IsActive(1111)</usealttexture>
+                <label>[UPPERCASE]$PARAM[type_label][/UPPERCASE]</label>
+                <altlabel>[COLOR white][UPPERCASE]$PARAM[type_label][/UPPERCASE][/COLOR]</altlabel>
+                <font>27px_Medium</font>
+                <textcolor>silver</textcolor>
+                <focusedcolor>black</focusedcolor>
+                <disabledcolor>disabled</disabledcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <textoffsetx>20</textoffsetx>
+                <align>center</align>
+                <aligny>center</aligny>
+                <onclick>ActivateWindow(1111)</onclick>
+                <enable>$PARAM[enable_type]</enable>
+            </control>
+            <control type="togglebutton" id="$PARAM[id]003">
+                <centertop>50%</centertop>
+                <width>auto</width>
+                <height>60</height>
+                <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                <texturenofocus></texturenofocus>
+                <alttexturefocus colordiffuse="bg_overlay" border="20">buttons/button-focus.png</alttexturefocus>
+                <alttexturenofocus></alttexturenofocus>
+                <usealttexture>Window.IsActive(1110)</usealttexture>
+                <label>[UPPERCASE]$PARAM[genre_label][/UPPERCASE]</label>
+                <altlabel>[COLOR white][UPPERCASE]$PARAM[genre_label][/UPPERCASE][/COLOR]</altlabel>
+                <font>27px_Medium</font>
+                <textcolor>silver</textcolor>
+                <focusedcolor>black</focusedcolor>
+                <disabledcolor>disabled</disabledcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <textoffsetx>20</textoffsetx>
+                <align>center</align>
+                <aligny>center</aligny>
+                <onclick>ActivateWindow(1110)</onclick>
+            </control>
+        </control>
 	</include>
 	<include name="WidgetListCommon">
 		<scrolltime tween="cubic" easing="out">400</scrolltime>
@@ -262,7 +241,7 @@
         <onclick>SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
         <onclick>SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
 		<onclick>Action(Info)</onclick>
-		<preloaditems>2</preloaditems>
+		<preloaditems>3</preloaditems>
 	</include>
 	<include name="BusyListSpinner">
 		<param name="posy">160</param>
@@ -293,115 +272,269 @@
         <texture border="20">frame/focus.png</texture>
     </include>
     <include name="WidgetCategory">
-        <control type="group">
-            <centertop>100</centertop>
+        <control type="label">
+            <top>80</top>
+            <left>150</left>
+            <right>150</right>
             <height>70</height>
+            <font>56px_Medium</font>
+            <label>[CAPITALIZE]$PARAM[title][/CAPITALIZE]</label>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>gainsboro</textcolor>
             <include>Animation_WidgetInfo</include>
             <visible>!Window.IsActive(movieinformation)</visible>
-            <animation effect="fade" tween="cubic" easing="inout" start="100" end="0" time="300" condition="$PARAM[visible]" reversible="true">Conditional</animation>
-            <control type="label">
-                <left>150</left>
-                <width>800</width>
-                <font>32px_Regular</font>
-                <aligny>center</aligny>
-                <align>left</align>
-                <label>[B]$PARAM[title] ·[/B] [LIGHT]$INFO[Container($PARAM[list_id]).ListItem.Label][/LIGHT]</label>
-                <textcolor>darkgray</textcolor>
-                <shadowcolor>text_shadow</shadowcolor>
-            </control>
-
-            <control type="grouplist">
-                <right>150</right>
-                <itemgap>15</itemgap>
-                <orientation>horizontal</orientation>
-                <align>right</align>
-                <control type="list" id="$PARAM[list_id]">
-                    <width>$PARAM[width]</width>
-                    <orientation>horizontal</orientation>
-                    <onleft>Control.SetFocus(9100,$PARAM[sidebar])</onleft>
-                    <onback>Control.SetFocus(9100,$PARAM[sidebar])</onback>
-                    <onright>noop</onright>
-                    <ondown condition="Container($PARAM[list_id]).Position(0)">SetFocus($PARAM[ondown0])</ondown>
-                    <ondown condition="Container($PARAM[list_id]).Position(1)">SetFocus($PARAM[ondown1])</ondown>
-                    <ondown condition="Container($PARAM[list_id]).Position(2)">SetFocus($PARAM[ondown2])</ondown>
-                    <itemlayout width="70" height="70">
-                        <control type="image">
-                            <centertop>50%</centertop>
-                            <centerleft>50%</centerleft>
-                            <width>40</width>
-                            <height>40</height>
-                            <texture colordiffuse="dimgray">$INFO[ListItem.Icon]</texture>
-                        </control>
-                    </itemlayout>
-                    <focusedlayout height="70" width="70" condition="!Control.HasFocus($PARAM[list_id])">
-                        <control type="image">
-                            <centertop>50%</centertop>
-                            <centerleft>50%</centerleft>
-                            <width>40</width>
-                            <height>40</height>
-                            <texture>$INFO[ListItem.Icon]</texture>
-                        </control>
-                        <control type="image">
-                            <bottom>10</bottom>
-                            <centerleft>50%</centerleft>
-                            <width>5</width>
-                            <height>5</height>
-                            <texture colordiffuse="button_focus">buttons/buttonround-fo.png</texture>
-                        </control>
-                    </focusedlayout>
-                    <focusedlayout height="70" width="70"  condition="Control.HasFocus($PARAM[list_id])">
-                        <control type="image">
-                            <centertop>50%</centertop>
-                            <centerleft>50%</centerleft>
-                            <width>60</width>
-                            <height>60</height>
-                            <texture colordiffuse="FFEEEEEE">buttons/buttonround-fo.png</texture>
-                            <animation effect="fade" start="100" end="80" pulse="true" reversible="true" delay="800" time="800" condition="true">Conditional</animation>
-                        </control>
-                        <control type="image">
-                            <centertop>50%</centertop>
-                            <centerleft>50%</centerleft>
-                            <width>40</width>
-                            <height>40</height>
-                            <texture colordiffuse="black">$INFO[ListItem.Icon]</texture>
-                        </control>
-                    </focusedlayout>
-                    <content>
-                        <item id="1">
-                            <label>[UPPERCASE]$PARAM[label0][/UPPERCASE]</label>
-                            <icon>icons/library/$PARAM[icon0].png</icon>
-                            <onclick>SetFocus($PARAM[ondown0])</onclick>
-                        </item>
-                        <item id="2">
-                            <label>[UPPERCASE]$PARAM[label1][/UPPERCASE]</label>
-                            <icon>icons/library/$PARAM[icon1].png</icon>
-                            <onclick>SetFocus($PARAM[ondown1])</onclick>
-                        </item>
-                        <item id="3">
-                            <label>[UPPERCASE]$PARAM[label2][/UPPERCASE]</label>
-                            <icon>icons/library/$PARAM[icon2].png</icon>
-                            <onclick>SetFocus($PARAM[ondown2])</onclick>
-                            <visible>$PARAM[third_visible]</visible>
-                        </item>
-                    </content>
-                </control>
-                <control type="label">
-                    <width>auto</width>
-                    <font>32px_Light</font>
-                    <aligny>center</aligny>
-                    <align>right</align>
-                    <label>$INFO[System.Time]</label>
-                    <textcolor>lightgray</textcolor>
-                    <shadowcolor>text_shadow</shadowcolor>
-                </control>
-            </control>
+        </control>
+        <control type="image">
+            <centertop>50%</centertop>
+            <centerright>764</centerright>
+            <width>100</width>
+            <height>100</height>
+            <texture>dialogs/spin.png</texture>
+            <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+            <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
+            <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+            <visible>Control.IsVisible(10000)</visible>
+        </control>
+        <control type="grouplist" id="$PARAM[id]050">
+            <top>160</top>
+            <left>140</left>
+            <itemgap>-15</itemgap>
+            <width>550</width>
+            <height>90%</height>
+            <orientation>vertical</orientation>
+            <onleft>Control.SetFocus(9100,$PARAM[sidebar])</onleft>
+            <onback>Control.SetFocus(9100,$PARAM[sidebar])</onback>
+            <onup>noop</onup>
+            <ondown>noop</ondown>
+            <usecontrolcoords>true</usecontrolcoords>
+            <visible>!$PARAM[alt]</visible>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]01"/>
+                <param name="position" value="0"/>
+                <param name="label" value="Todos"/>
+                <param name="panel_id" value="50"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]02"/>
+                <param name="position" value="1"/>
+                <param name="label" value="Acción/Aventuras"/>
+                <param name="panel_id" value="52"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]03"/>
+                <param name="position" value="2"/>
+                <param name="label" value="Ciencia Ficción"/>
+                <param name="panel_id" value="53"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]04"/>
+                <param name="position" value="3"/>
+                <param name="label" value="Clásicas"/>
+                <param name="panel_id" value="54"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]05"/>
+                <param name="position" value="4"/>
+                <param name="label" value="Comedia"/>
+                <param name="panel_id" value="55"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]06"/>
+                <param name="position" value="5"/>
+                <param name="label" value="Crimen"/>
+                <param name="panel_id" value="56"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]07"/>
+                <param name="position" value="6"/>
+                <param name="label" value="Drama"/>
+                <param name="panel_id" value="57"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]08"/>
+                <param name="position" value="7"/>
+                <param name="label" value="Familiar"/>
+                <param name="panel_id" value="58"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]09"/>
+                <param name="position" value="8"/>
+                <param name="label" value="Fantasía"/>
+                <param name="panel_id" value="59"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]10"/>
+                <param name="position" value="9"/>
+                <param name="label" value="Misterio"/>
+                <param name="panel_id" value="60"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]11"/>
+                <param name="position" value="10"/>
+                <param name="label" value="Musical"/>
+                <param name="panel_id" value="61"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]12"/>
+                <param name="position" value="11"/>
+                <param name="label" value="Romántica"/>
+                <param name="panel_id" value="62"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]13"/>
+                <param name="position" value="12"/>
+                <param name="label" value="Suspense"/>
+                <param name="panel_id" value="63"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]14"/>
+                <param name="position" value="13"/>
+                <param name="label" value="Terror"/>
+                <param name="panel_id" value="64"/>
+            </include>
+        </control>
+        <control type="grouplist" id="$PARAM[id]050">
+            <top>160</top>
+            <left>140</left>
+            <itemgap>-15</itemgap>
+            <width>550</width>
+            <height>90%</height>
+            <orientation>vertical</orientation>
+            <onleft>Control.SetFocus(9100,$PARAM[sidebar])</onleft>
+            <onback>Control.SetFocus(9100,$PARAM[sidebar])</onback>
+            <onup>noop</onup>
+            <ondown>noop</ondown>
+            <usecontrolcoords>true</usecontrolcoords>
+            <visible>$PARAM[alt]</visible>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]01"/>
+                <param name="position" value="0"/>
+                <param name="label" value="Películas"/>
+                <param name="panel_id" value="50"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]02"/>
+                <param name="position" value="1"/>
+                <param name="label" value="Series"/>
+                <param name="panel_id" value="51"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]03"/>
+                <param name="position" value="2"/>
+                <param name="label" value="Acción/Aventuras"/>
+                <param name="panel_id" value="52"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]04"/>
+                <param name="position" value="3"/>
+                <param name="label" value="Ciencia Ficción"/>
+                <param name="panel_id" value="53"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]05"/>
+                <param name="position" value="4"/>
+                <param name="label" value="Clásicas"/>
+                <param name="panel_id" value="54"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]06"/>
+                <param name="position" value="5"/>
+                <param name="label" value="Comedia"/>
+                <param name="panel_id" value="55"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]07"/>
+                <param name="position" value="6"/>
+                <param name="label" value="Crimen"/>
+                <param name="panel_id" value="56"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]08"/>
+                <param name="position" value="7"/>
+                <param name="label" value="Drama"/>
+                <param name="panel_id" value="57"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]09"/>
+                <param name="position" value="8"/>
+                <param name="label" value="Familiar"/>
+                <param name="panel_id" value="58"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]10"/>
+                <param name="position" value="9"/>
+                <param name="label" value="Fantasía"/>
+                <param name="panel_id" value="59"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]11"/>
+                <param name="position" value="10"/>
+                <param name="label" value="Misterio"/>
+                <param name="panel_id" value="60"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]12"/>
+                <param name="position" value="11"/>
+                <param name="label" value="Musical"/>
+                <param name="panel_id" value="61"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]13"/>
+                <param name="position" value="12"/>
+                <param name="label" value="Romántica"/>
+                <param name="panel_id" value="62"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]14"/>
+                <param name="position" value="13"/>
+                <param name="label" value="Suspense"/>
+                <param name="panel_id" value="63"/>
+            </include>
+            <include content="GenreButton">
+                <param name="id" value="$PARAM[id]"/>
+                <param name="button_id" value="$PARAM[id]15"/>
+                <param name="position" value="14"/>
+                <param name="label" value="Terror"/>
+                <param name="panel_id" value="64"/>
+            </include>
         </control>
     </include>
+
     <include name="WidgetListThumb">
         <param name="visible_content">false</param>
         <param name="visible_widget">true</param>
         <param name="group_id">2100</param>
         <param name="left">150</param>
+        <param name="searchmore">false</param>
 		<definition>
              <control type="group" id="$PARAM[list_id]1">
                 <top>140</top>
@@ -413,46 +546,10 @@
                     <bottom>30</bottom>
                     <width>900</width>
                     <height>42</height>
-                    <label>[UPPERCASE]$PARAM[widget_header][/UPPERCASE]</label>
+                    <label>[LIGHT][UPPERCASE]$PARAM[widget_header][/UPPERCASE][/LIGHT]</label>
                     <font>20px_Medium</font>
                     <textcolor>gainsboro</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
-                </control>
-                <control type="radiobutton">
-                    <bottom>30</bottom>
-                    <right>15</right>
-                    <width>35</width>
-                    <height>42</height>
-                    <radiowidth>35</radiowidth>
-                    <radioheight>42</radioheight>
-                    <radioposx>-1</radioposx>
-                    <radioposy>-6</radioposy>
-                    <texturefocus/>
-                    <texturenofocus/>
-                    <textureradioonfocus/>
-                    <textureradioondisabled colordiffuse="gainsboro" flipx="true">icons/arrow_right.png</textureradioondisabled>
-                    <textureradioofffocus/>
-                    <textureradiooffdisabled colordiffuse="90grey" flipx="true">icons/arrow_right.png</textureradiooffdisabled>
-                    <selected>Container($PARAM[list_id]).HasPrevious</selected>
-                    <enable>false</enable>
-                </control>
-                <control type="radiobutton">
-                    <bottom>30</bottom>
-                    <right>-20</right>
-                    <width>35</width>
-                    <height>42</height>
-                    <radiowidth>35</radiowidth>
-                    <radioheight>42</radioheight>
-                    <radioposx>-1</radioposx>
-                    <radioposy>-6</radioposy>
-                    <texturefocus/>
-                    <texturenofocus/>
-                    <textureradioonfocus/>
-                    <textureradioondisabled colordiffuse="gainsboro">icons/arrow_right.png</textureradioondisabled>
-                    <textureradioofffocus/>
-                    <textureradiooffdisabled colordiffuse="90grey">icons/arrow_right.png</textureradiooffdisabled>
-                    <selected>Container($PARAM[list_id]).HasNext</selected>
-                    <enable>false</enable>
                 </control>
             </control>
 			<include content="BusyListSpinner">
@@ -461,7 +558,7 @@
 			</include>
 			<control type="list" id="$PARAM[list_id]">
                 <top>200</top>
-                <left>$PARAM[left]</left>
+                <left>0</left>
                 <onfocus condition="String.IsEqual(Window.Property(ItemHub),Search)">SetProperty(SearchWidgets,1,home)</onfocus>
                 <onfocus>SetProperty($PARAM[item],$INFO[Container($PARAM[group_id]).CurrentItem],Home)</onfocus>
                 <onunfocus>SetProperty($PARAM[item]2,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
@@ -477,21 +574,112 @@
                 <movement>0</movement>
 				<itemlayout width="275" height="400">
 					<include content="PosterLayout">
+                        <param name="left" value="150"/>
 						<param name="list_id" value="$PARAM[list_id]"/>
 					</include>
 				</itemlayout>
                 <focusedlayout width="275" height="400">
                 	<include content="PosterLayout">
+                        <param name="left" value="150"/>
 						<param name="list_id" value="$PARAM[list_id]"/>
                         <param name="focus" value="true"/>
 					</include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="25">$PARAM[content_path]</content>
-                <content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="25">$PARAM[content_path2]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="35">$PARAM[content_path]</content>
+                <content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="35">$PARAM[content_path2]</content>
 			</control>
 		</definition>
 	</include>
     <include name="WidgetListThumb2">
+        <param name="visible_widget">true</param>
+		<definition>
+			<control type="panel" id="$PARAM[list_id]">
+                <right>79</right>
+				<top>0</top>
+				<scrolltime tween="cubic" easing="out">400</scrolltime>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
+                <onleft>$PARAM[onup]</onleft>
+                <onup>noop</onup>
+                <ondown>noop</ondown>
+                <onright>$PARAM[list_id]6</onright>
+                <onclick>SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
+                <onclick>SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
+                <onclick>Action(Info)</onclick>
+                <preloaditems>3</preloaditems>
+                <pagecontrol>$PARAM[list_id]6</pagecontrol>
+				<height>100%</height>
+                <width>1370</width>
+                <animation effect="fade" tween="cubic" easing="in" time="250" delay="250">Visible</animation>
+                <animation effect="fade" tween="cubic" easing="out" time="400">Hidden</animation>
+                <visible allowhiddenfocus="true">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
+                <visible>$PARAM[visible_widget]</visible>
+				<itemlayout width="274" height="400">
+					<include content="PosterLayout">
+                        <param name="top" value="120"/>
+                        <param name="list_id" value="$PARAM[list_id]"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="274" height="400">
+                    <include content="PosterLayout">
+                        <param name="top" value="120"/>
+                        <param name="list_id" value="$PARAM[list_id]"/>
+                        <param name="focus" value="true"/>
+                    </include>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
+			</control>
+            <control type="scrollbar" id="$PARAM[list_id]6">
+                <top>10</top>
+                <bottom>10</bottom>
+                <right>10</right>
+                <width>5</width>
+                <onleft>$PARAM[list_id]</onleft>
+                <onback>$PARAM[list_id]</onback>
+                <texturesliderbackground/>
+                <texturesliderbar colordiffuse="gray" border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+                <textureslidernib/>
+                <textureslidernibfocus/>
+                <showonepage>false</showonepage>
+                <orientation>vertical</orientation>
+                <enable>true</enable>
+                <include>Animation_WidgetInfo</include>
+                <pulseonselect>true</pulseonselect>
+                <visible>!Window.IsActive(movieinformation)</visible>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
+                <visible>$PARAM[visible_widget]</visible>
+                <animation effect="fade" tween="cubic" easing="in" start="100" end="0" time="300" condition="!Container($PARAM[list_id]).HasPrevious+!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+            </control>
+            <control type="button" id="10000">
+                <description>Dumb button</description>
+                <texturefocus/>
+                <texturenofocus/>
+                <visible>!Control.IsVisible($PARAM[list_id])+$PARAM[visible_widget]</visible>
+            </control>
+            <control type="image">
+                <centertop>50%</centertop>
+                <centerright>764</centerright>
+                <width>100</width>
+                <height>100</height>
+                <texture>dialogs/spin.png</texture>
+                <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
+                <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                <visible>Container($PARAM[list_id]).IsUpdating+!Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)+$PARAM[visible_widget]</visible>
+            </control>
+		</definition>
+	</include>
+    <include name="WidgetListThumb3">
         <param name="visible_widget">true</param>
 		<definition>
 
@@ -510,7 +698,7 @@
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
                 <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
-                <animation effect="slide" end="0,120" time="200" tween="cubic" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
+                <animation effect="slide" end="0,70" time="200" tween="cubic" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
                 <onup>$PARAM[onup]</onup>
                 <ondown>noop</ondown>
                 <onright>$PARAM[list_id]6</onright>
@@ -540,34 +728,14 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path]</content>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
+                <content>
+					<item>
+						<label>empty</label>
+						<onclick>noop</onclick>
+                        <visible>$EXP[MyListEmpty]+$EXP[MyListEmptyTV]</visible>
+					</item>
+				</content>
 			</control>
-            <control type="group">
-                <visible>!Window.IsActive(movieinformation)</visible>
-                <visible>$PARAM[visible_widget]</visible>
-                <visible>false</visible>
-                <include>Animation_WidgetInfo</include>
-            <control type="image">
-                <centertop>100</centertop>
-                <centerleft>50%</centerleft>
-                <width>800</width>
-                <height>80</height>
-                <texture colordiffuse="primary_background" border="20">frame/panel_border.png</texture>
-                <aspectratio scalediffuse="false">stretch</aspectratio>
-                <visible>Container($PARAM[list_id]).HasPrevious</visible>
-                <animation effect="fade" tween="cubic" easing="inout" time="300" reversible="true">VisibleChange</animation>
-            </control>
-            <control type="image">
-                <centertop>100</centertop>
-                <left>150</left>
-                <right>150</right>
-                <height>100</height>
-                <texture colordiffuse="silver">buttons/round_expand_less_white_48dp.png</texture>
-                <aspectratio>keep</aspectratio>
-                <visible>Container($PARAM[list_id]).HasPrevious</visible>
-
-                <animation effect="fade" tween="cubic" easing="inout" time="300" reversible="true">VisibleChange</animation>
-            </control>
-            </control>
             <control type="scrollbar" id="$PARAM[list_id]6">
                 <top>10</top>
                 <bottom>10</bottom>
@@ -590,57 +758,52 @@
                 <visible>$PARAM[visible_widget]</visible>
                 <animation effect="fade" tween="cubic" easing="inout" start="100" end="0" time="300" condition="!Container($PARAM[list_id]).HasPrevious+!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
             </control>
+            <control type="image">
+                <centertop>50%</centertop>
+                <centerright>50%</centerright>
+                <width>100</width>
+                <height>100</height>
+                <texture>dialogs/spin.png</texture>
+                <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
+                <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                <visible>Container($PARAM[list_id]).IsUpdating+!Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)+$PARAM[visible_widget]</visible>
+            </control>
             <control type="button" id="$PARAM[onup]0">
                 <description>Dumb button</description>
                 <texturefocus/>
                 <texturenofocus/>
                 <visible>$PARAM[visible_widget]+Container($PARAM[list_id]).HasPrevious</visible>
             </control>
-            <control type="label" id="$PARAM[list_id]1">
-                <description>Dumb button</description>
-                <textcolor>00EEEEEE</textcolor>
-                <label>gray</label>
-                <visible>false</visible>
-            </control>
-            <control type="label" id="$PARAM[list_id]1">
-                <description>Dumb button</description>
-                <textcolor>00EEEEEE</textcolor>
-                <label>FFEEEEEE</label>
-                <visible>$PARAM[visible_widget]</visible>
-            </control>
-            <control type="label" id="$PARAM[list_id]2">
-                <description>Dumb button</description>
-                <textcolor>00EEEEEE</textcolor>
-                <label></label>
-                <visible>false</visible>
-            </control>
-            <control type="label" id="$PARAM[list_id]2">
-                <description>Dumb button</description>
-                <textcolor>00EEEEEE</textcolor>
-                <label>utton-category</label>
-                <visible>$PARAM[visible_widget]</visible>
-            </control>
 		</definition>
 	</include>
     <include name="CategoryButton">
-        <control type="button" id="$PARAM[list_id]">
-            <width>auto</width>
-            <height>50</height>
-            <align>center</align>
-            <aligny>center</aligny>
-            <font>20px_Medium</font>
-            <ondown>$PARAM[panel_id]</ondown>
-            <onclick>SetFocus($PARAM[panel_id])</onclick>
-            <label>$PARAM[label]</label>
-            <textoffsetx>10</textoffsetx>
-            <textcolor>$INFO[Control.GetLabel($PARAM[panel_id]1)]</textcolor>
-            <focusedcolor>FFEEEEEE</focusedcolor>
-            <shadowcolor>text_shadow</shadowcolor>
-            <texturefocus border="20">buttons/button-category.png</texturefocus>
-            <texturenofocus/>
-            <pulseonselect>false</pulseonselect>
-            <enable>Integer.IsGreater(Container($PARAM[panel_id]).NumItems,0)|Container($PARAM[panel_id]).IsUpdating</enable>
-        </control>
+        <param name="color">gray</param>
+        <param name="disabledcolor">disabled</param>
+        <param name="enable">true</param>
+        <definition>
+            <control type="togglebutton" id="$PARAM[list_id]">
+                <width>auto</width>
+                <height>50</height>
+                <texturefocus border="20">buttons/button-category.png</texturefocus>
+                <texturenofocus></texturenofocus>
+                <alttexturefocus border="20">buttons/button-category.png</alttexturefocus>
+                <alttexturenofocus></alttexturenofocus>
+                <usealttexture>$PARAM[visible]</usealttexture>
+                <label>[LIGHT]$PARAM[label][/LIGHT]</label>
+                <altlabel>[COLOR white]$PARAM[label][/COLOR]</altlabel>
+                <font>20px_Medium</font>
+                <textcolor>gray</textcolor>
+                <disabledcolor>disabled</disabledcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <textoffsetx>10</textoffsetx>
+                <align>center</align>
+                <aligny>center</aligny>
+                <ondown>$PARAM[panel_id]</ondown>
+                <onclick>SetFocus($PARAM[panel_id])</onclick>
+                <enable>[Integer.IsGreater(Container($PARAM[panel_id]).NumItems,0)|Container($PARAM[panel_id]).IsUpdating]</enable>
+            </control>
+        </definition>
     </include>
 	<include name="WidgetListSpotlight">
 		<definition>

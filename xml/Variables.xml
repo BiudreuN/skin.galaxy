@@ -517,6 +517,182 @@
         <value condition="String.IsEqual(Skin.String(MyList99TV),ListItem.Title)">Skin.Reset(MyList99TV)</value>
         <value condition="String.IsEqual(Skin.String(MyList100TV),ListItem.Title)">Skin.Reset(MyList100TV)</value>
 	</variable>
+    <variable name="MoviesGenreVar">
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),1)">Acción/Aventuras</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),2)">Ciencia Ficción</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),3)">Clásicas</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),4)">Comedia</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),5)">Crimen</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),6)">Drama</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),7)">Familiar</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),8)">Fantasía</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),9)">Misterio</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),10)">Musical</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),11)">Romántica</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),12)">Suspense</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),13)">Terror</value>
+        <value>Todo</value>
+	</variable>
+    <variable name="TvShowGenreVar">
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),1)">Acción/Aventuras</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),2)">Ciencia Ficción</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),3)">Clásicas</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),4)">Comedia</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),5)">Crimen</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),6)">Drama</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),7)">Familiar</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),8)">Fantasía</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),9)">Misterio</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),10)">Musical</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),11)">Romántica</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),12)">Suspense</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),13)">Terror</value>
+        <value>Todo</value>
+	</variable>
+    <variable name="CartoonGenreVar">
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),1)">Acción/Aventuras</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),2)">Ciencia Ficción</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),3)">Clásicas</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),4)">Comedia</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),5)">Crimen</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),6)">Drama</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),7)">Familiar</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),8)">Fantasía</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),9)">Misterio</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),10)">Musical</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),11)">Romántica</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),12)">Suspense</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),13)">Terror</value>
+        <value>Todo</value>
+	</variable>
+    <variable name="AnimeGenreVar">
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),1)">Acción/Aventuras</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),2)">Ciencia Ficción</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),3)">Clásicas</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),4)">Comedia</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),5)">Crimen</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),6)">Drama</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),7)">Familiar</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),8)">Fantasía</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),9)">Misterio</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),10)">Musical</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),11)">Romántica</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),12)">Suspense</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),13)">Terror</value>
+        <value>Todo</value>
+	</variable>
+    <variable name="CartoonTypeVar">
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)">Series</value>
+        <value>Películas</value>
+	</variable>
+    <variable name="AnimeTypeVar">
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)">Series</value>
+        <value>Películas</value>
+	</variable>
+    <variable name="MyListTypeVar">
+        <value condition="String.IsEqual(Window(home).Property(MyListType),1)">Series</value>
+        <value>Películas</value>
+	</variable>
+    <variable name="SpotlightVar">
+        <value condition="!String.IsEmpty(Container(2001).ListItem.Art(landscape))">$INFO[Container(2001).ListItem.Art(landscape)]</value>
+        <value>$INFO[Container(2001).ListItem.Art(fanart)]</value>
+	</variable>
+    <variable name="SpotlightLabelVar">
+        <value condition="String.IsEmpty(Container(2001).ListItem.Art(landscape))">$INFO[Container(2001).ListItem(0).Label]</value>
+        <value></value>
+	</variable>
+    <variable name="MoviesFilterVar">
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),1)">special://skin/playlists/movies/genre/Acción-Aventuras.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),2)">special://skin/playlists/movies/genre/Ciencia Ficción.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),3)">special://skin/playlists/movies/genre/Clásicas.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),4)">special://skin/playlists/movies/genre/Comedia.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),5)">special://skin/playlists/movies/genre/Crimen.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),6)">special://skin/playlists/movies/genre/Drama.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),7)">special://skin/playlists/movies/genre/Familiar.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),8)">special://skin/playlists/movies/genre/Fantasía.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),9)">special://skin/playlists/movies/genre/Misterio.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),10)">special://skin/playlists/movies/genre/Musical.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),11)">special://skin/playlists/movies/genre/Romántica.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),12)">special://skin/playlists/movies/genre/Suspense.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(MoviesGenre),13)">special://skin/playlists/movies/genre/Terror.xsp</value>
+        <value>special://skin/playlists/movies/movies.xsp</value>
+	</variable>
+    <variable name="TvShowFilterVar">
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),1)">special://skin/playlists/tvshows/genre/Acción-Aventuras.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),2)">special://skin/playlists/tvshows/genre/Ciencia Ficción.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),3)">special://skin/playlists/tvshows/genre/Clásicas.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),4)">special://skin/playlists/tvshows/genre/Comedia.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),5)">special://skin/playlists/tvshows/genre/Crimen.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),6)">special://skin/playlists/tvshows/genre/Drama.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),7)">special://skin/playlists/tvshows/genre/Familiar.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),8)">special://skin/playlists/tvshows/genre/Fantasía.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),9)">special://skin/playlists/tvshows/genre/Misterio.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),10)">special://skin/playlists/tvshows/genre/Musical.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),11)">special://skin/playlists/tvshows/genre/Romántica.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),12)">special://skin/playlists/tvshows/genre/Suspense.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(TvShowGenre),13)">special://skin/playlists/tvshows/genre/Terror.xsp</value>
+        <value>special://skin/playlists/tvshows/tvshows.xsp</value>
+	</variable>
+    <variable name="CartoonFilterVar">
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),1)">special://skin/playlists/kids/genre/Acción-AventurasTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),2)">special://skin/playlists/kids/genre/Ciencia FicciónTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),3)">special://skin/playlists/kids/genre/ClásicasTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),4)">special://skin/playlists/kids/genre/ComediaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),5)">special://skin/playlists/kids/genre/CrimenTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),6)">special://skin/playlists/kids/genre/DramaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),7)">special://skin/playlists/kids/genre/FamiliarTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),8)">special://skin/playlists/kids/genre/FantasíaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),9)">special://skin/playlists/kids/genre/MisterioTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),10)">special://skin/playlists/kids/genre/MusicalTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),11)">special://skin/playlists/kids/genre/RománticaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),12)">special://skin/playlists/kids/genre/SuspenseTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)+String.IsEqual(Window(home).Property(CartoonGenre),13)">special://skin/playlists/kids/genre/TerrorTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonType),1)">special://skin/playlists/kids/tvshows.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),1)">special://skin/playlists/kids/genre/Acción-Aventuras.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),2)">special://skin/playlists/kids/genre/Ciencia Ficción.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),3)">special://skin/playlists/kids/genre/Clásicas.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),4)">special://skin/playlists/kids/genre/Comedia.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),5)">special://skin/playlists/kids/genre/Crimen.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),6)">special://skin/playlists/kids/genre/Drama.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),7)">special://skin/playlists/kids/genre/Familiar.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),8)">special://skin/playlists/kids/genre/Fantasía.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),9)">special://skin/playlists/kids/genre/Misterio.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),10)">special://skin/playlists/kids/genre/Musical.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),11)">special://skin/playlists/kids/genre/Romántica.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),12)">special://skin/playlists/kids/genre/Suspense.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(CartoonGenre),13)">special://skin/playlists/kids/genre/Terror.xsp</value>
+        <value>special://skin/playlists/kids/movies.xsp</value>
+	</variable>
+    <variable name="AnimeFilterVar">
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),1)">special://skin/playlists/anime/genre/Acción-AventurasTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),2)">special://skin/playlists/anime/genre/Ciencia FicciónTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),3)">special://skin/playlists/anime/genre/ClásicasTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),4)">special://skin/playlists/anime/genre/ComediaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),5)">special://skin/playlists/anime/genre/CrimenTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),6)">special://skin/playlists/anime/genre/DramaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),7)">special://skin/playlists/anime/genre/FamiliarTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),8)">special://skin/playlists/anime/genre/FantasíaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),9)">special://skin/playlists/anime/genre/MisterioTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),10)">special://skin/playlists/anime/genre/MusicalTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),11)">special://skin/playlists/anime/genre/RománticaTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),12)">special://skin/playlists/anime/genre/SuspenseTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)+String.IsEqual(Window(home).Property(AnimeGenre),13)">special://skin/playlists/anime/genre/TerrorTV.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeType),1)">special://skin/playlists/anime/tvshows.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),1)">special://skin/playlists/anime/genre/Acción-Aventuras.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),2)">special://skin/playlists/anime/genre/Ciencia Ficción.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),3)">special://skin/playlists/anime/genre/Clásicas.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),4)">special://skin/playlists/anime/genre/Comedia.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),5)">special://skin/playlists/anime/genre/Crimen.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),6)">special://skin/playlists/anime/genre/Drama.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),7)">special://skin/playlists/anime/genre/Familiar.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),8)">special://skin/playlists/anime/genre/Fantasía.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),9)">special://skin/playlists/anime/genre/Misterio.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),10)">special://skin/playlists/anime/genre/Musical.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),11)">special://skin/playlists/anime/genre/Romántica.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),12)">special://skin/playlists/anime/genre/Suspense.xsp</value>
+        <value condition="String.IsEqual(Window(home).Property(AnimeGenre),13)">special://skin/playlists/anime/genre/Terror.xsp</value>
+        <value>special://skin/playlists/anime/movies.xsp</value>
+	</variable>
     <variable name="SeasonHeightVar">
         <value condition="Integer.IsEqual(ListItem.Property(TotalSeasons),2)">120</value>
         <value>60</value>
@@ -594,8 +770,8 @@
         <value>grey</value>
 	</variable>
     <variable name="PlayVar">
-        <value condition="Container(5050).ListItem.IsResumable+Container.Content(tvshows)">Reanudar $INFO[Container(5050).ListItem.Season,T,:]$INFO[Container(5050).ListItem.Episode,E]</value>
-		<value condition="Container.Content(tvshows)">$LOCALIZE[208] $INFO[Container(5050).ListItem.Season,T,:]$INFO[Container(5050).ListItem.Episode,E]</value>
+        <value condition="Container(5050).ListItem.IsResumable+String.IsEqual(ListItem.DBTYPE,tvshow)">Reanudar $INFO[Container(5050).ListItem.Season,T,:]$INFO[Container(5050).ListItem.Episode,E]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">$LOCALIZE[208] $INFO[Container(5050).ListItem.Season,T,:]$INFO[Container(5050).ListItem.Episode,E]</value>
         <value condition="ListItem.IsResumable">REANUDAR</value>
         <value>$LOCALIZE[208]</value>
 	</variable>
@@ -1481,14 +1657,6 @@
 		<value condition="Window.IsActive(movieinformation)">$VAR[TimeVar]</value>
 		<value>$INFO[Window(Home).Property(Seasons)]</value>
 	</variable>
-	<variable name="YearEpisodeVar">
-		<value condition="Window.IsActive(movieinformation)">$INFO[ListItem.Premiered]</value>
-		<value>$INFO[Window(Home).Property(Year)]</value>
-	</variable>
-	<variable name="RatingEpisodeVar">
-		<value condition="Window.IsActive(movieinformation)">$VAR[RatingVar]</value>
-		<value>$INFO[Window(Home).Property(Rating)]</value>
-	</variable>
     <variable name="MenuBarUserVar">
         <value condition="Window.IsActive(1110)">$INFO[System.ProfileThumb]</value>
         <value>icons/logo.png</value>
@@ -1743,7 +1911,7 @@
 	</variable>
 	<variable name="InfoWallThumbVar">
 		<value condition="!String.IsEmpty(Listitem.Art(poster))">$INFO[Listitem.Art(poster)]</value>
-		<value>$INFO[ListItem.Icon]</value>
+		<value>$INFO[Listitem.Art(tvshow.poster)]</value>
 	</variable>
 	<variable name="IconWallThumbVar">
 		<value condition="String.IsEqual(listitem.dbtype,genre) + System.HasAddon(resource.images.moviegenreicons.transparent)">$INFO[ListItem.Label,resource://resource.images.moviegenreicons.transparent/,.png]</value>

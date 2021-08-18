@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">990</defaultcontrol>
+    <backgroundcolor>background</backgroundcolor>
 	<controls>
         <control type="multiimage">
             <depth>DepthBackground</depth>
@@ -11,12 +12,33 @@
             <aspectratio scalediffuse="false">scale</aspectratio>
             <fadetime>300</fadetime>
             <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-            <animation effect="fade" time="300" >VisibleChange</animation>
             <imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
-            <include>OpenClose_Fade</include>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" center="100%,0" start="105" end="100" tween="Cubic" easing="in" delay="100" time="500" />
+                <effect type="fade" end="100" tween="Cubic" easing="in" delay="100" time="600" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="400" />
+            </animation>
         </control>
         <control type="group">
-            <include>OpenClose_FadeSlide_Right</include>
+            <visible>Window.Next(videos)</visible>
+            <animation effect="fade" tween="sine" easing="out" time="400">Visible</animation>
+            <control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+			</control>
+			<control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture>colors/background50.png</texture>
+				<colordiffuse>dialog_tint</colordiffuse>
+			</control>
+        </control>
+        <control type="group">
+            <animation effect="fade" end="100" tween="Cubic" easing="in" delay="200" time="500">WindowOpen</animation>
+            <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="400">WindowClose</animation>
             <control type="list" id="5050">
                 <visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
                 <visible>Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating</visible>
@@ -51,7 +73,7 @@
                         <control type="textbox">
                             <height max="250">auto</height>
                             <width>1000</width>
-                            <font>56px_Regular</font>
+                            <font>56px_Regular2</font>
                             <label>$VAR[TitleVar]</label>
                             <textcolor>FFEEEEEE</textcolor>
                             <shadowcolor>text_shadow</shadowcolor>
@@ -81,11 +103,11 @@
                         <font>27px_Medium</font>
                         <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <texturefocus border="65,20,20,20">buttons/videoinfo-play.png</texturefocus>
-                        <texturenofocus border="65,20,20,20" colordiffuse="FFEEEEEE">buttons/videoinfo-play-nf.png</texturenofocus>
+                        <texturenofocus border="65,20,20,20" colordiffuse="darkgray">buttons/videoinfo-play-nf.png</texturenofocus>
                         <pulseonselect>false</pulseonselect>
                         <onclick condition="ListItem.IsResumable+!Container.Content(tvshows)">SendClick(9)</onclick>
                         <onclick condition="!ListItem.IsResumable+!Container.Content(tvshows)">SendClick(8)</onclick>
@@ -99,11 +121,11 @@
                         <font>27px_Medium</font>
                         <label>       [UPPERCASE]Episodios[/UPPERCASE]</label>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <texturefocus border="65,20,20,20">buttons/videoinfo-episode.png</texturefocus>
-                        <texturenofocus border="65,20,20,20" colordiffuse="FFEEEEEE">buttons/videoinfo-episode-nf.png</texturenofocus>
+                        <texturenofocus border="65,20,20,20" colordiffuse="darkgray">buttons/videoinfo-episode-nf.png</texturenofocus>
                         <pulseonselect>false</pulseonselect>
                         <onclick>SetProperty(VideoResolution,$VAR[VideoResolutionVar],Home)</onclick>
                         <onclick>SetProperty(AudioChannels,$VAR[AudioChannelsVar],Home)</onclick>
@@ -130,11 +152,11 @@
                         <font>27px_Medium</font>
                         <label>       [UPPERCASE]Reiniciar[/UPPERCASE]</label>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <texturefocus border="65,20,20,20">buttons/videoinfo-reset.png</texturefocus>
-                        <texturenofocus border="65,20,20,20" colordiffuse="FFEEEEEE">buttons/videoinfo-reset-nf.png</texturenofocus>
+                        <texturenofocus border="65,20,20,20" colordiffuse="darkgray">buttons/videoinfo-reset-nf.png</texturenofocus>
                         <pulseonselect>false</pulseonselect>
                         <visible>ListItem.IsResumable</visible>
                         <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
@@ -151,26 +173,43 @@
                         <radioheight>80</radioheight>
                         <label></label>
                         <textoffsetx>50</textoffsetx>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <textureradioonfocus colordiffuse="button_focus">icons/videoinfo/check.png</textureradioonfocus>
                         <textureradioofffocus colordiffuse="black">icons/videoinfo/add.png</textureradioofffocus>
                         <textureradioonnofocus colordiffuse="button_focus">icons/videoinfo/check.png</textureradioonnofocus>
-                        <textureradiooffnofocus colordiffuse="FFEEEEEE">icons/videoinfo/add.png</textureradiooffnofocus>
+                        <textureradiooffnofocus colordiffuse="darkgray">icons/videoinfo/add.png</textureradiooffnofocus>
                         <texturefocus>dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus colordiffuse="FFEEEEEE">dialogs/keyboard/key-nf3.png</texturenofocus>
+                        <texturenofocus colordiffuse="darkgray">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <pulseonselect>false</pulseonselect>
-                        <include>AddMyList</include>
+                        <onclick condition="$EXP[AddMyList]">$VAR[MyListVar]</onclick>
+                        <onclick condition="$EXP[ClearMyList]">$VAR[ClearMyListVar]</onclick>
+                        <onclick condition="$EXP[AddMyListTV]">$VAR[MyListTVVar]</onclick>
+                        <onclick condition="$EXP[ClearMyListTV]">$VAR[ClearMyListTVVar]</onclick>
+                        <selected>$EXP[ClearMyList]|$EXP[ClearMyListTV]</selected>
+                        <visible>!String.IsEqual(ListItem.DBTYPE,episode)</visible>
                     </control>
                 </control>
                 <include>DialogInfo</include>
-                <control type="textbox">
+                <control type="label">
                     <left>10</left>
-                    <width>900</width>
+                    <width>850</width>
+                    <height>24</height>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                    <font>24px_Medium_Lighten</font>
+                    <textcolor>silver</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <autoscroll delay="8000" time="1500" repeat="8000">true</autoscroll>
+                    <visible>String.IsEqual(ListItem.DBTYPE,episode)</visible>
+                </control>
+                <control type="textbox" id="4">
+                    <left>10</left>
+                    <width>850</width>
                     <height>210</height>
-                    <label>$VAR[PlotVar]</label>
-                    <font>25px_Medium</font>
-                    <textcolor>gainsboro</textcolor>
+                    <font>25px_Medium_Lighten</font>
+                    <textcolor>silver</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
                     <autoscroll delay="8000" time="1500" repeat="8000">Window.IsActive(movieinformation)</autoscroll>
                 </control>
@@ -180,6 +219,14 @@
             </include>
             <include>DialogVideoInfoProgressBar</include>
             <include>CastInfo</include>
+            <control type="image">
+                <right>0</right>
+                <height>40%</height>
+                <width>50%</width>
+                <texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
+                <visible>ControlGroup(800).HasFocus</visible>
+                <animation effect="fade" time="300" tween="cubic" easing="inout" reversible="true">VisibleChange</animation>
+            </control>
             <control type="grouplist" id="800">
                 <orientation>vertical</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
@@ -208,10 +255,10 @@
                     <shadowcolor>text_shadow</shadowcolor>
                     <textureradioonfocus colordiffuse="black">icons/videoinfo/image.png</textureradioonfocus>
                     <textureradioofffocus colordiffuse="black">icons/videoinfo/image.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="FFEEEEEE">icons/videoinfo/image.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="FFEEEEEE">icons/videoinfo/image.png</textureradiooffnofocus>
+                    <textureradioonnofocus colordiffuse="darkgray">icons/videoinfo/image.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="darkgray">icons/videoinfo/image.png</textureradiooffnofocus>
                     <texturefocus>dialogs/keyboard/key3.png</texturefocus>
-                    <texturenofocus colordiffuse="FFEEEEEE">dialogs/keyboard/key-nf3.png</texturenofocus>
+                    <texturenofocus colordiffuse="darkgray">dialogs/keyboard/key-nf3.png</texturenofocus>
                     <pulseonselect>false</pulseonselect>
                     <textwidth>500</textwidth>
                     <onclick>SendClick(10)</onclick>
@@ -234,10 +281,10 @@
                     <shadowcolor>text_shadow</shadowcolor>
                     <textureradioonfocus colordiffuse="black">icons/videoinfo/update2.png</textureradioonfocus>
                     <textureradioofffocus colordiffuse="black">icons/videoinfo/update2.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="FFEEEEEE">icons/videoinfo/update2.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="FFEEEEEE">icons/videoinfo/update2.png</textureradiooffnofocus>
+                    <textureradioonnofocus colordiffuse="darkgray">icons/videoinfo/update2.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="darkgray">icons/videoinfo/update2.png</textureradiooffnofocus>
                     <texturefocus>dialogs/keyboard/key3.png</texturefocus>
-                    <texturenofocus colordiffuse="FFEEEEEE">dialogs/keyboard/key-nf3.png</texturenofocus>
+                    <texturenofocus colordiffuse="darkgray">dialogs/keyboard/key-nf3.png</texturenofocus>
                     <pulseonselect>false</pulseonselect>
                     <textwidth>500</textwidth>
                     <onclick>SendClick(6)</onclick>

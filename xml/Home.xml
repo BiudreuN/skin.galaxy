@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">100</defaultcontrol>
-	<backgroundcolor>background</backgroundcolor>
+	<backgroundcolor>0</backgroundcolor>
 	<onload>Action(Stop)</onload>
     <onload>SetProperty(CustomSearch,1,home)</onload>
     <onunload>ClearProperty(SuggestionPath)</onunload>
@@ -33,11 +33,12 @@
         <control type="image">
             <height>100%</height>
             <width>100%</width>
-            <texture>special://skin/extras/backgrounds/pattern3.jpg</texture>
+            <texture>colors/background.png</texture>
             <colordiffuse>primary_background</colordiffuse>
         </control>
 
         <control type="group" id="8000">
+            <include>OpenClose_Fade</include>
             <control type="group" id="2000">
                 <visible allowhiddenfocus="true">String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)</visible>
                 <include>Animation_WidgetFade</include>
@@ -55,7 +56,7 @@
                         <param name="sortby" value="votes"/>
                         <param name="sortorder" value="descending"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="widget_limit" value="3"/>
+                        <param name="widget_limit" value="5"/>
                     </include>
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="special://skin/playlists/recent_movies.xsp"/>
@@ -169,1121 +170,662 @@
             <control type="group" id="3000">
                 <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Movies)</visible>
                 <include>Animation_WidgetFade</include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/movies.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(0)"/>
-                    <param name="list_id" value="3150"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Acción-Aventuras.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(1)"/>
-                    <param name="list_id" value="3151"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Ciencia Ficción.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(2)"/>
-                    <param name="list_id" value="3152"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Clásicas.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(3)"/>
-                    <param name="list_id" value="3153"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Comedia.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(4)"/>
-                    <param name="list_id" value="3154"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Crimen.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(5)"/>
-                    <param name="list_id" value="3155"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Drama.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(6)"/>
-                    <param name="list_id" value="3156"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Familiar.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(7)"/>
-                    <param name="list_id" value="3157"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Fantasía.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(8)"/>
-                    <param name="list_id" value="3158"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Misterio.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(9)"/>
-                    <param name="list_id" value="3159"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Musical.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(10)"/>
-                    <param name="list_id" value="3160"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Romántica.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(11)"/>
-                    <param name="list_id" value="3161"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Suspense.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(12)"/>
-                    <param name="list_id" value="3162"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/movies/genre/Terror.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(3001).Position(13)"/>
-                    <param name="list_id" value="3163"/>
-                    <param name="onup" value="3001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <control type="label">
-                    <top>80</top>
-                    <left>150</left>
-                    <height>200</height>
-                    <width>1000</width>
-                    <font>56px_Medium</font>
-                    <label>Películas</label>
-                    <textcolor>FFEEEEEE</textcolor>
-                    <shadowcolor>text_shadow</shadowcolor>
+                <control type="group">
+                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(30010)" reversible="true">Conditional</animation>
-                </control>
-                <control type="image">
-                    <top>220</top>
-                    <left>155</left>
-                    <right>155</right>
-                    <height>1</height>
-                    <texture colordiffuse="bg_overlay">dialogs/separator.png</texture>
-                    <aspectratio scalediffuse="false">stretch</aspectratio>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(30010)" reversible="true">Conditional</animation>
-                </control>
-                <control type="grouplist" id="3001">
-                    <top>180</top>
-                    <left>150</left>
-                    <right>150</right>
-                    <itemgap>5</itemgap>
-                    <orientation>horizontal</orientation>
-                    <align>left</align>
-                    <height>50</height>
-                    <onleft>noop</onleft>
-                    <onright>noop</onright>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(30010)" reversible="true">Conditional</animation>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3101"/>
-                        <param name="panel_id" value="3150"/>
-                        <param name="label" value="A-Z"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/movies.xsp"/>
+                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(0)"/>
+                        <param name="list_id" value="3150"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3102"/>
-                        <param name="panel_id" value="3151"/>
-                        <param name="label" value="Acción/Aventuras"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Acción-Aventuras.xsp"/>
+                        <param name="widget_header" value="Acción-Aventuras"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(1)"/>
+                        <param name="list_id" value="3152"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3103"/>
-                        <param name="panel_id" value="3152"/>
-                        <param name="label" value="Ciencia Ficción"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Ciencia Ficción.xsp"/>
+                        <param name="widget_header" value="Ciencia Ficción"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(2)"/>
+                        <param name="list_id" value="3153"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3104"/>
-                        <param name="panel_id" value="3153"/>
-                        <param name="label" value="Clásicas"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Clásicas.xsp"/>
+                        <param name="widget_header" value="Clásicas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(3)"/>
+                        <param name="list_id" value="3154"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3105"/>
-                        <param name="panel_id" value="3154"/>
-                        <param name="label" value="Comedia"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Comedia.xsp"/>
+                        <param name="widget_header" value="Comedia"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(4)"/>
+                        <param name="list_id" value="3155"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3106"/>
-                        <param name="panel_id" value="3155"/>
-                        <param name="label" value="Crimen"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Crimen.xsp"/>
+                        <param name="widget_header" value="Crimen"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(5)"/>
+                        <param name="list_id" value="3156"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3107"/>
-                        <param name="panel_id" value="3156"/>
-                        <param name="label" value="Drama"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Drama.xsp"/>
+                        <param name="widget_header" value="Drama"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(6)"/>
+                        <param name="list_id" value="3157"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3108"/>
-                        <param name="panel_id" value="3157"/>
-                        <param name="label" value="Familiar"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Familiar.xsp"/>
+                        <param name="widget_header" value="Familiar"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(7)"/>
+                        <param name="list_id" value="3158"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3109"/>
-                        <param name="panel_id" value="3158"/>
-                        <param name="label" value="Fantasía"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Fantasía.xsp"/>
+                        <param name="widget_header" value="Fantasía"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(8)"/>
+                        <param name="list_id" value="3159"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3110"/>
-                        <param name="panel_id" value="3159"/>
-                        <param name="label" value="Misterio"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Misterio.xsp"/>
+                        <param name="widget_header" value="Misterio"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(9)"/>
+                        <param name="list_id" value="3160"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3111"/>
-                        <param name="panel_id" value="3160"/>
-                        <param name="label" value="Musical"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Musical.xsp"/>
+                        <param name="widget_header" value="Musical"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(10)"/>
+                        <param name="list_id" value="3161"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3112"/>
-                        <param name="panel_id" value="3161"/>
-                        <param name="label" value="Romántica"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Romántica.xsp"/>
+                        <param name="widget_header" value="Romántica"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(11)"/>
+                        <param name="list_id" value="3162"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3113"/>
-                        <param name="panel_id" value="3162"/>
-                        <param name="label" value="Suspense"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Suspense.xsp"/>
+                        <param name="widget_header" value="Suspense"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(12)"/>
+                        <param name="list_id" value="3163"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="3114"/>
-                        <param name="panel_id" value="3163"/>
-                        <param name="label" value="Terror"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/genre/Terror.xsp"/>
+                        <param name="widget_header" value="Terror"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(3050).Position(13)"/>
+                        <param name="list_id" value="3164"/>
+                        <param name="onup" value="3050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
+                    </include>
+                    <include content="WidgetCategory">
+                        <param name="id" value="3"/>
+                        <param name="title" value="Películas"/>
+                        <param name="sidebar" value="2"/>
+                        <param name="alt" value="false"/>
                     </include>
                 </control>
             </control>
             <control type="group" id="4000">
                 <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),TvShows)</visible>
                 <include>Animation_WidgetFade</include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/tvshows.xsp"/>
-                    <param name="widget_header" value="Series A-Z"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(0)"/>
-                    <param name="list_id" value="4150"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Acción-Aventuras.xsp"/>
-                    <param name="widget_header" value="Series de Accion/Aventuras"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(1)"/>
-                    <param name="list_id" value="4151"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Ciencia Ficción.xsp"/>
-                    <param name="widget_header" value="Series de Ciencia Ficción"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(2)"/>
-                    <param name="list_id" value="4152"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Clásicas.xsp"/>
-                    <param name="widget_header" value="Series Clásicas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(3)"/>
-                    <param name="list_id" value="4153"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Comedia.xsp"/>
-                    <param name="widget_header" value="Series de Comedia"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(4)"/>
-                    <param name="list_id" value="4154"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Crimen.xsp"/>
-                    <param name="widget_header" value="Series de Crimen"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(5)"/>
-                    <param name="list_id" value="4155"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Drama.xsp"/>
-                    <param name="widget_header" value="Series de Drama"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(6)"/>
-                    <param name="list_id" value="4156"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Familiar.xsp"/>
-                    <param name="widget_header" value="Series Familiares"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(7)"/>
-                    <param name="list_id" value="4157"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Fantasía.xsp"/>
-                    <param name="widget_header" value="Series de Fantasía"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(8)"/>
-                    <param name="list_id" value="4158"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Misterio.xsp"/>
-                    <param name="widget_header" value="Series de Misterio"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(9)"/>
-                    <param name="list_id" value="4159"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Musical.xsp"/>
-                    <param name="widget_header" value="Series Musicales"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(10)"/>
-                    <param name="list_id" value="4160"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Romántica.xsp"/>
-                    <param name="widget_header" value="Series Románticas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(11)"/>
-                    <param name="list_id" value="4161"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Suspense.xsp"/>
-                    <param name="widget_header" value="Series de Suspense"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(12)"/>
-                    <param name="list_id" value="4162"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/tvshows/genre/Terror.xsp"/>
-                    <param name="widget_header" value="Series de Terror"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(4001).Position(13)"/>
-                    <param name="list_id" value="4163"/>
-                    <param name="onup" value="4001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-
-                <control type="label">
-                    <top>80</top>
-                    <left>150</left>
-                    <height>200</height>
-                    <width>1000</width>
-                    <font>56px_Medium</font>
-                    <label>Series</label>
-                    <textcolor>FFEEEEEE</textcolor>
-                    <shadowcolor>text_shadow</shadowcolor>
+                <control type="group">
+                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(40010)" reversible="true">Conditional</animation>
-                </control>
-                <control type="image">
-                    <top>220</top>
-                    <left>155</left>
-                    <right>155</right>
-                    <height>1</height>
-                    <texture colordiffuse="bg_overlay">dialogs/separator.png</texture>
-                    <aspectratio scalediffuse="false">stretch</aspectratio>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(40010)" reversible="true">Conditional</animation>
-                </control>
-                <control type="grouplist" id="4001">
-                    <top>180</top>
-                    <left>150</left>
-                    <right>150</right>
-                    <itemgap>0</itemgap>
-                    <orientation>horizontal</orientation>
-                    <align>left</align>
-                    <height>50</height>
-                    <onleft>noop</onleft>
-                    <onright>noop</onright>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(40010)" reversible="true">Conditional</animation>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4101"/>
-                        <param name="panel_id" value="4150"/>
-                        <param name="label" value="A-Z"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/tvshows.xsp"/>
+                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(0)"/>
+                        <param name="list_id" value="4150"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4102"/>
-                        <param name="panel_id" value="4151"/>
-                        <param name="label" value="Acción/Aventuras"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Acción-Aventuras.xsp"/>
+                        <param name="widget_header" value="Acción-Aventuras"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(1)"/>
+                        <param name="list_id" value="4152"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4103"/>
-                        <param name="panel_id" value="4152"/>
-                        <param name="label" value="Ciencia Ficción"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Ciencia Ficción.xsp"/>
+                        <param name="widget_header" value="Ciencia Ficción"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(2)"/>
+                        <param name="list_id" value="4153"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4104"/>
-                        <param name="panel_id" value="4153"/>
-                        <param name="label" value="Clásicas"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Clásicas.xsp"/>
+                        <param name="widget_header" value="Clásicas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(3)"/>
+                        <param name="list_id" value="4154"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4105"/>
-                        <param name="panel_id" value="4154"/>
-                        <param name="label" value="Comedia"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Comedia.xsp"/>
+                        <param name="widget_header" value="Comedia"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(4)"/>
+                        <param name="list_id" value="4155"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4106"/>
-                        <param name="panel_id" value="4155"/>
-                        <param name="label" value="Crimen"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Crimen.xsp"/>
+                        <param name="widget_header" value="Crimen"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(5)"/>
+                        <param name="list_id" value="4156"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4107"/>
-                        <param name="panel_id" value="4156"/>
-                        <param name="label" value="Drama"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Drama.xsp"/>
+                        <param name="widget_header" value="Drama"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(6)"/>
+                        <param name="list_id" value="4157"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4108"/>
-                        <param name="panel_id" value="4157"/>
-                        <param name="label" value="Familiar"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Familiar.xsp"/>
+                        <param name="widget_header" value="Familiar"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(7)"/>
+                        <param name="list_id" value="4158"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4109"/>
-                        <param name="panel_id" value="4158"/>
-                        <param name="label" value="Fantasía"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Fantasía.xsp"/>
+                        <param name="widget_header" value="Fantasía"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(8)"/>
+                        <param name="list_id" value="4159"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4110"/>
-                        <param name="panel_id" value="4159"/>
-                        <param name="label" value="Misterio"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Misterio.xsp"/>
+                        <param name="widget_header" value="Misterio"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(9)"/>
+                        <param name="list_id" value="4160"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4111"/>
-                        <param name="panel_id" value="4160"/>
-                        <param name="label" value="Musical"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Musical.xsp"/>
+                        <param name="widget_header" value="Musical"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(10)"/>
+                        <param name="list_id" value="4161"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4112"/>
-                        <param name="panel_id" value="4161"/>
-                        <param name="label" value="Romántica"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Romántica.xsp"/>
+                        <param name="widget_header" value="Romántica"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(11)"/>
+                        <param name="list_id" value="4162"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4113"/>
-                        <param name="panel_id" value="4162"/>
-                        <param name="label" value="Suspense"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Suspense.xsp"/>
+                        <param name="widget_header" value="Suspense"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(12)"/>
+                        <param name="list_id" value="4163"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="4114"/>
-                        <param name="panel_id" value="4163"/>
-                        <param name="label" value="Terror"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/tvshows/genre/Terror.xsp"/>
+                        <param name="widget_header" value="Terror"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(4050).Position(13)"/>
+                        <param name="list_id" value="4164"/>
+                        <param name="onup" value="4050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
+                    </include>
+                    <include content="WidgetCategory">
+                        <param name="id" value="4"/>
+                        <param name="title" value="Series"/>
+                        <param name="sidebar" value="3"/>
+                        <param name="alt" value="false"/>
                     </include>
                 </control>
             </control>
             <control type="group" id="5000">
                 <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Kids)</visible>
                 <include>Animation_WidgetFade</include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/movies.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(0)"/>
-                    <param name="list_id" value="5150"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/tvshows.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(1)"/>
-                    <param name="list_id" value="5151"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Disney.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/DisneyTV.xsp"/>
-                    <param name="widget_header" value="Disney"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(2)"/>
-                    <param name="list_id" value="5152"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Pixar.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/PixarTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(3)"/>
-                    <param name="list_id" value="5153"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Dreamworks.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/DreamworksTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(4)"/>
-                    <param name="list_id" value="5154"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Illumination.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/IlluminationTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(5)"/>
-                    <param name="list_id" value="5155"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Sony.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/SonyTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(6)"/>
-                    <param name="list_id" value="5156"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Fox.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/FoxTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(7)"/>
-                    <param name="list_id" value="5157"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Laika.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/LaikaTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(8)"/>
-                    <param name="list_id" value="5158"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/DC.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/DCTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(9)"/>
-                    <param name="list_id" value="5159"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Adult_Swim.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/Adult_SwimTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(10)"/>
-                    <param name="list_id" value="5160"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Cartoon_Network.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/Cartoon_NetworkTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(11)"/>
-                    <param name="list_id" value="5161"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Nickelodeon.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/Nickelodeon.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(12)"/>
-                    <param name="list_id" value="5162"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/kids/genre/Other.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/kids/genre/OtherTV.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(5001).Position(13)"/>
-                    <param name="list_id" value="5163"/>
-                    <param name="onup" value="5001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <control type="label">
-                    <top>80</top>
-                    <left>150</left>
-                    <height>200</height>
-                    <width>1000</width>
-                    <font>56px_Medium</font>
-                    <label>Dibujos</label>
-                    <textcolor>FFEEEEEE</textcolor>
-                    <shadowcolor>text_shadow</shadowcolor>
+                <control type="group">
+                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(50010)" reversible="true">Conditional</animation>
-                </control>
-               <control type="image">
-                    <top>220</top>
-                    <left>155</left>
-                    <right>155</right>
-                    <height>1</height>
-                    <texture colordiffuse="bg_overlay">dialogs/separator.png</texture>
-                    <aspectratio scalediffuse="false">stretch</aspectratio>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(50010)" reversible="true">Conditional</animation>
-                </control>
-                <control type="grouplist" id="5001">
-                    <top>180</top>
-                    <left>150</left>
-                    <right>150</right>
-                    <itemgap>0</itemgap>
-                    <orientation>horizontal</orientation>
-                    <align>left</align>
-                    <height>50</height>
-                    <onleft>noop</onleft>
-                    <onright>noop</onright>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(50010)" reversible="true">Conditional</animation>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5100"/>
-                        <param name="panel_id" value="5150"/>
-                        <param name="label" value="Películas"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/movies.xsp"/>
+                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(0)"/>
+                        <param name="list_id" value="5150"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5101"/>
-                        <param name="panel_id" value="5151"/>
-                        <param name="label" value="Series"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/tvshows.xsp"/>
+                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(1)"/>
+                        <param name="list_id" value="5151"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5102"/>
-                        <param name="panel_id" value="5152"/>
-                        <param name="label" value="Disney"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Acción-Aventuras.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/Acción-AventurasTV.xsp"/>
+                        <param name="widget_header" value="Acción-Aventuras"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(2)"/>
+                        <param name="list_id" value="5152"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5103"/>
-                        <param name="panel_id" value="5153"/>
-                        <param name="label" value="Pixar"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Ciencia Ficción.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/Ciencia FicciónTV.xsp"/>
+                        <param name="widget_header" value="Ciencia Ficción"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(3)"/>
+                        <param name="list_id" value="5153"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5104"/>
-                        <param name="panel_id" value="5154"/>
-                        <param name="label" value="Dreamworks"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Clásicas.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/ClásicasTV.xsp"/>
+                        <param name="widget_header" value="Clásicas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(4)"/>
+                        <param name="list_id" value="5154"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5105"/>
-                        <param name="panel_id" value="5155"/>
-                        <param name="label" value="Illumination"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Comedia.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/ComediaTV.xsp"/>
+                        <param name="widget_header" value="Comedia"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(5)"/>
+                        <param name="list_id" value="5155"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5106"/>
-                        <param name="panel_id" value="5156"/>
-                        <param name="label" value="Sony Pictures"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Crimen.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/CrimenTV.xsp"/>
+                        <param name="widget_header" value="Crimen"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(6)"/>
+                        <param name="list_id" value="5156"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5107"/>
-                        <param name="panel_id" value="5157"/>
-                        <param name="label" value="Fox"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Drama.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/DramaTV.xsp"/>
+                        <param name="widget_header" value="Drama"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(7)"/>
+                        <param name="list_id" value="5157"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5108"/>
-                        <param name="panel_id" value="5158"/>
-                        <param name="label" value="Laika"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Familiar.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/FamiliarTV.xsp"/>
+                        <param name="widget_header" value="Familiar"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(8)"/>
+                        <param name="list_id" value="5158"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5109"/>
-                        <param name="panel_id" value="5159"/>
-                        <param name="label" value="DC"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Fantasía.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/FantasíaTV.xsp"/>
+                        <param name="widget_header" value="Fantasía"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(9)"/>
+                        <param name="list_id" value="5159"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5110"/>
-                        <param name="panel_id" value="5160"/>
-                        <param name="label" value="Adult Swim"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Misterio.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/MisterioTV.xsp"/>
+                        <param name="widget_header" value="Misterio"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(10)"/>
+                        <param name="list_id" value="5160"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5111"/>
-                        <param name="panel_id" value="5161"/>
-                        <param name="label" value="Cartoon Network"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Musical.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/MusicalTV.xsp"/>
+                        <param name="widget_header" value="Musical"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(11)"/>
+                        <param name="list_id" value="5161"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5112"/>
-                        <param name="panel_id" value="5162"/>
-                        <param name="label" value="Nickelodeon"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Romántica.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/RománticaTV.xsp"/>
+                        <param name="widget_header" value="Romántica"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(12)"/>
+                        <param name="list_id" value="5162"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="5113"/>
-                        <param name="panel_id" value="5163"/>
-                        <param name="label" value="Otro"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Suspense.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/SuspenseTV.xsp"/>
+                        <param name="widget_header" value="Suspense"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(13)"/>
+                        <param name="list_id" value="5163"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
+                    </include>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/kids/genre/Terror.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/kids/genre/TerrorTV.xsp"/>
+                        <param name="widget_header" value="Terror"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(5050).Position(14)"/>
+                        <param name="list_id" value="5164"/>
+                        <param name="onup" value="5050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
+                    </include>
+                    <include content="WidgetCategory">
+                        <param name="id" value="5"/>
+                        <param name="title" value="Dibujos"/>
+                        <param name="sidebar" value="4"/>
+                        <param name="alt" value="true"/>
                     </include>
                 </control>
             </control>
             <control type="group" id="6000">
                 <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Anime)</visible>
                 <include>Animation_WidgetFade</include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/movies.xsp"/>
-                    <param name="widget_header" value="Películas"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(0)"/>
-                    <param name="list_id" value="6150"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/tvshows.xsp"/>
-                    <param name="widget_header" value="Series"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(1)"/>
-                    <param name="list_id" value="6151"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Ghibli.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/GhibliTV.xsp"/>
-                    <param name="widget_header" value="Ghibli"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(2)"/>
-                    <param name="list_id" value="6152"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Madhouse.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/MadhouseTV.xsp"/>
-                    <param name="widget_header" value="Madhouse"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(3)"/>
-                    <param name="list_id" value="6153"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Ufotable.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/UfotableTV.xsp"/>
-                    <param name="widget_header" value="Ufotable"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(4)"/>
-                    <param name="list_id" value="6154"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Bones.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/BonesTV.xsp"/>
-                    <param name="widget_header" value="Bones"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(5)"/>
-                    <param name="list_id" value="6155"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Wit.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/WitTV.xsp"/>
-                    <param name="widget_header" value="Wit"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(6)"/>
-                    <param name="list_id" value="6156"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/MAPPA.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/MAPPATV.xsp"/>
-                    <param name="widget_header" value="MAPPA"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(7)"/>
-                    <param name="list_id" value="6157"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Kyoto.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/KyotoTV.xsp"/>
-                    <param name="widget_header" value="Kyoto"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(8)"/>
-                    <param name="list_id" value="6158"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/White_Fox.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/White_FoxTV.xsp"/>
-                    <param name="widget_header" value="White Fox"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(9)"/>
-                    <param name="list_id" value="6159"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Sunrise.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/SunriseTV.xsp"/>
-                    <param name="widget_header" value="Sunrise"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(10)"/>
-                    <param name="list_id" value="6160"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/A-1_Pictures.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/A-1_PicturesTV.xsp"/>
-                    <param name="widget_header" value="A-1 Pictures"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(11)"/>
-                    <param name="list_id" value="6161"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/CloverWorks.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/CloverWorksTV.xsp"/>
-                    <param name="widget_header" value="CloverWorks"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(12)"/>
-                    <param name="list_id" value="6162"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Pierrot.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/PierrotTV.xsp"/>
-                    <param name="widget_header" value="Pierrot"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(13)"/>
-                    <param name="list_id" value="6163"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Toei.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/ToeiTV.xsp"/>
-                    <param name="widget_header" value="Toei"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(14)"/>
-                    <param name="list_id" value="6164"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Trigger.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/TriggerTV.xsp"/>
-                    <param name="widget_header" value="Trigger"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(15)"/>
-                    <param name="list_id" value="6165"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                <include content="WidgetListThumb2">
-                    <param name="content_path" value="special://skin/playlists/anime/genre/Other.xsp"/>
-                    <param name="content_path2" value="special://skin/playlists/anime/genre/OtherTV.xsp"/>
-                    <param name="widget_header" value="Other"/>
-                    <param name="widget_target" value="videos"/>
-                    <param name="visible_widget" value="Container(6001).Position(16)"/>
-                    <param name="list_id" value="6166"/>
-                    <param name="onup" value="6001"/>
-                    <param name="sortby" value="title"/>
-                    <param name="sortorder" value="ascending"/>
-                </include>
-                 <control type="label">
-                    <top>80</top>
-                    <left>150</left>
-                    <height>200</height>
-                    <width>1000</width>
-                    <font>56px_Medium</font>
-                    <label>Anime</label>
-                    <textcolor>FFEEEEEE</textcolor>
-                    <shadowcolor>text_shadow</shadowcolor>
+                <control type="group">
+                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(60010)" reversible="true">Conditional</animation>
-                </control>
-               <control type="image">
-                    <top>220</top>
-                    <left>155</left>
-                    <right>155</right>
-                    <height>1</height>
-                    <texture colordiffuse="bg_overlay">dialogs/separator.png</texture>
-                    <aspectratio scalediffuse="false">stretch</aspectratio>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(60010)" reversible="true">Conditional</animation>
-                </control>
-                <control type="grouplist" id="6001">
-                    <top>180</top>
-                    <left>150</left>
-                    <right>150</right>
-                    <itemgap>0</itemgap>
-                    <orientation>horizontal</orientation>
-                    <align>left</align>
-                    <height>50</height>
-                    <onleft>noop</onleft>
-                    <onright>noop</onright>
-                    <include>Animation_WidgetInfo</include>
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(60010)" reversible="true">Conditional</animation>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
-                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
-                    <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6100"/>
-                        <param name="panel_id" value="6150"/>
-                        <param name="label" value="Películas"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/movies.xsp"/>
+                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(0)"/>
+                        <param name="list_id" value="6150"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6101"/>
-                        <param name="panel_id" value="6151"/>
-                        <param name="label" value="Series"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/tvshows.xsp"/>
+                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(1)"/>
+                        <param name="list_id" value="6151"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6102"/>
-                        <param name="panel_id" value="6152"/>
-                        <param name="label" value="Ghibli"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Acción-Aventuras.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/Acción-AventurasTV.xsp"/>
+                        <param name="widget_header" value="Acción-Aventuras"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(2)"/>
+                        <param name="list_id" value="6152"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6103"/>
-                        <param name="panel_id" value="6153"/>
-                        <param name="label" value="Madhouse"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Ciencia Ficción.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/Ciencia FicciónTV.xsp"/>
+                        <param name="widget_header" value="Ciencia Ficción"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(3)"/>
+                        <param name="list_id" value="6153"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6104"/>
-                        <param name="panel_id" value="6154"/>
-                        <param name="label" value="Ufotable"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Clásicas.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/ClásicasTV.xsp"/>
+                        <param name="widget_header" value="Clásicas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(4)"/>
+                        <param name="list_id" value="6154"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6105"/>
-                        <param name="panel_id" value="6155"/>
-                        <param name="label" value="Bones"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Comedia.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/ComediaTV.xsp"/>
+                        <param name="widget_header" value="Comedia"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(5)"/>
+                        <param name="list_id" value="6155"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6106"/>
-                        <param name="panel_id" value="6156"/>
-                        <param name="label" value="Wit"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Crimen.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/CrimenTV.xsp"/>
+                        <param name="widget_header" value="Crimen"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(6)"/>
+                        <param name="list_id" value="6156"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6107"/>
-                        <param name="panel_id" value="6157"/>
-                        <param name="label" value="MAPPA"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Drama.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/DramaTV.xsp"/>
+                        <param name="widget_header" value="Drama"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(7)"/>
+                        <param name="list_id" value="6157"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6108"/>
-                        <param name="panel_id" value="6158"/>
-                        <param name="label" value="Kyoto"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Familiar.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/FamiliarTV.xsp"/>
+                        <param name="widget_header" value="Familiar"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(8)"/>
+                        <param name="list_id" value="6158"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6109"/>
-                        <param name="panel_id" value="6159"/>
-                        <param name="label" value="White Fox"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Fantasía.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/FantasíaTV.xsp"/>
+                        <param name="widget_header" value="Fantasía"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(9)"/>
+                        <param name="list_id" value="6159"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6110"/>
-                        <param name="panel_id" value="6160"/>
-                        <param name="label" value="Sunrise"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Misterio.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/MisterioTV.xsp"/>
+                        <param name="widget_header" value="Misterio"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(10)"/>
+                        <param name="list_id" value="6160"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6111"/>
-                        <param name="panel_id" value="6161"/>
-                        <param name="label" value="A-1 Pictures"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Musical.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/MusicalTV.xsp"/>
+                        <param name="widget_header" value="Musical"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(11)"/>
+                        <param name="list_id" value="6161"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6112"/>
-                        <param name="panel_id" value="6162"/>
-                        <param name="label" value="CloverWorks"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Romántica.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/RománticaTV.xsp"/>
+                        <param name="widget_header" value="Romántica"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(12)"/>
+                        <param name="list_id" value="6162"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6113"/>
-                        <param name="panel_id" value="6163"/>
-                        <param name="label" value="Pierrot"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Suspense.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/SuspenseTV.xsp"/>
+                        <param name="widget_header" value="Suspense"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(13)"/>
+                        <param name="list_id" value="6163"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6114"/>
-                        <param name="panel_id" value="6164"/>
-                        <param name="label" value="Toei"/>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/anime/genre/Terror.xsp"/>
+                        <param name="content_path2" value="special://skin/playlists/anime/genre/TerrorTV.xsp"/>
+                        <param name="widget_header" value="Terror"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(6050).Position(14)"/>
+                        <param name="list_id" value="6164"/>
+                        <param name="onup" value="6050"/>
+                        <param name="sortby" value="title"/>
+                        <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6115"/>
-                        <param name="panel_id" value="6165"/>
-                        <param name="label" value="Trigger"/>
-                    </include>
-                    <include content="CategoryButton">
-                        <param name="list_id" value="6116"/>
-                        <param name="panel_id" value="6166"/>
-                        <param name="label" value="Otro"/>
+                    <include content="WidgetCategory">
+                        <param name="id" value="6"/>
+                        <param name="title" value="Anime"/>
+                        <param name="sidebar" value="5"/>
+                        <param name="alt" value="true"/>
                     </include>
                 </control>
             </control>
@@ -1296,27 +838,28 @@
                         <centertop>50%</centertop>
                         <width>150</width>
                         <height>150</height>
-                        <texturefocus colordiffuse="silver">icons/add.png</texturefocus>
-                        <texturenofocus colordiffuse="silver">icons/add.png</texturenofocus>
+                        <texturefocus colordiffuse="E6EEEEEE">icons/add.png</texturefocus>
+                        <texturenofocus colordiffuse="E6EEEEEE">icons/add.png</texturenofocus>
                         <label>Añade contenido a la lista</label>
                         <textwidth>500</textwidth>
                         <font>38px_Medium</font>
-                        <textcolor>silver</textcolor>
-                        <focusedcolor>silver</focusedcolor>
-                        <disabledcolor>silver</disabledcolor>
-                        <invalidcolor>silver</invalidcolor>
+                        <textcolor>E6EEEEEE</textcolor>
+                        <focusedcolor>E6EEEEEE</focusedcolor>
+                        <disabledcolor>E6EEEEEE</disabledcolor>
+                        <invalidcolor>E6EEEEEE</invalidcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <align>center</align>
                         <aligny>top</aligny>
                         <textoffsety>150</textoffsety>
+                        <onfocus condition="Integer.IsGreater(Container(7150).NumItems,0)|Container(7150).IsUpdating">Control.SetFocus(7150)</onfocus>
                         <onleft>Control.SetFocus(9100,6)</onleft>
                         <onback>Control.SetFocus(9100,6)</onback>
                         <onup>noop</onup>
-                        <visible>!Integer.IsGreater(Container(7150).NumItems,0)+!Container(7150).IsUpdating</visible>
-                        <animation effect="fade" time="300" reversible="true">VisibleChange</animation>
+                        <visible>String.IsEqual(Container(7150).ListItemAbsolute(0).Label,empty)</visible>
+                        <include>Animation_WidgetInfo</include>
                         <enable>true</enable>
                     </control>
-                <include content="WidgetListThumb2">
+                <include content="WidgetListThumb3">
                     <param name="content_path" value="videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22Title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(MyList1)]%22%2C%22$INFO[Skin.String(MyList2)]%22%2C%22$INFO[Skin.String(MyList3)]%22%2C%22$INFO[Skin.String(MyList4)]%22%2C%22$INFO[Skin.String(MyList5)]%22%2C%22$INFO[Skin.String(MyList6)]%22%2C%22$INFO[Skin.String(MyList7)]%22%2C%22$INFO[Skin.String(MyList8)]%22%2C%22$INFO[Skin.String(MyList9)]%22%2C%22$INFO[Skin.String(MyList10)]%22%2C%22$INFO[Skin.String(MyList11)]%22%2C%22$INFO[Skin.String(MyList12)]%22%2C%22$INFO[Skin.String(MyList13)]%22%2C%22$INFO[Skin.String(MyList14)]%22%2C%22$INFO[Skin.String(MyList15)]%22%2C%22$INFO[Skin.String(MyList16)]%22%2C%22$INFO[Skin.String(MyList17)]%22%2C%22$INFO[Skin.String(MyList18)]%22%2C%22$INFO[Skin.String(MyList19)]%22%2C%22$INFO[Skin.String(MyList20)]%22%2C%22$INFO[Skin.String(MyList21)]%22%2C%22$INFO[Skin.String(MyList22)]%22%2C%22$INFO[Skin.String(MyList23)]%22%2C%22$INFO[Skin.String(MyList24)]%22%2C%22$INFO[Skin.String(MyList25)]%22%2C%22$INFO[Skin.String(MyList26)]%22%2C%22$INFO[Skin.String(MyList27)]%22%2C%22$INFO[Skin.String(MyList28)]%22%2C%22$INFO[Skin.String(MyList29)]%22%2C%22$INFO[Skin.String(MyList30)]%22%2C%22$INFO[Skin.String(MyList31)]%22%2C%22$INFO[Skin.String(MyList32)]%22%2C%22$INFO[Skin.String(MyList33)]%22%2C%22$INFO[Skin.String(MyList34)]%22%2C%22$INFO[Skin.String(MyList35)]%22%2C%22$INFO[Skin.String(MyList36)]%22%2C%22$INFO[Skin.String(MyList37)]%22%2C%22$INFO[Skin.String(MyList38)]%22%2C%22$INFO[Skin.String(MyList39)]%22%2C%22$INFO[Skin.String(MyList40)]%22%2C%22$INFO[Skin.String(MyList41)]%22%2C%22$INFO[Skin.String(MyList42)]%22%2C%22$INFO[Skin.String(MyList43)]%22%2C%22$INFO[Skin.String(MyList44)]%22%2C%22$INFO[Skin.String(MyList45)]%22%2C%22$INFO[Skin.String(MyList46)]%22%2C%22$INFO[Skin.String(MyList47)]%22%2C%22$INFO[Skin.String(MyList48)]%22%2C%22$INFO[Skin.String(MyList49)]%22%2C%22$INFO[Skin.String(MyList50)]%22%2C%22$INFO[Skin.String(MyList51)]%22%2C%22$INFO[Skin.String(MyList52)]%22%2C%22$INFO[Skin.String(MyList53)]%22%2C%22$INFO[Skin.String(MyList54)]%22%2C%22$INFO[Skin.String(MyList55)]%22%2C%22$INFO[Skin.String(MyList56)]%22%2C%22$INFO[Skin.String(MyList57)]%22%2C%22$INFO[Skin.String(MyList58)]%22%2C%22$INFO[Skin.String(MyList59)]%22%2C%22$INFO[Skin.String(MyList60)]%22%2C%22$INFO[Skin.String(MyList61)]%22%2C%22$INFO[Skin.String(MyList62)]%22%2C%22$INFO[Skin.String(MyList63)]%22%2C%22$INFO[Skin.String(MyList64)]%22%2C%22$INFO[Skin.String(MyList65)]%22%2C%22$INFO[Skin.String(MyList66)]%22%2C%22$INFO[Skin.String(MyList67)]%22%2C%22$INFO[Skin.String(MyList68)]%22%2C%22$INFO[Skin.String(MyList69)]%22%2C%22$INFO[Skin.String(MyList70)]%22%2C%22$INFO[Skin.String(MyList71)]%22%2C%22$INFO[Skin.String(MyList72)]%22%2C%22$INFO[Skin.String(MyList73)]%22%2C%22$INFO[Skin.String(MyList74)]%22%2C%22$INFO[Skin.String(MyList75)]%22%2C%22$INFO[Skin.String(MyList76)]%22%2C%22$INFO[Skin.String(MyList77)]%22%2C%22$INFO[Skin.String(MyList78)]%22%2C%22$INFO[Skin.String(MyList79)]%22%2C%22$INFO[Skin.String(MyList80)]%22%2C%22$INFO[Skin.String(MyList81)]%22%2C%22$INFO[Skin.String(MyList82)]%22%2C%22$INFO[Skin.String(MyList83)]%22%2C%22$INFO[Skin.String(MyList84)]%22%2C%22$INFO[Skin.String(MyList85)]%22%2C%22$INFO[Skin.String(MyList86)]%22%2C%22$INFO[Skin.String(MyList87)]%22%2C%22$INFO[Skin.String(MyList88)]%22%2C%22$INFO[Skin.String(MyList89)]%22%2C%22$INFO[Skin.String(MyList90)]%22%2C%22$INFO[Skin.String(MyList91)]%22%2C%22$INFO[Skin.String(MyList92)]%22%2C%22$INFO[Skin.String(MyList93)]%22%2C%22$INFO[Skin.String(MyList94)]%22%2C%22$INFO[Skin.String(MyList95)]%22%2C%22$INFO[Skin.String(MyList96)]%22%2C%22$INFO[Skin.String(MyList97)]%22%2C%22$INFO[Skin.String(MyList98)]%22%2C%22$INFO[Skin.String(MyList99)]%22%2C%22$INFO[Skin.String(MyList100)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
                     <param name="content_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22Title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(MyList1TV)]%22%2C%22$INFO[Skin.String(MyList2TV)]%22%2C%22$INFO[Skin.String(MyList3TV)]%22%2C%22$INFO[Skin.String(MyList4TV)]%22%2C%22$INFO[Skin.String(MyList5TV)]%22%2C%22$INFO[Skin.String(MyList6TV)]%22%2C%22$INFO[Skin.String(MyList7TV)]%22%2C%22$INFO[Skin.String(MyList8TV)]%22%2C%22$INFO[Skin.String(MyList9TV)]%22%2C%22$INFO[Skin.String(MyList10TV)]%22%2C%22$INFO[Skin.String(MyList11TV)]%22%2C%22$INFO[Skin.String(MyList12TV)]%22%2C%22$INFO[Skin.String(MyList13TV)]%22%2C%22$INFO[Skin.String(MyList14TV)]%22%2C%22$INFO[Skin.String(MyList15TV)]%22%2C%22$INFO[Skin.String(MyList16TV)]%22%2C%22$INFO[Skin.String(MyList17TV)]%22%2C%22$INFO[Skin.String(MyList18TV)]%22%2C%22$INFO[Skin.String(MyList19TV)]%22%2C%22$INFO[Skin.String(MyList20TV)]%22%2C%22$INFO[Skin.String(MyList21TV)]%22%2C%22$INFO[Skin.String(MyList22TV)]%22%2C%22$INFO[Skin.String(MyList23TV)]%22%2C%22$INFO[Skin.String(MyList24TV)]%22%2C%22$INFO[Skin.String(MyList25TV)]%22%2C%22$INFO[Skin.String(MyList26TV)]%22%2C%22$INFO[Skin.String(MyList27TV)]%22%2C%22$INFO[Skin.String(MyList28TV)]%22%2C%22$INFO[Skin.String(MyList29TV)]%22%2C%22$INFO[Skin.String(MyList30TV)]%22%2C%22$INFO[Skin.String(MyList31TV)]%22%2C%22$INFO[Skin.String(MyList32TV)]%22%2C%22$INFO[Skin.String(MyList33TV)]%22%2C%22$INFO[Skin.String(MyList34TV)]%22%2C%22$INFO[Skin.String(MyList35TV)]%22%2C%22$INFO[Skin.String(MyList36TV)]%22%2C%22$INFO[Skin.String(MyList37TV)]%22%2C%22$INFO[Skin.String(MyList38TV)]%22%2C%22$INFO[Skin.String(MyList39TV)]%22%2C%22$INFO[Skin.String(MyList40TV)]%22%2C%22$INFO[Skin.String(MyList41TV)]%22%2C%22$INFO[Skin.String(MyList42TV)]%22%2C%22$INFO[Skin.String(MyList43TV)]%22%2C%22$INFO[Skin.String(MyList44TV)]%22%2C%22$INFO[Skin.String(MyList45TV)]%22%2C%22$INFO[Skin.String(MyList46TV)]%22%2C%22$INFO[Skin.String(MyList47TV)]%22%2C%22$INFO[Skin.String(MyList48TV)]%22%2C%22$INFO[Skin.String(MyList49TV)]%22%2C%22$INFO[Skin.String(MyList50TV)]%22%2C%22$INFO[Skin.String(MyList51TV)]%22%2C%22$INFO[Skin.String(MyList52TV)]%22%2C%22$INFO[Skin.String(MyList53TV)]%22%2C%22$INFO[Skin.String(MyList54TV)]%22%2C%22$INFO[Skin.String(MyList55TV)]%22%2C%22$INFO[Skin.String(MyList56TV)]%22%2C%22$INFO[Skin.String(MyList57TV)]%22%2C%22$INFO[Skin.String(MyList58TV)]%22%2C%22$INFO[Skin.String(MyList59TV)]%22%2C%22$INFO[Skin.String(MyList60TV)]%22%2C%22$INFO[Skin.String(MyList61TV)]%22%2C%22$INFO[Skin.String(MyList62TV)]%22%2C%22$INFO[Skin.String(MyList63TV)]%22%2C%22$INFO[Skin.String(MyList64TV)]%22%2C%22$INFO[Skin.String(MyList65TV)]%22%2C%22$INFO[Skin.String(MyList66TV)]%22%2C%22$INFO[Skin.String(MyList67TV)]%22%2C%22$INFO[Skin.String(MyList68TV)]%22%2C%22$INFO[Skin.String(MyList69TV)]%22%2C%22$INFO[Skin.String(MyList70TV)]%22%2C%22$INFO[Skin.String(MyList71TV)]%22%2C%22$INFO[Skin.String(MyList72TV)]%22%2C%22$INFO[Skin.String(MyList73TV)]%22%2C%22$INFO[Skin.String(MyList74TV)]%22%2C%22$INFO[Skin.String(MyList75TV)]%22%2C%22$INFO[Skin.String(MyList76TV)]%22%2C%22$INFO[Skin.String(MyList77TV)]%22%2C%22$INFO[Skin.String(MyList78TV)]%22%2C%22$INFO[Skin.String(MyList79TV)]%22%2C%22$INFO[Skin.String(MyList80TV)]%22%2C%22$INFO[Skin.String(MyList81TV)]%22%2C%22$INFO[Skin.String(MyList82TV)]%22%2C%22$INFO[Skin.String(MyList83TV)]%22%2C%22$INFO[Skin.String(MyList84TV)]%22%2C%22$INFO[Skin.String(MyList85TV)]%22%2C%22$INFO[Skin.String(MyList86TV)]%22%2C%22$INFO[Skin.String(MyList87TV)]%22%2C%22$INFO[Skin.String(MyList88TV)]%22%2C%22$INFO[Skin.String(MyList89TV)]%22%2C%22$INFO[Skin.String(MyList90TV)]%22%2C%22$INFO[Skin.String(MyList91TV)]%22%2C%22$INFO[Skin.String(MyList92TV)]%22%2C%22$INFO[Skin.String(MyList93TV)]%22%2C%22$INFO[Skin.String(MyList94TV)]%22%2C%22$INFO[Skin.String(MyList95TV)]%22%2C%22$INFO[Skin.String(MyList96TV)]%22%2C%22$INFO[Skin.String(MyList97TV)]%22%2C%22$INFO[Skin.String(MyList98TV)]%22%2C%22$INFO[Skin.String(MyList99TV)]%22%2C%22$INFO[Skin.String(MyList100TV)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
                     <param name="widget_header" value="Mi Lista"/>
@@ -1329,11 +872,12 @@
                 <control type="label">
                     <top>80</top>
                     <left>150</left>
-                    <height>200</height>
-                    <width>1000</width>
+                    <right>150</right>
+                    <height>70</height>
                     <font>56px_Medium</font>
+                    <aligny>center</aligny>
                     <label>Mi Lista</label>
-                    <textcolor>FFEEEEEE</textcolor>
+                    <textcolor>gainsboro</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
                     <include>Animation_WidgetInfo</include>
                     <visible>!Window.IsActive(movieinformation)</visible>
@@ -1391,7 +935,7 @@
                     <include content="SearchKeyboardRow">
                         <param name="id" value="1013" />
                         <param name="onleft" value="9100" />
-                        <param name="onright" value="77777" />
+                        <param name="onright" value="126" />
                         <param name="width" value="540" />
                         <param name="align" value="left" />
                         <param name="row_include" value="SearchKeyboardRow_Third_Row" />
@@ -1400,7 +944,7 @@
                     <include content="SearchKeyboardRow">
                         <param name="id" value="1014" />
                         <param name="onleft" value="9100" />
-                        <param name="onright" value="77777" />
+                        <param name="onright" value="126" />
                         <param name="width" value="430" />
                         <param name="align" value="left" />
                         <param name="row_include" value="SearchKeyboardRow_Fourth_Row" />
@@ -1409,7 +953,7 @@
                     <include content="SearchKeyboardRow">
                         <param name="id" value="1015" />
                         <param name="onleft" value="9100" />
-                        <param name="onright" value="77777" />
+                        <param name="onright" value="126" />
                         <param name="width" value="430" />
                         <param name="align" value="center" />
                         <param name="row_include" value="SearchKeyboardRow_Fifth_Row" />
@@ -1428,11 +972,12 @@
                     <radioheight>80</radioheight>
                     <textureradioonfocus colordiffuse="black">icons/keyboard/keyboard.png</textureradioonfocus>
                     <textureradioofffocus colordiffuse="black">icons/keyboard/keyboard.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="FFEEEEEE">icons/keyboard/keyboard.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="FFEEEEEE">icons/keyboard/keyboard.png</textureradiooffnofocus>
+                    <textureradioonnofocus colordiffuse="gray">icons/keyboard/keyboard.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="gray">icons/keyboard/keyboard.png</textureradiooffnofocus>
                     <texturefocus>dialogs/keyboard/key3.png</texturefocus>
                     <texturenofocus colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                     <onfocus>ClearProperty(SearchWidgets)</onfocus>
+                    <onback>Control.SetFocus(9100,0)</onback>
                     <onleft condition="!Control.IsVisible(1016)">Control.SetFocus(9100,0)</onleft>
                     <onleft condition="Control.IsVisible(1016)">1016</onleft>
                     <ondown condition="String.IsEmpty(Skin.String(CustomSearchTerm))">179</ondown>
@@ -1462,7 +1007,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(0).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1479,7 +1024,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(1).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1496,7 +1041,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(2).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1513,7 +1058,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(3).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1530,7 +1075,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(4).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1547,7 +1092,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(5).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1564,7 +1109,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(6).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1581,7 +1126,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(7).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1598,7 +1143,7 @@
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
                         <label>$INFO[Container(1017).ListItem(8).Label]</label>
-                        <textcolor>FFEEEEEE</textcolor>
+                        <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
@@ -1645,7 +1190,7 @@
                         <textureradioonfocus/>
                         <textureradioonnofocus/>
                         <textureradioofffocus/>
-                        <textureradiooffnofocus colordiffuse="E6EEEEEE">icons/round_movie_white_48dp.png</textureradiooffnofocus>
+                        <textureradiooffnofocus colordiffuse="silver">icons/round_movie_white_48dp.png</textureradiooffnofocus>
                         <texturefocus></texturefocus>
                         <width>80</width>
                         <height>80</height>
@@ -1653,7 +1198,7 @@
                         <radioheight>80</radioheight>
                         <font>24px_Medium</font>
                         <label>$INFO[Window(Home).Property(Movies.Count)] Películas[CR]$INFO[Window(Home).Property(Movies.Watched)] Películas vistas</label>
-                        <textcolor>E6EEEEEE</textcolor>
+                        <textcolor>silver</textcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <align>left</align>
                         <aligny>center</aligny>
@@ -1668,7 +1213,7 @@
                         <textureradioonfocus/>
                         <textureradioonnofocus/>
                         <textureradioofffocus/>
-                        <textureradiooffnofocus colordiffuse="E6EEEEEE">icons/tv.png</textureradiooffnofocus>
+                        <textureradiooffnofocus colordiffuse="silver">icons/tv.png</textureradiooffnofocus>
                         <texturefocus></texturefocus>
                         <width>80</width>
                         <height>80</height>
@@ -1676,7 +1221,7 @@
                         <radioheight>80</radioheight>
                         <font>24px_Medium</font>
                         <label>$INFO[Window(Home).Property(TVShows.Count)] Series[CR]$INFO[Window(Home).Property(TVShows.Watched)] Series vistas</label>
-                        <textcolor>E6EEEEEE</textcolor>
+                        <textcolor>silver</textcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <align>left</align>
                         <aligny>center</aligny>
@@ -1691,7 +1236,7 @@
                         <textureradioonfocus/>
                         <textureradioonnofocus/>
                         <textureradioofffocus/>
-                        <textureradiooffnofocus colordiffuse="E6EEEEEE">icons/round_subscriptions_white_48dp.png</textureradiooffnofocus>
+                        <textureradiooffnofocus colordiffuse="silver">icons/round_subscriptions_white_48dp.png</textureradiooffnofocus>
                         <texturefocus></texturefocus>
                         <width>80</width>
                         <height>80</height>
@@ -1699,7 +1244,7 @@
                         <radioheight>80</radioheight>
                         <font>24px_Medium</font>
                         <label>$INFO[Window(Home).Property(Episodes.Count)] Episodios[CR]$INFO[Window(Home).Property(Episodes.Watched)] Episodios vistos</label>
-                        <textcolor>E6EEEEEE</textcolor>
+                        <textcolor>silver</textcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <align>left</align>
                         <aligny>center</aligny>
@@ -1720,13 +1265,13 @@
                     <onback>Control.SetFocus(9100,0)</onback>
                     <onfocus>SetProperty(SearchWidgets,1,home)</onfocus>
                     <onfocus>ClearProperty(SearchSets)</onfocus>
-                    <animation effect="slide" start="0" end="0,400" reversible="true" tween="cubic" easing="out" time="350" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
-                    <animation effect="slide" end="0,120" time="200" tween="cubic" easing="in" condition="!Container(179).HasPrevious" reversible="true">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,420" reversible="true" tween="cubic" easing="out" time="350" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="slide" end="0,70" time="200" tween="cubic" easing="in" condition="!Container(179).HasPrevious" reversible="true">Conditional</animation>
                     <onup>1200</onup>
                     <ondown>noop</ondown>
                     <onright>1796</onright>
                     <onclick>SetFocus(178,0)</onclick>
-                    <onclick>Skin.SetString(CustomSearchSet,$INFO[ListItem.Label])</onclick>
+                    <onclick>Skin.SetString(CustomSearchSet,$ESCINFO[ListItem.Label])</onclick>
                     <onclick>SetProperty(SearchSets,1,home)</onclick>
                     <preloaditems>3</preloaditems>
                     <pagecontrol>1796</pagecontrol>
@@ -1758,7 +1303,7 @@
                     <scrolltime tween="cubic" easing="out">400</scrolltime>
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>179</onback>
-                    <animation effect="slide" end="0,120" time="200" tween="cubic" easing="in" condition="!Container(178).HasPrevious" reversible="true">Conditional</animation>
+                    <animation effect="slide" end="0,70" time="200" tween="cubic" easing="in" condition="!Container(178).HasPrevious" reversible="true">Conditional</animation>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                     <onright>1786</onright>
@@ -1786,6 +1331,30 @@
                     </focusedlayout>
                     <content sortby="year" target="videos" limit="all">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
                 </control>
+                    <control type="image">
+                    <centertop>50%</centertop>
+                    <centerright>50%</centerright>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>dialogs/spin.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
+                    <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                    <visible>Container(178).IsUpdating+!Integer.IsGreater(Container(178).NumItems,0)+Control.IsVisible(178)</visible>
+                </control>
+                <control type="image">
+                    <centertop>50%</centertop>
+                    <centerright>50%</centerright>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>dialogs/spin.png</texture>
+                    <animation effect="slide" start="0" end="0,350" reversible="true" tween="cubic" easing="out" time="350" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
+                    <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                    <visible>Container(179).IsUpdating+!Integer.IsGreater(Container(179).NumItems,0)+Control.IsVisible(179)</visible>
+                </control>
+
                 <control type="grouplist" id="180">
                     <top>650</top>
                     <visible>!Window.IsActive(movieinformation)</visible>
@@ -1797,25 +1366,27 @@
                     <width>1920</width>
                     <height>1080</height>
                     <orientation>vertical</orientation>
-                    <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+                    <visible  allowhiddenfocus="true">!String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchMore))</visible>
                     <animation effect="slide" start="0" end="0,-650" reversible="true" tween="cubic" easing="out" time="350" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
 
                     <!-- By Title (Movies & TV Shows) -->
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
-                        <param name="content_path" value="$VAR[SearchWidgetVar]://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+                        <param name="content_path" value="$VAR[SearchWidgetVar]://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22originaltitle%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
                         <param name="item" value="SearchItem"/>
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas con título &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="181"/>
                     </include>
                     <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
-                        <param name="content_path" value="$VAR[SearchWidgetVar]://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+                        <param name="content_path" value="$VAR[SearchWidgetVar]://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%2C%7B%22field%22%3A%22originaltitle%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
                         <param name="item" value="SearchItem"/>
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Series con título &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="182"/>
                     </include>
@@ -1827,6 +1398,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas con género &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="183"/>
                     </include>
@@ -1836,6 +1408,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Series con género &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="184"/>
                     </include>
@@ -1847,6 +1420,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas estrenadas el &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="185"/>
                     </include>
@@ -1856,6 +1430,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Series estrenadas el &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="186"/>
                     </include>
@@ -1867,6 +1442,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas del estudio &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="187"/>
                     </include>
@@ -1876,6 +1452,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Series del estudio &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="188"/>
                     </include>
@@ -1887,6 +1464,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas con actor &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="189"/>
                     </include>
@@ -1896,6 +1474,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Series con actor &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="190"/>
                     </include>
@@ -1907,6 +1486,7 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas dirigidas por &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="191"/>
                     </include>
@@ -1918,8 +1498,30 @@
                         <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas del país &quot;,&quot;]"/>
                         <param name="visible_content" value="true"/>
                         <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="192"/>
+                    </include>
+                    <!-- By Tag (Movies & TV Shows) -->
+                    <include content="WidgetListThumb" condition="Library.HasContent(movies)">
+                        <param name="content_path" value="$VAR[SearchWidgetVar]://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
+                        <param name="item" value="SearchItem"/>
+                        <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas con etiqueta &quot;,&quot;]"/>
+                        <param name="visible_content" value="true"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
+                        <param name="widget_limit" value="50"/>
+                        <param name="list_id" value="193"/>
+                    </include>
+                    <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
+                        <param name="content_path" value="$VAR[SearchWidgetVar]://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
+                        <param name="item" value="SearchItem"/>
+                        <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Series con etiqueta &quot;,&quot;]"/>
+                        <param name="visible_content" value="true"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="searchmore" value="true"/>
+                        <param name="widget_limit" value="50"/>
+                        <param name="list_id" value="194"/>
                     </include>
                 </control>
 
@@ -1933,13 +1535,46 @@
                     <align>left</align>
                     <aligny>center</aligny>
                     <textcolor>FFEEEEEE</textcolor>
-                    <visible>!Container(180).HasPrevious</visible>
-                    <visible>[!Control.HasFocus(179)+!Control.HasFocus(178)]|[!Container(179).HasPrevious+Control.IsVisible(179)]|[!Container(178).HasPrevious+!String.IsEmpty(Window(home).Property(SearchSets))]</visible>
+                    <visible>!Integer.IsGreater(Container(180).CurrentItem,1)</visible>
+                    <visible>[!Control.HasFocus(179)+!Control.HasFocus(178)]|[!Container(179).HasPrevious+String.IsEmpty(Window(home).Property(SearchSets))]|[!Container(178).HasPrevious+!String.IsEmpty(Window(home).Property(SearchSets))]</visible>
                     <animation effect="fade" time="300" tween="cubic" easing="out" reversible="true">VisibleChange</animation>
                 </control>
                 </control>
             </control>
         </control>
+        <control type="image">
+            <height>100%</height>
+            <width>140</width>
+            <texture>frame/widget_border.png</texture>
+            <colordiffuse>primary_background</colordiffuse>
+            <visible>true</visible>
+        </control>
 		<include>SidebarMenu</include>
+        <control type="textbox">
+            <top>80</top>
+            <left>150</left>
+            <right>150</right>
+            <height>800</height>
+            <font>27px_Medium</font>
+            <label>1$ESCINFO[Skin.String(MyList1)] | 2$ESCINFO[Skin.String(MyList2)] | 3$ESCINFO[Skin.String(MyList3)] | 4$ESCINFO[Skin.String(MyList4)] | 5$ESCINFO[Skin.String(MyList5)] | 6$ESCINFO[Skin.String(MyList6)] | 7$ESCINFO[Skin.String(MyList7)] | 8$ESCINFO[Skin.String(MyList8)] | 9$ESCINFO[Skin.String(MyList9)] | 10$ESCINFO[Skin.String(MyList10)]  |11$ESCINFO[Skin.String(MyList11)] | 12$ESCINFO[Skin.String(MyList12)] | 13$ESCINFO[Skin.String(MyList13)] | 14$ESCINFO[Skin.String(MyList14)] | 15$ESCINFO[Skin.String(MyList15)] | 16$ESCINFO[Skin.String(MyList16)] | 17$ESCINFO[Skin.String(MyList17)] | 18$ESCINFO[Skin.String(MyList18)] | 19$ESCINFO[Skin.String(MyList19)] | 20$ESCINFO[Skin.String(MyList20)] | 21$ESCINFO[Skin.String(MyList21)] | 22$ESCINFO[Skin.String(MyList22)] | 23$ESCINFO[Skin.String(MyList23)] | 24$ESCINFO[Skin.String(MyList24)] | 25$ESCINFO[Skin.String(MyList25)] | 26$ESCINFO[Skin.String(MyList26)] | 27$ESCINFO[Skin.String(MyList27)] | 28$ESCINFO[Skin.String(MyList28)] | 29$ESCINFO[Skin.String(MyList29)] | 30$ESCINFO[Skin.String(MyList30)] | 31$ESCINFO[Skin.String(MyList31)] | 32$ESCINFO[Skin.String(MyList32)] | 33$ESCINFO[Skin.String(MyList33)] | 34$ESCINFO[Skin.String(MyList34)] | 35$ESCINFO[Skin.String(MyList35)] | 36$ESCINFO[Skin.String(MyList36)] | 37$ESCINFO[Skin.String(MyList37)] | 38$ESCINFO[Skin.String(MyList38)] | 39$ESCINFO[Skin.String(MyList39)] | 40$ESCINFO[Skin.String(MyList40)] | 41$ESCINFO[Skin.String(MyList41)] | 42$ESCINFO[Skin.String(MyList42)] | 43$ESCINFO[Skin.String(MyList43)] | 44$ESCINFO[Skin.String(MyList44)] | 45$ESCINFO[Skin.String(MyList45)] | 46$ESCINFO[Skin.String(MyList46)] | 47$ESCINFO[Skin.String(MyList47)] | 48$ESCINFO[Skin.String(MyList48)] | 49$ESCINFO[Skin.String(MyList49)] | 50$ESCINFO[Skin.String(MyList50)] | 51$ESCINFO[Skin.String(MyList51)] | 52$ESCINFO[Skin.String(MyList52)] | 53$ESCINFO[Skin.String(MyList53)] | 54$ESCINFO[Skin.String(MyList54)] | 55$ESCINFO[Skin.String(MyList55)] | 56$ESCINFO[Skin.String(MyList56)] | 57$ESCINFO[Skin.String(MyList57)] | 58$ESCINFO[Skin.String(MyList58)] | 59$ESCINFO[Skin.String(MyList59)] | 60$ESCINFO[Skin.String(MyList60)] | 61$ESCINFO[Skin.String(MyList61)] | 62$ESCINFO[Skin.String(MyList62)] | 63$ESCINFO[Skin.String(MyList63)] | 64$ESCINFO[Skin.String(MyList64)] | 65$ESCINFO[Skin.String(MyList65)] | 66$ESCINFO[Skin.String(MyList66)] | 67$ESCINFO[Skin.String(MyList67)] | 68$ESCINFO[Skin.String(MyList68)] | 69$ESCINFO[Skin.String(MyList69)] | 70$ESCINFO[Skin.String(MyList70)] | 71$ESCINFO[Skin.String(MyList71)] | 72$ESCINFO[Skin.String(MyList72)] | 73$ESCINFO[Skin.String(MyList73)] | 74$ESCINFO[Skin.String(MyList74)] | 75$ESCINFO[Skin.String(MyList75)] | 76$ESCINFO[Skin.String(MyList76)] | 77$ESCINFO[Skin.String(MyList77)] | 78$ESCINFO[Skin.String(MyList78)] | 79$ESCINFO[Skin.String(MyList79)] | 80$ESCINFO[Skin.String(MyList80)] | 81$ESCINFO[Skin.String(MyList81)] | 82$ESCINFO[Skin.String(MyList82)] | 83$ESCINFO[Skin.String(MyList83)] | 84$ESCINFO[Skin.String(MyList84)] | 85$ESCINFO[Skin.String(MyList85)] | 86$ESCINFO[Skin.String(MyList86)] | 87$ESCINFO[Skin.String(MyList87)] | 88$ESCINFO[Skin.String(MyList88)] | 89$ESCINFO[Skin.String(MyList89)] | 90$ESCINFO[Skin.String(MyList90)] | 91$ESCINFO[Skin.String(MyList91)] | 92$ESCINFO[Skin.String(MyList92)] | 93$ESCINFO[Skin.String(MyList93)] | 94$ESCINFO[Skin.String(MyList94)] | 95$ESCINFO[Skin.String(MyList95)] | 96$ESCINFO[Skin.String(MyList96)] | 97$ESCINFO[Skin.String(MyList97)] | 98$ESCINFO[Skin.String(MyList98)] | 99$ESCINFO[Skin.String(MyList99)] | 100$ESCINFO[Skin.String(MyList100)]</label>
+            <align>left</align>
+            <aligny>top</aligny>
+            <textcolor>FFEEEEEE</textcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+            <visible>false</visible>
+        </control>
+        <control type="textbox">
+            <top>80</top>
+            <left>150</left>
+            <right>150</right>
+            <height>800</height>
+            <font>27px_Medium</font>
+            <label>1$ESCINFO[Skin.String(MyList1TV)] | 2$ESCINFO[Skin.String(MyList2TV)] | 3$ESCINFO[Skin.String(MyList3TV)] | 4$ESCINFO[Skin.String(MyList4TV)] | 5$ESCINFO[Skin.String(MyList5TV)] | 6$ESCINFO[Skin.String(MyList6TV)] | 7$ESCINFO[Skin.String(MyList7TV)] | 8$ESCINFO[Skin.String(MyList8TV)] | 9$ESCINFO[Skin.String(MyList9TV)] | 10$ESCINFO[Skin.String(MyList10TV)]  |11$ESCINFO[Skin.String(MyList11TV)] | 12$ESCINFO[Skin.String(MyList12TV)] | 13$ESCINFO[Skin.String(MyList13TV)] | 14$ESCINFO[Skin.String(MyList14TV)] | 15$ESCINFO[Skin.String(MyList15TV)] | 16$ESCINFO[Skin.String(MyList16TV)] | 17$ESCINFO[Skin.String(MyList17TV)] | 18$ESCINFO[Skin.String(MyList18TV)] | 19$ESCINFO[Skin.String(MyList19TV)] | 20$ESCINFO[Skin.String(MyList20TV)] | 21$ESCINFO[Skin.String(MyList21TV)] | 22$ESCINFO[Skin.String(MyList22TV)] | 23$ESCINFO[Skin.String(MyList23TV)] | 24$ESCINFO[Skin.String(MyList24TV)] | 25$ESCINFO[Skin.String(MyList25TV)] | 26$ESCINFO[Skin.String(MyList26TV)] | 27$ESCINFO[Skin.String(MyList27TV)] | 28$ESCINFO[Skin.String(MyList28TV)] | 29$ESCINFO[Skin.String(MyList29TV)] | 30$ESCINFO[Skin.String(MyList30TV)] | 31$ESCINFO[Skin.String(MyList31TV)] | 32$ESCINFO[Skin.String(MyList32TV)] | 33$ESCINFO[Skin.String(MyList33TV)] | 34$ESCINFO[Skin.String(MyList34TV)] | 35$ESCINFO[Skin.String(MyList35TV)] | 36$ESCINFO[Skin.String(MyList36TV)] | 37$ESCINFO[Skin.String(MyList37TV)] | 38$ESCINFO[Skin.String(MyList38TV)] | 39$ESCINFO[Skin.String(MyList39TV)] | 40$ESCINFO[Skin.String(MyList40TV)] | 41$ESCINFO[Skin.String(MyList41TV)] | 42$ESCINFO[Skin.String(MyList42TV)] | 43$ESCINFO[Skin.String(MyList43TV)] | 44$ESCINFO[Skin.String(MyList44TV)] | 45$ESCINFO[Skin.String(MyList45TV)] | 46$ESCINFO[Skin.String(MyList46TV)] | 47$ESCINFO[Skin.String(MyList47TV)] | 48$ESCINFO[Skin.String(MyList48TV)] | 49$ESCINFO[Skin.String(MyList49TV)] | 50$ESCINFO[Skin.String(MyList50TV)] | 51$ESCINFO[Skin.String(MyList51TV)] | 52$ESCINFO[Skin.String(MyList52TV)] | 53$ESCINFO[Skin.String(MyList53TV)] | 54$ESCINFO[Skin.String(MyList54TV)] | 55$ESCINFO[Skin.String(MyList55TV)] | 56$ESCINFO[Skin.String(MyList56TV)] | 57$ESCINFO[Skin.String(MyList57TV)] | 58$ESCINFO[Skin.String(MyList58TV)] | 59$ESCINFO[Skin.String(MyList59TV)] | 60$ESCINFO[Skin.String(MyList60TV)] | 61$ESCINFO[Skin.String(MyList61TV)] | 62$ESCINFO[Skin.String(MyList62TV)] | 63$ESCINFO[Skin.String(MyList63TV)] | 64$ESCINFO[Skin.String(MyList64TV)] | 65$ESCINFO[Skin.String(MyList65TV)] | 66$ESCINFO[Skin.String(MyList66TV)] | 67$ESCINFO[Skin.String(MyList67TV)] | 68$ESCINFO[Skin.String(MyList68TV)] | 69$ESCINFO[Skin.String(MyList69TV)] | 70$ESCINFO[Skin.String(MyList70TV)] | 71$ESCINFO[Skin.String(MyList71TV)] | 72$ESCINFO[Skin.String(MyList72TV)] | 73$ESCINFO[Skin.String(MyList73TV)] | 74$ESCINFO[Skin.String(MyList74TV)] | 75$ESCINFO[Skin.String(MyList75TV)] | 76$ESCINFO[Skin.String(MyList76TV)] | 77$ESCINFO[Skin.String(MyList77TV)] | 78$ESCINFO[Skin.String(MyList78TV)] | 79$ESCINFO[Skin.String(MyList79TV)] | 80$ESCINFO[Skin.String(MyList80TV)] | 81$ESCINFO[Skin.String(MyList81TV)] | 82$ESCINFO[Skin.String(MyList82TV)] | 83$ESCINFO[Skin.String(MyList83TV)] | 84$ESCINFO[Skin.String(MyList84TV)] | 85$ESCINFO[Skin.String(MyList85TV)] | 86$ESCINFO[Skin.String(MyList86TV)] | 87$ESCINFO[Skin.String(MyList87TV)] | 88$ESCINFO[Skin.String(MyList88TV)] | 89$ESCINFO[Skin.String(MyList89TV)] | 90$ESCINFO[Skin.String(MyList90TV)] | 91$ESCINFO[Skin.String(MyList91TV)] | 92$ESCINFO[Skin.String(MyList92TV)] | 93$ESCINFO[Skin.String(MyList93TV)] | 94$ESCINFO[Skin.String(MyList94TV)] | 95$ESCINFO[Skin.String(MyList95TV)] | 96$ESCINFO[Skin.String(MyList96TV)] | 97$ESCINFO[Skin.String(MyList97TV)] | 98$ESCINFO[Skin.String(MyList98TV)] | 99$ESCINFO[Skin.String(MyList99TV)] | 100$ESCINFO[Skin.String(MyList100TV)]</label>
+            <align>left</align>
+            <aligny>top</aligny>
+            <textcolor>FFEEEEEE</textcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+            <visible>false</visible>
+        </control>
 	</controls>
 </window>

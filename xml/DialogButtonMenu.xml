@@ -5,83 +5,110 @@
 	<controls>
 		<control type="group">
 			<centerleft>50%</centerleft>
-			<width>600</width>
+			<width>100%</width>
 			<centertop>50%</centertop>
 			<height>700</height>
-			<include content="DialogBackgroundCommons">
-				<param name="width" value="600" />
-				<param name="height" value="80" />
-				<param name="header_label" value="$LOCALIZE[31072]" />
-				<param name="header_id" value="2" />
-			</include>
-			<control type="panel" id="9000">
-				<include>ButtonMenuList</include>
-				<content>
-                    <item>
-						<label>$LOCALIZE[21417]</label>
-						<onclick>dialog.close(shutdownmenu)</onclick>
-                <onclick>ActivateWindow(Settings),return</onclick>
-					</item>
-					<item>
-						<label>$LOCALIZE[13012]</label>
-						<onclick>Quit()</onclick>
-						<visible>System.ShowExitButton</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[13016]</label>
-						<onclick>Powerdown()</onclick>
-						<visible>System.CanPowerDown</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[20150]</label>
-						<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
-						<visible>!System.HasAlarm(shutdowntimer)</visible>
-						<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[20151] $INFO[System.AlarmPos,(,)]</label>
-						<onclick>CancelAlarm(shutdowntimer)</onclick>
-						<visible>System.HasAlarm(shutdowntimer)</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[13011]</label>
-						<onclick>Suspend()</onclick>
-						<visible>System.CanSuspend</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[13010]</label>
-						<onclick>Hibernate()</onclick>
-						<visible>System.CanHibernate</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[13013]</label>
-						<onclick>Reset()</onclick>
-						<visible>System.CanReboot</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
-						<onclick>dialog.close(all,true)</onclick>
-						<onclick>System.LogOff</onclick>
-						<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
-						<visible>System.Loggedon</visible>
-					</item>
-					<item>
-						<label>$VAR[MasterModeLabel]</label>
-						<onclick>mastermode</onclick>
-						<visible>System.HasLocks</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[13017]</label>
-						<onclick>InhibitIdleShutdown(true)</onclick>
-						<visible>System.HasShutdown +!System.IsInhibit</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[13018]</label>
-						<onclick>InhibitIdleShutdown(false)</onclick>
-						<visible>System.HasShutdown + System.IsInhibit</visible>
-					</item>
-				</content>
-			</control>
+			<control type="image">
+                <left>-2000</left>
+                <top>-2000</top>
+                <width>6000</width>
+                <height>6000</height>
+                <animation effect="fade" time="300">VisibleChange</animation>
+                <animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+                <texture colordiffuse="C2FFFFFF">colors/black.png</texture>
+            </control>
+            <control type="grouplist" id="9000">
+                <centertop>50%</centertop>
+                <width>100%</width>
+                <height>200</height>
+                <itemgap>10</itemgap>
+                <orientation>horizontal</orientation>
+                <align>center</align>
+                <control type="radiobutton" id="1">
+                    <width>200</width>
+                    <height>200</height>
+                    <radiowidth>200</radiowidth>
+                    <radioheight>60</radioheight>
+                    <radioposx>1</radioposx>
+                    <radioposy>50</radioposy>
+                    <colordiffuse>FFFFFFFF</colordiffuse>
+                    <texturefocus border="30">buttons/powermenu.png</texturefocus>
+                    <texturenofocus border="30" colordiffuse="dialog_tint">buttons/powermenu.png</texturenofocus>
+                    <textureradioonfocus/>
+                    <textureradioonnofocus/>
+                    <textureradioofffocus colordiffuse="black">icons/powermenu/exit.png</textureradioofffocus>
+                    <textureradiooffnofocus colordiffuse="grey">icons/powermenu/exit.png</textureradiooffnofocus>
+                    <onclick>Quit()</onclick>
+                    <label>$LOCALIZE[13012]</label>
+                    <font>28px_Medium</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <align>center</align>
+                    <aligny>top</aligny>
+                    <textoffsety>110</textoffsety>
+                    <selected>false</selected>
+                    <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
+                    <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+                </control>
+                <control type="radiobutton" id="2">
+                    <width>200</width>
+                    <height>200</height>
+                    <radiowidth>200</radiowidth>
+                    <radioheight>60</radioheight>
+                    <radioposx>1</radioposx>
+                    <radioposy>50</radioposy>
+                    <colordiffuse>FFFFFFFF</colordiffuse>
+                    <texturefocus border="30">buttons/powermenu.png</texturefocus>
+                    <texturenofocus border="30" colordiffuse="dialog_tint">buttons/powermenu.png</texturenofocus>
+                    <textureradioonfocus/>
+                    <textureradioonnofocus/>
+                    <textureradioofffocus colordiffuse="black">icons/powermenu/restart.png</textureradioofffocus>
+                    <textureradiooffnofocus colordiffuse="grey">icons/powermenu/restart.png</textureradiooffnofocus>
+                    <onclick>Reset()</onclick>
+                    <visible>System.CanReboot</visible>
+                    <label>$LOCALIZE[13013]</label>
+                    <font>28px_Medium</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <align>center</align>
+                    <aligny>top</aligny>
+                    <textoffsety>110</textoffsety>
+                    <selected>false</selected>
+                    <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
+                    <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+                </control>
+                <control type="radiobutton" id="3">
+                    <width>200</width>
+                    <height>200</height>
+                    <radiowidth>200</radiowidth>
+                    <radioheight>60</radioheight>
+                    <radioposx>1</radioposx>
+                    <radioposy>50</radioposy>
+                    <colordiffuse>FFFFFFFF</colordiffuse>
+                    <texturefocus border="30">buttons/powermenu.png</texturefocus>
+                    <texturenofocus border="30" colordiffuse="dialog_tint">buttons/powermenu.png</texturenofocus>
+                    <textureradioonfocus/>
+                    <textureradioonnofocus/>
+                    <textureradioofffocus colordiffuse="black">icons/powermenu/power.png</textureradioofffocus>
+                    <textureradiooffnofocus colordiffuse="grey">icons/powermenu/power.png</textureradiooffnofocus>
+                    <onclick>Powerdown()</onclick>
+                    <label>Apagar</label>
+                    <font>28px_Medium</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <align>center</align>
+                    <aligny>top</aligny>
+                    <textoffsety>110</textoffsety>
+                    <selected>false</selected>
+                    <visible>System.CanPowerDown</visible>
+                    <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
+                    <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+                </control>
+            </control>
 		</control>
 	</controls>
 </window>

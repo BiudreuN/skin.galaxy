@@ -2,8 +2,7 @@
 <smartplaylist type="movies">
     <name>Classic Movies</name>
     <match>all</match>
-    <rule field="year" operator="after">1900</rule>
-    <rule field="year" operator="before">1990</rule>
+    <rule field="year" operator="before">2000</rule>
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>
     <limit>all</limit>

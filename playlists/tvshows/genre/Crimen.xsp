@@ -2,10 +2,8 @@
 <smartplaylist type="tvshows">
     <name>Películas de Acción</name>
     <match>all</match>
-    <rule field="tag" operator="contain">
+    <rule field="genre" operator="contain">
         <value>crime</value>
-        <value>criminal</value>
-        <value>detective</value>
     </rule>
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>

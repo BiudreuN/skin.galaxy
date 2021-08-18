@@ -25,6 +25,60 @@
 		<texturenofocus />
 		<visible>String.IsEmpty($PARAM[label])</visible>
 	</include>
+    <include name="GenreButton">
+		<control type="togglebutton" id="$PARAM[button_id]">
+            <width>300</width>
+            <height>70</height>
+            <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
+            <texturenofocus></texturenofocus>
+            <alttexturefocus border="20">dialogs/keyboard/key.png</alttexturefocus>
+            <alttexturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key.png</alttexturenofocus>
+            <usealttexture>Container($PARAM[id]050).Position($PARAM[position])</usealttexture>
+            <label>[COLOR gray][LIGHT]$PARAM[label][/LIGHT][/COLOR]</label>
+            <altlabel>$PARAM[label]</altlabel>
+            <font>27px_Medium</font>
+            <textcolor>FFEEEEEE</textcolor>
+            <focusedcolor>black</focusedcolor>
+            <disabledcolor>disabled</disabledcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+            <textoffsetx>20</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <pulseonselect>true</pulseonselect>
+            <onright condition="Control.IsVisible($PARAM[id]1$PARAM[panel_id])">SetFocus($PARAM[id]1$PARAM[panel_id])</onright>
+            <onclick condition="Control.IsVisible($PARAM[id]1$PARAM[panel_id])">SetFocus($PARAM[id]1$PARAM[panel_id])</onclick>
+            <enable>Integer.IsGreater(Container($PARAM[id]1$PARAM[panel_id]).NumItems,0)|Container($PARAM[id]1$PARAM[panel_id]).IsUpdating</enable>
+            <visible>$PARAM[visible]</visible>
+        </control>
+	</include>
+    <include name="FilterButton">
+        <control type="togglebutton" id="$PARAM[id]">
+            <right>0</right>
+            <width>350</width>
+            <height>50</height>
+            <texturefocus>lists/focus.png</texturefocus>
+            <texturenofocus colordiffuse="primary_background">lists/menu_background.png</texturenofocus>
+            <alttexturefocus>lists/focus.png</alttexturefocus>
+            <alttexturenofocus colordiffuse="primary_background">lists/menu_background.png</alttexturenofocus>
+            <usealttexture>Control.HasFocus($PARAM[id])</usealttexture>
+            <label>[UPPERCASE][LIGHT]$PARAM[label][/LIGHT][/UPPERCASE]</label>
+            <altlabel>[UPPERCASE][COLOR black]$PARAM[label][/COLOR][/UPPERCASE]</altlabel>
+            <font>24px_Medium</font>
+            <textcolor>gray</textcolor>
+            <focusedcolor>black</focusedcolor>
+            <disabledcolor>disabled</disabledcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+            <textoffsetx>20</textoffsetx>
+            <align>left</align>
+            <aligny>center</aligny>
+            <onclick condition="String.IsEqual(Window(home).Property(ItemHub),Movies)">$PARAM[movies_onclick]</onclick>
+            <onclick condition="String.IsEqual(Window(home).Property(ItemHub),TvShows)">$PARAM[tvshows_onclick]</onclick>
+            <onclick condition="String.IsEqual(Window(home).Property(ItemHub),Kids)">$PARAM[cartoon_onclick]</onclick>
+            <onclick condition="String.IsEqual(Window(home).Property(ItemHub),Anime)">$PARAM[anime_onclick]</onclick>
+            <onclick condition="String.IsEqual(Window(home).Property(ItemHub),Mylist)">$PARAM[mylist_onclick]</onclick>
+            <onclick>Action(close)</onclick>
+        </control>
+	</include>
 	<include name="OSDButton">
 		<textureradioonfocus colordiffuse="black">$PARAM[texture]</textureradioonfocus>
 		<textureradioonnofocus>$PARAM[texture]</textureradioonnofocus>
@@ -123,7 +177,7 @@
 		<param name="width">300</param>
 		<param name="height">100</param>
 		<param name="wrapmultiline">false</param>
-		<param name="font">font25_title</param>
+		<param name="font">25px_Medium</param>
 		<param name="onclick"></param>
 		<param name="visible">true</param>
 		<definition>
@@ -134,9 +188,11 @@
 				<font>$PARAM[font]</font>
 				<textoffsetx>20</textoffsetx>
 				<onclick>$PARAM[onclick]</onclick>
+                <focusedcolor>black</focusedcolor>
+                <shadowcolor>text_shadow</shadowcolor>
 				<wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
 				<align>center</align>
-				<texturefocus border="40" colordiffuse="button_focus">buttons/dialogbutton-fo.png</texturefocus>
+				<texturefocus border="40" colordiffuse="white">buttons/dialogbutton-fo.png</texturefocus>
 				<texturenofocus border="40">buttons/dialogbutton-nofo.png</texturenofocus>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -331,7 +387,9 @@
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
+                <font>28px_Medium</font>
 				<textcolor>grey</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -348,7 +406,7 @@
 				<top>0</top>
 				<width>600</width>
 				<height>70</height>
-				<texture colordiffuse="button_focus">lists/focus.png</texture>
+				<texture>lists/focus.png</texture>
 			</control>
 			<control type="label">
 				<left>0</left>
@@ -358,7 +416,10 @@
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
+                <font>28px_Medium</font>
 				<label>$INFO[ListItem.Label]</label>
+                <textcolor>black</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
 			</control>
 		</focusedlayout>
 	</include>

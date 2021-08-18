@@ -10,14 +10,31 @@
 			<height>361</height>
             <top>$PARAM[top]</top>
             <left>$PARAM[left]</left>
+            <visible>!String.IsEqual(ListItem.Label,empty)</visible>
             <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
             <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
             <control type="image">
-                <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-                <bordersize>5</bordersize>
-                <bordertexture>frame/panel_border.png</bordertexture>
+                <width>263</width>
+                <height>371</height>
+                <texture>frame/shadow.png</texture>
                 <aspectratio scalediffuse="false">stretch</aspectratio>
             </control>
+            <control type="image">
+                <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+                <bordersize>5</bordersize>
+                <aspectratio scalediffuse="false">stretch</aspectratio>
+            </control>
+            <control type="label">
+                    <bottom>0</bottom>
+                    <left>15</left>
+                    <right>15</right>
+                    <height>42</height>
+                    <label>[LIGHT][UPPERCASE]$INFO[ListItem.label][/UPPERCASE][/LIGHT]</label>
+                    <font>20px_Medium</font>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <visible>String.IsEmpty(ListItem.Art(poster))</visible>
+                </control>
 			<control type="progress">
 				<bottom>-10</bottom>
 				<left>24</left>
@@ -31,20 +48,18 @@
 				<info>ListItem.PercentPlayed</info>
                 <visible>ListItem.IsResumable</visible>
 			</control>
-            <control type="image">
-                <include condition="$PARAM[focus]">FocusTexture</include>
-                <aspectratio>stretch</aspectratio>
-                <visible>Control.HasFocus($PARAM[list_id])</visible>
-                <animation effect="fade" start="100" end="70" pulse="true" reversible="true" delay="800" time="800" condition="true">Conditional</animation>
-                <animation type="Focus" reversible="true">
-                    <effect type="fade" end="100" tween="cubic" easing="out" time="10" />
-                </animation>
-                <animation type="Unfocus" reversible="true">
-                    <effect type="fade" end="0" tween="cubic" easing="out" time="10" />
-                </animation>
+            <control type="button">
+                <texturefocus border="20">frame/focus.png</texturefocus>
+                <texturenofocus/>
+                <pulseonselect>true</pulseonselect>
+                <visible>$PARAM[focus]</visible>
+                <animation effect="fade" end="100" time="1" reversible="true">Focus</animation>
+                <animation effect="fade" end="0" time="1" reversible="true">Unfocus</animation>
+                <onfocus>SetProperty(TEST1,$INFO[ListItem.CurrentItem])</onfocus>
             </control>
 		</control>
-        
+
+
         </definition>
 	</include>
 	<include name="GenreHome1">

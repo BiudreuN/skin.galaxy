@@ -4,7 +4,7 @@
     <variable name="SearchString">
         <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">$INFO[Skin.String(CustomSearchTerm)]</value>
         <value condition="Control.HasFocus(179)+Control.IsVisible(179)">Sagas</value>
-        <value condition="!String.IsEmpty(Window(home).Property(SearchSets))|Control.IsVisible(178)">$INFO[Skin.String(CustomSearchSet)]</value>
+        <value condition="Control.IsVisible(178)|Control.HasFocus(178)">$INFO[Skin.String(CustomSearchSet)]</value>
         <value condition="String.IsEmpty(Skin.String(CustomSearchTerm))+!String.IsEmpty(Window(home).Property(SearchWidgets))">Sagas</value>
         <value>Buscar</value>
     </variable>
@@ -101,8 +101,8 @@
                 <radioheight>$PARAM[radioheight]</radioheight>
                 <textureradioonfocus colordiffuse="black">$PARAM[texture]</textureradioonfocus>
                 <textureradioofffocus colordiffuse="black">$PARAM[texture]</textureradioofffocus>
-                <textureradioonnofocus colordiffuse="FFEEEEEE">$PARAM[texture]</textureradioonnofocus>
-                <textureradiooffnofocus colordiffuse="FFEEEEEE">$PARAM[texture]</textureradiooffnofocus>
+                <textureradioonnofocus colordiffuse="gray">$PARAM[texture]</textureradioonnofocus>
+                <textureradiooffnofocus colordiffuse="gray">$PARAM[texture]</textureradiooffnofocus>
                 <onup>$PARAM[onup]</onup>
                 <ondown>$PARAM[ondown]</ondown>
                 <onright condition="!Integer.IsGreater(Container(77777).NumItems,0)">77777</onright>
@@ -170,7 +170,7 @@
         <textoffsetx>0</textoffsetx>
         <selectedcolor>black</selectedcolor>
         <shadowcolor>text_shadow</shadowcolor>
-        <textcolor>FFEEEEEE</textcolor>
+        <textcolor>gray</textcolor>
         <focusedcolor>black</focusedcolor>
         <disabledcolor>dimgray</disabledcolor>
         <texturefocus colordiffuse="FFEEEEEE" border="20">dialogs/keyboard/key.png</texturefocus>
@@ -184,8 +184,7 @@
             <height>search_key_size</height>
             <orientation>horizontal</orientation>
             <itemgap>-10</itemgap>
-            <onright condition="Control.IsVisible(1700)">$PARAM[onright]</onright>
-            <onright condition="!Control.IsVisible(1700)">1001</onright>
+            <onright>$PARAM[onright]</onright>
             <include>$PARAM[row_include]</include>
             <usecontrolcoords>true</usecontrolcoords>
             <align>$PARAM[align]</align>
@@ -434,7 +433,7 @@
             <label>ABC</label>
             <altlabel>#123</altlabel>
             <font>26px_Medium</font>
-            <textcolor>FFEEEEEE</textcolor>
+            <textcolor>gray</textcolor>
             <focusedcolor>black</focusedcolor>
             <shadowcolor>text_shadow</shadowcolor>
             <disabledcolor>dimgray</disabledcolor>
@@ -574,7 +573,7 @@
             <aligny>center</aligny>
             <font>27px_Medium</font>
             <label>[UPPERCASE]Espacio[/UPPERCASE]</label>
-            <textcolor>FFEEEEEE</textcolor>
+            <textcolor>gray</textcolor>
             <focusedcolor>black</focusedcolor>
             <shadowcolor>text_shadow</shadowcolor>
             <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
@@ -591,7 +590,7 @@
             <aligny>center</aligny>
             <font>27px_Medium</font>
             <label>[UPPERCASE]Borrar[/UPPERCASE]</label>
-            <textcolor>FFEEEEEE</textcolor>
+            <textcolor>gray</textcolor>
             <focusedcolor>black</focusedcolor>
             <shadowcolor>text_shadow</shadowcolor>
             <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>

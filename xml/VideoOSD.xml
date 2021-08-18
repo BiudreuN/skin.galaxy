@@ -207,13 +207,13 @@
                         <height>60</height>
                         <animation center="auto" effect="zoom" end="100" reversible="false" start="95" time="480" tween="back" condition="Control.HasFocus(705)">Conditional</animation>
                         <control type="button">
-                            <top>10</top>
-                            <centerright>15</centerright>
-                            <width>34</width>
-                            <height>12</height>
+                            <top>5</top>
+                            <centerright>10</centerright>
+                            <width>45</width>
+                            <height>30</height>
                             <aligny>top</aligny>
                             <align>center</align>
-                            <font>18px_Medium</font>
+                            <font>16px_Medium</font>
                             <texturefocus/>
                             <texturenofocus colordiffuse="dialog_tint" border="12">buttons/button-nofo2.png</texturenofocus>
                             <textoffsety>2</textoffsety>
@@ -224,13 +224,13 @@
                             <visible>!String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
                         </control>
                         <control type="button">
-                            <top>10</top>
-                            <centerright>15</centerright>
-                            <width>22</width>
-                            <height>12</height>
+                            <top>5</top>
+                            <centerright>10</centerright>
+                            <width>45</width>
+                            <height>30</height>
                             <aligny>top</aligny>
                             <align>right</align>
-                            <font>18px_Medium</font>
+                            <font>16px_Medium</font>
                             <texturefocus/>
                             <texturenofocus colordiffuse="dialog_tint" border="12">buttons/button-nofo2.png</texturenofocus>
                             <textoffsety>3</textoffsety>
@@ -257,16 +257,16 @@
                             <visible>VideoPlayer.HasSubtitles</visible>
                         </control>
                         <control type="button">
-                            <top>10</top>
-                            <centerright>15</centerright>
-                            <width>34</width>
-                            <height>12</height>
+                            <top>5</top>
+                            <centerright>10</centerright>
+                            <width>45</width>
+                            <height>30</height>
                             <aligny>top</aligny>
                             <align>center</align>
-                            <font>18px_Medium</font>
+                            <font>16px_Medium</font>
                             <texturefocus/>
                             <texturenofocus colordiffuse="dialog_tint" border="12">buttons/button-nofo2.png</texturenofocus>
-                            <textoffsety>2</textoffsety>
+                            <textoffsety>3</textoffsety>
                             <onclick>noop</onclick>
                             <textcolor>silver</textcolor>
                             <shadowcolor>text_shadow</shadowcolor>

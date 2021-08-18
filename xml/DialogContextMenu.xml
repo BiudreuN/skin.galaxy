@@ -6,6 +6,7 @@
 		<left>0</left>
 		<top>0</top>
 		<origin x="50%" y="400">Window.IsActive(Home)</origin>
+        <origin x="50%" y="400">!Window.IsActive(Home)</origin>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -28,13 +29,14 @@
 		</control>
 		<control type="group">
 			<animation effect="slide" end="-225" time="0" condition="Window.IsActive(home)">conditional</animation>
+            <animation effect="slide" end="-225,-100" time="0" condition="!Window.IsActive(home)">conditional</animation>
 			<control type="image" id="999">
 				<description>background image</description>
 				<left>0</left>
 				<top>0</top>
 				<width>450</width>
 				<height>780</height>
-				<texture colordiffuse="dialog_tint">colors/white.png</texture>
+				<texture border="20" colordiffuse="primary_background">frame/dialog_background.png</texture>
 			</control>
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
@@ -42,6 +44,7 @@
 				<top>0</top>
 				<width>450</width>
 				<height max="780">auto</height>
+                <orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 			</control>
 			<include content="UpDownArrows">
@@ -58,7 +61,11 @@
 			<width>450</width>
 			<height>65</height>
 			<align>center</align>
-			<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+            <font>28px_Medium</font>
+            <textcolor>gray</textcolor>
+            <focusedcolor>black</focusedcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+			<texturefocus>lists/focus.png</texturefocus>
 			<texturenofocus />
 		</control>
 	</controls>

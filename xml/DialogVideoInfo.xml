@@ -33,7 +33,7 @@
 				<height>100%</height>
 				<width>100%</width>
 				<texture>colors/background50.png</texture>
-				<colordiffuse>dialog_tint</colordiffuse>
+				<colordiffuse>primary_background</colordiffuse>
 			</control>
         </control>
         <control type="group">

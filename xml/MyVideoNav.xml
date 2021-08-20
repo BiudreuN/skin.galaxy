@@ -35,10 +35,7 @@
 				<height>100%</height>
 				<width>100%</width>
 				<texture>colors/background50.png</texture>
-				<colordiffuse>dialog_tint</colordiffuse>
-                <animation type="WindowClose" reversible="false">
-                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="400" />
-            </animation>
+				<colordiffuse>primary_background</colordiffuse>
 			</control>
 		<control type="group">
 			<include>OpenClose_Fade</include>

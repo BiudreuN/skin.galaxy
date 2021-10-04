@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">100</defaultcontrol>
+	<defaultcontrol>8000</defaultcontrol>
 	<backgroundcolor>0</backgroundcolor>
 	<onload>Action(Stop)</onload>
     <onload>SetProperty(CustomSearch,1,home)</onload>
@@ -8,17 +8,6 @@
     <onunload>ClearProperty(CustomSearchTerm)</onunload>
     <include>CustomWinProps</include>
 	<controls>
-        <control type="button" id="100">
-        	<description>Dumb button</description>
-            <visible allowhiddenfocus="true">false</visible>
-            <onfocus condition="String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)">Control.SetFocus(2000)</onfocus>
-            <onfocus condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(3000)</onfocus>
-            <onfocus condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(4000)</onfocus>
-            <onfocus condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(5000)</onfocus>
-            <onfocus condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(6000)</onfocus>
-            <onfocus condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(7000)</onfocus>
-            <onfocus condition="String.IsEqual(Window.Property(ItemHub),Search)">Control.SetFocus(1000)</onfocus>
-        </control>
         <control type="list" id="2147">
             <visible allowhiddenfocus="true">Integer.IsGreater(Container(2147).NumItems,0)+!Container(2147).IsUpdating</visible>
             <visible>String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)</visible>
@@ -36,14 +25,23 @@
             <texture>colors/background.png</texture>
             <colordiffuse>primary_background</colordiffuse>
         </control>
-
+        <include>SidebarMenu</include>
         <control type="group" id="8000">
             <include>OpenClose_Fade</include>
+            <animation effect="slide" end="280" time="150" tween="sine" easing="out" condition="ControlGroup(9000).HasFocus">conditional</animation>
+            <control type="image">
+                <left>100</left>
+                <height>100%</height>
+                <width>100%</width>
+                <texture>colors/background.png</texture>
+                <colordiffuse>primary_background</colordiffuse>
+            </control>
             <control type="group" id="2000">
-                <visible allowhiddenfocus="true">String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)</visible>
+                <visible>String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="grouplist" id="2100">
-                    <visible>!Window.IsActive(movieinformation)</visible>
+                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>WidgetGroupListCommon</include>
                     <onleft>Control.SetFocus(9100,1)</onleft>
                     <onback>Control.SetFocus(9100,1)</onback>
@@ -78,7 +76,7 @@
                         <param name="content_path" value="special://skin/playlists/inprogress_movies.xsp"/>
                         <param name="content_path2" value="special://skin/playlists/inprogress_tvshows.xsp"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="En Progreso"/>
+                        <param name="widget_header" value="En progreso"/>
                         <param name="widget_target" value="videos"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="2104"/>
@@ -86,7 +84,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="special://skin/playlists/home/watched.xsp"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Películas Vistas Recientemente"/>
+                        <param name="widget_header" value="Películas vistas recientemente"/>
                         <param name="widget_target" value="videos"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="2105"/>
@@ -94,7 +92,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
                         <param name="content_path" value="special://skin/playlists/home/watchedTV.xsp"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Series Vistas Recientemente"/>
+                        <param name="widget_header" value="Series vistas recientemente"/>
                         <param name="widget_target" value="videos"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="2106"/>
@@ -102,7 +100,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="videodb://movies/titles/"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Últimos Estrenos"/>
+                        <param name="widget_header" value="Últimos estrenos"/>
                         <param name="widget_target" value="videos"/>
                         <param name="sortby" value="year"/>
                         <param name="sortorder" value="descending"/>
@@ -112,7 +110,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
                         <param name="content_path" value="videodb://tvshows/titles/"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Últimos Estrenos TV"/>
+                        <param name="widget_header" value="Últimos estrenos TV"/>
                         <param name="widget_target" value="videos"/>
                         <param name="sortby" value="year"/>
                         <param name="sortorder" value="descending"/>
@@ -122,7 +120,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="special://skin/playlists/top100Movies.xsp"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Mejores Películas"/>
+                        <param name="widget_header" value="Mejores películas"/>
                         <param name="widget_target" value="videos"/>
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="2109"/>
@@ -130,7 +128,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
                         <param name="content_path" value="special://skin/playlists/top100TVShows.xsp"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Mejores Series"/>
+                        <param name="widget_header" value="Mejores series"/>
                         <param name="widget_target" value="videos"/>
                         <param name="sortby" value="random"/>
                         <param name="widget_limit" value="50"/>
@@ -149,7 +147,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="special://skin/playlists/unwatched_movies.xsp"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Películas Sin Ver"/>
+                        <param name="widget_header" value="Películas sin ver"/>
                         <param name="widget_target" value="videos"/>
                         <param name="sortby" value="random"/>
                         <param name="widget_limit" value="50"/>
@@ -158,7 +156,7 @@
                     <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
                         <param name="content_path" value="special://skin/playlists/unwatched_tvshows.xsp"/>
                         <param name="item" value="HomeItem"/>
-                        <param name="widget_header" value="Series Sin Ver"/>
+                        <param name="widget_header" value="Series sin ver"/>
                         <param name="widget_target" value="videos"/>
                         <param name="sortby" value="random"/>
                         <param name="widget_limit" value="50"/>
@@ -168,18 +166,25 @@
 
             </control>
             <control type="group" id="3000">
-                <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Movies)</visible>
+                <visible>String.IsEqual(Window.Property(ItemHub),Movies)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
+                    <include content="WidgetCategory">
+                        <param name="id" value="3"/>
+                        <param name="title" value="Películas"/>
+                        <param name="sidebar" value="2"/>
+                        <param name="alt" value="false"/>
+                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/movies/movies.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(0)"/>
                         <param name="list_id" value="3150"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="301"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -189,7 +194,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(1)"/>
                         <param name="list_id" value="3152"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="302"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -199,7 +204,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(2)"/>
                         <param name="list_id" value="3153"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="303"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -209,7 +214,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(3)"/>
                         <param name="list_id" value="3154"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="304"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -219,7 +224,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(4)"/>
                         <param name="list_id" value="3155"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="305"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -229,7 +234,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(5)"/>
                         <param name="list_id" value="3156"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="306"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -239,7 +244,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(6)"/>
                         <param name="list_id" value="3157"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="307"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -249,7 +254,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(7)"/>
                         <param name="list_id" value="3158"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="308"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -259,7 +264,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(8)"/>
                         <param name="list_id" value="3159"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="309"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -269,7 +274,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(9)"/>
                         <param name="list_id" value="3160"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="310"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -279,7 +284,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(10)"/>
                         <param name="list_id" value="3161"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="311"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -289,7 +294,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(11)"/>
                         <param name="list_id" value="3162"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="312"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -299,7 +304,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(12)"/>
                         <param name="list_id" value="3163"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="313"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -309,31 +314,33 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(3050).Position(13)"/>
                         <param name="list_id" value="3164"/>
-                        <param name="onup" value="3050"/>
+                        <param name="onup" value="314"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="3"/>
-                        <param name="title" value="Películas"/>
-                        <param name="sidebar" value="2"/>
-                        <param name="alt" value="false"/>
-                    </include>
+
                 </control>
             </control>
             <control type="group" id="4000">
-                <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),TvShows)</visible>
+                <visible>String.IsEqual(Window.Property(ItemHub),TvShows)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
+                    <include content="WidgetCategory">
+                        <param name="id" value="4"/>
+                        <param name="title" value="Series"/>
+                        <param name="sidebar" value="3"/>
+                        <param name="alt" value="false"/>
+                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/tvshows/tvshows.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(0)"/>
                         <param name="list_id" value="4150"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="401"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -343,7 +350,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(1)"/>
                         <param name="list_id" value="4152"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="402"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -353,7 +360,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(2)"/>
                         <param name="list_id" value="4153"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="403"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -363,7 +370,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(3)"/>
                         <param name="list_id" value="4154"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="404"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -373,7 +380,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(4)"/>
                         <param name="list_id" value="4155"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="405"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -383,7 +390,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(5)"/>
                         <param name="list_id" value="4156"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="406"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -393,7 +400,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(6)"/>
                         <param name="list_id" value="4157"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="407"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -403,7 +410,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(7)"/>
                         <param name="list_id" value="4158"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="408"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -413,7 +420,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(8)"/>
                         <param name="list_id" value="4159"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="409"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -423,7 +430,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(9)"/>
                         <param name="list_id" value="4160"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="410"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -433,7 +440,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(10)"/>
                         <param name="list_id" value="4161"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="411"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -443,7 +450,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(11)"/>
                         <param name="list_id" value="4162"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="412"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -453,7 +460,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(12)"/>
                         <param name="list_id" value="4163"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="413"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -463,31 +470,33 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(4050).Position(13)"/>
                         <param name="list_id" value="4164"/>
-                        <param name="onup" value="4050"/>
+                        <param name="onup" value="414"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="4"/>
-                        <param name="title" value="Series"/>
-                        <param name="sidebar" value="3"/>
-                        <param name="alt" value="false"/>
-                    </include>
+
                 </control>
             </control>
             <control type="group" id="5000">
-                <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Kids)</visible>
+                <visible>String.IsEqual(Window.Property(ItemHub),Kids)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
+                    <include content="WidgetCategory">
+                        <param name="id" value="5"/>
+                        <param name="title" value="Dibujos"/>
+                        <param name="sidebar" value="4"/>
+                        <param name="alt" value="true"/>
+                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/kids/movies.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(0)"/>
                         <param name="list_id" value="5150"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="501"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -497,7 +506,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(1)"/>
                         <param name="list_id" value="5151"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="502"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -508,7 +517,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(2)"/>
                         <param name="list_id" value="5152"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="503"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -519,7 +528,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(3)"/>
                         <param name="list_id" value="5153"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="504"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -530,7 +539,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(4)"/>
                         <param name="list_id" value="5154"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="505"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -541,7 +550,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(5)"/>
                         <param name="list_id" value="5155"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="506"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -552,7 +561,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(6)"/>
                         <param name="list_id" value="5156"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="507"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -563,7 +572,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(7)"/>
                         <param name="list_id" value="5157"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="508"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -574,7 +583,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(8)"/>
                         <param name="list_id" value="5158"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="509"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -585,7 +594,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(9)"/>
                         <param name="list_id" value="5159"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="510"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -596,7 +605,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(10)"/>
                         <param name="list_id" value="5160"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="511"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -607,7 +616,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(11)"/>
                         <param name="list_id" value="5161"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="512"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -618,7 +627,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(12)"/>
                         <param name="list_id" value="5162"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="513"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -629,7 +638,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(13)"/>
                         <param name="list_id" value="5163"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="514"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -640,31 +649,33 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(5050).Position(14)"/>
                         <param name="list_id" value="5164"/>
-                        <param name="onup" value="5050"/>
+                        <param name="onup" value="515"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="5"/>
-                        <param name="title" value="Dibujos"/>
-                        <param name="sidebar" value="4"/>
-                        <param name="alt" value="true"/>
-                    </include>
+
                 </control>
             </control>
             <control type="group" id="6000">
-                <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Anime)</visible>
+                <visible>String.IsEqual(Window.Property(ItemHub),Anime)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
+                    <include content="WidgetCategory">
+                        <param name="id" value="6"/>
+                        <param name="title" value="Anime"/>
+                        <param name="sidebar" value="5"/>
+                        <param name="alt" value="true"/>
+                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/anime/movies.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(0)"/>
                         <param name="list_id" value="6150"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="601"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -674,7 +685,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(1)"/>
                         <param name="list_id" value="6151"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="602"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -685,7 +696,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(2)"/>
                         <param name="list_id" value="6152"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="603"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -696,7 +707,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(3)"/>
                         <param name="list_id" value="6153"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="604"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -707,7 +718,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(4)"/>
                         <param name="list_id" value="6154"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="605"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -718,7 +729,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(5)"/>
                         <param name="list_id" value="6155"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="606"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -729,7 +740,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(6)"/>
                         <param name="list_id" value="6156"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="607"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -740,7 +751,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(7)"/>
                         <param name="list_id" value="6157"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="608"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -751,7 +762,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(8)"/>
                         <param name="list_id" value="6158"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="609"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -762,7 +773,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(9)"/>
                         <param name="list_id" value="6159"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="610"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -773,7 +784,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(10)"/>
                         <param name="list_id" value="6160"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="611"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -784,7 +795,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(11)"/>
                         <param name="list_id" value="6161"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="612"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -795,7 +806,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(12)"/>
                         <param name="list_id" value="6162"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="613"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -806,7 +817,7 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(13)"/>
                         <param name="list_id" value="6163"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="614"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
@@ -817,21 +828,16 @@
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(6050).Position(14)"/>
                         <param name="list_id" value="6164"/>
-                        <param name="onup" value="6050"/>
+                        <param name="onup" value="615"/>
                         <param name="sortby" value="title"/>
                         <param name="sortorder" value="ascending"/>
                     </include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="6"/>
-                        <param name="title" value="Anime"/>
-                        <param name="sidebar" value="5"/>
-                        <param name="alt" value="true"/>
-                    </include>
+
                 </control>
             </control>
             <control type="group" id="7000">
                 <defaultcontrol>7150</defaultcontrol>
-                <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Mylist)</visible>
+                <visible>String.IsEqual(Window.Property(ItemHub),Mylist)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="button" id="7100">
                         <centerleft>50%</centerleft>
@@ -856,6 +862,7 @@
                         <onback>Control.SetFocus(9100,6)</onback>
                         <onup>noop</onup>
                         <visible>String.IsEqual(Container(7150).ListItemAbsolute(0).Label,empty)</visible>
+                        <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                         <include>Animation_WidgetInfo</include>
                         <enable>true</enable>
                     </control>
@@ -864,6 +871,7 @@
                     <param name="content_path2" value="videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22Title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(MyList1TV)]%22%2C%22$INFO[Skin.String(MyList2TV)]%22%2C%22$INFO[Skin.String(MyList3TV)]%22%2C%22$INFO[Skin.String(MyList4TV)]%22%2C%22$INFO[Skin.String(MyList5TV)]%22%2C%22$INFO[Skin.String(MyList6TV)]%22%2C%22$INFO[Skin.String(MyList7TV)]%22%2C%22$INFO[Skin.String(MyList8TV)]%22%2C%22$INFO[Skin.String(MyList9TV)]%22%2C%22$INFO[Skin.String(MyList10TV)]%22%2C%22$INFO[Skin.String(MyList11TV)]%22%2C%22$INFO[Skin.String(MyList12TV)]%22%2C%22$INFO[Skin.String(MyList13TV)]%22%2C%22$INFO[Skin.String(MyList14TV)]%22%2C%22$INFO[Skin.String(MyList15TV)]%22%2C%22$INFO[Skin.String(MyList16TV)]%22%2C%22$INFO[Skin.String(MyList17TV)]%22%2C%22$INFO[Skin.String(MyList18TV)]%22%2C%22$INFO[Skin.String(MyList19TV)]%22%2C%22$INFO[Skin.String(MyList20TV)]%22%2C%22$INFO[Skin.String(MyList21TV)]%22%2C%22$INFO[Skin.String(MyList22TV)]%22%2C%22$INFO[Skin.String(MyList23TV)]%22%2C%22$INFO[Skin.String(MyList24TV)]%22%2C%22$INFO[Skin.String(MyList25TV)]%22%2C%22$INFO[Skin.String(MyList26TV)]%22%2C%22$INFO[Skin.String(MyList27TV)]%22%2C%22$INFO[Skin.String(MyList28TV)]%22%2C%22$INFO[Skin.String(MyList29TV)]%22%2C%22$INFO[Skin.String(MyList30TV)]%22%2C%22$INFO[Skin.String(MyList31TV)]%22%2C%22$INFO[Skin.String(MyList32TV)]%22%2C%22$INFO[Skin.String(MyList33TV)]%22%2C%22$INFO[Skin.String(MyList34TV)]%22%2C%22$INFO[Skin.String(MyList35TV)]%22%2C%22$INFO[Skin.String(MyList36TV)]%22%2C%22$INFO[Skin.String(MyList37TV)]%22%2C%22$INFO[Skin.String(MyList38TV)]%22%2C%22$INFO[Skin.String(MyList39TV)]%22%2C%22$INFO[Skin.String(MyList40TV)]%22%2C%22$INFO[Skin.String(MyList41TV)]%22%2C%22$INFO[Skin.String(MyList42TV)]%22%2C%22$INFO[Skin.String(MyList43TV)]%22%2C%22$INFO[Skin.String(MyList44TV)]%22%2C%22$INFO[Skin.String(MyList45TV)]%22%2C%22$INFO[Skin.String(MyList46TV)]%22%2C%22$INFO[Skin.String(MyList47TV)]%22%2C%22$INFO[Skin.String(MyList48TV)]%22%2C%22$INFO[Skin.String(MyList49TV)]%22%2C%22$INFO[Skin.String(MyList50TV)]%22%2C%22$INFO[Skin.String(MyList51TV)]%22%2C%22$INFO[Skin.String(MyList52TV)]%22%2C%22$INFO[Skin.String(MyList53TV)]%22%2C%22$INFO[Skin.String(MyList54TV)]%22%2C%22$INFO[Skin.String(MyList55TV)]%22%2C%22$INFO[Skin.String(MyList56TV)]%22%2C%22$INFO[Skin.String(MyList57TV)]%22%2C%22$INFO[Skin.String(MyList58TV)]%22%2C%22$INFO[Skin.String(MyList59TV)]%22%2C%22$INFO[Skin.String(MyList60TV)]%22%2C%22$INFO[Skin.String(MyList61TV)]%22%2C%22$INFO[Skin.String(MyList62TV)]%22%2C%22$INFO[Skin.String(MyList63TV)]%22%2C%22$INFO[Skin.String(MyList64TV)]%22%2C%22$INFO[Skin.String(MyList65TV)]%22%2C%22$INFO[Skin.String(MyList66TV)]%22%2C%22$INFO[Skin.String(MyList67TV)]%22%2C%22$INFO[Skin.String(MyList68TV)]%22%2C%22$INFO[Skin.String(MyList69TV)]%22%2C%22$INFO[Skin.String(MyList70TV)]%22%2C%22$INFO[Skin.String(MyList71TV)]%22%2C%22$INFO[Skin.String(MyList72TV)]%22%2C%22$INFO[Skin.String(MyList73TV)]%22%2C%22$INFO[Skin.String(MyList74TV)]%22%2C%22$INFO[Skin.String(MyList75TV)]%22%2C%22$INFO[Skin.String(MyList76TV)]%22%2C%22$INFO[Skin.String(MyList77TV)]%22%2C%22$INFO[Skin.String(MyList78TV)]%22%2C%22$INFO[Skin.String(MyList79TV)]%22%2C%22$INFO[Skin.String(MyList80TV)]%22%2C%22$INFO[Skin.String(MyList81TV)]%22%2C%22$INFO[Skin.String(MyList82TV)]%22%2C%22$INFO[Skin.String(MyList83TV)]%22%2C%22$INFO[Skin.String(MyList84TV)]%22%2C%22$INFO[Skin.String(MyList85TV)]%22%2C%22$INFO[Skin.String(MyList86TV)]%22%2C%22$INFO[Skin.String(MyList87TV)]%22%2C%22$INFO[Skin.String(MyList88TV)]%22%2C%22$INFO[Skin.String(MyList89TV)]%22%2C%22$INFO[Skin.String(MyList90TV)]%22%2C%22$INFO[Skin.String(MyList91TV)]%22%2C%22$INFO[Skin.String(MyList92TV)]%22%2C%22$INFO[Skin.String(MyList93TV)]%22%2C%22$INFO[Skin.String(MyList94TV)]%22%2C%22$INFO[Skin.String(MyList95TV)]%22%2C%22$INFO[Skin.String(MyList96TV)]%22%2C%22$INFO[Skin.String(MyList97TV)]%22%2C%22$INFO[Skin.String(MyList98TV)]%22%2C%22$INFO[Skin.String(MyList99TV)]%22%2C%22$INFO[Skin.String(MyList100TV)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
                     <param name="widget_header" value="Mi Lista"/>
                     <param name="widget_target" value="videos"/>
+                    <param name="visible_widget" value="!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)"/>
                     <param name="list_id" value="7150"/>
                     <param name="onup" value="7001"/>
                     <param name="sortby" value="title"/>
@@ -871,8 +879,8 @@
                 </include>
                 <control type="label">
                     <top>80</top>
-                    <left>150</left>
-                    <right>150</right>
+                    <left>120</left>
+                    <right>120</right>
                     <height>70</height>
                     <font>56px_Medium</font>
                     <aligny>center</aligny>
@@ -881,21 +889,23 @@
                     <shadowcolor>text_shadow</shadowcolor>
                     <include>Animation_WidgetInfo</include>
                     <visible>!Window.IsActive(movieinformation)</visible>
-                    <animation effect="fade" tween="cubic" easing="out" start="100" end="0" time="300" condition="Control.IsVisible(70010)" reversible="true">Conditional</animation>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
+                    <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="200" condition="Control.IsVisible(70010)" reversible="true">Conditional</animation>
                 </control>
             </control>
             <control type="group" id="1000">
                 <defaultcontrol>1011</defaultcontrol>
-                <visible allowhiddenfocus="true">String.IsEqual(Window.Property(ItemHub),Search)</visible>
+                <visible>String.IsEqual(Window.Property(ItemHub),Search)</visible>
                 <include>Animation_WidgetFade</include>
                 <!-- ########## Left Layout ########## -->
                 <control type="group">
                     <visible>!Window.IsActive(movieinformation)</visible>
                     <include>Animation_WidgetInfo</include>
+                    <visible allowhiddenfocus="true">!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                 <!-- Pseudo-Keyboard Layout -->
 
                 <control type="group" id="1200">
-                    <animation effect="fade" start="100" end="0" reversible="true" tween="cubic" easing="out" time="300" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" reversible="true" tween="sine" easing="out" time="150" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
                 <control type="grouplist" id="1100">
                     <centertop>35%</centertop>
                     <centerright>35%</centerright>
@@ -984,10 +994,11 @@
                     <ondown condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">180</ondown>
                     <onright>1100</onright>
                     <onclick>Skin.SetString(CustomSearchTerm)</onclick>
+                    <pulseonselect>true</pulseonselect>
                 </control>
                 <control type="grouplist" id="1016">
                     <top>200</top>
-                    <left>140</left>
+                    <left>110</left>
                     <height>590</height>
                     <width>540</width>
                     <orientation>vertical</orientation>
@@ -1000,6 +1011,7 @@
                     <usecontrolcoords>true</usecontrolcoords>
                     <onright>143</onright>
                     <visible>Integer.IsGreater(Container(1017).NumItems,0)+!Container(1017).IsUpdating</visible>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
                     <control type="button" id="150">
                         <width max="540">auto</width>
                         <height>70</height>
@@ -1009,13 +1021,13 @@
                         <label>$INFO[Container(1017).ListItem(0).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(0).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,1)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="151">
                         <width max="540">auto</width>
@@ -1026,13 +1038,13 @@
                         <label>$INFO[Container(1017).ListItem(1).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(1).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,2)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="152">
                         <width max="540">auto</width>
@@ -1043,13 +1055,13 @@
                         <label>$INFO[Container(1017).ListItem(2).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(2).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,3)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="153">
                         <width max="540">auto</width>
@@ -1060,13 +1072,13 @@
                         <label>$INFO[Container(1017).ListItem(3).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(3).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,4)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="154">
                         <width max="540">auto</width>
@@ -1077,13 +1089,13 @@
                         <label>$INFO[Container(1017).ListItem(4).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(4).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,5)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="155">
                         <width max="540">auto</width>
@@ -1094,13 +1106,13 @@
                         <label>$INFO[Container(1017).ListItem(5).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(5).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,6)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="156">
                         <width max="540">auto</width>
@@ -1111,13 +1123,13 @@
                         <label>$INFO[Container(1017).ListItem(6).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(6).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,7)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="157">
                         <width max="540">auto</width>
@@ -1128,13 +1140,13 @@
                         <label>$INFO[Container(1017).ListItem(7).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(7).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,8)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="158">
                         <width max="540">auto</width>
@@ -1145,13 +1157,13 @@
                         <label>$INFO[Container(1017).ListItem(8).Label]</label>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <textoffsetx>30</textoffsetx>
                         <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
                         <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(8).Label])</onclick>
                         <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,9)+!Container(1017).IsUpdating</visible>
+                        <pulseonselect>true</pulseonselect>
                     </control>
                 </control>
                 </control>
@@ -1166,25 +1178,25 @@
                     <content limit="9">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
                 </include>
                 <control type="image">
-                    <centertop>740</centertop>
-                    <centerleft>435</centerleft>
+                    <centertop>495</centertop>
+                    <centerleft>270</centerleft>
                     <width>100</width>
                     <height>100</height>
                     <texture>dialogs/spin.png</texture>
                     <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="cubic" easing="inout" time="300" start="0" end="100" delay="100">VisibleChange</animation>
-                    <visible>Container(1016).IsUpdating</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="200" start="0" end="100" delay="100">VisibleChange</animation>
+                    <visible>Container(1017).IsUpdating+!String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchWidgets))</visible>
                 </control>
                 <!--- ########## Right Layout ########## -->
                 <!-- Results -->
                 <control type="grouplist">
                     <centertop>35%</centertop>
-                    <left>150</left>
+                    <left>120</left>
                     <right>900</right>
                     <height>310</height>
-                    <include>Animation_WidgetInfo</include>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
                     <itemgap>15</itemgap>
-                    <animation effect="fade" start="100" end="0" reversible="true" tween="cubic" easing="out" time="350" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" reversible="true" tween="sine" easing="out" time="150" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
                     <visible>String.IsEmpty(Skin.String(CustomSearchTerm))+!Integer.IsEqual(Window.Property(Suggestions),1)</visible>
                     <control type="radiobutton">
                         <textureradioonfocus/>
@@ -1254,40 +1266,40 @@
                         <texturenofocus />
                         <radioposx>1</radioposx>
                         <radioposy>0</radioposy>
+                        <include>Animation_ButtonFocus</include>
                     </control>
                 </control>
                 <control type="panel" id="179">
-                    <left>150</left>
-                    <right>150</right>
+                    <left>120</left>
+                    <right>120</right>
                     <top>0</top>
-                    <scrolltime tween="cubic" easing="out">400</scrolltime>
+                    <scrolltime tween="sine" easing="out">150</scrolltime>
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>Control.SetFocus(9100,0)</onback>
                     <onfocus>SetProperty(SearchWidgets,1,home)</onfocus>
                     <onfocus>ClearProperty(SearchSets)</onfocus>
-                    <animation effect="slide" start="0" end="0,420" reversible="true" tween="cubic" easing="out" time="350" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
-                    <animation effect="slide" end="0,70" time="200" tween="cubic" easing="in" condition="!Container(179).HasPrevious" reversible="true">Conditional</animation>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    <animation effect="slide" start="0" end="0,420" reversible="true" tween="sine" easing="out" time="150" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container(179).HasPrevious" reversible="true">Conditional</animation>
                     <onup>1200</onup>
                     <ondown>noop</ondown>
                     <onright>1796</onright>
-                    <onclick>SetFocus(178,0)</onclick>
                     <onclick>Skin.SetString(CustomSearchSet,$ESCINFO[ListItem.Label])</onclick>
                     <onclick>SetProperty(SearchSets,1,home)</onclick>
+                    <onclick>SetFocus(178,0)</onclick>
                     <preloaditems>3</preloaditems>
                     <pagecontrol>1796</pagecontrol>
                     <height>100%</height>
-                    <width>1650</width>
-                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <width>1700</width>
                     <visible>Integer.IsGreater(Container(179).NumItems,0)|Container(179).IsUpdating</visible>
-                    <visible>String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))</visible>
-                    <include>Animation_WidgetInfo</include>
-                    <itemlayout width="274" height="400">
+                    <visible allowhiddenfocus="true">String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))</visible>
+                    <itemlayout width="283" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="179"/>
                         </include>
                     </itemlayout>
-                    <focusedlayout width="274" height="400">
+                    <focusedlayout width="283" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="179"/>
@@ -1296,14 +1308,36 @@
                     </focusedlayout>
                     <content sortby="title" target="videos" limit="all">special://skin/playlists/home/sets.xsp</content>
                 </control>
+                <control type="scrollbar" id="1796">
+                    <top>10</top>
+                    <bottom>10</bottom>
+                    <right>10</right>
+                    <width>5</width>
+                    <onleft>179</onleft>
+                    <onback>179</onback>
+                    <texturesliderbackground/>
+                    <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+                    <textureslidernib/>
+                    <textureslidernibfocus/>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <enable>true</enable>
+                    <pulseonselect>true</pulseonselect>
+                    <visible allowhiddenfocus="true">String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))+!String.IsEmpty(Window(home).Property(SearchWidgets))</visible>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus(1796)" reversible="true">Conditional</animation>
+                    <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="Control.HasFocus(1796)" reversible="true">Conditional</animation>
+                </control>
                 <control type="panel" id="178">
-                    <left>150</left>
-                    <right>150</right>
+                    <left>120</left>
+                    <right>120</right>
                     <top>0</top>
-                    <scrolltime tween="cubic" easing="out">400</scrolltime>
+                    <scrolltime tween="sine" easing="out">150</scrolltime>
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>179</onback>
-                    <animation effect="slide" end="0,70" time="200" tween="cubic" easing="in" condition="!Container(178).HasPrevious" reversible="true">Conditional</animation>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container(178).HasPrevious" reversible="true">Conditional</animation>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                     <onright>1786</onright>
@@ -1311,18 +1345,16 @@
                     <preloaditems>3</preloaditems>
                     <pagecontrol>1786</pagecontrol>
                     <height>100%</height>
-                    <width>1650</width>
-                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
-                    <visible>Integer.IsGreater(Container(178).NumItems,0)|Container(178).IsUpdating</visible>
-                    <visible>!String.IsEmpty(Window(home).Property(SearchSets))</visible>
-                    <include>Animation_WidgetInfo</include>
-                    <itemlayout width="274" height="400">
+                    <width>1700</width>
+                    <visible>Integer.IsGreater(Container(178).NumItems,1)+!Container(178).IsUpdating</visible>
+                    <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SearchSets))</visible>
+                    <itemlayout width="283" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="178"/>
                         </include>
                     </itemlayout>
-                    <focusedlayout width="274" height="400">
+                    <focusedlayout width="283" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="178"/>
@@ -1331,16 +1363,102 @@
                     </focusedlayout>
                     <content sortby="year" target="videos" limit="all">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
                 </control>
-                    <control type="image">
+                <control type="scrollbar" id="1786">
+                    <top>10</top>
+                    <bottom>10</bottom>
+                    <right>10</right>
+                    <width>5</width>
+                    <onleft>178</onleft>
+                    <onback>178</onback>
+                    <texturesliderbackground/>
+                    <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+                    <textureslidernib/>
+                    <textureslidernibfocus/>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <enable>true</enable>
+                    <pulseonselect>true</pulseonselect>
+                    <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SearchSets))+!Container(178).IsUpdating</visible>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus(1786)" reversible="true">Conditional</animation>
+                    <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="Control.HasFocus(1786)" reversible="true">Conditional</animation>
+                </control>
+                <control type="panel" id="177">
+                    <left>120</left>
+                    <right>120</right>
+                    <top>0</top>
+                    <scrolltime tween="sine" easing="out">150</scrolltime>
+                    <onleft>Control.SetFocus(9100,0)</onleft>
+                    <onback>180</onback>
+
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container(177).HasPrevious" reversible="true">Conditional</animation>
+                    <onup>noop</onup>
+                    <ondown>noop</ondown>
+                    <onright>1776</onright>
+                    <onclick>Action(Info)</onclick>
+                    <preloaditems>3</preloaditems>
+                    <pagecontrol>1776</pagecontrol>
+                    <height>100%</height>
+                    <width>1700</width>
+                    <visible>Integer.IsGreater(Container(177).NumItems,1)+!Container(177).IsUpdating</visible>
+                    <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SeeMore))</visible>
+                    <itemlayout width="283" height="440">
+                        <include content="PosterLayout">
+                            <param name="top" value="120"/>
+                            <param name="list_id" value="177"/>
+                        </include>
+                    </itemlayout>
+                    <focusedlayout width="283" height="440">
+                        <include content="PosterLayout">
+                            <param name="top" value="120"/>
+                            <param name="list_id" value="177"/>
+                            <param name="focus" value="true"/>
+                        </include>
+                    </focusedlayout>
+                    <content target="videos" limit="all">$INFO[Skin.String(CustomSearchMore)]</content>
+                </control>
+                <control type="scrollbar" id="1776">
+                    <top>10</top>
+                    <bottom>10</bottom>
+                    <right>10</right>
+                    <width>5</width>
+                    <onleft>177</onleft>
+                    <onback>177</onback>
+                    <texturesliderbackground/>
+                    <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+                    <textureslidernib/>
+                    <textureslidernibfocus/>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <enable>true</enable>
+                    <pulseonselect>true</pulseonselect>
+                    <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SeeMore))+!Container(177).IsUpdating</visible>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus(1776)" reversible="true">Conditional</animation>
+                    <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="Control.HasFocus(1776)" reversible="true">Conditional</animation>
+                </control>
+                <control type="image">
                     <centertop>50%</centertop>
                     <centerright>50%</centerright>
                     <width>100</width>
                     <height>100</height>
                     <texture>dialogs/spin.png</texture>
                     <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
-                    <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
-                    <visible>Container(178).IsUpdating+!Integer.IsGreater(Container(178).NumItems,0)+Control.IsVisible(178)</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
+                    <visible>Container(177).IsUpdating+!String.IsEmpty(Window(home).Property(SeeMore))</visible>
+                </control>
+                <control type="image">
+                    <centertop>50%</centertop>
+                    <centerright>50%</centerright>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>dialogs/spin.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
+                    <visible>Container(178).IsUpdating+!String.IsEmpty(Window(home).Property(SearchSets))</visible>
                 </control>
                 <control type="image">
                     <centertop>50%</centertop>
@@ -1350,24 +1468,23 @@
                     <texture>dialogs/spin.png</texture>
                     <animation effect="slide" start="0" end="0,350" reversible="true" tween="cubic" easing="out" time="350" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
                     <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
-                    <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
-                    <visible>Container(179).IsUpdating+!Integer.IsGreater(Container(179).NumItems,0)+Control.IsVisible(179)</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
+                    <visible>Container(179).IsUpdating+String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))</visible>
                 </control>
 
                 <control type="grouplist" id="180">
                     <top>650</top>
-                    <visible>!Window.IsActive(movieinformation)</visible>
                     <include>WidgetGroupListCommon</include>
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>Control.SetFocus(9100,0)</onback>
                     <onfocus>SetProperty(SearchWidgets,1,home)</onfocus>
-                    <include>Animation_WidgetInfo</include>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
                     <width>1920</width>
                     <height>1080</height>
                     <orientation>vertical</orientation>
-                    <visible  allowhiddenfocus="true">!String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchMore))</visible>
-                    <animation effect="slide" start="0" end="0,-650" reversible="true" tween="cubic" easing="out" time="350" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <visible allowhiddenfocus="true">String.IsEmpty(Window(home).Property(SeeMore))</visible>
+                    <visible  allowhiddenfocus="true">!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+                    <animation effect="slide" start="0" end="0,-650" reversible="true" tween="sine" easing="out" time="150" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
 
                     <!-- By Title (Movies & TV Shows) -->
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
@@ -1390,29 +1507,6 @@
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="182"/>
                     </include>
-
-                    <!-- By Genre (Movies & TV Shows) -->
-                    <include content="WidgetListThumb" condition="Library.HasContent(movies)">
-                        <param name="content_path" value="$VAR[SearchWidgetVar]://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
-                        <param name="item" value="SearchItem"/>
-                        <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas con género &quot;,&quot;]"/>
-                        <param name="visible_content" value="true"/>
-                        <param name="widget_target" value="videos"/>
-                        <param name="searchmore" value="true"/>
-                        <param name="widget_limit" value="50"/>
-                        <param name="list_id" value="183"/>
-                    </include>
-                    <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
-                        <param name="content_path" value="$VAR[SearchWidgetVar]://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D"/>
-                        <param name="item" value="SearchItem"/>
-                        <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Series con género &quot;,&quot;]"/>
-                        <param name="visible_content" value="true"/>
-                        <param name="widget_target" value="videos"/>
-                        <param name="searchmore" value="true"/>
-                        <param name="widget_limit" value="50"/>
-                        <param name="list_id" value="184"/>
-                    </include>
-
                     <!-- By Release Year (Movies & TV Shows) -->
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="$VAR[SearchWidgetVar]://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
@@ -1524,32 +1618,428 @@
                         <param name="list_id" value="194"/>
                     </include>
                 </control>
-
-                <control type="label">
-                    <top>80</top>
-                    <left>150</left>
-                    <right>150</right>
-                    <height>70</height>
-                    <font>56px_Medium</font>
-                    <label>[CAPITALIZE]$VAR[SearchString][/CAPITALIZE]</label>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <textcolor>FFEEEEEE</textcolor>
-                    <visible>!Integer.IsGreater(Container(180).CurrentItem,1)</visible>
-                    <visible>[!Control.HasFocus(179)+!Control.HasFocus(178)]|[!Container(179).HasPrevious+String.IsEmpty(Window(home).Property(SearchSets))]|[!Container(178).HasPrevious+!String.IsEmpty(Window(home).Property(SearchSets))]</visible>
-                    <animation effect="fade" time="300" tween="cubic" easing="out" reversible="true">VisibleChange</animation>
+                <control type="button">
+                    <right>100</right>
+                    <bottom>100</bottom>
+                    <width>34</width>
+                    <height>34</height>
+                    <align>center</align>
+                    <aligny>top</aligny>
+                    <font>24px_Regular</font>
+                    <label>Atrás</label>
+                    <textwidth>200</textwidth>
+                    <textoffsety>30</textoffsety>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <texturefocus>icons/go_back.png</texturefocus>
+                    <texturenofocus>icons/go_back.png</texturenofocus>
+                    <visible>!String.IsEmpty(Window(home).Property(SeeMore))|!String.IsEmpty(Window(home).Property(SearchSets))</visible>
+                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                </control>
+                <control type="group">
+                    <visible>!Container(177).HasPrevious</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="100">VisibleChange</animation>
+                    <control type="label">
+                        <top>80</top>
+                        <left>120</left>
+                        <right>120</right>
+                        <height>70</height>
+                        <font>56px_Medium</font>
+                        <label>[CAPITALIZE]$INFO[Skin.String(SearchMoreLabel)][/CAPITALIZE]</label>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textcolor>FFEEEEEE</textcolor>
+                        <visible>!String.IsEmpty(Window(home).Property(SeeMore))</visible>
+                        <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>!Container(178).HasPrevious</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="100">VisibleChange</animation>
+                    <control type="label">
+                        <top>80</top>
+                        <left>120</left>
+                        <right>120</right>
+                        <height>70</height>
+                        <font>56px_Medium</font>
+                        <label>[CAPITALIZE]$INFO[Skin.String(CustomSearchSet)][/CAPITALIZE]</label>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textcolor>FFEEEEEE</textcolor>
+                        <visible>!String.IsEmpty(Window(home).Property(SearchSets))</visible>
+                        <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>Integer.IsEqual(Container(180).CurrentItem,1)|!Container(180).HasPrevious</visible>
+                    <visible>!Container(179).HasPrevious</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="100">VisibleChange</animation>
+                    <control type="label">
+                        <top>80</top>
+                        <left>120</left>
+                        <right>120</right>
+                        <height>70</height>
+                        <font>56px_Medium</font>
+                        <label>[CAPITALIZE]$VAR[SearchString][/CAPITALIZE]</label>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textcolor>FFEEEEEE</textcolor>
+                        <visible>String.IsEmpty(Window(home).Property(SearchSets))+String.IsEmpty(Window(home).Property(SeeMore))</visible>
+                        <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
+                    </control>
                 </control>
                 </control>
             </control>
+            <control type="group" id="8001">
+                <defaultcontrol>7150</defaultcontrol>
+                <visible>String.IsEqual(Window.Property(ItemHub),Powermenu)</visible>
+                <include>Animation_WidgetFade</include>
+                <control type="label">
+                    <top>80</top>
+                    <left>120</left>
+                    <right>120</right>
+                    <height>70</height>
+                    <font>56px_Medium</font>
+                    <aligny>center</aligny>
+                    <label>Cuenta</label>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <include>Animation_WidgetInfo</include>
+                </control>
+                <control type="image">
+                    <centerleft>50%</centerleft>
+                    <top>150</top>
+                    <bottom>150</bottom>
+                    <width>1</width>
+                    <texture colordiffuse="bg_overlay">dialogs/separatorv-grey.png</texture>
+                </control>
+                 <control type="group" id="8100">
+                    <orientation>horizontal</orientation>
+                    <align>left</align>
+                    <left>120</left>
+                    <right>120</right>
+                    <scrolltime tween="sine" easing="out">250</scrolltime>
+                    <itemgap>0</itemgap>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <onleft>Control.SetFocus(750)</onleft>
+                    <onback>Control.SetFocus(750)</onback>
+                    <include>Animation_WidgetInfo</include>
+                    <pagecontrol>2010</pagecontrol>
+                    <control type="grouplist" id="8110">
+                        <top>250</top>
+                        <bottom>250</bottom>
+                        <orientation>vertical</orientation>
+                        <align>center</align>
+                        <left>0</left>
+                        <right>50%</right>
+                        <scrolltime tween="sine" easing="out">250</scrolltime>
+                        <itemgap>10</itemgap>
+                        <usecontrolcoords>true</usecontrolcoords>
+                        <onright>8120</onright>
+                        <onleft>Control.SetFocus(750)</onleft>
+                        <onback>Control.SetFocus(750)</onback>
+                        <include>Animation_WidgetInfo</include>
+                        <pagecontrol>2010</pagecontrol>
+                        <control type="togglebutton" id="8101">
+                            <centerleft>50%</centerleft>
+                            <width>500</width>
+                            <height>80</height>
+                            <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                            <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+                            <alttexturefocus border="20">buttons/button-focus.png</alttexturefocus>
+                            <alttexturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</alttexturenofocus>
+                            <usealttexture>Library.IsScanningVideo</usealttexture>
+                            <label>[UPPERCASE]Actualizar biblioteca[/UPPERCASE]</label>
+                            <altlabel>[UPPERCASE]Actualizando biblioteca...[/UPPERCASE]</altlabel>
+                            <font>27px_Medium</font>
+                            <textcolor>gray</textcolor>
+                            <focusedcolor>black</focusedcolor>
+                            <disabledcolor>disabled</disabledcolor>
+                            <textoffsetx>20</textoffsetx>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <pulseonselect>true</pulseonselect>
+                            <altclick>noop</altclick>
+                            <onclick>UpdateLibrary(video)</onclick>
+                            <include>Animation_ButtonFocus</include>
+                        </control>
+                        <control type="button" id="8104">
+                            <centerleft>50%</centerleft>
+                            <width>500</width>
+                            <height>80</height>
+                            <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                            <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+                            <label>[UPPERCASE]Recargar skin[/UPPERCASE]</label>
+                            <font>27px_Medium</font>
+                            <textcolor>gray</textcolor>
+                            <focusedcolor>black</focusedcolor>
+                            <disabledcolor>disabled</disabledcolor>
+                            <textoffsetx>20</textoffsetx>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <pulseonselect>true</pulseonselect>
+                            <onclick>ReloadSkin()</onclick>
+                            <include>Animation_ButtonFocus</include>
+                        </control>
+                        <control type="button" id="8103">
+                            <centerleft>50%</centerleft>
+                            <width>500</width>
+                            <height>80</height>
+                            <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                            <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+                            <label>[UPPERCASE]Salir[/UPPERCASE]</label>
+                            <font>27px_Medium</font>
+                            <textcolor>gray</textcolor>
+                            <focusedcolor>black</focusedcolor>
+                            <disabledcolor>disabled</disabledcolor>
+                            <textoffsetx>20</textoffsetx>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <pulseonselect>true</pulseonselect>
+                            <onclick>Quit</onclick>
+                            <include>Animation_ButtonFocus</include>
+                        </control>
+                    </control>
+                    <control type="grouplist" id="8120">
+                        <orientation>vertical</orientation>
+                        <align>center</align>
+                        <left>50%</left>
+                        <right>0</right>
+                        <scrolltime tween="sine" easing="out">250</scrolltime>
+                        <itemgap>10</itemgap>
+                        <usecontrolcoords>true</usecontrolcoords>
+                        <onleft>8110</onleft>
+                        <onback>Control.SetFocus(750)</onback>
+                        <include>Animation_WidgetInfo</include>
+                        <pagecontrol>2010</pagecontrol>
+                        <control type="image">
+                            <depth>DepthBackground</depth>
+                            <centerleft>50%</centerleft>
+                            <top>-100</top>
+                            <width>200</width>
+                            <height>200</height>
+                            <bordersize>5</bordersize>
+                            <bordertexture>frame/profile_shadow.png</bordertexture>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="lists/round.png">$INFO[System.ProfileThumb]</texture>
+                        </control>
+                        <control type="label">
+                            <top>-10</top>
+                            <centerleft>50%</centerleft>
+                            <width>500</width>
+                            <height>60</height>
+                            <font>38px_Regular</font>
+                            <textcolor>FFEEEEEE</textcolor>
+                            <shadowcolor>text_shadow</shadowcolor>
+                            <label>$INFO[System.ProfileName]</label>
+                            <align>center</align>
+                            <aligny>top</aligny>
+                        </control>
+                        <control type="button" id="8102">
+                            <centerleft>50%</centerleft>
+                            <width>500</width>
+                            <height>80</height>
+                            <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                            <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+                            <label>[UPPERCASE]Cambiar usuario[/UPPERCASE]</label>
+                            <font>27px_Medium</font>
+                            <textcolor>gray</textcolor>
+                            <focusedcolor>black</focusedcolor>
+                            <disabledcolor>disabled</disabledcolor>
+                            <textoffsetx>20</textoffsetx>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <pulseonselect>true</pulseonselect>
+                            <onclick>System.LogOff </onclick>
+                            <include>Animation_ButtonFocus</include>
+                        </control>
+
+                    </control>
+
+                </control>
+            </control>
+            <control type="group" id="8500">
+                <defaultcontrol>7150</defaultcontrol>
+                <visible>String.IsEqual(Window.Property(ItemHub),Settings)</visible>
+                <include>Animation_WidgetFade</include>
+                <onleft>Control.SetFocus(700)</onleft>
+                <onback>Control.SetFocus(700)</onback>
+                <control type="label">
+                    <top>80</top>
+                    <left>120</left>
+                    <right>120</right>
+                    <height>70</height>
+                    <font>56px_Medium</font>
+                    <aligny>center</aligny>
+                    <label>Ajustes</label>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <include>Animation_WidgetInfo</include>
+                </control>
+                 <control type="group">
+                    <left>120</left>
+                    <top>170</top>
+                    <bottom>0</bottom>
+                    <control type="panel" id="8501">
+                        <width>100%</width>
+                        <height>870</height>
+                        <onup>noop</onup>
+                        <ondown>noop</ondown>
+                        <onright>noop</onright>
+                        <include>SettingsPanel</include>
+                        <onleft>Control.SetFocus(700)</onleft>
+                        <onback>Control.SetFocus(700)</onback>
+                        <content>
+                            <item>
+                                <label>$LOCALIZE[10003]</label>
+                                <onclick>ActivateWindow(filemanager)</onclick>
+                                <icon>icons/settings/filemanager.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[24001]</label>
+                                <onclick>ActivateWindow(addonbrowser)</onclick>
+                                <icon>icons/settings/addons.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[138]</label>
+                                <onclick>ActivateWindow(systeminfo)</onclick>
+                                <icon>icons/settings/sysinfo.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[31067]</label>
+                                <onclick>ActivateWindow(eventlog)</onclick>
+                                <icon>icons/settings/eventlog.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[14200]</label>
+                                <onclick>ActivateWindow(PlayerSettings)</onclick>
+                                <icon>icons/settings/player.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[14211]</label>
+                                <onclick>ActivateWindow(MediaSettings)</onclick>
+                                <icon>icons/settings/media.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[14204]</label>
+                                <onclick>ActivateWindow(PVRSettings)</onclick>
+                                <icon>icons/settings/livetv.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[14036]</label>
+                                <onclick>ActivateWindow(ServiceSettings)</onclick>
+                                <icon>icons/settings/network.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[15016]</label>
+                                <visible>System.GetBool(gamesgeneral.enable)</visible>
+                                <onclick>ActivateWindow(GameSettings)</onclick>
+                                <icon>icons/settings/games.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[14206]</label>
+                                <onclick>ActivateWindow(InterfaceSettings)</onclick>
+                                <icon>icons/settings/interface.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[13200]</label>
+                                <onclick>ActivateWindow(Profiles)</onclick>
+                                <icon>icons/settings/profiles.png</icon>
+                            </item>
+                            <item>
+                                <label>$LOCALIZE[13000]</label>
+                                <onclick>ActivateWindow(SystemSettings)</onclick>
+                                <icon>icons/settings/system.png</icon>
+                            </item>
+                            <item>
+                                <label>LibreELEC</label>
+                                <onclick>RunAddon(service.libreelec.settings)</onclick>
+                                <icon>icons/settings/libreelec.png</icon>
+                                <visible>System.HasAddon(service.libreelec.settings)</visible>
+                            </item>
+                        </content>
+                    </control>
+
+                </control>
+            </control>
+
         </control>
-        <control type="image">
-            <height>100%</height>
-            <width>140</width>
-            <texture>frame/widget_border.png</texture>
-            <colordiffuse>primary_background</colordiffuse>
-            <visible>true</visible>
+        <control type="group" id="8800">
+            <visible allowhiddenfocus="true">ControlGroup(8800).HasFocus</visible>
+            <animation effect="fade" tween="cubic" easing="out" time="300">Visible</animation>
+            <control type="image">
+                <height>100%</height>
+                <width>100%</width>
+                <texture>colors/background.png</texture>
+                <colordiffuse>primary_background</colordiffuse>
+            </control>
+            <control type="grouplist" id="8850">
+                <itemgap>10</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                <orientation>vertical</orientation>
+                <align>center</align>
+                <onback>Control.SetFocus(9000)</onback>
+                <control type="label">
+                    <centerleft>50%</centerleft>
+                    <width>100%</width>
+                    <height>60</height>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <font>56px_Medium</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <label>Salir de Kodi</label>
+                </control>
+                <control type="label">
+                    <centerleft>50%</centerleft>
+                    <width>100%</width>
+                    <height>100</height>
+                    <aligny>top</aligny>
+                    <align>center</align>
+                    <font>27px_Regular</font>
+                    <textcolor>gray</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <label>¿Seguro que quieres salir de Kodi?</label>
+                </control>
+                <control type="button" id="8851">
+                    <centerleft>50%</centerleft>
+                    <width>600</width>
+                    <height>80</height>
+                    <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                    <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+                    <label>[UPPERCASE]Cancelar[/UPPERCASE]</label>
+                    <font>27px_Medium</font>
+                    <textcolor>gray</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <disabledcolor>disabled</disabledcolor>
+                    <textoffsetx>20</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <pulseonselect>true</pulseonselect>
+                    <onclick>Control.SetFocus(9000)</onclick>
+                    <include>Animation_ButtonFocus</include>
+                </control>
+                <control type="button" id="8852">
+                    <centerleft>50%</centerleft>
+                    <width>600</width>
+                    <height>80</height>
+                    <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                    <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+                    <label>[UPPERCASE]Salir[/UPPERCASE]</label>
+                    <font>27px_Medium</font>
+                    <textcolor>gray</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <disabledcolor>disabled</disabledcolor>
+                    <textoffsetx>20</textoffsetx>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <pulseonselect>true</pulseonselect>
+                    <onclick>Quit</onclick>
+                    <include>Animation_ButtonFocus</include>
+                </control>
+            </control>
         </control>
-		<include>SidebarMenu</include>
         <control type="textbox">
             <top>80</top>
             <left>150</left>
@@ -1576,5 +2066,18 @@
             <shadowcolor>text_shadow</shadowcolor>
             <visible>false</visible>
         </control>
+        <control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+                <visible>Window.Next(videos)|Window.IsVisible(videos)</visible>
+			</control>
+			<control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture>colors/background50.png</texture>
+				<colordiffuse>primary_background</colordiffuse>
+                <visible>Window.Next(videos)|Window.IsVisible(videos)</visible>
+			</control>
 	</controls>
 </window>

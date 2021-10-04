@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">990</defaultcontrol>
-    <backgroundcolor>background</backgroundcolor>
+    <backgroundcolor>0</backgroundcolor>
+    <onunload condition="Window.IsVisible(videos)">SetFocus(500)</onunload>
 	<controls>
+        <control type="button" id="100">
+            <texturefocus/>
+            <texturenofocus/>
+            <onfocus>SetFocus(993)</onfocus>
+            <visible allowhiddenfocus="true">Control.HasFocus(100)</visible>
+            <animation effect="fade" tween="sine" easing="out" time="150">hidden</animation>
+        </control>
         <control type="multiimage">
             <depth>DepthBackground</depth>
             <right>0</right>
@@ -14,31 +22,16 @@
             <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
             <imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
             <animation type="WindowOpen" reversible="false">
-                <effect type="zoom" center="100%,0" start="105" end="100" tween="Cubic" easing="in" delay="100" time="500" />
-                <effect type="fade" end="100" tween="Cubic" easing="in" delay="100" time="600" />
+                <effect type="zoom" center="100%,0" start="104" end="100" tween="sine" easing="in" time="200" />
+                <effect type="fade" tween="sine" easing="in" time="200" />
             </animation>
             <animation type="WindowClose" reversible="false">
-                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="400" />
+                <effect type="fade" tween="sine" easing="out" time="150" />
             </animation>
         </control>
         <control type="group">
-            <visible>Window.Next(videos)</visible>
-            <animation effect="fade" tween="sine" easing="out" time="400">Visible</animation>
-            <control type="image">
-				<height>100%</height>
-				<width>100%</width>
-				<texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
-			</control>
-			<control type="image">
-				<height>100%</height>
-				<width>100%</width>
-				<texture>colors/background50.png</texture>
-				<colordiffuse>primary_background</colordiffuse>
-			</control>
-        </control>
-        <control type="group">
-            <animation effect="fade" end="100" tween="Cubic" easing="in" delay="200" time="500">WindowOpen</animation>
-            <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="400">WindowClose</animation>
+            <animation effect="fade" tween="sine" easing="in" time="200">WindowOpen</animation>
+            <animation effect="fade" tween="sine" easing="out" time="150">WindowClose</animation>
             <control type="list" id="5050">
                 <visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
                 <visible>Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating</visible>
@@ -47,12 +40,12 @@
                 <preloaditems>1</preloaditems>
                 <itemlayout/>
                 <focusedlayout/>
-                <content sortorder="ascending" sortby="playcount" limit="1">$VAR[InfoDialogNextUpContent]</content>
+                <content sortorder="ascending" sortby="playcount" limit="1">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
             </control>
             <control type="grouplist">
                 <orientation>vertical</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
-                <top>120</top>
+                <top>100</top>
                 <left>110</left>
                 <width>100%</width>
                 <height>100%</height>
@@ -61,20 +54,20 @@
                 <onleft>noop</onleft>
                 <onright>801</onright>
                 <ondown>50</ondown>
-                <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+                <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
                 <control type="group">
                     <left>10</left>
                     <width>1000</width>
-                    <height>250</height>
+                    <height>270</height>
                     <control type="grouplist">
-                        <height>250</height>
+                        <height>270</height>
                         <align>right</align>
                         <orientation>vertical</orientation>
                         <control type="textbox">
                             <height max="250">auto</height>
                             <width>1000</width>
-                            <font>56px_Regular2</font>
-                            <label>$VAR[TitleVar]</label>
+                            <font>56px_Medium</font>
+                            <label>[LIGHT]$VAR[TitleVar][/LIGHT]</label>
                             <textcolor>FFEEEEEE</textcolor>
                             <shadowcolor>text_shadow</shadowcolor>
                             <visible>String.EndsWith(Control.GetLabel(15),color_transparent.png)</visible>
@@ -83,7 +76,7 @@
                     </control>
                     <control type="image" id="15">
                         <width>700</width>
-                        <height>250</height>
+                        <height>270</height>
                         <align>left</align>
                         <fadetime>400</fadetime>
                         <aspectratio align="left" aligny="bottom">keep</aspectratio>
@@ -95,20 +88,25 @@
                     <orientation>horizontal</orientation>
                     <align>left</align>
                     <height>80</height>
-                    <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
-                    <control type="button" id="990">
+                    <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+                    <control type="togglebutton" id="990">
                         <width>auto</width>
-                        <align>left</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
-                        <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
-                        <textoffsetx>30</textoffsetx>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <texturefocus border="65,20,20,20">buttons/videoinfo-play.png</texturefocus>
                         <texturenofocus border="65,20,20,20" colordiffuse="darkgray">buttons/videoinfo-play-nf.png</texturenofocus>
-                        <pulseonselect>false</pulseonselect>
+                        <alttexturefocus border="20">buttons/key2.png</alttexturefocus>
+                        <alttexturenofocus border="20" colordiffuse="darkgray">buttons/key-nf.png</alttexturenofocus>
+                        <usealttexture>String.IsEqual(ListItem.DBTYPE,tvshow)+Container(5050).IsUpdating+!VideoPlayer.Content(episodes)</usealttexture>
+                        <label>      [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
+                        <altlabel>      [UPPERCASE]Cargando...[/UPPERCASE]</altlabel>
+                        <font>27px_Medium</font>
+                        <textcolor>darkgray</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <disabledcolor>disabled</disabledcolor>
+                        <textoffsetx>30</textoffsetx>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <pulseonselect>true</pulseonselect>
+                        <altclick>noop</altclick>
                         <onclick condition="ListItem.IsResumable+!Container.Content(tvshows)">SendClick(9)</onclick>
                         <onclick condition="!ListItem.IsResumable+!Container.Content(tvshows)">SendClick(8)</onclick>
                         <onclick condition="Container.Content(tvshows)">PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick>
@@ -116,17 +114,16 @@
                     </control>
                     <control type="button" id="991">
                         <width>auto</width>
-                        <align>left</align>
+                        <align>right</align>
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
-                        <label>       [UPPERCASE]Episodios[/UPPERCASE]</label>
+                        <label>      [UPPERCASE]Episodios[/UPPERCASE]</label>
                         <textoffsetx>30</textoffsetx>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <texturefocus border="65,20,20,20">buttons/videoinfo-episode.png</texturefocus>
                         <texturenofocus border="65,20,20,20" colordiffuse="darkgray">buttons/videoinfo-episode-nf.png</texturenofocus>
-                        <pulseonselect>false</pulseonselect>
+                        <pulseonselect>true</pulseonselect>
                         <onclick>SetProperty(VideoResolution,$VAR[VideoResolutionVar],Home)</onclick>
                         <onclick>SetProperty(AudioChannels,$VAR[AudioChannelsVar],Home)</onclick>
                         <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
@@ -138,26 +135,25 @@
                         <onclick>Dialog.Close(movieinformation)</onclick>
                         <!-- activate ALL EPISODES view -->
                         <!-- from tvshow infodialog for library content -->
-                        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">SetProperty(ListItem.TVShowID2,$INFO[ListItem.DBID],Home)</onclick>
-                        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">SetProperty(KeepTVShowID,1,Home)</onclick>
-                        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/,return)</onclick>
+                        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)+!String.IsEmpty(ListItem.DBID)">SetProperty(ListItem.TVShowID2,$INFO[ListItem.DBID],Home)</onclick>
+                        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)+!String.IsEmpty(ListItem.DBID)">SetProperty(KeepTVShowID,1,Home)</onclick>
+                        <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)+!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/-2/,return)</onclick>
                         <!-- from tvshow infodialog for non-library content -->
                         <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
                         <visible>Container.Content(tvshows)</visible>
                     </control>
                     <control type="button" id="992">
                         <width>auto</width>
-                        <align>left</align>
+                        <align>right</align>
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
-                        <label>       [UPPERCASE]Reiniciar[/UPPERCASE]</label>
+                        <label>      [UPPERCASE]Reiniciar[/UPPERCASE]</label>
                         <textoffsetx>30</textoffsetx>
                         <textcolor>darkgray</textcolor>
                         <focusedcolor>black</focusedcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
                         <texturefocus border="65,20,20,20">buttons/videoinfo-reset.png</texturefocus>
                         <texturenofocus border="65,20,20,20" colordiffuse="darkgray">buttons/videoinfo-reset-nf.png</texturenofocus>
-                        <pulseonselect>false</pulseonselect>
+                        <pulseonselect>true</pulseonselect>
                         <visible>ListItem.IsResumable</visible>
                         <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
                         <onclick>Dialog.Close(movieinformation)</onclick>
@@ -167,9 +163,8 @@
                         <align>right</align>
                         <aligny>center</aligny>
                         <font>27px_Medium</font>
-                        <radioposx>16</radioposx>
-                        <radioposy>1</radioposy>
-                        <radiowidth>50</radiowidth>
+                        <radioposx>18</radioposx>
+                        <radiowidth>46</radiowidth>
                         <radioheight>80</radioheight>
                         <label></label>
                         <textoffsetx>50</textoffsetx>
@@ -179,15 +174,17 @@
                         <textureradioofffocus colordiffuse="black">icons/videoinfo/add.png</textureradioofffocus>
                         <textureradioonnofocus colordiffuse="button_focus">icons/videoinfo/check.png</textureradioonnofocus>
                         <textureradiooffnofocus colordiffuse="darkgray">icons/videoinfo/add.png</textureradiooffnofocus>
-                        <texturefocus>dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus colordiffuse="darkgray">dialogs/keyboard/key-nf3.png</texturenofocus>
-                        <pulseonselect>false</pulseonselect>
+                        <texturefocus>buttons/key3.png</texturefocus>
+                        <texturenofocus colordiffuse="darkgray">buttons/key-nf3.png</texturenofocus>
+                        <pulseonselect>true</pulseonselect>
+                        <onclick>SetFocus(100)</onclick>
                         <onclick condition="$EXP[AddMyList]">$VAR[MyListVar]</onclick>
                         <onclick condition="$EXP[ClearMyList]">$VAR[ClearMyListVar]</onclick>
                         <onclick condition="$EXP[AddMyListTV]">$VAR[MyListTVVar]</onclick>
                         <onclick condition="$EXP[ClearMyListTV]">$VAR[ClearMyListTVVar]</onclick>
                         <selected>$EXP[ClearMyList]|$EXP[ClearMyListTV]</selected>
                         <visible>!String.IsEqual(ListItem.DBTYPE,episode)</visible>
+                        <animation effect="rotate" center="auto" start="-180" end="0" time="200" tween="Circle" easing="Out" reversible="false" condition="Control.IsVisible(100)">Conditional</animation>
                     </control>
                 </control>
                 <include>DialogInfo</include>
@@ -198,7 +195,7 @@
                     <align>left</align>
                     <aligny>center</aligny>
                     <label>[B]$INFO[ListItem.Label][/B]</label>
-                    <font>24px_Medium_Lighten</font>
+                    <font>25px_Medium_Lighten</font>
                     <textcolor>silver</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
                     <autoscroll delay="8000" time="1500" repeat="8000">true</autoscroll>
@@ -214,6 +211,33 @@
                     <autoscroll delay="8000" time="1500" repeat="8000">Window.IsActive(movieinformation)</autoscroll>
                 </control>
             </control>
+            <control type="radiobutton">
+                <left>115</left>
+                <top>375</top>
+                <width>80</width>
+                <height>80</height>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>27px_Medium</font>
+                <radioposx>25</radioposx>
+                <radiowidth>30</radiowidth>
+                <radioheight>80</radioheight>
+                <label/>
+                <textoffsetx>50</textoffsetx>
+                <textcolor>darkgray</textcolor>
+                <focusedcolor>black</focusedcolor>
+                <textureradioonfocus/>
+                <textureradioofffocus/>
+                <textureradioonnofocus colordiffuse="black">icons/infodialogs/spin.png</textureradioonnofocus>
+                <textureradiooffnofocus colordiffuse="darkgray">icons/infodialogs/spin.png</textureradiooffnofocus>
+                <texturefocus/>
+                <texturenofocus/>
+                <pulseonselect>false</pulseonselect>
+                <selected>Control.HasFocus(990)</selected>
+                <visible>String.IsEqual(ListItem.DBTYPE,tvshow)+Container(5050).IsUpdating+!VideoPlayer.Content(episodes)</visible>
+                <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="250" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
+                <animation effect="rotate" center="auto" start="360" end="0" time="800" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+            </control>
             <include content="ProgressBarButton">
                 <param name="percent" value="50" />
             </include>
@@ -225,7 +249,7 @@
                 <width>50%</width>
                 <texture flipy="true" flipx="true">overlays/overlay-bg.png</texture>
                 <visible>ControlGroup(800).HasFocus</visible>
-                <animation effect="fade" time="300" tween="cubic" easing="inout" reversible="true">VisibleChange</animation>
+                <animation effect="fade" time="150" tween="sine" easing="out" reversible="true">VisibleChange</animation>
             </control>
             <control type="grouplist" id="800">
                 <orientation>vertical</orientation>
@@ -236,7 +260,7 @@
                 <height>165</height>
                 <itemgap>5</itemgap>
                 <onleft>900</onleft>
-                <animation effect="slide" end="0,190" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(800).HasFocus">Conditional</animation>
+                <animation effect="slide" end="0,190" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(800).HasFocus">Conditional</animation>
                 <control type="radiobutton" id="801">
                     <right>0</right>
                     <height>80</height>

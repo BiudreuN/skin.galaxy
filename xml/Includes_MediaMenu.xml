@@ -2,15 +2,17 @@
 <includes>
 	<include name="MediaMenuItemsCommon">
 		<width>470</width>
-		<textoffsetx>20</textoffsetx>
+		<textoffsetx>30</textoffsetx>
+        <focusedcolor>black</focusedcolor>
+        <font>27px_Medium</font>
 		<top>0</top>
-		<height>80</height>
+		<height>60</height>
 		<radioposx>370</radioposx>
 		<aligny>center</aligny>
 		<invalidcolor>invalid</invalidcolor>
-		<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+		<texturefocus>colors/white.png</texturefocus>
 		<texturenofocus />
-		<alttexturefocus colordiffuse="button_focus">lists/focus.png</alttexturefocus>
+		<alttexturefocus>colors/white.png</alttexturefocus>
 		<alttexturenofocus></alttexturenofocus>
 	</include>
 	<include name="PVRQuickNavItemsCommon">
@@ -243,19 +245,20 @@
 	<include name="MediaMenuLabelCommon">
 		<width>470</width>
 		<textoffsetx>20</textoffsetx>
-		<textoffsety>15</textoffsety>
-		<height>50</height>
+		<textoffsety>30</textoffsety>
+		<height>70</height>
 		<radioposx>300</radioposx>
-		<font>font25_title</font>
+		<font>27px_Medium</font>
 		<aligny>top</aligny>
 		<textcolor>button_focus</textcolor>
 	</include>
 	<include name="MediaMenuCommon">
-		<include>OpenClose_Left</include>
+		<include>OpenClose_Fade</include>
+        <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
 		<depth>DepthSideBlade</depth>
 		<left>-520</left>
 		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
-			<effect type="slide" start="0" end="520" time="400" tween="cubic" easing="out" />
+			<effect type="slide" start="0" end="520" time="200" tween="sine" easing="out" />
 		</animation>
 		<control type="image">
 			<width>4000</width>
@@ -294,9 +297,9 @@
         <param name="left">5</param>
 		<definition>
 			<control type="grouplist" id="14100">
-				<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-				<animation effect="fade" time="300">VisibleChange</animation>
+				<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
 				<animation effect="slide" end="-10,0" time="0" condition ="Window.IsActive(MyPlaylist.xml)">Conditional</animation>
 				<orientation>horizontal</orientation>
 				<itemgap>-17</itemgap>
@@ -342,6 +345,7 @@
 			<onright>50</onright>
 			<ondown>9000</ondown>
 			<onback>50</onback>
+            <itemgap>0</itemgap>
 			<control type="label" id="200">
 				<include>MediaMenuLabelCommon</include>
 				<label>$LOCALIZE[14018]</label>
@@ -349,21 +353,21 @@
 			<control type="button" id="6051">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31023]</label>
-				<label2>[B]$INFO[Container.Viewmode][/B]</label2>
+				<label2>&quot;[B]$INFO[Container.Viewmode][/B]&quot;</label2>
 				<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
 				<onclick>Container.NextViewMode</onclick>
 			</control>
 			<control type="button" id="6053">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31022]</label>
-				<label2>[B]$INFO[Container.SortMethod][/B]</label2>
+				<label2>&quot;[B]$INFO[Container.SortMethod][/B]&quot;</label2>
 				<visible>Control.IsEnabled(3)</visible>
 				<onclick>SendClick(3)</onclick>
 			</control>
 			<control type="button" id="6052">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31032]</label>
-				<label2>[B]$INFO[Container.SortOrder][/B]</label2>
+				<label2>&quot;[B]$INFO[Container.SortOrder][/B]&quot;</label2>
 				<visible>Control.IsEnabled(4)</visible>
 				<onclick>SendClick(4)</onclick>
 			</control>

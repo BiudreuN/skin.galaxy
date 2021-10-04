@@ -13,15 +13,14 @@
 			<size>56</size>
 		</font>
         <font>
-			<name>56px_Regular2</name>
+			<name>56px_Regular</name>
 			<filename>Roboto-Regular.ttf</filename>
 			<size>56</size>
 		</font>
-		<font>
-			<name>56px_Regular</name>
-			<filename>VarelaRound-Regular.ttf</filename>
-            <linespacing>0.9</linespacing>
-			<size>80</size>
+        <font>
+			<name>56px_Light</name>
+			<filename>Roboto-Light.ttf</filename>
+			<size>56</size>
 		</font>
         <font>
 			<name>50px_Regular</name>
@@ -61,6 +60,11 @@
         <font>
 			<name>35px_Regular</name>
 			<filename>Roboto-Regular.ttf</filename>
+			<size>35</size>
+		</font>
+        <font>
+			<name>35px_Light</name>
+			<filename>Roboto-Light.ttf</filename>
 			<size>35</size>
 		</font>
 		<font>
@@ -236,6 +240,11 @@
 			<filename>Roboto-Regular.ttf</filename>
 			<size>22</size>
 		</font>
+        <font>
+			<name>22px_Light</name>
+			<filename>Roboto-Light.ttf</filename>
+			<size>22</size>
+		</font>
 		<font>
 			<name>20px_Bold</name>
 			<filename>Roboto-Bold.ttf</filename>
@@ -258,8 +267,8 @@
 		</font>
         <font>
 			<name>Flag_Font</name>
-			<filename>Roboto-Medium.ttf</filename>
-			<size>17</size>
+			<filename>Roboto-Bold.ttf</filename>
+			<size>13</size>
 		</font>
         <font>
 			<name>19px_Medium</name>
@@ -270,6 +279,11 @@
 			<name>19px_Regular</name>
 			<filename>Roboto-Regular.ttf</filename>
 			<size>19</size>
+		</font>
+        <font>
+			<name>16px_Bold</name>
+			<filename>Roboto-Bold.ttf</filename>
+			<size>16</size>
 		</font>
         <font>
 			<name>16px_Medium</name>

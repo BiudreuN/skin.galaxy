@@ -5,7 +5,8 @@
 	<color name="dialog_tint">FF1A2123</color>
 	<color name="background">FF000000</color>
 	<color name="bg_image">FF909090</color>
-	<color name="bg_overlay">30FFFFFF</color>
+	<color name="bg_overlay">1AFFFFFF</color>
+    <color name="button_selected">40FFFFFF</color>
 	<color name="black">FF000000</color>
 	<color name="white">FFF0F0F0</color>
 	<color name="grey">FF919191</color>

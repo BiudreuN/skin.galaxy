@@ -4,6 +4,22 @@
 		<value condition="Integer.IsEqual(Window(Home).Property(SymbolsSearchTerm),1)">KeySymbols</value>
         <value>KeyLetters</value>
 	</variable>
+    <variable name="SetsFocusVar">
+		<value condition="!String.IsEmpty(Window(home).Property(SearchSets))">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
+        <value></value>
+	</variable>
+    <variable name="SettingsFocusVar">
+		<value condition="!String.IsEmpty(Window(home).Property(SettingsFocus))">black</value>
+        <value>white</value>
+	</variable>
+    <variable name="SettingsFocus">
+		<value condition="ControlGroup(8500).HasFocus">[COLOR white]Ajustes[/COLOR] </value>
+        <value>Ajustes</value>
+	</variable>
+    <variable name="PowerMenuFocus">
+		<value condition="ControlGroup(8100).HasFocus">[COLOR white]$INFO[System.ProfileName][/COLOR] </value>
+        <value>$INFO[System.ProfileName]</value>
+	</variable>
 	<variable name="CPUUsageVar">
 		<value condition="String.StartsWith(System.CoreUsage(0),0.)">0</value>
 		<value condition="String.StartsWith(System.CoreUsage(0),1.)">1</value>
@@ -770,6 +786,7 @@
         <value>grey</value>
 	</variable>
     <variable name="PlayVar">
+        <value condition="String.IsEqual(ListItem.DBTYPE,tvshow)+Container(5050).IsUpdating+!VideoPlayer.Content(episodes)">Cargando...</value>
         <value condition="Container(5050).ListItem.IsResumable+String.IsEqual(ListItem.DBTYPE,tvshow)">Reanudar $INFO[Container(5050).ListItem.Season,T,:]$INFO[Container(5050).ListItem.Episode,E]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">$LOCALIZE[208] $INFO[Container(5050).ListItem.Season,T,:]$INFO[Container(5050).ListItem.Episode,E]</value>
         <value condition="ListItem.IsResumable">REANUDAR</value>
@@ -1162,38 +1179,96 @@
         <value condition="Window.Next(1113)|Window.Is(1113)">4</value>
         <value condition="Window.Next(1114)|Window.Is(1114)">5</value>
     </variable>
+    <variable name="EpisodeScrollVar">
+        <value condition="!Control.HasFocus(500)">0</value>
+        <value>200</value>
+    </variable>
+    <variable name="EpisodeListVar">
+        <value condition="Integer.IsEqual(Container(5250).CurrentItem,1)+Integer.IsGreater(Container(500).ListItem.Season,1)">52623</value>
+        <value condition="Integer.IsEqual(Container(5250).CurrentItem,2)+Integer.IsGreater(Container(500).ListItem.Season,2)">52623</value>
+        <value condition="Integer.IsEqual(Container(5250).CurrentItem,3)+Integer.IsGreater(Container(500).ListItem.Season,3)">52623</value>
+        <value condition="Integer.IsEqual(Container(5250).CurrentItem,4)+Integer.IsGreater(Container(500).ListItem.Season,4)">52623</value>
+        <value condition="Integer.IsEqual(Container(5250).CurrentItem,5)+Integer.IsGreater(Container(500).ListItem.Season,5)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,6)+Integer.IsGreater(Container(500).ListItem.Season,6)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,7)+Integer.IsGreater(Container(500).ListItem.Season,7)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,8)+Integer.IsGreater(Container(500).ListItem.Season,8)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,9)+Integer.IsGreater(Container(500).ListItem.Season,9)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,10)+Integer.IsGreater(Container(500).ListItem.Season,10)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,11)+Integer.IsGreater(Container(500).ListItem.Season,11)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,12)+Integer.IsGreater(Container(500).ListItem.Season,12)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,13)+Integer.IsGreater(Container(500).ListItem.Season,13)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,14)+Integer.IsGreater(Container(500).ListItem.Season,14)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,15)+Integer.IsGreater(Container(500).ListItem.Season,15)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,16)+Integer.IsGreater(Container(500).ListItem.Season,16)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,17)+Integer.IsGreater(Container(500).ListItem.Season,17)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,18)+Integer.IsGreater(Container(500).ListItem.Season,18)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,19)+Integer.IsGreater(Container(500).ListItem.Season,19)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,20)+Integer.IsGreater(Container(500).ListItem.Season,20)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,21)+Integer.IsGreater(Container(500).ListItem.Season,21)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,22)+Integer.IsGreater(Container(500).ListItem.Season,22)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,23)+Integer.IsGreater(Container(500).ListItem.Season,23)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,24)+Integer.IsGreater(Container(500).ListItem.Season,24)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,25)+Integer.IsGreater(Container(500).ListItem.Season,25)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,26)+Integer.IsGreater(Container(500).ListItem.Season,26)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,27)+Integer.IsGreater(Container(500).ListItem.Season,27)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,28)+Integer.IsGreater(Container(500).ListItem.Season,28)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,29)+Integer.IsGreater(Container(500).ListItem.Season,29)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,30)+Integer.IsGreater(Container(500).ListItem.Season,30)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,31)+Integer.IsGreater(Container(500).ListItem.Season,31)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,32)+Integer.IsGreater(Container(500).ListItem.Season,32)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,33)+Integer.IsGreater(Container(500).ListItem.Season,33)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,34)+Integer.IsGreater(Container(500).ListItem.Season,34)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,35)+Integer.IsGreater(Container(500).ListItem.Season,35)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,36)+Integer.IsGreater(Container(500).ListItem.Season,36)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,37)+Integer.IsGreater(Container(500).ListItem.Season,37)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,38)+Integer.IsGreater(Container(500).ListItem.Season,38)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,39)+Integer.IsGreater(Container(500).ListItem.Season,39)">52623</value>
+        <value condition="String.IsEqual(Container(5250).CurrentItem,40)+Integer.IsGreater(Container(500).ListItem.Season,40)">52623</value>
+
+        <value>52622</value>
+    </variable>
     <variable name="SeasonListVar">
-    <value condition="Integer.IsEqual(Container(500).ListItem.Season,1)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">1</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,2)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">2</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,3)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">3</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,4)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">4</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,5)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">5</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,6)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">6</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,7)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">7</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,8)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">8</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,9)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">9</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,10)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">10</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,11)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">11</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,12)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">12</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,13)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">13</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,14)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">14</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,15)+Integer.IsEqual(Container(5250).ListItemAbsolute(0).Season,0)">15</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,1)">0</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,2)">1</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,3)">2</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,4)">3</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,5)">4</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,6)">5</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,7)">6</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,8)">7</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,9)">8</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,10)">9</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,11)">10</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,12)">11</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,13)">12</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,14)">13</value>
-        <value condition="Integer.IsEqual(Container(500).ListItem.Season,15)">14</value>
-        <value>0</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(0).Season,Container(500).ListItem.Season)">0</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(1).Season,Container(500).ListItem.Season)">1</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(2).Season,Container(500).ListItem.Season)">2</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(3).Season,Container(500).ListItem.Season)">3</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(4).Season,Container(500).ListItem.Season)">4</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(5).Season,Container(500).ListItem.Season)">5</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(6).Season,Container(500).ListItem.Season)">6</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(7).Season,Container(500).ListItem.Season)">7</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(8).Season,Container(500).ListItem.Season)">8</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(9).Season,Container(500).ListItem.Season)">9</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(10).Season,Container(500).ListItem.Season)">10</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(11).Season,Container(500).ListItem.Season)">11</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(12).Season,Container(500).ListItem.Season)">12</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(13).Season,Container(500).ListItem.Season)">13</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(14).Season,Container(500).ListItem.Season)">14</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(15).Season,Container(500).ListItem.Season)">15</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(16).Season,Container(500).ListItem.Season)">16</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(17).Season,Container(500).ListItem.Season)">17</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(18).Season,Container(500).ListItem.Season)">18</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(19).Season,Container(500).ListItem.Season)">19</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(20).Season,Container(500).ListItem.Season)">20</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(21).Season,Container(500).ListItem.Season)">21</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(22).Season,Container(500).ListItem.Season)">22</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(23).Season,Container(500).ListItem.Season)">23</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(24).Season,Container(500).ListItem.Season)">24</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(25).Season,Container(500).ListItem.Season)">25</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(26).Season,Container(500).ListItem.Season)">26</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(27).Season,Container(500).ListItem.Season)">27</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(28).Season,Container(500).ListItem.Season)">28</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(29).Season,Container(500).ListItem.Season)">29</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(30).Season,Container(500).ListItem.Season)">30</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(31).Season,Container(500).ListItem.Season)">31</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(32).Season,Container(500).ListItem.Season)">32</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(33).Season,Container(500).ListItem.Season)">33</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(34).Season,Container(500).ListItem.Season)">34</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(35).Season,Container(500).ListItem.Season)">35</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(36).Season,Container(500).ListItem.Season)">36</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(37).Season,Container(500).ListItem.Season)">37</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(38).Season,Container(500).ListItem.Season)">38</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(39).Season,Container(500).ListItem.Season)">39</value>
+        <value condition="String.IsEqual(Container(5250).ListItemAbsolute(40).Season,Container(500).ListItem.Season)">40</value>
     </variable>
 	<variable name="FixedlistVar">
 		<value condition="Integer.IsGreater(Container(50).NumItems,11)">5</value>
@@ -1364,8 +1439,8 @@
         <value>Añadido el $INFO[ListItem.DateAdded]</value>
     </variable>
     <variable name="InfoDialogNextUpContent">
-        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)] + !String.IsEmpty(ListItem.DBID)">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</value>
-        <value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">videodb://inprogresstvshows/$INFO[Window(Home).Property(ListItem.TVShowID)]/-2/?tvshowid=$INFO[Window(Home).Property(ListItem.TVShowID)]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow)|Container.Content(tvshows)]+!String.IsEmpty(ListItem.DBID)">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,episode)|Container.Content(episodes)]+!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">videodb://inprogresstvshows/$INFO[Window(Home).Property(ListItem.TVShowID)]/-2/?tvshowid=$INFO[Window(Home).Property(ListItem.TVShowID)]</value>
     </variable>
     <variable name="PlayOrResumeSeasonEpisodeLabel">
         <value condition="Container(5050).ListItem.IsResumable">Reanudar $INFO[Container(5050).ListItem.Season,Temporada ,: ]$INFO[Container(5050).ListItem.Episode,Episodio ]</value>
@@ -1787,6 +1862,26 @@
                String.Contains(ListItem.Mpaa,NC-17)">red</value>
         <value>white</value>
     </variable>
+    <variable name="MpaaPlayerColorVar">
+        <value condition="String.IsEqual(VideoPlayer.Mpaa,TP)|
+        	String.Contains(VideoPlayer.Mpaa,APTA)|
+        	String.IsEqual(VideoPlayer.Mpaa,G)|
+        	String.IsEqual(VideoPlayer.Mpaa,TV-G)">limegreen</value>
+        <value condition="String.Contains(VideoPlayer.Mpaa,7)|
+        	String.IsEqual(VideoPlayer.Mpaa,PG)|
+        	String.IsEqual(VideoPlayer.Mpaa,TV-PG)|
+        	String.IsEqual(VideoPlayer.Mpaa,US:TV-PG)">deepskyblue</value>
+        <value condition="String.Contains(VideoPlayer.Mpaa,12)|
+        	String.Contains(VideoPlayer.Mpaa,PG-13)|
+        	String.IsEqual(VideoPlayer.Mpaa,TV-14)|
+        	String.IsEqual(VideoPlayer.Mpaa,US:TV-14)">yellow</value>
+        <value condition="String.Contains(VideoPlayer.Mpaa,16)|
+               String.Contains(VideoPlayer.Mpaa,R)|
+               String.IsEqual(VideoPlayer.Mpaa,TV-MA)">orange</value>
+        <value condition="String.Contains(VideoPlayer.Mpaa,18)|
+               String.Contains(VideoPlayer.Mpaa,NC-17)">red</value>
+        <value>white</value>
+    </variable>
     <variable name="MpaaVar">
         <value condition="String.Contains(ListItem.Mpaa,APTA)">TP</value>
         <value condition="String.Contains(ListItem.Mpaa,TP)">TP</value>
@@ -2114,15 +2209,15 @@
 	</variable>
 	<variable name="NowPlayingBreadcrumbsVar">
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Title]</value>
-		<value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[VideoPlayer.Season,[COLOR button_focus]S,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR button_focus]E,: [/COLOR]]$INFO[VideoPlayer.Title]</value>
-		<value condition="Window.IsActive(fullscreenvideo)">$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, ([COLOR button_focus],[/COLOR])]</value>
+		<value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(Player.Art(tvshow.clearlogo))">[B]$INFO[VideoPlayer.TVShowTitle][/B][CR]$INFO[VideoPlayer.Season,T,:]$INFO[VideoPlayer.Episode,E,]$INFO[VideoPlayer.Title, - ,]</value>
+		<value condition="Window.IsActive(fullscreenvideo)">[B]$INFO[VideoPlayer.Title][/B][CR]$INFO[VideoPlayer.Year]</value>
 		<value condition="MusicPartyMode.Enabled">$LOCALIZE[589]</value>
 		<value>$LOCALIZE[31000]...</value>
 	</variable>
 	<variable name="OSDSubLabelVar">
 		<value condition="Window.IsActive(visualisation) + Integer.IsGreater(Playlist.Length,1)">$LOCALIZE[554] $INFO[Playlist.Position] / $INFO[Playlist.Length]</value>
 		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, - ]</value>
-		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,[COLOR button_focus]S,[/COLOR]]$INFO[VideoPlayer.Episode,[COLOR button_focus]E,: [/COLOR]]$INFO[VideoPlayer.TVShowTitle]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,T,]$INFO[VideoPlayer.Episode,E,: ]$INFO[VideoPlayer.TVShowTitle]</value>
 		<value condition="VideoPlayer.Content(LiveTV) | PVR.IsPlayingRecording | PVR.IsPlayingEpgTag">$INFO[VideoPlayer.ChannelNumberLabel,([COLOR button_focus],[/COLOR]) ]$INFO[VideoPlayer.ChannelName] $INFO[VideoPlayer.EpisodeName, - ]</value>
 		<value>$INFO[VideoPlayer.Genre]</value>
 	</variable>

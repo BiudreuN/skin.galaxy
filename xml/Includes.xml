@@ -43,8 +43,8 @@
     <constant name="search_key_size">70</constant>
     <constant name="search_radiokey_width">220</constant>
     <constant name="bingie_menu_width">360</constant>
-    <constant name="episodes_thumb_height">266</constant>
-    <constant name="episodes_thumb_width">456</constant>
+    <constant name="episodes_thumb_height">280</constant>
+    <constant name="episodes_thumb_width">480</constant>
     <expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131) | Window.IsActive(MyPlaylist.xml)</expression>
@@ -1333,7 +1333,7 @@
             <visible>true</visible>
             <control type="label">
                 <width min="0" max="400">auto</width>
-                <height>29</height>
+                <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>[LIGHT]$VAR[RatingVar]% le ha gustado[/LIGHT]</label>
@@ -1343,7 +1343,7 @@
             </control>
             <control type="label">
                 <width min="0" max="400">auto</width>
-                <height>29</height>
+                <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>[LIGHT]$INFO[Listitem.Year][/LIGHT]</label>
@@ -1353,7 +1353,7 @@
             </control>
             <control type="label">
                 <width min="0" max="400">auto</width>
-                <height>29</height>
+                <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>[B][COLOR $VAR[MpaaColorVar]]|[/COLOR][/B][LIGHT]$VAR[MpaaVar][/LIGHT]</label>
@@ -1363,7 +1363,7 @@
             </control>
             <control type="label">
                 <width min="0" max="300">auto</width>
-                <height>29</height>
+                <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>[LIGHT]$VAR[TimeVar][/LIGHT]</label>
@@ -1374,7 +1374,7 @@
             </control>
             <control type="label">
                 <width min="0" max="300">auto</width>
-                <height>29</height>
+                <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
                 <label>[LIGHT]$VAR[SeasonVar][/LIGHT]</label>
@@ -1385,22 +1385,22 @@
             </control>
             <control type="label">
                 <width min="0" max="300">auto</width>
-                <height>29</height>
+                <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$VAR[VideoResolutionVar]</label>
-                <font>19px_Bold</font>
+                <label>[B]$VAR[VideoResolutionVar][/B]</label>
+                <font>Flag_Font</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <visible>false</visible>
             </control>
             <control type="label">
                 <width min="0" max="300">auto</width>
-                <height>29</height>
+                <height>30</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$VAR[AudioChannelsVar]</label>
-                <font>19px_Bold</font>
+                <label>[B]$VAR[AudioChannelsVar][/B]</label>
+                <font>Flag_Font</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <visible>false</visible>
@@ -1408,26 +1408,29 @@
             <control type="button">
                 <centertop>50%</centertop>
                 <width min="0" max="400">auto</width>
-                <height>27</height>
+                <height>22</height>
                 <texturenofocus border="5" colordiffuse="darkgray">flags/flag.png</texturenofocus>
-                <label>$VAR[VideoResolutionVar]</label>
+                <label>[B]$VAR[VideoResolutionVar][/B]</label>
                 <font>Flag_Font</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <align>center</align>
                 <aligny>center</aligny>
+                <visible>true</visible>
             </control>
             <control type="button">
+                <left>-5</left>
                 <centertop>50%</centertop>
                 <width min="0" max="400">auto</width>
-                <height>27</height>
+                <height>22</height>
                 <texturenofocus border="5" colordiffuse="darkgray">flags/flag.png</texturenofocus>
-                <label>$VAR[AudioChannelsVar]</label>
+                <label>[B]$VAR[AudioChannelsVar][/B]</label>
                 <font>Flag_Font</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <align>center</align>
                 <aligny>center</aligny>
+                <visible>true</visible>
             </control>
         </control>
     </include>
@@ -1437,45 +1440,45 @@
             <usecontrolcoords>true</usecontrolcoords>
             <left>120</left>
             <bottom>50</bottom>
-            <width>450</width>
+            <width>650</width>
             <height>300</height>
-            <itemgap>5</itemgap>
+            <itemgap>20</itemgap>
             <align>right</align>
-            <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
             <control type="label">
-                <width>450</width>
-                <height>25</height>
+                <width>650</width>
+                <height>8</height>
                 <font>20px_Medium</font>
                 <textcolor>silver</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <label>DIRECTOR</label>
-                <visible>!String.IsEmpty(ListItem.Director)|!String.IsEmpty(Container(5050).ListItem.Director)</visible>
+                <visible>!String.IsEmpty(ListItem.Director)|[!String.IsEmpty(Container(5050).ListItem.Director)+!Container(5050).IsUpdating+!VideoPlayer.Content(episodes)]</visible>
                 <align>left</align>
             </control>
             <control type="textbox">
-                <width>450</width>
-                <height>auto</height>
+                <width>650</width>
+                <height min="0" max="50">auto</height>
                 <font>20px_Regular</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
-                <label>$INFO[ListItem.Director][CR] </label>
+                <label>$INFO[ListItem.Director]</label>
                 <visible>!String.IsEmpty(ListItem.Director)</visible>
                 <align>left</align>
             </control>
             <control type="textbox">
-                <width>450</width>
-                <height>auto</height>
+                <width>650</width>
+                <height min="0" max="50">auto</height>
                 <font>20px_Regular</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
-                <label>$INFO[Container(5050).ListItem.Director][CR] </label>
-                <visible>!String.IsEmpty(Container(5050).ListItem.Director)</visible>
+                <label>$INFO[Container(5050).ListItem.Director]</label>
+                <visible>!String.IsEmpty(Container(5050).ListItem.Director)+!Container(5050).IsUpdating+!VideoPlayer.Content(episodes)</visible>
                 <visible>String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
                 <align>left</align>
             </control>
             <control type="label">
-                <width>450</width>
-                <height>25</height>
+                <width>650</width>
+                <height>8</height>
                 <font>20px_Medium</font>
                 <textcolor>silver</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
@@ -1484,33 +1487,33 @@
                 <align>left</align>
             </control>
             <control type="textbox">
-                <width>450</width>
-                <height>auto</height>
+                <width>650</width>
+                <height min="0" max="50">auto</height>
                 <font>20px_Regular</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
-                <label>$INFO[ListItem.Studio][CR] </label>
+                <label>$INFO[ListItem.Studio]</label>
                 <visible>!String.IsEmpty(ListItem.Studio)</visible>
                 <align>left</align>
             </control>
             <control type="label">
-                <width>450</width>
-                <height>25</height>
+                <width>650</width>
+                <height>8</height>
                 <font>20px_Medium</font>
                 <textcolor>silver</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <label>GÉNERO</label>
-                <visible>!String.IsEmpty(ListItem.Genre)</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(10))</visible>
                 <align>left</align>
             </control>
-            <control type="textbox">
-                <width>450</width>
-                <height>auto</height>
+            <control type="textbox" id="10">
+                <width>650</width>
+                <height min="0" max="50">auto</height>
                 <font>20px_Regular</font>
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <label>$VAR[Genre1Var]$VAR[Genre2Var]$VAR[Genre3Var]$VAR[Genre4Var]$VAR[Genre5Var]$VAR[Genre6Var]$VAR[Genre7Var]$VAR[Genre8Var]$VAR[Genre9Var]$VAR[Genre10Var]$VAR[Genre11Var]$VAR[Genre12Var]$VAR[Genre13Var]</label>
-                <visible>!String.IsEmpty(ListItem.Genre)</visible>
+                <visible>!String.IsEmpty(Control.GetLabel(10))</visible>
                 <align>left</align>
             </control>
         </control>
@@ -1519,9 +1522,10 @@
         <control type="image">
             <width>100%</width>
             <height>100%</height>
-            <texture>colors/black80.png</texture>
-            <visible>ControlGroup(11).HasFocus</visible>
-            <animation effect="fade" tween="cubic" easing="inout" time="300" reversible="true">VisibleChange</animation>
+            <texture>colors/background50.png</texture>
+				<colordiffuse>primary_background</colordiffuse>
+            <visible>ControlGroup(11).HasFocus|Control.HasFocus(51)</visible>
+            <animation effect="fade" tween="sine" easing="out" time="150" reversible="true">VisibleChange</animation>
         </control>
         <control type="group">
             <centerleft>50%</centerleft>
@@ -1529,7 +1533,7 @@
 			<width>300</width>
 			<height>60</height>
             <visible>Integer.IsGreater(Container(50).NumItems,0)|Container(50).IsUpdating</visible>
-            <animation effect="slide" end="0,-980" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+            <animation effect="slide" end="0,-980" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
             <control type="label">
                 <height>20</height>
                 <align>center</align>
@@ -1538,8 +1542,8 @@
                 <label>REPARTO</label>
                 <textcolor>lightgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
-                <visible>!ControlGroup(11).HasFocus</visible>
-                <animation effect="fade" tween="cubic" easing="inout" time="300">VisibleChange</animation>
+                <visible>!ControlGroup(11).HasFocus+!Control.HasFocus(51)</visible>
+                <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
             </control>
             <control type="image">
                 <centerleft>50%</centerleft>
@@ -1548,9 +1552,28 @@
                 <height>50</height>
                 <texture colordiffuse="lightgray">icons/arrow_down.png</texture>
                 <visible>!Container(50).HasPrevious</visible>
-                <animation effect="fade" tween="cubic" easing="out" time="400">VisibleChange</animation>
-                <animation effect="rotate" start="0" end="180" center="auto" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+                <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
+                <animation effect="rotate" start="0" end="180" center="auto" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
             </control>
+        </control>
+        <control type="scrollbar" id="51">
+            <top>10</top>
+            <bottom>10</bottom>
+            <right>10</right>
+            <width>5</width>
+            <onleft>50</onleft>
+            <onback>50</onback>
+            <texturesliderbackground/>
+            <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+            <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+            <textureslidernib/>
+            <textureslidernibfocus/>
+            <showonepage>false</showonepage>
+            <orientation>vertical</orientation>
+            <visible>ControlGroup(11).HasFocus|Control.HasFocus(51)</visible>
+            <animation effect="fade" tween="sine" easing="out" time="150" reversible="true">VisibleChange</animation>
+            <animation effect="fade" tween="sine" easing="inout" start="100" end="15" time="100" condition="!Control.HasFocus(51)" reversible="true">Conditional</animation>
+            <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="Control.HasFocus(51)" reversible="true">Conditional</animation>
         </control>
         <control type="group" id="11">
             <top>100%</top>
@@ -1560,26 +1583,12 @@
             <itemgap>0</itemgap>
             <defaultcontrol>50</defaultcontrol>
             <usecontrolcoords>true</usecontrolcoords>
-            <animation effect="slide" end="0,-1080" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
-            <control type="scrollbar" id="51">
-                <top>10</top>
-                <bottom>10</bottom>
-                <right>10</right>
-                <width>5</width>
-                <onleft>50</onleft>
-                <onback>50</onback>
-                <texturesliderbackground colordiffuse="4D373737" border="0,5,0,5"></texturesliderbackground>
-                <texturesliderbar colordiffuse="gray" border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
-                <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
-                <textureslidernib/>
-                <textureslidernibfocus/>
-                <showonepage>false</showonepage>
-                <orientation>vertical</orientation>
-            </control>
+            <animation effect="slide" end="0,-1080" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
+
             <control type="panel" id="50">
                 <width>100%</width>
                 <height>1080</height>
-                <scrolltime tween="cubic" easing="out">400</scrolltime>
+                <scrolltime tween="sine" easing="out">150</scrolltime>
                 <preloaditems>3</preloaditems>
                 <orientation>vertical</orientation>
                 <pagecontrol>51</pagecontrol>
@@ -1595,15 +1604,21 @@
                         <width>253</width>
                         <height>253</height>
                         <control type="image">
+                            <top>-5</top>
+                            <left>-5</left>
+                            <bottom>-5</bottom>
+                            <right>-5</right>
+                            <texture>frame/round_shadow.png</texture>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                        </control>
+                        <control type="image">
                             <texture fallback="DefaultActorSolid" diffuse="lists/round.png">DefaultActorSolid.png</texture>
                             <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-                            <bordertexture>frame/round_shadow.png</bordertexture>
                             <bordersize>5</bordersize>
                         </control>
                         <control type="image">
                             <texture fallback="DefaultActorSolid" diffuse="lists/round.png" background="true">$INFO[ListItem.Thumb]</texture>
                             <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-                            <bordertexture>frame/round_shadow.png</bordertexture>
                             <bordersize>5</bordersize>
                         </control>
                         <control type="label">
@@ -1619,11 +1634,11 @@
                         <control type="textbox">
                             <left>0</left>
                             <right>0</right>
-                            <height>50</height>
-                            <bottom>-90</bottom>
+                            <height>70</height>
+                            <bottom>-110</bottom>
                             <align>center</align>
                             <aligny>top</aligny>
-                            <font>22px_Regular</font>
+                            <font>20px_Regular</font>
                             <textcolor>silver</textcolor>
                             <label>$INFO[ListItem.Label2]</label>
                         </control>
@@ -1634,21 +1649,31 @@
                         <top>120</top>
                         <width>253</width>
                         <height>253</height>
-                        <animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
-                        <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+                        <animation effect="zoom" start="100" end="105" center="auto" tween="sine" easing="in" time="100" reversible="true">Focus</animation>
+                        <animation effect="zoom" start="105" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
+                        <control type="image">
+                            <top>-5</top>
+                            <left>-5</left>
+                            <bottom>-5</bottom>
+                            <right>-5</right>
+                            <texture>frame/round_shadow.png</texture>
+                            <aspectratio scalediffuse="false">stretch</aspectratio>
+                        </control>
                         <control type="image">
                             <texture diffuse="lists/round.png">DefaultActorSolid.png</texture>
                             <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-                            <bordertexture>frame/round_shadow.png</bordertexture>
                             <bordersize>5</bordersize>
                         </control>
                         <control type="image">
                             <texture diffuse="lists/round.png" background="true">$INFO[ListItem.Thumb]</texture>
                             <aspectratio scalediffuse="false" aligny="center">scale</aspectratio>
-                            <bordertexture>frame/round_shadow.png</bordertexture>
                             <bordersize>5</bordersize>
                         </control>
                         <control type="button">
+                            <top>-1</top>
+                            <left>-1</left>
+                            <bottom>-1</bottom>
+                            <right>-1</right>
                             <texturefocus>frame/round_focus.png</texturefocus>
                             <texturenofocus/>
                             <pulseonselect>true</pulseonselect>
@@ -1669,11 +1694,11 @@
                         <control type="textbox">
                             <left>0</left>
                             <right>0</right>
-                            <height>50</height>
-                            <bottom>-90</bottom>
+                            <height>70</height>
+                            <bottom>-110</bottom>
                             <align>center</align>
                             <aligny>top</aligny>
-                            <font>22px_Regular</font>
+                            <font>20px_Regular</font>
                             <textcolor>silver</textcolor>
                             <label>$INFO[ListItem.Label2]</label>
                             <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
@@ -1686,13 +1711,13 @@
     <include name="ProgressBarButton">
         <control type="button">
             <width>auto</width>
-            <align>left</align>
+            <align>right</align>
             <aligny>center</aligny>
             <font>27px_Medium</font>
-            <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
+            <label>      [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
             <textoffsetx>30</textoffsetx>
             <textcolor>00FFFFFF</textcolor>
-            <texturenofocus border="20" colordiffuse="button_focus">percent/$PARAM[percent].png</texturenofocus>
+            <texturenofocus border="10" colordiffuse="button_focus">percent/$PARAM[percent].png</texturenofocus>
             <pulseonselect>false</pulseonselect>
             <visible>[Container.Content(movies)+Integer.IsEqual(ListItem.PercentPlayed,$PARAM[percent])]|[Container.Content(tvshows)+Integer.IsEqual(Container(5050).ListItem.PercentPlayed,$PARAM[percent])]</visible>
         </control>
@@ -1702,16 +1727,17 @@
             <left>110</left>
             <top>375</top>
 			<height>80</height>
-            <visible>[Container.Content(movies)+ListItem.IsResumable]|[Container.Content(tvshows)+Container(5050).ListItem.IsResumable]</visible>
+            <visible>[Container.Content(movies)+ListItem.IsResumable]|[Container.Content(tvshows)+Container(5050).ListItem.IsResumable+!Container(5050).IsUpdating+!VideoPlayer.Content(episodes)]</visible>
+            <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
             <control type="button">
                 <width>auto</width>
-                <align>left</align>
+                <align>right</align>
                 <aligny>center</aligny>
                 <font>27px_Medium</font>
-                <label>       [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
+                <label>      [UPPERCASE]$VAR[PlayVar][/UPPERCASE]</label>
                 <textoffsetx>30</textoffsetx>
                 <textcolor>00FFFFFF</textcolor>
-                <texturenofocus border="20" colordiffuse="border_alpha">percent/100.png</texturenofocus>
+                <texturenofocus border="10" colordiffuse="border_alpha">percent/100.png</texturenofocus>
                 <pulseonselect>false</pulseonselect>
             </control>
             <include content="ProgressBarButton">
@@ -1892,6 +1918,9 @@
                 <param name="percent" value="41" />
             </include>
             <include content="ProgressBarButton">
+                <param name="percent" value="40" />
+            </include>
+            <include content="ProgressBarButton">
                 <param name="percent" value="39" />
             </include>
             <include content="ProgressBarButton">
@@ -1956,6 +1985,9 @@
             </include>
             <include content="ProgressBarButton">
                 <param name="percent" value="18" />
+            </include>
+            <include content="ProgressBarButton">
+                <param name="percent" value="17" />
             </include>
             <include content="ProgressBarButton">
                 <param name="percent" value="16" />
@@ -2037,8 +2069,8 @@
                     <control type="textbox">
                         <height max="250">auto</height>
                         <width>550</width>
-                        <font>50px_Regular</font>
-                        <label>$VAR[TitleVar]</label>
+                        <font>56px_Medium</font>
+                        <label>[LIGHT]$VAR[TitleVar][/LIGHT]</label>
                         <textcolor>FFEEEEEE</textcolor>
                         <shadowcolor>text_shadow</shadowcolor>
                         <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
@@ -2055,7 +2087,7 @@
                 	<itemgap>12</itemgap>
                 	<control type="label">
                 	    <width min="0" max="400">auto</width>
-                	    <height>29</height>
+                	    <height>30</height>
                 	    <align>left</align>
                 	    <aligny>center</aligny>
                 	    <label>[LIGHT]$INFO[Window(Home).Property(Rating),,% le ha gustado][/LIGHT]</label>
@@ -2065,7 +2097,7 @@
                 	</control>
                 	<control type="label">
                 	    <width min="0" max="400">auto</width>
-                	    <height>29</height>
+                	    <height>30</height>
                 	    <align>left</align>
                 	    <aligny>center</aligny>
                 	    <label>[LIGHT]$INFO[Window(Home).Property(Year)][/LIGHT]</label>
@@ -2075,7 +2107,7 @@
                 	</control>
                     <control type="label">
                 	    <width min="0" max="400">auto</width>
-                	    <height>29</height>
+                	    <height>30</height>
                 	    <align>left</align>
                 	    <aligny>center</aligny>
                 	    <label>[B][COLOR $VAR[MpaaColorVar]]|[LIGHT][/COLOR][/B]$VAR[MpaaVar][/LIGHT]</label>
@@ -2085,7 +2117,7 @@
                 	</control>
 					<control type="label">
                 	    <width min="0" max="300">auto</width>
-                	    <height>29</height>
+                	    <height>30</height>
                 	    <align>left</align>
                 	    <aligny>center</aligny>
                 	    <label>[LIGHT]$VAR[EpisodesVar][/LIGHT]</label>
@@ -2096,9 +2128,9 @@
                     <control type="button">
                         <centertop>50%</centertop>
                         <width min="0" max="400">auto</width>
-                        <height>27</height>
+                        <height>22</height>
                         <texturenofocus border="5" colordiffuse="darkgray">flags/flag.png</texturenofocus>
-                        <label>$VAR[VideoResolutionVar]</label>
+                        <label>[B]$VAR[VideoResolutionVar][/B]</label>
                         <font>Flag_Font</font>
                         <textcolor>darkgray</textcolor>
                         <shadowcolor>text_shadow</shadowcolor>
@@ -2107,10 +2139,11 @@
                     </control>
                     <control type="button">
                         <centertop>50%</centertop>
+                        <left>-5</left>
                         <width min="0" max="400">auto</width>
-                        <height>27</height>
+                        <height>22</height>
                         <texturenofocus border="5" colordiffuse="darkgray">flags/flag.png</texturenofocus>
-                        <label>$VAR[AudioChannelsVar]</label>
+                        <label>[B]$VAR[AudioChannelsVar][/B]</label>
                         <font>Flag_Font</font>
                         <textcolor>darkgray</textcolor>
                         <shadowcolor>text_shadow</shadowcolor>
@@ -2353,369 +2386,354 @@
 	<include name="SidebarItems">
 		<item>
 			<label>Búsqueda</label>
-			<property name="menu_id">$NUMBER[2000]</property>
+			<property name="menu_id">$NUMBER[1000]</property>
 			<thumb>icons/sidemenu/search.png</thumb>
-			<property name="id">search</property>
+			<property name="id">Search</property>
             <onclick>SetProperty(ItemHub,Search)</onclick>
             <onclick>Control.SetFocus(1000)</onclick>
 		</item>
         <item>
 			<label>Inicio</label>
-			<property name="menu_id">$NUMBER[3000]</property>
+			<property name="menu_id">$NUMBER[2000]</property>
 			<thumb>icons/sidemenu/home.png</thumb>
             <onclick>SetProperty(ItemHub,Home)</onclick>
             <onclick>Control.SetFocus(2000)</onclick>
-			<property name="id">home</property>
+			<property name="id">Home</property>
 		</item>
 		<item>
 			<label>Películas</label>
-			<property name="menu_id">$NUMBER[4000]</property>
+			<property name="menu_id">$NUMBER[3000]</property>
 			<thumb>icons/sidemenu/movies.png</thumb>
-			<property name="id">movies</property>
+			<property name="id">Movies</property>
             <onclick>SetProperty(ItemHub,Movies)</onclick>
             <onclick>Control.SetFocus(3000)</onclick>
 		</item>
 		<item>
 			<label>Series</label>
-			<property name="menu_id">$NUMBER[5000]</property>
-			<thumb>icons/sidemenu/tv.png</thumb>
-			<property name="id">tvshows</property>
+			<property name="menu_id">$NUMBER[4000]</property>
+			<thumb>icons/sidemenu/tvshows.png</thumb>
+			<property name="id">TvShows</property>
             <onclick>SetProperty(ItemHub,TvShows)</onclick>
             <onclick>Control.SetFocus(4000)</onclick>
 		</item>
 		<item>
 			<label>Dibujos</label>
-			<property name="menu_id">$NUMBER[6000]</property>
-			<thumb>icons/sidemenu/kids.png</thumb>
-			<property name="id">kids</property>
+			<property name="menu_id">$NUMBER[5000]</property>
+			<thumb>icons/sidemenu/cartoons.png</thumb>
+			<property name="id">Kids</property>
             <onclick>SetProperty(ItemHub,Kids)</onclick>
             <onclick>Control.SetFocus(5000)</onclick>
 		</item>
         <item>
 			<label>Anime</label>
-			<property name="menu_id">$NUMBER[7000]</property>
+			<property name="menu_id">$NUMBER[6000]</property>
 			<thumb>icons/sidemenu/anime.png</thumb>
-			<property name="id">anime</property>
+			<property name="id">Anime</property>
             <onclick>SetProperty(ItemHub,Anime)</onclick>
             <onclick>Control.SetFocus(6000)</onclick>
 		</item>
 		<item>
 			<label>Mi Lista</label>
-			<property name="menu_id">$NUMBER[8000]</property>
-			<thumb>icons/sidemenu/mylist.png</thumb>
-			<property name="id">sets</property>
+			<property name="menu_id">$NUMBER[7000]</property>
+			<thumb>icons/sidemenu/my_list.png</thumb>
+			<property name="id">Mylist</property>
             <onclick>SetProperty(ItemHub,Mylist)</onclick>
             <onclick>Control.SetFocus(7000)</onclick>
 		</item>
 	</include>
 	<include name="SidebarMenu">
+        <control type="image">
+            <depth>-100</depth>
+            <left>0</left>
+            <width>432</width>
+            <height>100%</height>
+            <aspectratio>stretch</aspectratio>
+            <visible>ControlGroup(9000).HasFocus+!Window.Next(videos)</visible>
+            <visible>false</visible>
+            <texture>colors/background.png</texture>
+            <colordiffuse>primary_background</colordiffuse>
+            <include>Animation_Sidebar</include>
+        </control>
         <control type="group" id="9000">
 		    <depth>DepthSideBlade</depth>
-            <visible>!Window.IsActive(movieinformation)+!Window.Next(videos)+!Window.Next(settings)</visible>
+            <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
+            <visible>!Window.IsActive(movieinformation)+!Window.Next(videos)</visible>
             <include>Animation_WidgetInfo</include>
             <include>OpenClose_Fade</include>
-             <control type="image">
-                    <left>-20%</left>
-                    <width>150%</width>
-                    <height>150%</height>
-                    <texture>colors/black20.png</texture>
-                    <visible>ControlGroup(9000).HasFocus+Window.Next+!Window.Next(settings)</visible>
-                    <visible>true</visible>
-                    <include>Animation_Sidebar</include>
-                </control>
-
-            <control type="image">
-                <depth>-100</depth>
-                <left>-450</left>
-                <width>450</width>
-                <height>100%</height>
-                <aspectratio>stretch</aspectratio>
-                <visible>ControlGroup(9000).HasFocus+Window.Next+!Window.Next(settings)</visible>
-			    <texture colordiffuse="primary_background">frame/sidebar.png</texture>
-			    <include>Animation_Sidebar</include>
-			</control>
+            <control type="grouplist">
+                <centertop>47%</centertop>
+                <height>560</height>
+                <width>120</width>
+                <itemgap>0</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                <visible>true</visible>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/search.png"/>
+                    <param name="selected" value="String.IsEqual(Window.Property(ItemHub),Search)+!ControlGroup(9000).HasFocus"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Search)+!ControlGroup(9000).HasFocus"/>
+                </include>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/home.png"/>
+                    <param name="selected" value="[String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)]+!ControlGroup(9000).HasFocus"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="[String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)]+!ControlGroup(9000).HasFocus"/>
+                </include>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/movies.png"/>
+                    <param name="selected" value="String.IsEqual(Window.Property(ItemHub),Movies)+!ControlGroup(9000).HasFocus"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Movies)+!ControlGroup(9000).HasFocus"/>
+                </include>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/tvshows.png"/>
+                    <param name="selected" value="String.IsEqual(Window.Property(ItemHub),TvShows)+!ControlGroup(9000).HasFocus"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="String.IsEqual(Window.Property(ItemHub),TvShows)+!ControlGroup(9000).HasFocus"/>
+                </include>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/cartoons.png"/>
+                    <param name="selected" value="String.IsEqual(Window.Property(ItemHub),Kids)+!ControlGroup(9000).HasFocus"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Kids)+!ControlGroup(9000).HasFocus"/>
+                </include>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/anime.png"/>
+                    <param name="selected" value="String.IsEqual(Window.Property(ItemHub),Anime)+!ControlGroup(9000).HasFocus"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Anime)+!ControlGroup(9000).HasFocus"/>
+                </include>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/my_list.png"/>
+                    <param name="selected" value="String.IsEqual(Window.Property(ItemHub),Mylist)+!ControlGroup(9000).HasFocus"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Mylist)+!ControlGroup(9000).HasFocus"/>
+                </include>
+            </control>
             <control type="fixedlist" id="9100">
-				    <left>120</left>
-                    <centertop>50%</centertop>
-				    <width>500</width>
-                    <height>560</height>
-					<movement>10</movement>
-					<focusposition>1</focusposition>
-                    <onback>8000</onback>
-					<onright>8000</onright>
-					<ondown>Control.SetFocus(700)</ondown>
-               	    <onup>750</onup>
-                    <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
-                    <animation effect="fade" time="200" tween="cubic" easing="out" reversible="true">VisibleChange</animation>
-					<focusedlayout height="80" condition="Control.HasFocus(9100)">
-                        <control type="image">
-                            <width>5</width>
-                            <height>40</height>
-                            <texture>icons/sidemenu/focus.png</texture>
-                        </control>
-						<control type="label">
-                            <left>30</left>
-							<width>500</width>
-							<height>40</height>
-							<font>27px_Medium</font>
-							<textcolor>FFEEEEEE</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-							<align>left</align>
-							<aligny>center</aligny>
-						</control>
-					</focusedlayout>
-					<focusedlayout height="80" condition="!Control.HasFocus(9100)">
-                	    <control type="label">
-                            <left>30</left>
-							<width>500</width>
-							<height>40</height>
-							<font>27px_Medium</font>
-							<textcolor>gray</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<label>[LIGHT][UPPERCASE]$INFO[ListItem.Label][/UPPERCASE][/LIGHT]</label>
-							<align>left</align>
-							<aligny>center</aligny>
-						</control>
-					</focusedlayout>
-					<itemlayout height="80">
-						<control type="label">
-                            <left>30</left>
-							<width>500</width>
-							<height>40</height>
-							<font>27px_Medium</font>
-							<textcolor>gray</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<label>[LIGHT][UPPERCASE]$INFO[ListItem.Label][/LIGHT][/UPPERCASE]</label>
-							<align>left</align>
-							<aligny>center</aligny>
-						</control>
-					</itemlayout>
-					<content>
-                       	<include>SidebarItems</include>
-					</content>
-				</control>
-                <control type="group">
-                    <width>432</width>
-                    <control type="image">
-                        <left>120</left>
-                        <right>120</right>
-                        <bottom>200</bottom>
-                        <height>1</height>
-                        <texture colordiffuse="primary_background">dialogs/separator-grey.png</texture>
-                        <aspectratio>stretch</aspectratio>
-                        <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
-                        <animation effect="fade" time="200" tween="cubic" easing="out" reversible="true">VisibleChange</animation>
-                    </control>
-                </control>
-                <control type="grouplist" id="700">
-                    <bottom>40</bottom>
-                    <height>120</height>
-                    <width>432</width>
-                    <onback>8000</onback>
-                    <onleft>noop</onleft>
-                    <onright>noop</onright>
-                    <ondown>noop</ondown>
-                    <onup>9100</onup>
-                    <orientation>horizontal</orientation>
-                    <usecontrolcoords>true</usecontrolcoords>
-                    <align>center</align>
-                    <itemgap>20</itemgap>
-                    <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
-                    <animation effect="fade" time="200" tween="cubic" easing="out" reversible="true">VisibleChange</animation>
-                    <control type="radiobutton" id="701">
-                        <height>70</height>
-                        <width>70</width>
-                        <align>left</align>
-                        <aligny>center</aligny>
-                        <font>24px_Medium</font>
-                        <radioposx>13</radioposx>
-                        <radiowidth>44</radiowidth>
-                        <radioheight>70</radioheight>
-                        <textcolor>gray</textcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textureradioofffocus colordiffuse="black">icons/round_settings_white_48dp.png</textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="gray">icons/round_settings_white_48dp.png</textureradiooffnofocus>
-                        <texturefocus>dialogs/keyboard/key3.png</texturefocus>
+                <centertop>47%</centertop>
+                <width>400</width>
+                <height>560</height>
+                <movement>10</movement>
+                <focusposition>1</focusposition>
+                <onright>Control.SetFocus($INFO[ListItem.Property(menu_id)])</onright>
+                <ondown>Control.SetFocus(700,0)</ondown>
+                <onup>750</onup>
+                <onback>Control.SetFocus(8851)</onback>
+                <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+                <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
+                <focusedlayout height="80">
+                    <control type="button">
+                        <centertop>50%</centertop>
+                        <left>-20</left>
+                        <width>410</width>
+                        <height>80</height>
+                        <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
                         <texturenofocus/>
-                        <pulseonselect>false</pulseonselect>
-                        <selected>false</selected>
-                        <onclick>ActivateWindow(Settings),return</onclick>
-                    </control>
-                    <control type="radiobutton" id="702">
-                        <height>70</height>
-                        <width>70</width>
-                        <align>left</align>
-                        <aligny>center</aligny>
-                        <font>24px_Medium</font>
-                        <radioposx>13</radioposx>
-                        <radiowidth>44</radiowidth>
-                        <radioheight>70</radioheight>
-                        <textcolor>gray</textcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textureradioofffocus colordiffuse="black">icons/round_refresh_white_48dp.png</textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="gray">icons/round_refresh_white_48dp.png</textureradiooffnofocus>
-                        <texturefocus>dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus/>
-                        <pulseonselect>false</pulseonselect>
-                        <selected>false</selected>
-                        <onclick>UpdateLibrary(video)</onclick>
-                        <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" reversible="false" condition="Library.IsScanningVideo">Conditional</animation>
-                    </control>
-                    <control type="radiobutton" id="703">
-                        <height>70</height>
-                        <width>70</width>
-                        <align>left</align>
-                        <aligny>center</aligny>
-                        <font>24px_Medium</font>
-                        <radioposx>13</radioposx>
-                        <radiowidth>44</radiowidth>
-                        <radioheight>70</radioheight>
-                        <textcolor>gray</textcolor>
-                        <shadowcolor>text_shadow</shadowcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textureradioofffocus colordiffuse="black">icons/round_power_settings_new_white_48dp.png</textureradioofffocus>
-                        <textureradiooffnofocus colordiffuse="gray">icons/round_power_settings_new_white_48dp.png</textureradiooffnofocus>
-                        <texturefocus>dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus/>
-                        <pulseonselect>false</pulseonselect>
-                        <selected>false</selected>
-                        <onclick>ActivateWindow(shutdownmenu)</onclick>
-                    </control>
-                </control>
-                <control type="group">
-                    <centertop>120</centertop>
-                    <width>420</width>
-                    <height>60</height>
-                    <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
-                    <animation effect="fade" time="200" tween="cubic" easing="out" reversible="true">VisibleChange</animation>
-
-                    <control type="image">
-			            <depth>DepthBackground</depth>
-			            <centerleft>75</centerleft>
-                        <centertop>40</centertop>
-                        <width>60</width>
-			            <height>60</height>
-                        <bordersize>4</bordersize>
-                        <bordertexture>frame/profile_shadow.png</bordertexture>
-                        <aspectratio scalediffuse="false">scale</aspectratio>
-			            <texture diffuse="lists/profile.png">$INFO[System.ProfileThumb]</texture>
-		            </control>
-                    <control type="button" id="750">
-                        <centerleft>75</centerleft>
-                        <centertop>40</centertop>
-                        <width>60</width>
-                        <height>60</height>
-                        <onback>$VAR[SidebarVar]</onback>
-						<onright>$VAR[SidebarVar]</onright>
-						<onright>back</onright>
-                        <onclick>dialog.close(all,true)</onclick>
-						<onclick>System.LogOff</onclick>
-                        <ondown>9100</ondown>
                         <pulseonselect>true</pulseonselect>
-                        <texturefocus>frame/profile_focus.png</texturefocus>
-                        <texturenofocus></texturenofocus>
+                        <onfocus>SetProperty(ItemHub,$INFO[ListItem.Property(id)])</onfocus>
                     </control>
-		            <control type="label">
-                		<centertop>30</centertop>
-						<left>120</left>
-						<width>500</width>
-						<height>27</height>
-						<font>24px_Regular</font>
-						<textcolor>FFEEEEEE</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-						<label>$INFO[System.ProfileName]</label>
-						<align>left</align>
-						<aligny>center</aligny>
-					</control>
-					<control type="label">
-                		<centertop>52</centertop>
-						<left>120</left>
-						<width>500</width>
-						<height>22</height>
-						<font>16px_Regular</font>
-						<textcolor>darkgray</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-						<label>Cambiar de Usuario</label>
-						<align>left</align>
-						<aligny>center</aligny>
-					</control>
+                    <control type="group">
+                        <centertop>50%</centertop>
+                        <width>120</width>
+                        <height>40</height>
+                        <visible>Control.HasFocus(9100)</visible>
+                        <control type="image">
+                            <centerleft>50%</centerleft>
+                            <width>30</width>
+                            <height>40</height>
+                            <texture colordiffuse="black">$INFO[ListItem.Icon]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <left>110</left>
+                            <width>200</width>
+                            <height>40</height>
+                            <font>27px_Medium</font>
+                            <textcolor>black</textcolor>
+                            <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <centertop>50%</centertop>
+                        <width>120</width>
+                        <height>40</height>
+                        <visible>!Control.HasFocus(9100)</visible>
+                        <control type="label">
+                            <left>110</left>
+                            <width>200</width>
+                            <height>40</height>
+                            <font>27px_Medium</font>
+                            <textcolor>white</textcolor>
+                            <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <visible>String.IsEqual(ListItem.Property(id),Window.Property(ItemHub))+!ControlGroup(9000).HasFocus</visible>
+                        </control>
+                        <control type="label">
+                            <left>110</left>
+                            <width>200</width>
+                            <height>40</height>
+                            <font>27px_Medium</font>
+                            <textcolor>gray</textcolor>
+                            <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <visible>!String.IsEqual(ListItem.Property(id),Window.Property(ItemHub))|ControlGroup(9000).HasFocus</visible>
+                        </control>
+                    </control>
+                </focusedlayout>
+                <itemlayout height="80">
+                    <control type="group">
+                        <centertop>50%</centertop>
+                        <width>120</width>
+                        <height>40</height>
+                        <control type="label">
+                            <left>110</left>
+                            <width>200</width>
+                            <height>40</height>
+                            <font>27px_Medium</font>
+                            <textcolor>gray</textcolor>>
+                            <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                        </control>
+                    </control>
+                </itemlayout>
+                <content>
+                    <include>SidebarItems</include>
+                </content>
+            </control>
+            <control type="group">
+                <width>410</width>
+                <height>80</height>
+                <bottom>50</bottom>
+                <include content="IconSideMenu">
+                    <param name="icon" value="icons/sidemenu/settings.png"/>
+                    <param name="selected" value="[String.IsEqual(Window.Property(ItemHub),Settings)+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,10)+Control.HasFocus(9100)]"/>
+                    <param name="visible" value="!Window.IsVisible(1110)"/>
+                    <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Settings)"/>
+                </include>
+                <control type="radiobutton" id="700">
+                    <left>-20</left>
+                    <width>410</width>
+                    <height>80</height>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <radioposy>20</radioposy>
+                    <radioposx>65</radioposx>
+                    <radiowidth>30</radiowidth>
+                    <radioheight>40</radioheight>
+                    <label>[UPPERCASE]$VAR[SettingsFocus][/UPPERCASE]</label>
+                    <textoffsetx>130</textoffsetx>
+                    <textcolor>gray</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <textureradioonfocus/>
+                    <textureradioofffocus colordiffuse="black">icons/sidemenu/settings.png</textureradioofffocus>
+                    <textureradioonnofocus/>
+                    <textureradiooffnofocus/>
+                    <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
+                    <texturenofocus/>
+                    <selected>false</selected>
+                    <pulseonselect>true</pulseonselect>
+                    <onup>Control.SetFocus(9100,10)</onup>
+                    <onback>Control.SetFocus(8851)</onback>
+                    <onright>8000</onright>
+                    <onclick>Control.SetFocus(8500)</onclick>
+                    <onfocus>SetProperty(ItemHub,Settings)</onfocus>
+                    <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
                 </control>
-                <control type="grouplist">
-            <centertop>50%</centertop>
-            <height>560</height>
-            <width>150</width>
-            <itemgap>40</itemgap>
-            <usecontrolcoords>true</usecontrolcoords>
-            <animation effect="fade" time="300" tween="cubic" easing="out" reversible="true">VisibleChange</animation>
-            <include content="IconSideMenu">
-                <param name="icon" value="icons/sidemenu/search.png"/>
-                <param name="selected" value="[String.IsEqual(Window.Property(ItemHub),Search)+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,1)+Control.HasFocus(9100)]"/>
-                <param name="visible" value="!Window.IsVisible(1110)"/>
-                <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Search)"/>
-            </include>
-            <include content="IconSideMenu">
-                <param name="icon" value="icons/sidemenu/home.png"/>
-                <param name="selected" value="[[String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)]+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,2)+Control.HasFocus(9100)]"/>
-                <param name="visible" value="!Window.IsVisible(1110)"/>
-                <param name="focus" value="String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)"/>
-            </include>
-            <include content="IconSideMenu">
-                <param name="icon" value="icons/sidemenu/movies.png"/>
-                <param name="selected" value="[String.IsEqual(Window.Property(ItemHub),Movies)+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,3)+Control.HasFocus(9100)]"/>
-                <param name="visible" value="!Window.IsVisible(1110)"/>
-                <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Movies)"/>
-            </include>
-            <include content="IconSideMenu">
-                <param name="icon" value="icons/sidemenu/tv.png"/>
-                <param name="selected" value="[String.IsEqual(Window.Property(ItemHub),TvShows)+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,4)+Control.HasFocus(9100)]"/>
-                <param name="visible" value="!Window.IsVisible(1110)"/>
-                <param name="focus" value="String.IsEqual(Window.Property(ItemHub),TvShows)"/>
-            </include>
-            <include content="IconSideMenu">
-                <param name="icon" value="icons/sidemenu/cartoons.png"/>
-                <param name="selected" value="[String.IsEqual(Window.Property(ItemHub),Kids)+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,5)+Control.HasFocus(9100)]"/>
-                <param name="visible" value="!Window.IsVisible(1110)"/>
-                <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Kids)"/>
-            </include>
-            <include content="IconSideMenu">
-                <param name="icon" value="icons/sidemenu/anime.png"/>
-                <param name="selected" value="[String.IsEqual(Window.Property(ItemHub),Anime)+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,6)+Control.HasFocus(9100)]"/>
-                <param name="visible" value="!Window.IsVisible(1110)"/>
-                <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Anime)"/>
-            </include>
-            <include content="IconSideMenu">
-                <param name="icon" value="icons/sidemenu/mylist.png"/>
-                <param name="selected" value="[String.IsEqual(Window.Property(ItemHub),Mylist)+!ControlGroup(9000).HasFocus]|[Integer.IsEqual(Container(9100).CurrentItem,7)+Control.HasFocus(9100)]"/>
-                <param name="visible" value="!Window.IsVisible(1110)"/>
-                <param name="focus" value="String.IsEqual(Window.Property(ItemHub),Mylist)"/>
-            </include>
-			</control>
-	       	
-		</control>
-        
+            </control>
+            <control type="group">
+                <centertop>115</centertop>
+                <height>80</height>
+                <width>410</width>
+                <control type="radiobutton" id="750">
+                    <centertop>42</centertop>
+                    <left>-20</left>
+                    <width>410</width>
+                    <height>80</height>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <radioposy>20</radioposy>
+                    <radioposx>65</radioposx>
+                    <radiowidth>30</radiowidth>
+                    <radioheight>40</radioheight>
+                    <label>$VAR[PowerMenuFocus]</label>
+                    <textoffsetx>130</textoffsetx>
+                    <textwidth>300</textwidth>
+                    <textcolor>gray</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <textureradioonfocus/>
+                    <textureradioofffocus diffuse="lists/profile.png">$INFO[System.ProfileThumb]</textureradioofffocus>
+                    <textureradioonnofocus/>
+                    <textureradiooffnofocus/>
+                    <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
+                    <texturenofocus/>
+                    <selected>false</selected>
+                    <pulseonselect>true</pulseonselect>
+                    <ondown>Control.SetFocus(9100,0)</ondown>
+                    <onback>Control.SetFocus(8851)</onback>
+                    <onright>8000</onright>
+                    <onclick>Control.SetFocus(8000)</onclick>
+                    <onfocus>SetProperty(ItemHub,Powermenu)</onfocus>
+                    <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
+                <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
+                </control>
+                <control type="image">
+                    <depth>DepthBackground</depth>
+                    <centerleft>60</centerleft>
+                    <centertop>42</centertop>
+                    <width>60</width>
+                    <height>60</height>
+                    <bordersize>5</bordersize>
+                    <bordertexture>frame/profile_shadow.png</bordertexture>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="lists/profile.png">$INFO[System.ProfileThumb]</texture>
+                </control>
+                <control type="image">
+                    <depth>DepthBackground</depth>
+                    <centerleft>60</centerleft>
+                    <centertop>42</centertop>
+                    <width>60</width>
+                    <height>60</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture>frame/profile_focus.png</texture>
+                    <visible>ControlGroup(8100).HasFocus</visible>
+                </control>
+            </control>
+        </control>
 	</include>
     <include name="IconSideMenu">
         <control type="grouplist">
-            <width>150</width>
-            <height>40</height>
+            <width>120</width>
+            <height>80</height>
             <orientation>horizontal</orientation>
             <align>center</align>
+            <control type="group">
+            <width>40</width>
+            <height>80</height>
             <control type="radiobutton">
-                <width>24</width>
+                <centertop>39</centertop>
+                <width>30</width>
                 <height>40</height>
-                <radiowidth>24</radiowidth>
+                <radiowidth>30</radiowidth>
                 <radioheight>40</radioheight>
                 <texturefocus/>
                 <texturenofocus/>
-                <radioposx>1</radioposx>
+                <radioposy>1</radioposy>
+                <radioposx>5</radioposx>
                 <textureradioonfocus>$PARAM[icon]</textureradioonfocus>
                 <textureradioonnofocus>$PARAM[icon]</textureradioonnofocus>
                 <textureradioofffocus colordiffuse="gray">$PARAM[icon]</textureradioofffocus>
                 <textureradiooffnofocus colordiffuse="gray">$PARAM[icon]</textureradiooffnofocus>
                 <selected>$PARAM[focus]</selected>
+            </control>
             </control>
         </control>
     </include>
@@ -2808,9 +2826,8 @@
 	</include>
 	<include name="CommonScrollbars">
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+			<include>OpenClose_Fade</include>
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="System.HasActiveModalDialog">Conditional</animation>
-			<animation effect="fade" start="0" end="100" time="320">WindowOpen</animation>
             <visible>!Window.IsActive(movieinformation)</visible>
             <include>Animation_WidgetInfo</include>
 			<control type="scrollbar" id="531">
@@ -2818,10 +2835,18 @@
                 <bottom>10</bottom>
                 <right>10</right>
                 <width>5</width>
-                <onleft>500</onleft>
-                <onback>500</onback>
+                <onleft condition="Control.IsVisible(50)">50</onleft>
+                <onback condition="Control.IsVisible(50)">50</onback>
+                <onleft condition="Control.IsVisible(52)">52</onleft>
+                <onback condition="Control.IsVisible(52)">52</onback>
+                <onleft condition="Control.IsVisible(54)">54</onleft>
+                <onback condition="Control.IsVisible(54)">54</onback>
+                <onleft condition="Control.IsVisible(55)">55</onleft>
+                <onback condition="Control.IsVisible(55)">55</onback>
+                <onleft condition="Control.IsVisible(500)">500</onleft>
+                <onback condition="Control.IsVisible(500)">500</onback>
                 <texturesliderbackground/>
-                <texturesliderbar colordiffuse="dimgray" border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
                 <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
                 <textureslidernib/>
                 <textureslidernibfocus/>
@@ -2830,6 +2855,8 @@
                 <enable>true</enable>
                 <include>Animation_WidgetInfo</include>
                 <pulseonselect>true</pulseonselect>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus(531)" reversible="true">Conditional</animation>
+                <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="Control.HasFocus(531)" reversible="true">Conditional</animation>
             </control>
 
 			<control type="group">
@@ -2848,6 +2875,7 @@
 					<ondown>50</ondown>
 					<orientation>horizontal</orientation>
 					<visible>Control.IsVisible(51) | Control.IsVisible(53)</visible>
+
 					<animation effect="slide" end="0,6" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(5199)">conditional</animation>
 					<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 					<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -3440,15 +3468,14 @@
 				<left>100</left>
 				<right>100</right>
 				<top>$PARAM[posy]</top>
-				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<include>OpenClose_Fade</include>
 				<height>150</height>
 				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
 				<control type="label">
 					<width>100%</width>
 					<label>$PARAM[main_label]</label>
-					<font>font52_title</font>
+					<font>56px_Medium</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<height>65</height>
 					<align>center</align>
@@ -3458,6 +3485,7 @@
 				<control type="label" id="$PARAM[id]">
 					<label>$PARAM[sub_label]</label>
 					<left>85</left>
+                    <font>32px_Regular</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>center</align>
 					<height>100</height>
@@ -3647,9 +3675,12 @@
 		<param name="sublabel">$INFO[Container.SortMethod,$LOCALIZE[31022]: ,  ∙  ]$INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems]</param>
 		<definition>
 			<control type="group">
+                <include>OpenClose_Fade</include>
+                <include>Animation_WidgetFade</include>
 				<animation effect="slide" end="0,-112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="200" condition="Container(52).HasPrevious" reversible="true">Conditional</animation>
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -3658,21 +3689,41 @@
 					<texture>frame/InfoBar.png</texture>
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
 				</control>
+                <control type="label">
+                    <top>20</top>
+                    <left>30</left>
+                    <label>$PARAM[breadcrumbs_label]</label>
+                    <include>BreadcrumbsLabel</include>
+                </control>
+                <control type="textbox">
+                    <top>70</top>
+                    <left>40</left>
+                    <label>$INFO[Container.FolderName,/]</label>
+                    <font>32px_Regular</font>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <textcolor>silver</textcolor>
+                    <height>130</height>
+                    <width>530</width>
+                    <aligny>top</aligny>
+                </control>
 				<control type="grouplist">
-					<left>35</left>
+					<left>30</left>
 					<description>Left side of top bar</description>
-					<width>900</width>
-					<top>-7</top>
-					<height>100</height>
+					<width>560</width>
+					<top>20</top>
+					<height>70</height>
 					<orientation>horizontal</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
+                    <visible>!Container(52).HasPrevious</visible>
+                    <visible>false</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
 					<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-					<animation effect="slide" end="0,16" time="200" reversible="true" condition="String.IsEmpty(Control.GetLabel(18900))">Conditional</animation>
-					<animation effect="slide" end="70,0" time="200" reversible="true" condition="Control.IsVisible(701)">Conditional</animation>
+
 					<control type="label">
 						<label>$PARAM[breadcrumbs_label]</label>
 						<include>BreadcrumbsLabel</include>
+                        <visible>false</visible>
 					</control>
 					<control type="label">
 						<label>$INFO[Container.ShowTitle, / ]</label>
@@ -3680,9 +3731,10 @@
 						<visible>!String.IsEmpty(Container.ShowTitle) + !String.IsEqual(Container.ShowTitle,Container.FolderName)</visible>
 					</control>
 					<control type="label">
-						<label>$INFO[Container.FolderName, / ]</label>
+						<label>$INFO[Container.FolderName,/]</label>
 						<include>BreadcrumbsLabel</include>
 						<visible>![Container.Content() + Window.IsActive(videos)]</visible>
+                        <visible>false</visible>
 						<visible>![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml)]</visible>
 					</control>
 					<control type="label">
@@ -3712,25 +3764,16 @@
 					<texturefocus />
 					<texturenofocus />
 				</control>
-				<control type="label" id="18900">
-					<top>50</top>
-					<label>$PARAM[sublabel]</label>
-					<left>35</left>
-					<shadowcolor>text_shadow</shadowcolor>
-					<height>100</height>
-					<width>900</width>
-					<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-					<animation effect="slide" end="70,0" time="200" reversible="true" condition="Control.IsVisible(701)">Conditional</animation>
-				</control>
 				<control type="grouplist">
-					<top>0</top>
+					<centertop>70</centertop>
 					<align>right</align>
-					<right>20</right>
-					<height>200</height>
+					<right>70</right>
+					<height>70</height>
 					<orientation>horizontal</orientation>
 					<width>900</width>
 					<itemgap>10</itemgap>
+                    <visible>!Container(52).HasPrevious</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
 					<visible>!Window.IsVisible(extendedprogressdialog) + !Window.IsActive(fullscreenvideo)</visible>
 					<animation effect="fade" time="150">VisibleChange</animation>
 					<control type="group">
@@ -3773,20 +3816,12 @@
 							<align>right</align>
 						</control>
 					</control>
-					<control type="label">
-						<font>font_clock</font>
-						<shadowcolor>text_shadow</shadowcolor>
-						<height>200</height>
-						<width>auto</width>
-						<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
-						<label>$INFO[System.Time]</label>
-					</control>
 				</control>
 				<control type="grouplist">
 					<right>10</right>
-					<top>70</top>
+					<centertop>100</centertop>
 					<width>800</width>
-					<height>100</height>
+					<height>50</height>
 					<align>right</align>
 					<itemgap>5</itemgap>
 					<orientation>horizontal</orientation>
@@ -3855,11 +3890,13 @@
 		</definition>
 	</include>
 	<include name="BreadcrumbsLabel">
-		<font>font45</font>
+		<font>56px_Medium</font>
 		<shadowcolor>text_shadow</shadowcolor>
-		<top>7</top>
-		<height>100</height>
+        <textcolor>gainsboro</textcolor>
+		<top>10</top>
+		<height>60</height>
 		<width>auto</width>
+        <aligny>center</aligny>
 	</include>
 	<include name="ColoredBackgroundImages">
 		<control type="image">
@@ -3956,23 +3993,23 @@
 					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 					<control type="button">
 						<bottom>20</bottom>
-						<left>12</left>
+						<left>20</left>
 						<width>36</width>
 						<height>36</height>
 						<animation effect="rotate" end="-90" center="auto" time="200" reversible="true" condition="Control.IsVisible(51) | Control.IsVisible(53)">Conditional</animation>
 						<texturefocus colordiffuse="button_focus">frame/menu-nofo.png</texturefocus>
-						<texturenofocus colordiffuse="FFCCCCCC">frame/menu-nofo.png</texturenofocus>
+						<texturenofocus colordiffuse="gray">frame/menu-nofo.png</texturenofocus>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<onclick>SetFocus(9000)</onclick>
 						<visible>!Control.IsVisible(6160)</visible>
 					</control>
 					<control type="button" id="6160">
 						<bottom>20</bottom>
-						<left>12</left>
+						<left>20</left>
 						<width>36</width>
 						<height>36</height>
 						<texturefocus colordiffuse="button_focus">icons/menu.png</texturefocus>
-						<texturenofocus colordiffuse="FFCCCCCC">icons/menu.png</texturenofocus>
+						<texturenofocus colordiffuse="gray">icons/menu.png</texturenofocus>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<onclick>SetFocus(9000)</onclick>
 						<visible>Window.IsActive(MyPVRGuide.xml)</visible>
@@ -3983,7 +4020,6 @@
 						<width>300</width>
 						<height>44</height>
 						<shadowcolor>text_shadow</shadowcolor>
-						<label>$LOCALIZE[33063]</label>
 						<onclick>SetFocus(9000)</onclick>
 						<texturefocus />
 						<texturenofocus />
@@ -4118,7 +4154,7 @@
 		<param name="flipx">false</param>
 		<definition>
 			<control type="image">
-				<texture flipx="$PARAM[flipx]" colordiffuse="FFFFFFFF">lists/panel.png</texture>
+				<texture flipx="$PARAM[flipx]" colordiffuse="primary_background">lists/panel.png</texture>
 				<bordertexture border="21">overlays/shadow.png</bordertexture>
 				<bordersize>20</bordersize>
 				<width>$PARAM[width]</width>
@@ -4210,45 +4246,51 @@
 		</control>
 	</include>
 	<include name="SettingsPanel">
-		<itemlayout height="260" width="400">
-			<control type="image">
-				<left>-5</left>
-				<width>410</width>
-				<height>270</height>
-				<texture border="20" colordiffuse="primary_background">buttons/button-nofo2.png</texture>
-				<bordersize>20</bordersize>
-			</control>
-			<control type="image">
-				<centerleft>50%</centerleft>
-				<top>30</top>
-				<width>240</width>
-				<height>160</height>
-				<texture colordiffuse="gray">$INFO[ListItem.Icon]</texture>
-				<align>center</align>
-				<aspectratio>scale</aspectratio>
-			</control>
-			<control type="label">
-				<left>25</left>
-				<top>190</top>
-				<width>350</width>
-				<height>400</height>
-				<label>$INFO[ListItem.Label]</label>
-                <textcolor>gray</textcolor>
-				<align>center</align>
-			</control>
+		<itemlayout height="287" width="427">
+            <control type="group">
+                <left>-5</left>
+                <width>410</width>
+                <height>270</height>
+                <control type="image">
+                    <texture border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texture>
+                    <bordersize>5</bordersize>
+                </control>
+                <control type="image">
+                    <centerleft>50%</centerleft>
+                    <top>30</top>
+                    <width>240</width>
+                    <height>160</height>
+                    <texture colordiffuse="gray">$INFO[ListItem.Icon]</texture>
+                    <align>center</align>
+                    <aspectratio>scale</aspectratio>
+                </control>
+                <control type="label">
+                    <left>25</left>
+                    <right>25</right>
+                    <top>190</top>
+                    <height>400</height>
+                    <label>$INFO[ListItem.Label]</label>
+                    <font>27px_Medium</font>
+                    <textcolor>gray</textcolor>
+                    <align>center</align>
+                </control>
+            </control>
 		</itemlayout>
-		<focusedlayout height="230" width="400">
+		<focusedlayout height="287" width="427">
 			<control type="group">
+                <left>-5</left>
+                <width>410</width>
+                <height>270</height>
 				<depth>DepthContentPopout</depth>
-				<animation effect="zoom" start="100" end="108" center="auto" tween="back" easing="inout" time="350" reversible="true">Focus</animation>
-                <animation effect="zoom" start="108" end="100" center="auto" tween="back" easing="out" time="250" reversible="true">Unfocus</animation>
+				<animation effect="zoom" start="100" end="105" center="auto" tween="sine" easing="in" time="100" reversible="true">Focus</animation>
+                <animation effect="zoom" start="105" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
                 <control type="button">
-                    <top>20</top>
-                    <left>15</left>
-                    <width>370</width>
-					<height>230</height>
+                    <top>5</top>
+                    <left>5</left>
+                    <width>400</width>
+					<height>260</height>
                     <texturefocus border="20">buttons/button-focus.png</texturefocus>
-                    <texturenofocus border="20" colordiffuse="primary_background">buttons/button-nofo2.png</texturenofocus>
+                    <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
                     <pulseonselect>true</pulseonselect>
                 </control>
 				<control type="image">
@@ -4264,10 +4306,11 @@
 				</control>
 				<control type="label">
 					<left>25</left>
+                    <right>25</right>
 					<top>190</top>
-					<width>350</width>
 					<height>400</height>
 					<label>$INFO[ListItem.Label]</label>
+                    <font>27px_Medium</font>
                     <textcolor>black</textcolor>
 					<align>center</align>
                     <animation effect="fade" end="100" time="1" reversible="true">Focus</animation>
@@ -4286,10 +4329,11 @@
 				</control>
 				<control type="label">
 					<left>25</left>
+                    <right>25</right>
 					<top>190</top>
-					<width>350</width>
 					<height>400</height>
 					<label>$INFO[ListItem.Label]</label>
+                    <font>27px_Medium</font>
                     <textcolor>gray</textcolor>
 					<align>center</align>
                     <animation effect="fade" end="0" time="1" reversible="true">Focus</animation>

@@ -15,86 +15,45 @@
             </animation>
             <control type="group">
                 <height>80</height>
-                <control type="group">
-                    <top>50</top>
-                    <right>50</right>
-                    <width>75%</width>
-                    <!-- buttons -->
-                    <control type="button" id="3012">
-                        <left>-1000</left>
-                        <top>-1000</top>
-                        <height>1</height>
-                        <width>1</width>
-                    </control>
-                    <control type="grouplist" id="20">
-                        <orientation>horizontal</orientation>
-                        <height>56</height>
-                        <itemgap>10</itemgap>
-                        <align>right</align>
-                        <control type="button" id="10">
-                            <label>    $ADDON[service.upnext 30010]</label>
-                            <onclick>SendClick(3012)</onclick>
-                            <visible>Integer.IsGreater(Player.TimeRemaining,59)</visible>
-                            <height>56</height>
-                            <width min="50">auto</width>
-                            <font>font20_title</font>
-                            <textoffsetx>55</textoffsetx>
-                            <textcolor>ddffffff</textcolor>
-                            <focusedcolor>eeffffff</focusedcolor>
-                            <selectedcolor>ddffffff</selectedcolor>
-                            <shadowcolor>22000000</shadowcolor>
-                            <aligny>center</aligny>
-                            <align>center</align>
-                            <texturefocus border="10" colordiffuse="FF172A91">button.png</texturefocus>
-                            <texturenofocus border="10" colordiffuse="FF212121">button.png</texturenofocus>
-                            <alttexturefocus border="10" colordiffuse="FF172A91">button.png</alttexturefocus>
-                            <alttexturenofocus border="10" colordiffuse="FF212121">button.png</alttexturenofocus>
-                            <pulseonselect>no</pulseonselect>
-                        </control>
-                        <control type="button" id="11">
-                            <label>  $ADDON[service.upnext 30035]           </label>
-                            <onclick>SendClick(3012)</onclick>
-                            <visible>!Integer.IsGreater(Player.TimeRemaining,59)</visible>
-                            <height>56</height>
-                            <width min="50">auto</width>
-                            <font>25px_Bold</font>
-                            <textoffsetx>0</textoffsetx>
-                            <textcolor>FFEEEEEE</textcolor>
-                            <focusedcolor>eeffffff</focusedcolor>
-                            <selectedcolor>ddffffff</selectedcolor>
-                            <shadowcolor>80000000</shadowcolor>
-                            <aligny>center</aligny>
-                            <align>left</align>
-                            <texturefocus colordiffuse="button_focus">colors/white.png</texturefocus>
-                            <texturenofocus colordiffuse="button_focus">colors/white.png</texturenofocus>
-                            <alttexturefocus colordiffuse="button_focus">colors/white.png</alttexturefocus>
-                            <alttexturenofocus colordiffuse="button_focus">colors/white.png</alttexturenofocus>
-                            <pulseonselect>no</pulseonselect>
-                        </control>
-                    </control>
-                    <control type="image">
-                        <right>5</right>
-                    	<top>5</top>
-                        <width>46</width>
-                        <height>46</height>
-                        <aspect>keep</aspect>
-                        <texture colordiffuse="ddffffff">nextupicons/30.png</texture>
-                        <visible>Integer.IsGreater(Player.TimeRemaining,30)</visible>
-                    </control>
-                    <control type="image">
-                        <right>5</right>
-                    	<top>5</top>
-                        <width>46</width>
-                        <height>46</height>
-                        <aspect>keep</aspect>
-                        <texture colordiffuse="ddffffff">$INFO[Player.TimeRemaining(ss),nextupicons/,.png]</texture>
-                        <visible>!Integer.IsGreater(Player.TimeRemaining,30)</visible>
+                <right>50</right>
+                <width>75%</width>
+                <!-- Buttons -->
+                <control type="button" id="3012">
+                    <left>-1000</left>
+                    <top>-1000</top>
+                    <height>1</height>
+                    <width>1</width>
+                </control>
+                <control type="grouplist" id="20">
+                    <top>50%</top>
+                    <orientation>horizontal</orientation>
+                    <height>80</height>
+                    <itemgap>10</itemgap>
+                    <align>right</align>
+                    <control type="button" id="11">
+                        <width>auto</width>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>27px_Medium</font>
+                        <label>[UPPERCASE]Continuará en [B]$INFO[Player.TimeRemaining(ss)][/B] segundos[/UPPERCASE]      </label>
+                        <textoffsetx>30</textoffsetx>
+                        <textcolor>darkgray</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <shadowcolor>text_shadow</shadowcolor>
+                        <texturefocus colordiffuse="F2FFFFFF" border="20">buttons/button-focus.png</texturefocus>
+                        <onclick>SendClick(3012)</onclick>
+                        <pulseonselect>false</pulseonselect>
                     </control>
                 </control>
+                <control type="image">
+                    <top>50%</top>
+                    <right>15</right>
+                    <width>55</width>
+                    <height>80</height>
+                    <texture colordiffuse="F2000000">icons/videoinfo/play2.png</texture>
+                    <aspectratio>keep</aspectratio>
+                </control>
             </control>
-        </control>
-        <control type="progress" id="3014">
-            <visible>false</visible>
         </control>
     </controls>
 </window>

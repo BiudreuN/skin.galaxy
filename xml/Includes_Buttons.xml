@@ -32,15 +32,14 @@
             <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
             <texturenofocus></texturenofocus>
             <alttexturefocus border="20">dialogs/keyboard/key.png</alttexturefocus>
-            <alttexturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key.png</alttexturenofocus>
+            <alttexturenofocus border="20" colordiffuse="button_selected">dialogs/keyboard/key-nf.png</alttexturenofocus>
             <usealttexture>Container($PARAM[id]050).Position($PARAM[position])</usealttexture>
-            <label>[COLOR gray][LIGHT]$PARAM[label][/LIGHT][/COLOR]</label>
+            <label>[COLOR gray]$PARAM[label][/COLOR]</label>
             <altlabel>$PARAM[label]</altlabel>
             <font>27px_Medium</font>
             <textcolor>FFEEEEEE</textcolor>
             <focusedcolor>black</focusedcolor>
             <disabledcolor>disabled</disabledcolor>
-            <shadowcolor>text_shadow</shadowcolor>
             <textoffsetx>20</textoffsetx>
             <align>left</align>
             <aligny>center</aligny>
@@ -120,16 +119,19 @@
 		</control>
 	</include>
 	<include name="DefaultSettingButton">
-		<param name="height">70</param>
+		<param name="height">80</param>
 		<param name="textoffsetx">40</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
-			<top>0</top>
+			<top>80</top>
+            <font>27px_Medium</font>
 			<height>$PARAM[height]</height>
 			<aligny>center</aligny>
+            <textcolor>gray</textcolor>
+            <focusedcolor>black</focusedcolor>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus colordiffuse="button_focus">lists/focus.png</texturefocus>
+			<texturefocus border="20">buttons/button-focus.png</texturefocus>
 			<texturenofocus />
 		</definition>
 	</include>
@@ -306,28 +308,32 @@
 		<definition>
 			<control type="radiobutton" id="$PARAM[id]">
 				<width>$PARAM[width]</width>
-				<height>142</height>
+				<height>140</height>
 				<align>center</align>
 				<aligny>top</aligny>
-				<texturefocus border="21" colordiffuse="button_focus">buttons/button-fo.png</texturefocus>
-				<texturenofocus border="21">buttons/button-nofo.png</texturenofocus>
+				<texturefocus border="20">buttons/button-focus.png</texturefocus>
+                <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
 				<textoffsetx>35</textoffsetx>
 				<textoffsety>78</textoffsety>
 				<radioposx>108</radioposx>
 				<radioposy>16</radioposy>
 				<radiowidth>48</radiowidth>
-				<font>font12</font>
-				<textureradioonfocus colordiffuse="D0FFFFFF">$PARAM[icon]</textureradioonfocus>
-				<textureradioonnofocus colordiffuse="D0FFFFFF">$PARAM[icon]</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="D0FFFFFF">$PARAM[icon]</textureradioofffocus>
-				<textureradiooffnofocus colordiffuse="D0FFFFFF">$PARAM[icon]</textureradiooffnofocus>
+				<font>27px_Medium</font>
+                <focusedcolor>black</focusedcolor>
+                <textcolor>gray</textcolor>
+				<textureradioonfocus colordiffuse="black">$PARAM[icon]</textureradioonfocus>
+				<textureradioonnofocus colordiffuse="gray">$PARAM[icon]</textureradioonnofocus>
+				<textureradioofffocus colordiffuse="black">$PARAM[icon]</textureradioofffocus>
+				<textureradiooffnofocus colordiffuse="gray">$PARAM[icon]</textureradiooffnofocus>
 				<textureradiooffdisabled colordiffuse="disabled">$PARAM[icon]</textureradiooffdisabled>
 				<textureradioondisabled colordiffuse="disabled">$PARAM[icon]</textureradioondisabled>
 				<label>$PARAM[label]</label>
 				<onclick>$PARAM[onclick_1]</onclick>
 				<onclick>$PARAM[onclick_2]</onclick>
 				<visible>$PARAM[visible]</visible>
+                <pulseonselect>true</pulseonselect>
 				<animation effect="fade" start="100" end="0" time="300" delay="300">Hidden</animation>
+                <animation effect="fade" start="100" end="40" condition="!Control.IsEnabled($PARAM[id])">Conditional</animation>
 			</control>
 		</definition>
 	</include>
@@ -336,21 +342,23 @@
 		<definition>
 			<control type="radiobutton" id="$PARAM[id]">
 				<width>$PARAM[width]</width>
-				<height>142</height>
+				<height>140</height>
 				<align>center</align>
 				<aligny>top</aligny>
-				<texturefocus border="21" colordiffuse="button_focus">buttons/button-fo.png</texturefocus>
-				<texturenofocus border="21">buttons/button-nofo.png</texturenofocus>
 				<textoffsetx>35</textoffsetx>
 				<textoffsety>78</textoffsety>
 				<radioposx>108</radioposx>
 				<radioposy>16</radioposy>
 				<radiowidth>48</radiowidth>
-				<font>font12</font>
-				<textureradioonfocus colordiffuse="D0FFFFFF">$PARAM[icon_on]</textureradioonfocus>
-				<textureradioonnofocus colordiffuse="D0FFFFFF">$PARAM[icon_on]</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="D0FFFFFF">$PARAM[icon_off]</textureradioofffocus>
-				<textureradiooffnofocus colordiffuse="D0FFFFFF">$PARAM[icon_off]</textureradiooffnofocus>
+				<font>27px_Medium</font>
+                <focusedcolor>black</focusedcolor>
+                <textcolor>gray</textcolor>
+                <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+				<textureradioonfocus colordiffuse="black">$PARAM[icon_on]</textureradioonfocus>
+				<textureradioonnofocus colordiffuse="gray">$PARAM[icon_on]</textureradioonnofocus>
+				<textureradioofffocus colordiffuse="black">$PARAM[icon_off]</textureradioofffocus>
+				<textureradiooffnofocus colordiffuse="gray">$PARAM[icon_off]</textureradiooffnofocus>
 				<textureradiooffdisabled colordiffuse="disabled">$PARAM[icon_off]</textureradiooffdisabled>
 				<textureradioondisabled colordiffuse="disabled">$PARAM[icon_on]</textureradioondisabled>
 				<selected>$PARAM[selected]</selected>
@@ -358,6 +366,8 @@
 				<onclick>$PARAM[onclick_1]</onclick>
 				<onclick>$PARAM[onclick_2]</onclick>
 				<visible>$PARAM[visible]</visible>
+                <pulseonselect>true</pulseonselect>
+                <animation effect="fade" start="100" end="40" condition="!Control.IsEnabled($PARAM[id])">Conditional</animation>
 			</control>
 		</definition>
 	</include>

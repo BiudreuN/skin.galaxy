@@ -3,8 +3,8 @@
     <!-- VARS -->
     <variable name="SearchString">
         <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">$INFO[Skin.String(CustomSearchTerm)]</value>
-        <value condition="Control.HasFocus(179)+Control.IsVisible(179)">Sagas</value>
-        <value condition="Control.IsVisible(178)|Control.HasFocus(178)">$INFO[Skin.String(CustomSearchSet)]</value>
+        <value condition="!String.IsEmpty(Window(home).Property(SearchSets)+Control.IsVisible(179)">Sagas</value>
+
         <value condition="String.IsEmpty(Skin.String(CustomSearchTerm))+!String.IsEmpty(Window(home).Property(SearchWidgets))">Sagas</value>
         <value>Buscar</value>
     </variable>
@@ -105,6 +105,7 @@
                 <textureradiooffnofocus colordiffuse="gray">$PARAM[texture]</textureradiooffnofocus>
                 <onup>$PARAM[onup]</onup>
                 <ondown>$PARAM[ondown]</ondown>
+                <pulseonselect>true</pulseonselect>
                 <onright condition="!Integer.IsGreater(Container(77777).NumItems,0)">77777</onright>
                 <visible>$PARAM[visible]</visible>
                 <onclick condition="$PARAM[force_refresh]">SetProperty(CustomSearch,1,home)</onclick>
@@ -114,6 +115,7 @@
                 <texturenofocus colordiffuse="primary_background" border="20"></texturenofocus>
                 <onfocus>ClearProperty(Suggestions)</onfocus>
                 <onfocus>ClearProperty(SearchWidgets)</onfocus>
+                <include>Animation_ButtonFocus</include>
             </control>
         </definition>
     </include>
@@ -133,6 +135,7 @@
                 <onfocus>ClearProperty(SearchWidgets)</onfocus>
                 <onclick>Skin.SetString(CustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)]$PARAM[key])</onclick>
                 <visible>String.IsEmpty(Window.Property(SymbolsSearchTerm))</visible>
+                <include>Animation_ButtonFocus</include>
             </control>
             <control type="button" id="$PARAM[id]2">
                 <width>$PARAM[size]</width>
@@ -145,6 +148,7 @@
                 <onfocus>ClearProperty(SearchWidgets)</onfocus>
                 <onclick>Skin.SetString(CustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)]$PARAM[key2])</onclick>
                 <visible>!String.IsEmpty(Window.Property(SymbolsSearchTerm))</visible>
+                <include>Animation_ButtonFocus</include>
             </control>
         </definition>
     </include>
@@ -166,13 +170,14 @@
 
     <include name="SearchKeyDefs">
         <align>center</align>
-        <font>28px_Medium</font>
+        <font>27px_Medium</font>
         <textoffsetx>0</textoffsetx>
         <selectedcolor>black</selectedcolor>
-        <shadowcolor>text_shadow</shadowcolor>
         <textcolor>gray</textcolor>
         <focusedcolor>black</focusedcolor>
         <disabledcolor>dimgray</disabledcolor>
+        <onfocus>ClearProperty(SearchSets)</onfocus>
+        <pulseonselect>true</pulseonselect>
         <texturefocus colordiffuse="FFEEEEEE" border="20">dialogs/keyboard/key.png</texturefocus>
         <texturenofocus colordiffuse="primary_background" border="20"></texturenofocus>
     </include>
@@ -243,6 +248,7 @@
                     <texturenofocus colordiffuse="primary_background" border="20">dialogs/keyboard/key-n.png</texturenofocus>
                     <pulseonselect>true</pulseonselect>
                     <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+                    <include>Animation_ButtonFocus</include>
                 </control>
                 <control type="radiobutton" id="992">
                     <height>70</height>
@@ -268,6 +274,7 @@
                     <texturefocus></texturefocus>
                     <texturenofocus colordiffuse="primary_background"></texturenofocus>
                     <pulseonselect>true</pulseonselect>
+                    <include>Animation_ButtonFocus</include>
                 </control>
             </control>
             <control type="label">
@@ -355,7 +362,7 @@
             <param name="radioposy" value="20" />
             <param name="radiowidth" value="120" />
             <param name="radioheight" value="30" />
-            <param name="texture" value="icons/keyboard/backspace3.png" />
+            <param name="texture" value="icons/keyboard/backspace.png" />
             <param name="ondown" value="126" />
             <param name="onclick" value="SetProperty(BackspaceSearchTerm,1,Home)" />
             <param name="force_refresh" value="true"/>
@@ -432,18 +439,19 @@
             <usealttexture>String.IsEmpty(Window.Property(SymbolsSearchTerm))</usealttexture>
             <label>ABC</label>
             <altlabel>#123</altlabel>
-            <font>26px_Medium</font>
+            <font>25px_Bold</font>
             <textcolor>gray</textcolor>
             <focusedcolor>black</focusedcolor>
-            <shadowcolor>text_shadow</shadowcolor>
             <disabledcolor>dimgray</disabledcolor>
             <align>center</align>
             <aligny>center</aligny>
+            <pulseonselect>true</pulseonselect>
             <onclick condition="String.IsEmpty(Window.Property(SymbolsSearchTerm))">SetProperty(SymbolsSearchTerm,1,Home)</onclick>
             <onclick condition="!String.IsEmpty(Window.Property(SymbolsSearchTerm))">ClearProperty(SymbolsSearchTerm)</onclick>
             <onfocus>ClearProperty(SearchWidgets)</onfocus>
             <onup>118</onup>
             <ondown>180</ondown>
+            <include>Animation_ButtonFocus</include>
         </control>
     </include>
 
@@ -575,13 +583,13 @@
             <label>[UPPERCASE]Espacio[/UPPERCASE]</label>
             <textcolor>gray</textcolor>
             <focusedcolor>black</focusedcolor>
-            <shadowcolor>text_shadow</shadowcolor>
             <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
             <texturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key-nf.png</texturenofocus>
             <onclick>SetProperty(CustomSearch,1,home)</onclick>
             <onclick>SetProperty(SpaceSearchTerm,1,Home)</onclick>
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm)</onclick>
             <onfocus>ClearProperty(SearchWidgets)</onfocus>
+            <pulseonselect>true</pulseonselect>
         </control>
         <!-- DELETE -->
         <control type="button" id="142">
@@ -592,11 +600,11 @@
             <label>[UPPERCASE]Borrar[/UPPERCASE]</label>
             <textcolor>gray</textcolor>
             <focusedcolor>black</focusedcolor>
-            <shadowcolor>text_shadow</shadowcolor>
             <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
             <texturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key-nf.png</texturenofocus>
             <onclick>Skin.Reset(CustomSearchTerm)</onclick>
             <onfocus>ClearProperty(SearchWidgets)</onfocus>
+            <pulseonselect>true</pulseonselect>
         </control>
     </include>
     <!-- Search Suggestions Container -->

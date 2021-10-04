@@ -5,42 +5,45 @@
             <control type="group" id="$PARAM[list_id]1">
                 <top>120</top>
                 <height>100</height>
-                <left>150</left>
+                <left>120</left>
                 <right>150</right>
 
                 <control type="label">
-                    <bottom>100</bottom>
+                    <bottom>105</bottom>
                     <width>900</width>
                     <height>42</height>
-                    <label>[LIGHT][UPPERCASE]Destacados[/UPPERCASE][/LIGHT]</label>
-                    <font>20px_Medium</font>
+                    <label>Destacados</label>
+                    <font>27px_Medium</font>
                     <textcolor>gainsboro</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
+                    <animation effect="fade" start="100" end="50" time="150" tween="sine" easing="out" reversible="true" condition="!Control.HasFocus(2001)">conditional</animation>
                 </control>
             </control>
 			<control type="wraplist" id="2001">
                 <top>125</top>
-                <left>950</left>
+                <left>940</left>
                 <height>480</height>
                 <width>1268</width>
 				<onclick>Action(Info)</onclick>
 				<preloaditems>3</preloaditems>
                 <orientation>horizontal</orientation>
-				<scrolltime tween="cubic" easing="out">400</scrolltime>
+				<scrolltime tween="sine" easing="out">150</scrolltime>
 				<onup>noop</onup>
                 <focusposition>0</focusposition>
-                <autoscroll time="20000">!Control.HasFocus(2001)|System.IdleTime(1)</autoscroll>
+                <autoscroll time="20000">[!Control.HasFocus(2001)|System.IdleTime(1)]+[String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)]</autoscroll>
                 <movement>0</movement>
                 <enable>true</enable>
-				<itemlayout width="339" height="482">
+				<itemlayout width="337" height="482">
                     <control type="group">
-                        <width>307</width>
-                        <height>452</height>
-                        <left>-315</left>
+                        <left>-308</left>
+                        <width>317</width>
+                        <height>466</height>
                         <visible>!String.IsEqual(ListItem.Label,empty)</visible>
                         <control type="image">
-                            <width>317</width>
-                            <height>462</height>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>-10</bottom>
+                            <right>-10</right>
                             <texture border="20">frame/shadow.png</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
@@ -51,15 +54,19 @@
                         </control>
                     </control>
 				</itemlayout>
-                <focusedlayout width="339" height="482">
+                <focusedlayout width="337" height="482">
                     <control type="group">
-                        <left>-315</left>
-                        <width>307</width>
-                        <height>452</height>
+                        <left>-308</left>
+                        <width>317</width>
+                        <height>466</height>
                         <visible>!String.IsEqual(ListItem.Label,empty)</visible>
+                        <visible>!String.IsEqual(Container(2001).CurrentItem,ListItem.CurrentItem)</visible>
+                        <animation effect="fade" tween="sine" easing="out" time="200">Hidden</animation>
                         <control type="image">
-                            <width>317</width>
-                            <height>462</height>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>-10</bottom>
+                            <right>-10</right>
                             <texture border="20">frame/shadow.png</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
@@ -75,47 +82,55 @@
 			</control>
 
             <control type="group" id="2003">
-                <left>150</left>
+                <left>120</left>
                 <width>817</width>
-                <height>300</height>
+                <height>320</height>
                 <top>20</top>
                 <enable>false</enable>
-                <animation effect="zoom" end="103" center="450,50" tween="back" easing="inout" time="350" condition="Control.HasFocus(2001)" reversible="true">Conditional</animation>
-                <animation effect="zoom" end="100" center="450,50" tween="back" easing="out" time="250" condition="!Control.HasFocus(2001)" reversible="true">Conditional</animation>
-                <control type="image">
+                <control type="group">
                     <top>-270</top>
-                    <width>813</width>
-                    <height>462</height>
-                    <texture>frame/spotlight_shadow.png</texture>
+                    <width>829</width>
+                    <height>466</height>
+                    <animation effect="zoom" end="102" center="auto" tween="sine" easing="in" time="150" condition="Control.HasFocus(2001)" reversible="true">Conditional</animation>
+                    <animation effect="zoom" end="100" center="auto" tween="sine" easing="out" time="150" condition="!Control.HasFocus(2001)" reversible="true">Conditional</animation>
+                <control type="image">
+                    <top>0</top>
+                    <left>0</left>
+                    <bottom>-10</bottom>
+                    <right>-10</right>
+                    <texture border="20">frame/shadow.png</texture>
                     <aspectratio scalediffuse="false">stretch</aspectratio>
                 </control>
                 <control type="image">
-                    <top>-270</top>
-                    <width>803</width>
-                    <height>452</height>
+                    <top>5</top>
+                    <left>5</left>
+                    <bottom>5</bottom>
+                    <right>5</right>
                     <fadetime>300</fadetime>
                     <texture diffuse="frame/spotlight.png">colors/black.png</texture>
                     <bordersize>5</bordersize>
                     <aspectratio scalediffuse="false">scale</aspectratio>
                 </control>
                 <control type="multiimage">
-                    <top>-265</top>
+                    <top>5</top>
                     <left>5</left>
-                    <width>793</width>
-                    <height>442</height>
-                    <fadetime tween="cubic" easing="out">400</fadetime>
+                    <bottom>5</bottom>
+                    <right>5</right>
+                    <fadetime tween="sine" easing="out">150</fadetime>
                     <imagepath fallback="defaultvideocover.png" diffuse="frame/spotlight.png" background="true">$VAR[SpotlightVar]</imagepath>
                     <aspectratio scalediffuse="false">scale</aspectratio>
                 </control>
                 <control type="image">
-                    <bottom>118</bottom>
-                    <width>803</width>
+                    <bottom>0</bottom>
+                    <left>5</left>
+                    <right>5</right>
                     <height>80</height>
                     <fadetime>300</fadetime>
+                    <left>5</left>
                     <texture diffuse="frame/spotlight.png">colors/black80.png</texture>
                     <aspectratio scalediffuse="true">scale</aspectratio>
                     <visible>String.IsEmpty(Container(2001).ListItem.Art(landscape))</visible>
-                    <animation effect="fade" tween="cubic" easing="inout" time="200" reversible="true">VisibleChange</animation>
+                    <animation effect="fade" tween="cubic" easing="out" time="150" reversible="true">VisibleChange</animation>
                 </control>
                 <control type="label">
                     <left>20</left>
@@ -128,16 +143,18 @@
                     <label>$VAR[SpotlightLabelVar]</label>
                     <align>left</align>
                     <visible>String.IsEmpty(Container(2001).ListItem.Art(landscape))</visible>
-                    <animation effect="fade" tween="cubic" easing="inout" time="200" reversible="true">VisibleChange</animation>
+                    <animation effect="fade" tween="cubic" easing="out" time="150" reversible="true">VisibleChange</animation>
                 </control>
                 <control type="button">
-                    <top>-270</top>
-                    <width>803</width>
-                    <height>452</height>
+                    <top>-1</top>
+                    <left>-1</left>
+                    <bottom>-1</bottom>
+                    <right>-1</right>
                     <texturenofocus border="20">frame/focus.png</texturenofocus>
                     <pulseonselect>true</pulseonselect>
                     <visible>Control.HasFocus(2001)</visible>
-                    <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="true" reversible="true">Conditional</animation>
+                    <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="true" reversible="true">Conditional</animation>
+                </control>
                 </control>
             </control>
 
@@ -235,34 +252,34 @@
         </control>
 	</include>
 	<include name="WidgetListCommon">
-		<scrolltime tween="cubic" easing="out">400</scrolltime>
+		<scrolltime tween="sine" easing="out">150</scrolltime>
 		<orientation>horizontal</orientation>
 		<onright>noop</onright>
-        <onclick>SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
-        <onclick>SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
-		<onclick>Action(Info)</onclick>
+        <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
+        <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
+		<onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">Action(Info)</onclick>
 		<preloaditems>3</preloaditems>
 	</include>
 	<include name="BusyListSpinner">
-		<param name="posy">160</param>
+		<param name="posy">0</param>
 		<param name="visible">true</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]599">
-				<left>150</left>
-                <height>210</height>
+				<left>120</left>
+                <height>230</height>
 				<visible>Container($PARAM[list_id]).IsUpdating + !Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
 				<visible>$PARAM[visible]</visible>
-                <animation effect="fade" start="0" end="100" time="350" delay="350" easing="InOut" reversible="false" condition="Integer.IsEqual(Window.Property(Category),0)">Conditional</animation>
+                <animation effect="fade" start="0" end="100" time="250" delay="250" easing="InOut" reversible="false" condition="Integer.IsEqual(Window.Property(Category),0)">Conditional</animation>
                 <animation effect="fade" end="0" time="0" reversible="false" condition="String.IsEqual(Window.Property(Visible),false)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="350" tween="sine" easing="out" reversible="true"
+				<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="out" reversible="true"
                 	condition="Integer.IsGreater(Window.Property(FixedListFade),$PARAM[list_id])">Conditional</animation>
                 <control type="image">
                     <centertop>$PARAM[posy]</centertop>
-					<width>253</width>
+					<width>263</width>
 					<height>120</height>
                     <aspectratio aligny="center" align="center">keep</aspectratio>
                     <texture>dialogs/spin.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="800" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
                 </control>
 
 			</control>
@@ -274,8 +291,8 @@
     <include name="WidgetCategory">
         <control type="label">
             <top>80</top>
-            <left>150</left>
-            <right>150</right>
+            <left>120</left>
+            <right>120</right>
             <height>70</height>
             <font>56px_Medium</font>
             <label>[CAPITALIZE]$PARAM[title][/CAPITALIZE]</label>
@@ -285,20 +302,9 @@
             <include>Animation_WidgetInfo</include>
             <visible>!Window.IsActive(movieinformation)</visible>
         </control>
-        <control type="image">
-            <centertop>50%</centertop>
-            <centerright>764</centerright>
-            <width>100</width>
-            <height>100</height>
-            <texture>dialogs/spin.png</texture>
-            <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-            <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
-            <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
-            <visible>Control.IsVisible(10000)</visible>
-        </control>
         <control type="grouplist" id="$PARAM[id]050">
             <top>160</top>
-            <left>140</left>
+            <left>110</left>
             <itemgap>-15</itemgap>
             <width>550</width>
             <height>90%</height>
@@ -410,7 +416,7 @@
         </control>
         <control type="grouplist" id="$PARAM[id]050">
             <top>160</top>
-            <left>140</left>
+            <left>110</left>
             <itemgap>-15</itemgap>
             <width>550</width>
             <height>90%</height>
@@ -539,54 +545,112 @@
              <control type="group" id="$PARAM[list_id]1">
                 <top>140</top>
                 <height>100</height>
-                <left>150</left>
-                <right>150</right>
+                <left>120</left>
+                <right>120</right>
                 <visible allowhiddenfocus="$PARAM[visible_content]">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
+                <animation effect="fade" start="100" end="50" time="100" tween="sine" easing="out" reversible="true" condition="!Control.HasFocus($PARAM[list_id])">conditional</animation>
                 <control type="label">
-                    <bottom>30</bottom>
+                    <centerbottom>55</centerbottom>
                     <width>900</width>
                     <height>42</height>
-                    <label>[LIGHT][UPPERCASE]$PARAM[widget_header][/UPPERCASE][/LIGHT]</label>
-                    <font>20px_Medium</font>
+                    <label>$PARAM[widget_header]</label>
+                    <font>27px_Medium</font>
+                    <aligny>top</aligny>
                     <textcolor>gainsboro</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
+                </control>
+                <control type="scrollbar" id="$PARAM[list_id]6">
+                    <centerbottom>55</centerbottom>
+                    <right>-20</right>
+                    <height>5</height>
+                    <width>248</width>
+                    <texturesliderbackground border="5,0,5,0" colordiffuse="primary_background">progress/horizontal_bar.png</texturesliderbackground>
+                    <texturesliderbar border="5,0,5,0">progress/horizontal_bar.png</texturesliderbar>
+                    <texturesliderbarfocus/>
+                    <textureslidernib/>
+                    <textureslidernibfocus/>
+                    <showonepage>false</showonepage>
+                    <orientation>horizontal</orientation>
+                    <enable>false</enable>
+                    <visible>Container($PARAM[list_id]).HasPrevious</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
+                    <animation effect="fade" tween="sine" easing="out" start="100" end="20" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                </control>
+                <control type="image">
+                    <top>75</top>
+                    <left>-20</left>
+                    <width>50</width>
+                    <height>375</height>
+                    <texture border="20">buttons/button-nofo2.png</texture>
+                    <aspectratio>stretch</aspectratio>
+                    <colordiffuse>primary_background</colordiffuse>
+                    <visible>Container($PARAM[list_id]).HasPrevious</visible>
+                    <visible>false</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
+                </control>
+                <control type="image">
+                    <top>75</top>
+                    <left>-20</left>
+                    <width>50</width>
+                    <height>365</height>
+                    <texture>icons/arrow_left.png</texture>
+                    <colordiffuse>silver</colordiffuse>
+                    <aspectratio>keep</aspectratio>
+                    <visible>Container($PARAM[list_id]).HasPrevious</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
                 </control>
             </control>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="posy" value="300"/>
+				<param name="posy" value="375"/>
 			</include>
 			<control type="list" id="$PARAM[list_id]">
                 <top>200</top>
-                <left>0</left>
+                <left>120</left>
                 <onfocus condition="String.IsEqual(Window.Property(ItemHub),Search)">SetProperty(SearchWidgets,1,home)</onfocus>
                 <onfocus>SetProperty($PARAM[item],$INFO[Container($PARAM[group_id]).CurrentItem],Home)</onfocus>
                 <onunfocus>SetProperty($PARAM[item]2,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
                 <onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
                 <onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property($PARAM[item]2)])</onfocus>
+                <onfocus condition="$PARAM[searchmore]">ClearProperty(SeeMore)</onfocus>
 				<visible allowhiddenfocus="$PARAM[visible_content]">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
+                <animation effect="slide" end="30" time="150" tween="sine" easing="out" reversible="true" condition="Container($PARAM[list_id]).HasPrevious">conditional</animation>
                 <visible>$PARAM[visible_widget]</visible>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<focusposition>1</focusposition>
-				<height>480</height>
+				<width>1920</width>
+                <height>500</height>
                 <movement>0</movement>
-				<itemlayout width="275" height="400">
+                <pagecontrol>$PARAM[list_id]6</pagecontrol>
+				<itemlayout width="283" height="400">
 					<include content="PosterLayout">
-                        <param name="left" value="150"/>
+                        <param name="left" value="0"/>
 						<param name="list_id" value="$PARAM[list_id]"/>
 					</include>
 				</itemlayout>
-                <focusedlayout width="275" height="400">
+                <focusedlayout width="283" height="400">
                 	<include content="PosterLayout">
-                        <param name="left" value="150"/>
+                        <param name="left" value="0"/>
 						<param name="list_id" value="$PARAM[list_id]"/>
                         <param name="focus" value="true"/>
 					</include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="35">$PARAM[content_path]</content>
-                <content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="35">$PARAM[content_path2]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="25">$PARAM[content_path]</content>
+                <content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="25">$PARAM[content_path2]</content>
+                <content>
+					<item>
+						<label>Ver más</label>
+                        <poster>defaultfoldersquare.png</poster>
+						<onclick>Skin.SetString(CustomSearchMore,$PARAM[content_path])</onclick>
+                        <onclick>Skin.SetString(SearchMoreLabel,$PARAM[widget_header])</onclick>
+                        <onclick>SetProperty(SeeMore,true,home)</onclick>
+                        <onclick>SetFocus(177,25,absolute)</onclick>
+                        <property name="SeeMore">true</property>
+                        <visible>!Container($PARAM[list_id]).IsUpdating+Integer.IsGreater(Container($PARAM[list_id]).NumItems,24)+$PARAM[searchmore]</visible>
+					</item>
+				</content>
 			</control>
 		</definition>
 	</include>
@@ -594,19 +658,9 @@
         <param name="visible_widget">true</param>
 		<definition>
 			<control type="panel" id="$PARAM[list_id]">
-                <right>79</right>
-				<top>0</top>
-				<scrolltime tween="cubic" easing="out">400</scrolltime>
-                <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
-                <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
-                <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
-                <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
-                <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
-                <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
-                <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
-                <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
-                <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
-                <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
+                <right>80</right>
+				<scrolltime tween="sine" easing="out">150</scrolltime>
+                <onback>$PARAM[onup]</onback>
                 <onleft>$PARAM[onup]</onleft>
                 <onup>noop</onup>
                 <ondown>noop</ondown>
@@ -617,18 +671,17 @@
                 <preloaditems>3</preloaditems>
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
-                <width>1370</width>
-                <animation effect="fade" tween="cubic" easing="in" time="250" delay="250">Visible</animation>
-                <animation effect="fade" tween="cubic" easing="out" time="400">Hidden</animation>
+                <width>1415</width>
+                <animation effect="fade" tween="cubic" easing="out" time="1" delay="1" reversible="true">Hidden</animation>
                 <visible allowhiddenfocus="true">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
-				<itemlayout width="274" height="400">
+				<itemlayout width="283" height="440">
 					<include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
 					</include>
 				</itemlayout>
-				<focusedlayout width="274" height="400">
+				<focusedlayout width="283" height="440">
                     <include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
@@ -646,25 +699,18 @@
                 <onleft>$PARAM[list_id]</onleft>
                 <onback>$PARAM[list_id]</onback>
                 <texturesliderbackground/>
-                <texturesliderbar colordiffuse="gray" border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
                 <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
                 <textureslidernib/>
                 <textureslidernibfocus/>
                 <showonepage>false</showonepage>
                 <orientation>vertical</orientation>
                 <enable>true</enable>
-                <include>Animation_WidgetInfo</include>
                 <pulseonselect>true</pulseonselect>
-                <visible>!Window.IsActive(movieinformation)</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
-                <animation effect="fade" tween="cubic" easing="in" start="100" end="0" time="300" condition="!Container($PARAM[list_id]).HasPrevious+!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
-            </control>
-            <control type="button" id="10000">
-                <description>Dumb button</description>
-                <texturefocus/>
-                <texturenofocus/>
-                <visible>!Control.IsVisible($PARAM[list_id])+$PARAM[visible_widget]</visible>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
             </control>
             <control type="image">
                 <centertop>50%</centertop>
@@ -673,8 +719,7 @@
                 <height>100</height>
                 <texture>dialogs/spin.png</texture>
                 <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
-                <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
                 <visible>Container($PARAM[list_id]).IsUpdating+!Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)+$PARAM[visible_widget]</visible>
             </control>
 		</definition>
@@ -684,10 +729,10 @@
 		<definition>
 
 			<control type="panel" id="$PARAM[list_id]">
-				<left>150</left>
-                <right>150</right>
+				<left>120</left>
+                <right>120</right>
 				<top>0</top>
-				<scrolltime tween="cubic" easing="out">400</scrolltime>
+				<scrolltime tween="sine" easing="out">150</scrolltime>
                 <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
                 <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
@@ -698,7 +743,7 @@
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
                 <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
-                <animation effect="slide" end="0,70" time="200" tween="cubic" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
+                <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
                 <onup>$PARAM[onup]</onup>
                 <ondown>noop</ondown>
                 <onright>$PARAM[list_id]6</onright>
@@ -708,18 +753,19 @@
                 <preloaditems>3</preloaditems>
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
-                <width>1650</width>
+                <width>1700</width>
+                <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                 <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                 <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
                 <include>Animation_WidgetInfo</include>
-				<itemlayout width="274" height="400">
+				<itemlayout width="283" height="440">
 					<include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
 					</include>
 				</itemlayout>
-				<focusedlayout width="274" height="400">
+				<focusedlayout width="283" height="440">
                     <include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
@@ -744,7 +790,7 @@
                 <onleft>$PARAM[list_id]</onleft>
                 <onback>$PARAM[list_id]</onback>
                 <texturesliderbackground/>
-                <texturesliderbar colordiffuse="gray" border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
                 <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
                 <textureslidernib/>
                 <textureslidernibfocus/>
@@ -756,7 +802,8 @@
                 <visible>!Window.IsActive(movieinformation)</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
-                <animation effect="fade" tween="cubic" easing="inout" start="100" end="0" time="300" condition="!Container($PARAM[list_id]).HasPrevious+!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
             </control>
             <control type="image">
                 <centertop>50%</centertop>
@@ -1996,7 +2043,7 @@
 	<include name="WidgetGroupListCommon">
 		<orientation>vertical</orientation>
 		<height>100%</height>
-		<scrolltime tween="cubic" easing="out">400</scrolltime>
+		<scrolltime tween="sine" easing="out">150</scrolltime>
 		<itemgap>-230</itemgap>
         <onup condition="String.IsEqual(Window.Property(ItemHub),Search)">1200</onup>
 		<onup condition="!String.IsEqual(Window.Property(ItemHub),Search)">20000</onup>

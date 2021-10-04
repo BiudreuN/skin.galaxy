@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">500</defaultcontrol>
-	<backgroundcolor></backgroundcolor>
+	<backgroundcolor>0</backgroundcolor>
 	<views>50,52,54,55,500</views>
 	<menucontrol>9000</menucontrol>
-
-	<onload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onload>
-	<onload>ClearProperty(ShowViewSubMenu,Home)</onload>
-    <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
     <!-- return to infodialog if previous window -->
     <!-- clear tvshowid property -->
     <onunload condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onunload>
@@ -19,44 +15,36 @@
             <width>100%</width>
             <texture>colors/background.png</texture>
             <colordiffuse>primary_background</colordiffuse>
-            <animation type="WindowClose" reversible="false">
-                <effect type="zoom" start="100" end="101" tween="sine" easing="out" time="500" />
-            </animation>
         </control>
         <control type="image">
-				<height>100%</height>
-				<width>100%</width>
-				<texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
-                <animation type="WindowClose" reversible="false">
-                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="400" />
-            </animation>
-			</control>
-			<control type="image">
-				<height>100%</height>
-				<width>100%</width>
-				<texture>colors/background50.png</texture>
-				<colordiffuse>primary_background</colordiffuse>
-			</control>
+            <height>100%</height>
+            <width>100%</width>
+            <texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+            <animation effect="fade" tween="sine" easing="out" time="150">WindowClose</animation>
+            <visible>Container.Content(episodes)|Container.Content(seasons)</visible>
+        </control>
+        <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture>colors/background50.png</texture>
+            <colordiffuse>primary_background</colordiffuse>
+            <visible>Container.Content(episodes)|Container.Content(seasons)</visible>
+        </control>
 		<control type="group">
 			<include>OpenClose_Fade</include>
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
 			<include>View_54_InfoWall</include>
+            <include>View_55_WideList</include>
 			<include>View_500_Wall</include>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
-				<include>OpenClose_Left</include>
+				<include>OpenClose_Fade</include>
 				<visible>Control.IsVisible(55)</visible>
-				<include>Visible_Left</include>
 				<include>ListThumbInfoPanel</include>
 			</control>
-
-
-
 			<include>CommonScrollbars</include>
 			<include>MediaMenuMouseOverlay</include>
-
-
 			<control type="group">
 				<include>MediaMenuCommon</include>
 				<control type="grouplist" id="9000">
@@ -66,7 +54,7 @@
 						<description>Watched Toggle</description>
 						<include>MediaMenuItemsCommon</include>
 						<label>$LOCALIZE[20367]</label>
-						<label2>[B]$INFO[Container.NumItems][/B]</label2>
+						<label2>&quot;[B]$INFO[Container.NumItems][/B]&quot;</label2>
 						<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.content(seasons) | Container.Content(episodes)</visible>
 					</control>
 					<control type="label" id="203">

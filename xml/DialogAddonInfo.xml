@@ -11,28 +11,44 @@
 			<centerleft>50%</centerleft>
 			<width>1920</width>
 			<control type="group">
-				<include>OpenClose_Right</include>
+				<include>OpenClose_Fade</include>
 				<control type="button" id="5000">
 					<left>605</left>
 					<top>400</top>
 					<width>1235</width>
 					<height>435</height>
 					<label></label>
-					<texturenofocus border="21">dialogs/dialog-bg.png</texturenofocus>
+					<texturenofocus border="25">dialogs/dialog-bg.png</texturenofocus>
+                    <texturefocus border="25">buttons/dialogbutton-fo.png</texturefocus>
 					<onup>50</onup>
 					<ondown>9000</ondown>
 					<onclick>SetProperty(TextViewer_Header,$LOCALIZE[31141] $INFO[ListItem.AddonVersion],home)</onclick>
 					<onclick>SetProperty(TextViewer_Text,$ESCINFO[ListItem.AddonNews],home)</onclick>
 					<onclick>ActivateWindow(1102)</onclick>
 					<enable>!String.IsEmpty(ListItem.AddonNews)</enable>
+                    <pulseonselect>true</pulseonselect>
 				</control>
 				<control type="textbox">
 					<left>670</left>
 					<top>435</top>
 					<width>1050</width>
 					<height>365</height>
+                    <font>30px_Regular</font>
+                    <textcolor>silver</textcolor>
 					<label>$INFO[ListItem.AddonSummary,[B],[/B][CR]]$INFO[ListItem.AddonDescription][CR]$VAR[AddonNewsVar,[I][CR][CR],[/I]]</label>
 					<autoscroll delay="5000" repeat="7500" time="5000">true</autoscroll>
+                    <visible>!Control.HasFocus(5000)</visible>
+				</control>
+                <control type="textbox">
+					<left>670</left>
+					<top>435</top>
+					<width>1050</width>
+					<height>365</height>
+                    <font>30px_Regular</font>
+                    <textcolor>black</textcolor>
+					<label>$INFO[ListItem.AddonSummary,[B],[/B][CR]]$INFO[ListItem.AddonDescription][CR]$VAR[AddonNewsVar,[I][CR][CR],[/I]]</label>
+					<autoscroll delay="5000" repeat="7500" time="5000">true</autoscroll>
+                    <visible>Control.HasFocus(5000)</visible>
 				</control>
 				<control type="group">
 					<left>606</left>
@@ -78,8 +94,8 @@
 							<left>-12</left>
 							<width>425</width>
 							<height>260</height>
-							<texture background="true">DefaultNoPreview.png</texture>
-							<aspectratio>scale</aspectratio>
+							<texture diffuse="frame/image.png" background="true">DefaultNoPreview.png</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
@@ -87,8 +103,8 @@
 							<left>-12</left>
 							<width>425</width>
 							<height>260</height>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio>scale</aspectratio>
+							<texture diffuse="frame/image.png" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
@@ -98,8 +114,8 @@
 							<left>-12</left>
 							<width>425</width>
 							<height>260</height>
-							<texture background="true">DefaultNoPreview.png</texture>
-							<aspectratio>scale</aspectratio>
+							<texture diffuse="frame/image.png" background="true">DefaultNoPreview.png</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
@@ -107,18 +123,22 @@
 							<left>-12</left>
 							<width>425</width>
 							<height>260</height>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio>scale</aspectratio>
+							<texture diffuse="frame/image.png" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<bordertexture border="21">overlays/shadow.png</bordertexture>
 							<bordersize>20</bordersize>
 						</control>
-						<control type="image">
-							<left>4</left>
+                        <control type="button">
+                            <left>4</left>
 							<top>16</top>
 							<width>393</width>
 							<height>228</height>
-							<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
-						</control>
+                            <texturefocus border="20">frame/focus.png</texturefocus>
+                            <texturenofocus/>
+                            <pulseonselect>true</pulseonselect>
+                            <animation effect="fade" end="100" time="1" reversible="true">Focus</animation>
+                            <animation effect="fade" end="0" time="1" reversible="true">Unfocus</animation>
+                        </control>
 					</focusedlayout>
 				</control>
 				<include content="LeftRightArrows">
@@ -138,7 +158,7 @@
 					<onup>5000</onup>
 					<ondown>9000</ondown>
 					<align>center</align>
-					<itemgap>-18</itemgap>
+					<itemgap>10</itemgap>
 					<orientation>horizontal</orientation>
 					<include content="InfoDialogButton">
 						<param name="id" value="12" />
@@ -156,17 +176,27 @@
 						<param name="label" value="$LOCALIZE[24069]" />
 					</include>
 					<control type="radiobutton" id="13">
-						<width>262</width>
+						<width>260</width>
 						<height>140</height>
 						<align>center</align>
 						<aligny>top</aligny>
 						<textoffsetx>35</textoffsetx>
 						<textoffsety>76</textoffsety>
-						<radioposx>81</radioposx>
-						<radioposy>17</radioposy>
-						<radiowidth>100</radiowidth>
-						<font>font12</font>
+						<radioposx>108</radioposx>
+                        <radioposy>16</radioposy>
+                        <radiowidth>48</radiowidth>
+						<font>27px_Medium</font>
+                        <focusedcolor>black</focusedcolor>
+                        <textcolor>gray</textcolor>
+                        <texturefocus border="20">buttons/button-focus.png</texturefocus>
+                        <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
+                        <textureradioonfocus colordiffuse="black">icons/infodialogs/update.png</textureradioonfocus>
+                        <textureradioonnofocus colordiffuse="gray">icons/infodialogs/update.png</textureradioonnofocus>
+                        <textureradioofffocus colordiffuse="black">icons/infodialogs/update_disabled.png</textureradioofffocus>
+                        <textureradiooffnofocus colordiffuse="gray">icons/infodialogs/update_disabled.png</textureradiooffnofocus>
 						<visible>Control.IsEnabled(13)</visible>
+                        <pulseonselect>true</pulseonselect>
+                        <animation effect="fade" start="100" end="40" condition="!Control.IsEnabled(13)">Conditional</animation>
 					</control>
 					<include content="InfoDialogButton">
 						<param name="id" value="10" />
@@ -190,7 +220,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<include>OpenClose_Left</include>
+				<include>OpenClose_Fade</include>
 				<top>158</top>
 				<left>80</left>
 				<control type="image">
@@ -199,7 +229,7 @@
 					<width>540</width>
 					<height>540</height>
 					<aspectratio>scale</aspectratio>
-					<texture>dialogs/dialog-bg-nobo.png</texture>
+					<texture diffuse="frame/addon.png">dialogs/dialog-bg-nobo.png</texture>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 				</control>
@@ -210,7 +240,7 @@
 					<height>500</height>
 					<aspectratio aligny="top">scale</aspectratio>
 					<fadetime>300</fadetime>
-					<texture fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<texture fallback="DefaultAddon.png" diffuse="frame/addon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 				</control>
 				<control type="group">
 					<visible>!String.IsEmpty(ListItem.AddonBroken)</visible>
@@ -236,10 +266,8 @@
 					<left>-5</left>
 					<top>525</top>
 					<width>540</width>
-					<height>150</height>
-					<texture>dialogs/dialog-bg-nobo.png</texture>
-					<bordertexture border="21">overlays/shadow.png</bordertexture>
-					<bordersize>20</bordersize>
+					<height>153</height>
+					<texture border="25">dialogs/dialog-bg.png</texture>
 				</control>
 				<control type="grouplist">
 					<left>30</left>
@@ -247,12 +275,16 @@
 					<control type="label">
 						<width>470</width>
 						<height>40</height>
+                        <font>27px_Regular</font>
+                        <textcolor>silver</textcolor>
 						<label>$INFO[ListItem.AddonSize,[COLOR button_focus]$LOCALIZE[22031]:[/COLOR] ,[CR]]</label>
 						<visible>!String.IsEmpty(ListItem.AddonSize)</visible>
 					</control>
 					<control type="label">
 						<width>470</width>
 						<height>40</height>
+                        <font>27px_Regular</font>
+                        <textcolor>silver</textcolor>
 						<label>$INFO[ListItem.AddonOrigin,[COLOR button_focus]$LOCALIZE[31150]:[/COLOR] ]</label>
 						<visible>!String.IsEmpty(ListItem.AddonOrigin) + ListItem.Property(addon.isinstalled)</visible>
 					</control>
@@ -265,10 +297,10 @@
 				<height>82</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<include>OpenClose_Fade</include>
 				<label>[I]$INFO[ListItem.AddonDisclaimer][/I]</label>
 				<textcolor>88FFFFFF</textcolor>
+                <font>30px_Light</font>
 				<autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>
 			</control>
 			<include content="InfoDialogTopBarInfo">

@@ -2,10 +2,10 @@
 <includes>
 	<include name="View_50_List">
 		<control type="group">
-			<include>OpenClose_Right</include>
 			<left>596</left>
 			<visible>Control.IsVisible(50)</visible>
-			<include>Visible_Right</include>
+			<include>OpenClose_Fade</include>
+            <include>Animation_WidgetFade</include>
 			<include content="ListContainer">
 				<param name="list_id" value="50" />
 				<param name="right" value="594" />
@@ -73,7 +73,9 @@
 				<onup>$PARAM[list_id]</onup>
 				<ondown>$PARAM[list_id]</ondown>
 				<viewtype label="$PARAM[viewtype_label]">list</viewtype>
-				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(games) | Window.IsActive(MyPlaylist.xml)</visible>
+                <visible>false</visible>
+                <visible>!Container.Content(episodes)|!Container.Content(seasons)</visible>
+				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(games) | Window.IsActive(MyPlaylist.xml) |Container.Content(videos)</visible>
 				<focusedlayout height="list_item_height">
 					<control type="image">
 						<left>0</left>
@@ -168,6 +170,22 @@
 					<param name="width" value="654" />
 					<param name="flipx" value="$PARAM[flip_bg]" />
 				</include>
+                <control type="group">
+                <visible>!Window.IsVisible(addonbrowser)</visible>
+                <include content="TopBar">
+                    <param name="breadcrumbs_label" value="$INFO[Window.Property(BreadcrumbsLabel)]" />
+                </include>
+            </control>
+            <control type="image">
+					<centerleft>300</centerleft>
+					<top>140</top>
+                    <width>530</width>
+                    <height>779</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<fadetime>300</fadetime>
+					<texture diffuse="frame/panel_list.png" fallback="defaultvideocover.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+					<visible>String.IsEqual(ListItem.DbType,movie)|String.IsEqual(ListItem.DbType,tvshow)</visible>
+				</control>
 				<control type="image">
 					<left>30</left>
 					<top>140</top>
@@ -175,8 +193,9 @@
 					<height>470</height>
 					<aspectratio aligny="bottom">keep</aspectratio>
 					<fadetime>300</fadetime>
-					<texture background="true">$VAR[IconWallThumbVar]</texture>
+					<texture diffuse="frame/addon.png" background="true">$VAR[IconWallThumbVar]</texture>
 					<visible>!String.IsEqual(ListItem.DbType,episode)</visible>
+                    <visible>!String.IsEqual(ListItem.DbType,movie)+!String.IsEqual(ListItem.DbType,tvshow)</visible>
 				</control>
 				<control type="image">
 					<left>30</left>
@@ -187,6 +206,7 @@
 					<fadetime>300</fadetime>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
 					<visible>String.IsEqual(ListItem.DbType,episode)</visible>
+                    <visible>!String.IsEqual(ListItem.DbType,movie)+!String.IsEqual(ListItem.DbType,tvshow)</visible>
 				</control>
 				<control type="group">
 					<left>273</left>
@@ -196,19 +216,26 @@
 				</control>
 				<control type="group">
 					<visible>!Container.Content() | !String.isempty(ListItem.Plot)</visible>
+                    <visible>!String.IsEqual(ListItem.DbType,movie)+!String.IsEqual(ListItem.DbType,tvshow)</visible>
 					<left>30</left>
 					<control type="textbox" id="15500">
 						<top>640</top>
 						<width>525</width>
 						<bottom>117</bottom>
+                        <font>27px_Regular</font>
 						<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
 						<label>$VAR[ListBoxInfoVar]</label>
+                        <textcolor>silver</textcolor>
+                        <shadowcolor>text_shadow</shadowcolor>
 						<visible>!String.IsEqual(ListItem.DbType,episode)</visible>
 					</control>
 					<control type="textbox" id="15501">
 						<top>485</top>
 						<width>525</width>
 						<bottom>96</bottom>
+                        <font>27px_Regular</font>
+                        <textcolor>silver</textcolor>
+                        <shadowcolor>text_shadow</shadowcolor>
 						<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
 						<label>$INFO[ListItem.Plot]</label>
 						<visible>String.IsEqual(ListItem.DbType,episode)</visible>
@@ -228,6 +255,7 @@
 				</control>
 				<control type="group">
 					<visible>!ListItem.IsCollection + String.IsEmpty(Control.GetLabel(15500)) + Control.IsVisible(15500)</visible>
+                    <visible>!String.IsEqual(ListItem.DbType,movie)+!String.IsEqual(ListItem.DbType,tvshow)</visible>
 					<control type="textbox">
 						<left>30</left>
 						<top>460</top>
@@ -235,7 +263,7 @@
 						<height>413</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<font>font27</font>
+						<font>27px_Regular</font>
 						<textcolor>80FFFFFF</textcolor>
 						<label>$LOCALIZE[19055]</label>
 						<visible>!ListItem.IsParentFolder</visible>

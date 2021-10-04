@@ -5,6 +5,10 @@
         <value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID2))">$INFO[Window(Home).Property(ListItem.TVShowID2),videodb://tvshows/titles/,/]</value>
         <value/>
     </variable>
+    <variable name="View500EpisodePlot">
+        <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+        <value>(Sin argumento)</value>
+    </variable>
 
 	<!-- item main label -->
     <variable name="View525MainLabel">
@@ -30,7 +34,7 @@
         <value condition="Integer.IsGreater(Container(5250).NumItems,1)">$INFO[Container(5250).NumItems,, $LOCALIZE[33054]]</value>
         <value>$INFO[Container(5250).NumItems,, $LOCALIZE[20373]]</value>
     </variable>
-    
+
     <!-- Total episode/s -->
     <variable name="View525TotalEpisodes">
         <value condition="Integer.IsGreater(ListItem.Property(TotalEpisodes),1)">$INFO[ListItem.Property(TotalEpisodes),, Episodios]</value>
@@ -56,17 +60,14 @@
      <!-- view525 landscape layout -->
     <include name="View_525_Landscape_Defs">
         <control type="group">
-            <left>0</left>
             <height>episodes_thumb_height</height>
             <width>episodes_thumb_width</width>
             
             <!-- watched indicator -->
             <control type="group">
                 <visible>!Container(500).Content(episodes)</visible>
-                <width>440</width>
-                <height>264</height>
-                <top>8</top>
-                <left>8</left>
+                <width>480</width>
+                <height>280</height>
                 <include>WatchedIndicatorNormal</include>
             </control>
             <!-- Episode/Season Sxx:Exx format -->
@@ -74,12 +75,13 @@
             		<orientation>horizontal</orientation>
                 	<usecontrolcoords>true</usecontrolcoords>
                 	<left>15</left>
+                    <right>15</right>
                 	<bottom>25</bottom>
-                	<width>440</width>
                 	<height>24</height>
                 	<itemgap>12</itemgap>
             <control type="label">
                 <visible>Container(500).Content(episodes)</visible>
+                <bottom>-3</bottom>
                 <height>24</height>
                 <width>150</width>
                 <font>24px_Medium</font>
@@ -94,7 +96,6 @@
                 <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
                 <description>progress bar</description>
                 <bottom>-15</bottom>
-                <right>15</right>
                 <height>4</height>
                 <texturebg border="5,0,5,0" colordiffuse="90grey">dialogs/progress.png</texturebg>
                 <lefttexture/>
@@ -104,14 +105,12 @@
             </control>
             <control type="image">
 				<bottom>-15</bottom>
-                <right>15</right>
                 <height>4</height>
 				<texture border="5,0,5,0" colordiffuse="90grey">dialogs/progress.png</texture>
 				<visible>Integer.IsEqual(ListItem.PlayCount,0)+!ListItem.IsResumable</visible>
 			</control>
 			<control type="image">
 				<bottom>-15</bottom>
-                <right>15</right>
                 <height>4</height>
 				<texture border="5,0,5,0" colordiffuse="button_focus">dialogs/progress.png</texture>
 				<visible>!Integer.IsEqual(ListItem.PlayCount,0)+!ListItem.IsResumable</visible>
@@ -124,12 +123,36 @@
     <include name="View_525_Details_Defs">
         <!-- details -->
         <control type="group">
-			<left>470</left>
+			<left>495</left>
             <height>266</height>
             <width>570</width>
             <!-- item sublabel -->
             <control type="label">
-                <bottom>15</bottom>
+                <bottom>0</bottom>
+                <width>100%</width>
+                <aligny>center</aligny>
+                <height>20</height>
+                <align>left</align>
+                <font>20px_Regular</font>
+                <textcolor>darkgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>$INFO[ListItem.Duration(mins),(, min)]</label>
+                <visible>String.IsEmpty(ListItem.Date)</visible>
+            </control>
+            <control type="label">
+                <bottom>0</bottom>
+                <width>100%</width>
+                <aligny>center</aligny>
+                <height>20</height>
+                <align>left</align>
+                <font>20px_Regular</font>
+                <textcolor>darkgray</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <label>$INFO[ListItem.Date,(,)]</label>
+                <visible>String.IsEmpty(ListItem.Duration(mins))</visible>
+            </control>
+            <control type="label">
+                <bottom>0</bottom>
                 <width>100%</width>
                 <aligny>center</aligny>
                 <height>20</height>
@@ -138,18 +161,19 @@
                 <textcolor>darkgray</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <label>$INFO[ListItem.Date,(]$INFO[ListItem.Duration(mins), · , min)]</label>
+                <visible>!String.IsEmpty(ListItem.Date)+!String.IsEmpty(ListItem.Duration(mins))</visible>
             </control>
             <!-- plot -->
             <control type="textbox">
                 <visible>Container(500).Content(episodes)</visible>
-                <width>580</width>
-                <top>45</top>
+                <width>600</width>
+                <top>40</top>
                 <height>160</height>
                 <align>left</align>
                 <font>22px_Medium</font>
                 <textcolor>silver</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
-                <label>[LIGHT]$INFO[ListItem.Plot][/LIGHT]</label>
+                <label>[LIGHT]$VAR[View500EpisodePlot][/LIGHT]</label>
                 <autoscroll delay="8000" time="6000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll) + Control.HasFocus(505)</autoscroll>
             </control>
             
@@ -201,7 +225,73 @@
             </control>
         </control>
     </include>
-    
+
+    <!-- view525 seasons container itemlayout when NO-FOCUS -->
+    <include name="View_525_Seasons_List_Focus">
+        <!-- Season x label -->
+        <control type="button">
+            <left>-5</left>
+            <centertop>30</centertop>
+            <width>550</width>
+            <height>75</height>
+            <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
+            <texturenofocus border="20" colordiffuse="button_selected">dialogs/keyboard/key-nf.png</texturenofocus>
+            <visible>String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))|Control.HasFocus(5250)</visible>
+            <pulseonselect>true</pulseonselect>
+        </control>
+        <control type="group">
+            <left>15</left>
+            <width>550</width>
+            <height>60</height>
+            <control type="label">
+                <aligny>center</aligny>
+                <align>left</align>
+                <font>27px_Medium</font>
+                <textcolor>black</textcolor>
+                <label>$INFO[Listitem.label]</label>
+                <scroll>true</scroll>
+                <visible>Control.HasFocus(5250)</visible>
+            </control>
+            <control type="label">
+                <aligny>center</aligny>
+                <align>left</align>
+                <font>27px_Medium</font>
+                <textcolor>gray</textcolor>
+                <label>$INFO[Listitem.label]</label>
+                <visible>!String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))+!Control.HasFocus(5250)</visible>
+            </control>
+            <control type="label">
+                <aligny>center</aligny>
+                <align>left</align>
+                <font>27px_Medium</font>
+                <textcolor>FFEEEEEE</textcolor>
+                <label>$INFO[Listitem.label]</label>
+                <visible>String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))+!Control.HasFocus(5250)</visible>
+            </control>
+        </control>
+            <control type="group">
+            <right>25</right>
+            <width>350</width>
+            <height>60</height>
+            $INFO[ListItem.Property(TotalEpisodes),, Episodio]
+            <control type="label">
+                <aligny>center</aligny>
+                <align>right</align>
+                <font>22px_Medium</font>
+                <textcolor>black</textcolor>
+                <label>$VAR[View525TotalEpisodes]</label>
+                <visible>Control.HasFocus(5250)</visible>
+            </control>
+            <control type="label">
+                <aligny>center</aligny>
+                <align>right</align>
+                <font>22px_Medium</font>
+                <textcolor>silver</textcolor>
+                <label>$VAR[View525TotalEpisodes]</label>
+                <visible>String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))+!Control.HasFocus(5250)</visible>
+            </control>
+        </control>
+    </include>
     <!-- view525 seasons container itemlayout when NO-FOCUS -->
     <include name="View_525_Seasons_List_No_Focus">
         <!-- Season x label -->
@@ -210,9 +300,10 @@
             <centertop>30</centertop>
             <width>550</width>
             <height>75</height>
-            <texture border="20" colordiffuse="1AFFFFFF">dialogs/keyboard/key.png</texture>
+            <texture border="20" colordiffuse="button_selected">dialogs/keyboard/key-nf.png</texture>
             <visible>String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))</visible>
             <aspectratio>stretch</aspectratio>
+            <animation effect="fade" start="0" end="100" time="0" delay="300" tween="sine" easing="out" reversible="true" condition="Control.HasFocus(52622)">conditional</animation>
         </control>
         <control type="label">
         	<left>15</left>
@@ -222,8 +313,7 @@
             <align>left</align>
             <font>27px_Medium</font>
             <textcolor>gray</textcolor>
-            <shadowcolor>text_shadow</shadowcolor>
-            <label>[LIGHT]$INFO[Listitem.label][/LIGHT]</label>
+            <label>$INFO[Listitem.label]</label>
             <visible>!String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))</visible>
         </control>
         <control type="label">
@@ -234,7 +324,6 @@
             <align>left</align>
             <font>27px_Medium</font>
             <textcolor>FFEEEEEE</textcolor>
-            <shadowcolor>text_shadow</shadowcolor>
             <label>$INFO[Listitem.label]</label>
             <visible>String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))</visible>
         </control>
@@ -244,16 +333,20 @@
             <height>60</height>
             <aligny>center</aligny>
             <align>right</align>
-            <font>24px_Regular</font>
-            <textcolor>gainsboro</textcolor>
-            <shadowcolor>text_shadow</shadowcolor>
-            <label>$INFO[ListItem.Property(NumEpisodes)] Episodios</label>
+            <font>22px_Medium</font>
+            <textcolor>silver</textcolor>
+            <label>$VAR[View525TotalEpisodes]</label>
             <visible>String.IsEqual(ListItem.Season,Window(Home).Property(SeasonEpisode))</visible>
         </control>
     </include>
     
 	<include name="View_500_Wall">
-
+        <control type="button" id="498">
+            <texturefocus/>
+            <texturenofocus/>
+            <onfocus condition="!String.IsEqual(Container(5250).ListItemPosition(0).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(1).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(2).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(3).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(4).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(5).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(6).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItem.Season,Container(500).ListItem.Season)+Integer.IsGreater(Container(5250).NumItems,0)+!Container(5250).IsUpdating">SetFocus(5250,$VAR[SeasonListVar],absolute)</onfocus>
+            <onfocus>SetFocus(500)</onfocus>
+        </control>
         <control type="label" id="499">
             <label>$INFO[ListItem.Season]</label>
             <visible>false</visible>
@@ -298,7 +391,6 @@
                             <align>center</align>
                             <font>23px_Regular</font>
                             <textcolor>FFEEEEEE</textcolor>
-                            <shadowcolor>text_shadow</shadowcolor>
                             <label>[B]$VAR[View525CurrentSeason][/B]</label>
                         </control>
                         <!-- Episode x label -->
@@ -310,14 +402,81 @@
                             <align>right</align>
                             <font>30px_Regular</font>
                             <textcolor>FFEEEEEE</textcolor>
-                            <shadowcolor>text_shadow</shadowcolor>
                             <label>$VAR[View525TotalEpisodes,[LOWERCASE],[/LOWERCASE]]</label>
                         </control>
+                    </control>
+                    <control type="button" id="52622">
+                        <texturefocus/>
+                        <texturenofocus/>
+                        <onfocus>SetFocus(500,0,absolute)</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,1)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(0).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,2)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(1).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,3)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(2).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,4)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(3).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,5)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(4).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,6)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(5).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,7)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(6).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,8)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(7).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,9)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(8).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,10)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(9).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,11)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(10).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,12)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(11).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,13)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(12).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,14)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(13).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,15)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(14).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,16)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(15).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,17)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(16).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,18)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(17).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,19)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(18).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,20)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(19).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,21)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(20).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,22)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(21).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,23)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(22).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,24)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(23).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,25)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(24).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,26)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(25).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,27)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(26).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,28)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(27).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,29)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(28).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,30)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(29).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,31)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(30).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,32)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(31).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,33)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(32).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,34)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(33).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,35)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(34).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,36)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(35).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,37)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(36).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,38)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(37).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,39)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(38).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,40)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(39).Episode])</onfocus>
+                        <onfocus condition="Integer.IsGreater(Container(5250).CurrentItem,41)">Control.Move(500,$INFO[Container(5250).ListItemAbsolute(40).Episode])</onfocus>
+                        <onfocus>Control.Move(500,3)</onfocus>
+                        <onfocus>Control.Move(500,-3)</onfocus>
+                        <visible allowhiddenfocus="true">false</visible>
+                    </control>
+                    <control type="scrollbar" id="5251">
+                        <top>370</top>
+                        <left>100</left>
+                        <height>420</height>
+                        <width>5</width>
+                        <texturesliderbackground colordiffuse="90grey" border="0,5,0,5">lists/scrollbar.png</texturesliderbackground>
+                        <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                        <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+                        <textureslidernib/>
+                        <textureslidernibfocus/>
+                        <showonepage>false</showonepage>
+                        <orientation>vertical</orientation>
+                        <enable>true</enable>
+                        <pulseonselect>true</pulseonselect>
+                        <visible>Integer.IsGreater(Container(5250).NumItems,0)|Container(5250).IsUpdating</visible>
+                        <animation effect="fade" tween="sine" easing="in" time="150">Visible</animation>
+                        <animation effect="fade" tween="sine" easing="out" time="150">Hidden</animation>
+                        <animation effect="fade" end="15" condition="!Control.HasFocus(5251)" reversible="true">Conditional</animation>
                     </control>
 					<!-- Seasons list -->
 					<control type="list" id="5250">
 						<visible allowhiddenfocus="true">Container(500).Content(episodes)+!String.IsEmpty(Container(500).ListItem.DBID)</visible>
-						<visible>Integer.IsGreater(Container(5250).NumItems,0) + !Container(5250).IsUpdating</visible>
+						<visible>Integer.IsGreater(Container(5250).NumItems,0)+!Container(5250).IsUpdating</visible>
 						<pagecontrol>5251</pagecontrol>
 						<top>370</top>
 						<left>110</left>
@@ -333,10 +492,11 @@
 						<onup>noop</onup>
 						<ondown>noop</ondown>
 						<onback condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onback>
-						<onclick condition="!String.IsEmpty(Window(Home).Property(BaseWindow))">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath],return)</onclick>
-						<onclick condition="String.IsEmpty(Window(Home).Property(BaseWindow))">ActivateWindow(Videos,$ESCINFO[Container(5250).ListItem.FolderPath])</onclick>
-						<include>ScrollTime</include>
-						<itemlayout height="60" width="550" condition="Control.HasFocus(5250)">
+                        <onclick>SetProperty(SeasonEpisode,$INFO[ListItem.Season],Home)</onclick>
+                        <onclick condition="!String.IsEqual(Container(5250).ListItem.Season,Container(500).ListItem.Season)">SetFocus(52622)</onclick>
+                        <onclick condition="String.IsEqual(Container(5250).ListItem.Season,Container(500).ListItem.Season)">SetFocus(500)</onclick>
+						<scrolltime tween="sine" easing="out">200</scrolltime>
+						<itemlayout height="60" width="550">
 							<!-- Season x label -->
 							<control type="label">
 								<left>15</left>
@@ -346,56 +506,22 @@
                                 <align>left</align>
                                 <font>27px_Medium</font>
                                 <textcolor>gray</textcolor>
-                                <shadowcolor>text_shadow</shadowcolor>
-                                <label>[LIGHT]$INFO[Listitem.label][/LIGHT]</label>
-                            </control>
-                        </itemlayout>
-                        <itemlayout height="60" width="550" condition="!Control.HasFocus(5250)">
-                            <include>View_525_Seasons_List_No_Focus</include>
-                        </itemlayout>
-                        <focusedlayout height="60" width="550" condition="Control.HasFocus(5250)">
-                            <control type="image">
-                                <left>-5</left>
-                                <centertop>30</centertop>
-                                <width>550</width>
-                                <height>75</height>
-                                <texture border="20">dialogs/keyboard/key.png</texture>
-                                <aspectratio>stretch</aspectratio>
-                                <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="true" reversible="true">Conditional</animation>
-                            </control>
-                            <!-- Season x label -->
-                            <control type="label">
-                            	<left>15</left>
-                                <width>450</width>
-                                <height>60</height>
-                                <aligny>center</aligny>
-                                <align>left</align>
-                                <font>27px_Medium</font>
-                                <textcolor>black</textcolor>
-                                <shadowcolor>text_shadow</shadowcolor>
                                 <label>$INFO[Listitem.label]</label>
+                                <visible>Control.HasFocus(5250)</visible>
                             </control>
-                            <control type="label">
-                                <right>25</right>
-                                <width>450</width>
-                                <height>60</height>
-                                <aligny>center</aligny>
-                                <align>right</align>
-                                <font>24px_Regular</font>
-                                <textcolor>black</textcolor>
-                                <shadowcolor>text_shadow</shadowcolor>
-                                <label>$INFO[ListItem.Property(NumEpisodes)] Episodios</label>
+                            <control type="group">
+                                <visible>!Control.HasFocus(5250)</visible>
+                                <include>View_525_Seasons_List_No_Focus</include>
                             </control>
-                        </focusedlayout>
-                        <focusedlayout height="60" width="550" condition="!Control.HasFocus(5250)">
-                            <include>View_525_Seasons_List_No_Focus</include>
+                        </itemlayout>
+                        <focusedlayout height="60" width="550">
+                            <include>View_525_Seasons_List_Focus</include>
                         </focusedlayout>
                         <content sortby="label" sortorder="ascending" target="video">$INFO[Window(Home).Property(ListItem.TVShowID2),videodb://tvshows/titles/,/]</content>
                     </control>
                 </control>
-
 			<control type="list" id="500">
-                <left>750</left>
+                <left>730</left>
                 <height>100%</height>
                 <width>100%</width>
                 <orientation>vertical</orientation>
@@ -405,25 +531,26 @@
 				<onright>531</onright>
 				<onup>noop</onup>
 				<ondown>noop</ondown>
+                <onunfocus>ClearProperty(FocusSeason)</onunfocus>
 				<viewtype label="31101">icon</viewtype>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>531</pagecontrol>
-				<scrolltime tween="cubic" easing="out">400</scrolltime>
+				<scrolltime tween="sine" easing="out">200</scrolltime>
 				<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
-                <animation effect="fade" start="80" end="100" time="200" condition="Control.HasFocus(500) + Control.HasFocus(60)">Conditional</animation>
-                <animation effect="fade" start="100" end="80" time="200" condition="!Control.HasFocus(500) + !Control.HasFocus(60)">Conditional</animation>
-				<itemlayout width="1150" height="290">
+				<itemlayout width="1150" height="300">
                     <control type="group">
                         <top>120</top>
+                        <width>480</width>
+                        <height>280</height>
                         <control type="image">
-                            <width>466</width>
-                            <height>276</height>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>-10</bottom>
+                            <right>-10</right>
                             <texture border="20">frame/spotlight_shadow.png</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
                         <control type="image">
-                            <width>456</width>
-                            <height>266</height>
                             <texture background="true" diffuse="frame/episode.png" fallback="colors/color_transparent.png">$INFO[ListItem.Thumb]</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <bordersize>5</bordersize>
@@ -434,8 +561,8 @@
                         <include>View_525_Details_Defs</include>
                         <!-- item title -->
                         <control type="label">
-                            <top>8</top>
-                            <left>470</left>
+                            <top>5</top>
+                            <left>495</left>
                             <width>620</width>
                             <aligny>center</aligny>
                             <height>35</height>
@@ -448,22 +575,23 @@
                         </control>
                     </control>
 				</itemlayout>
-				<focusedlayout width="1150" height="290">
+				<focusedlayout width="1150" height="300">
                     <control type="group">
                         <top>120</top>
-                        <width>456</width>
-					    <height>266</height>
-                        <animation effect="zoom" start="100" end="105" center="auto" tween="cubic" easing="inout" time="200" reversible="true">Focus</animation>
-                        <animation effect="zoom" start="105" end="100" center="auto" tween="cubic" easing="inout" time="200" reversible="true">Unfocus</animation>
+                        <width>480</width>
+                        <height>280</height>
+                        <animation effect="zoom" start="100" end="105" center="auto" tween="sine" easing="in" time="100" reversible="true">Focus</animation>
+                        <animation effect="zoom" start="105" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
                         <control type="image">
-                            <width>466</width>
-                            <height>276</height>
+                            <top>0</top>
+                            <left>0</left>
+                            <bottom>-10</bottom>
+                            <right>-10</right>
                             <texture border="20">frame/spotlight_shadow.png</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
                         <control type="image">
-                            <width>456</width>
-                            <height>266</height>
+                            <left>1</left>
                             <texture background="true" diffuse="frame/episode.png" fallback="colors/color_transparent.png">$INFO[ListItem.Thumb]</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                             <bordersize>5</bordersize>
@@ -474,8 +602,8 @@
                         <include>View_525_Details_Defs</include>
                         <!-- item title -->
                         <control type="label">
-                            <top>8</top>
-                            <left>470</left>
+                            <top>5</top>
+                            <left>495</left>
                             <width>620</width>
                             <aligny>center</aligny>
                             <height>35</height>
@@ -489,35 +617,36 @@
                             <scroll>true</scroll>
                         </control>
                         <control type="button">
-                            <height>266</height>
-                            <width>456</width>
+                            <top>-1</top>
+                            <left>0</left>
+                            <bottom>-1</bottom>
+                            <right>-1</right>
                             <texturefocus border="20">frame/focus.png</texturefocus>
                             <texturenofocus/>
                             <pulseonselect>true</pulseonselect>
-                            <visible>$PARAM[focus]</visible>
                             <onfocus>SetProperty(SeasonEpisode,$INFO[ListItem.Season],Home)</onfocus>
-                            <animation effect="fade" end="100" time="1" reversible="true">Focus</animation>
-                            <animation effect="fade" end="0" time="1" reversible="true">Unfocus</animation>
+                            <onfocus condition="[!String.IsEqual(Container(5250).ListItemPosition(0).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(1).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(2).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(3).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(4).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(5).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItemPosition(6).Season,Container(500).ListItem.Season)+!String.IsEqual(Container(5250).ListItem.Season,Container(500).ListItem.Season)]|Container(5250).IsUpdating">SetFocus(498)</onfocus>
                         </control>
                     </control>
 				</focusedlayout>
 			</control>
 		</control>
         <control type="grouplist">
+            <visible>Control.IsVisible(500)</visible>
             		<orientation>vertical</orientation>
             		<usecontrolcoords>true</usecontrolcoords>
                     <left>120</left>
                     <bottom>50</bottom>
             		<width>500</width>
             		<height>300</height>
-            		<itemgap>5</itemgap>
+            		<itemgap>20</itemgap>
                     <align>right</align>
                     <visible>!Window.IsActive(movieinformation)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <animation effect="fade" start="100" end="0" tween="cubic" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" reversible="true" condition="ControlGroup(11).HasFocus">Conditional</animation>
                     <control type="label">
 						<width>500</width>
-						<height>25</height>
+						<height>8</height>
 						<font>20px_Medium</font>
 						<textcolor>silver</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -531,14 +660,13 @@
 						<font>20px_Regular</font>
 						<textcolor>darkgray</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
-						<label>$INFO[ListItem.Director][CR] </label>
+						<label>$INFO[ListItem.Director]</label>
             			<visible>!String.IsEmpty(ListItem.Director)</visible>
 						<align>left</align>
 					</control>
-
                     <control type="label">
 						<width>500</width>
-						<height>25</height>
+						<height>8</height>
 						<font>20px_Medium</font>
 						<textcolor>silver</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -552,7 +680,7 @@
 						<font>20px_Regular</font>
 						<textcolor>darkgray</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
-						<label>$INFO[ListItem.Writer][CR] </label>
+						<label>$INFO[ListItem.Writer]</label>
             			<visible>!String.IsEmpty(ListItem.Writer)</visible>
 						<align>left</align>
 					</control>

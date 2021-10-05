@@ -665,9 +665,9 @@
                 <onup>noop</onup>
                 <ondown>noop</ondown>
                 <onright>$PARAM[list_id]6</onright>
-                <onclick>SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
-                <onclick>SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
-                <onclick>Action(Info)</onclick>
+                <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
+                <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
+                <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">Action(Info)</onclick>
                 <preloaditems>3</preloaditems>
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
@@ -688,8 +688,17 @@
                         <param name="focus" value="true"/>
                     </include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="all">$PARAM[content_path]</content>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
+                <content>
+					<item>
+						<label>Ver más</label>
+                        <poster>defaultfoldersquare.png</poster>
+						<onclick>ActivateWindow(Videos,$PARAM[content_path],return)</onclick>
+                        <property name="SeeMore">true</property>
+                        <visible>!Container($PARAM[list_id]).IsUpdating+Integer.IsGreater(Container($PARAM[list_id]).NumItems,98)</visible>
+					</item>
+				</content>
 			</control>
             <control type="scrollbar" id="$PARAM[list_id]6">
                 <top>10</top>

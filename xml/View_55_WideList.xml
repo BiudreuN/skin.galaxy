@@ -19,7 +19,7 @@
 				<onright>531</onright>
 				<onup>55</onup>
 				<ondown>55</ondown>
-				<visible>!Container.Content(episodes)+!Container.Content(seasons)</visible>
+				<visible>!Container.Content(episodes)+!Container.Content(seasons)+String.IsEmpty(Window(Home).Property(VideoGenre))</visible>
 				<viewtype label="$LOCALIZE[31107]">list</viewtype>
 				<focusedlayout height="list_item_height" condition="Container.Content(tvshows)|Container.Content(movies)|Container.Content(musicvideos)|Container.Content(videos)">
 					<control type="button">

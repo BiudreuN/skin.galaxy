@@ -90,6 +90,65 @@
 
         </definition>
 	</include>
+    <include name="GenreLayout">
+        <param name="focus">false</param>
+        <param name="top">0</param>
+        <param name="left">0</param>
+        <definition>
+		<control type="group">
+			<width>263</width>
+			<height>263</height>
+            <top>$PARAM[top]</top>
+            <left>$PARAM[left]</left>
+            <animation effect="zoom" start="100" end="105" center="auto" tween="sine" easing="in" time="100" reversible="true">Focus</animation>
+            <animation effect="zoom" start="105" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
+            <control type="image">
+                <top>0</top>
+                <left>0</left>
+                <bottom>-10</bottom>
+                <right>-10</right>
+                <texture border="20">frame/shadow.png</texture>
+                <aspectratio scalediffuse="false">stretch</aspectratio>
+            </control>
+            <control type="image">
+                <top>1</top>
+                <texture diffuse="frame/genre.png" background="true">$INFO[ListItem.Thumb]</texture>
+                <colordiffuse>lightgray</colordiffuse>
+                <bordersize>5</bordersize>
+                <aspectratio scalediffuse="false">stretch</aspectratio>
+            </control>
+            <control type="image">
+                <texture diffuse="frame/panel.png" background="true">$INFO[ListItem.ActualIcon]</texture>
+                <colordiffuse>gainsboro</colordiffuse>
+                <bordersize>90</bordersize>
+                <aspectratio>keep</aspectratio>
+            </control>
+            <control type="label">
+                <bottom>40</bottom>
+                <left>15</left>
+                <right>15</right>
+                <height>42</height>
+                <align>center</align>
+                <label>[UPPERCASE]$INFO[ListItem.label][/UPPERCASE]</label>
+                <font>22px_Medium</font>
+                <textcolor>gainsboro</textcolor>
+            </control>
+            <control type="button">
+                <top>0</top>
+                <left>0</left>
+                <bottom>-1</bottom>
+                <right>0</right>
+                <texturefocus border="20">frame/focus.png</texturefocus>
+                <texturenofocus/>
+                <pulseonselect>true</pulseonselect>
+                <animation effect="fade" end="100" time="1" reversible="true">Focus</animation>
+                <animation effect="fade" end="0" time="1" reversible="true">Unfocus</animation>
+            </control>
+		</control>
+
+
+        </definition>
+	</include>
 	<include name="GenreHome1">
 		<include content="CustomLibrary">
 			<param name="title" value="Géneros"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <smartplaylist type="movies">
-    <name>Familiar</name>
+    <name>Películas - Familiar</name>
     <match>all</match>
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>
@@ -10,5 +10,5 @@
         <value>family</value>
         <value>kids</value>
     </rule>
-    <order direction="ascending">Title</order>
+    <order direction="descending">rating</order>
 </smartplaylist>

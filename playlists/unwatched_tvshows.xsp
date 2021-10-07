@@ -2,12 +2,9 @@
 <smartplaylist type="tvshows">
     <name>Unwatched TV shows</name>
     <match>all</match>
-    <rule field="numwatched" operator="is">
-        <value>0</value>
-    </rule>
-    <rule field="numepisodes" operator="greaterthan">
-        <value>0</value>
-    </rule>
+    <rule field="inprogress" operator="false" />
+    <rule field="numwatched" operator="is">0</rule>
+    <rule field="numepisodes" operator="greaterthan">0</rule>
     <limit>50</limit>
     <order direction="descending">dateadded</order>
 </smartplaylist>

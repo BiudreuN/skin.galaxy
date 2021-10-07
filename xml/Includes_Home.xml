@@ -285,255 +285,7 @@
 			</control>
 		</definition>
 	</include>
-    <include name="FocusTexture">
-        <texture border="20">frame/focus.png</texture>
-    </include>
-    <include name="WidgetCategory">
-        <control type="label">
-            <top>80</top>
-            <left>120</left>
-            <right>120</right>
-            <height>70</height>
-            <font>56px_Medium</font>
-            <label>[CAPITALIZE]$PARAM[title][/CAPITALIZE]</label>
-            <align>left</align>
-            <aligny>center</aligny>
-            <textcolor>gainsboro</textcolor>
-            <include>Animation_WidgetInfo</include>
-            <visible>!Window.IsActive(movieinformation)</visible>
-        </control>
-        <control type="grouplist" id="$PARAM[id]050">
-            <top>160</top>
-            <left>110</left>
-            <itemgap>-15</itemgap>
-            <width>550</width>
-            <height>90%</height>
-            <orientation>vertical</orientation>
-            <onleft>Control.SetFocus(9100,$PARAM[sidebar])</onleft>
-            <onback>Control.SetFocus(9100,$PARAM[sidebar])</onback>
-            <onup>noop</onup>
-            <ondown>noop</ondown>
-            <usecontrolcoords>true</usecontrolcoords>
-            <visible>!$PARAM[alt]</visible>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]01"/>
-                <param name="position" value="0"/>
-                <param name="label" value="Todos"/>
-                <param name="panel_id" value="50"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]02"/>
-                <param name="position" value="1"/>
-                <param name="label" value="Acción/Aventuras"/>
-                <param name="panel_id" value="52"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]03"/>
-                <param name="position" value="2"/>
-                <param name="label" value="Ciencia Ficción"/>
-                <param name="panel_id" value="53"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]04"/>
-                <param name="position" value="3"/>
-                <param name="label" value="Clásicas"/>
-                <param name="panel_id" value="54"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]05"/>
-                <param name="position" value="4"/>
-                <param name="label" value="Comedia"/>
-                <param name="panel_id" value="55"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]06"/>
-                <param name="position" value="5"/>
-                <param name="label" value="Crimen"/>
-                <param name="panel_id" value="56"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]07"/>
-                <param name="position" value="6"/>
-                <param name="label" value="Drama"/>
-                <param name="panel_id" value="57"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]08"/>
-                <param name="position" value="7"/>
-                <param name="label" value="Familiar"/>
-                <param name="panel_id" value="58"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]09"/>
-                <param name="position" value="8"/>
-                <param name="label" value="Fantasía"/>
-                <param name="panel_id" value="59"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]10"/>
-                <param name="position" value="9"/>
-                <param name="label" value="Misterio"/>
-                <param name="panel_id" value="60"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]11"/>
-                <param name="position" value="10"/>
-                <param name="label" value="Musical"/>
-                <param name="panel_id" value="61"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]12"/>
-                <param name="position" value="11"/>
-                <param name="label" value="Romántica"/>
-                <param name="panel_id" value="62"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]13"/>
-                <param name="position" value="12"/>
-                <param name="label" value="Suspense"/>
-                <param name="panel_id" value="63"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]14"/>
-                <param name="position" value="13"/>
-                <param name="label" value="Terror"/>
-                <param name="panel_id" value="64"/>
-            </include>
-        </control>
-        <control type="grouplist" id="$PARAM[id]050">
-            <top>160</top>
-            <left>110</left>
-            <itemgap>-15</itemgap>
-            <width>550</width>
-            <height>90%</height>
-            <orientation>vertical</orientation>
-            <onleft>Control.SetFocus(9100,$PARAM[sidebar])</onleft>
-            <onback>Control.SetFocus(9100,$PARAM[sidebar])</onback>
-            <onup>noop</onup>
-            <ondown>noop</ondown>
-            <usecontrolcoords>true</usecontrolcoords>
-            <visible>$PARAM[alt]</visible>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]01"/>
-                <param name="position" value="0"/>
-                <param name="label" value="Películas"/>
-                <param name="panel_id" value="50"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]02"/>
-                <param name="position" value="1"/>
-                <param name="label" value="Series"/>
-                <param name="panel_id" value="51"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]03"/>
-                <param name="position" value="2"/>
-                <param name="label" value="Acción/Aventuras"/>
-                <param name="panel_id" value="52"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]04"/>
-                <param name="position" value="3"/>
-                <param name="label" value="Ciencia Ficción"/>
-                <param name="panel_id" value="53"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]05"/>
-                <param name="position" value="4"/>
-                <param name="label" value="Clásicas"/>
-                <param name="panel_id" value="54"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]06"/>
-                <param name="position" value="5"/>
-                <param name="label" value="Comedia"/>
-                <param name="panel_id" value="55"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]07"/>
-                <param name="position" value="6"/>
-                <param name="label" value="Crimen"/>
-                <param name="panel_id" value="56"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]08"/>
-                <param name="position" value="7"/>
-                <param name="label" value="Drama"/>
-                <param name="panel_id" value="57"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]09"/>
-                <param name="position" value="8"/>
-                <param name="label" value="Familiar"/>
-                <param name="panel_id" value="58"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]10"/>
-                <param name="position" value="9"/>
-                <param name="label" value="Fantasía"/>
-                <param name="panel_id" value="59"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]11"/>
-                <param name="position" value="10"/>
-                <param name="label" value="Misterio"/>
-                <param name="panel_id" value="60"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]12"/>
-                <param name="position" value="11"/>
-                <param name="label" value="Musical"/>
-                <param name="panel_id" value="61"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]13"/>
-                <param name="position" value="12"/>
-                <param name="label" value="Romántica"/>
-                <param name="panel_id" value="62"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]14"/>
-                <param name="position" value="13"/>
-                <param name="label" value="Suspense"/>
-                <param name="panel_id" value="63"/>
-            </include>
-            <include content="GenreButton">
-                <param name="id" value="$PARAM[id]"/>
-                <param name="button_id" value="$PARAM[id]15"/>
-                <param name="position" value="14"/>
-                <param name="label" value="Terror"/>
-                <param name="panel_id" value="64"/>
-            </include>
-        </control>
-    </include>
+
 
     <include name="WidgetListThumb">
         <param name="visible_content">false</param>
@@ -658,11 +410,20 @@
         <param name="visible_widget">true</param>
 		<definition>
 			<control type="panel" id="$PARAM[list_id]">
-                <right>80</right>
+                <left>120</left>
 				<scrolltime tween="sine" easing="out">150</scrolltime>
-                <onback>$PARAM[onup]</onback>
-                <onleft>$PARAM[onup]</onleft>
-                <onup>noop</onup>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
+                <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
+                <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
+                <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
+                <onup>$PARAM[onup]</onup>
                 <ondown>noop</ondown>
                 <onright>$PARAM[list_id]6</onright>
                 <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
@@ -671,24 +432,24 @@
                 <preloaditems>3</preloaditems>
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
-                <width>1415</width>
-                <animation effect="fade" tween="cubic" easing="out" time="1" delay="1" reversible="true">Hidden</animation>
+                <width>1740</width>
                 <visible allowhiddenfocus="true">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
-				<itemlayout width="283" height="440">
+                <enable>$PARAM[visible_widget]</enable>
+				<itemlayout width="290" height="440">
 					<include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
 					</include>
 				</itemlayout>
-				<focusedlayout width="283" height="440">
+				<focusedlayout width="290" height="440">
                     <include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
                         <param name="focus" value="true"/>
                     </include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="all">$PARAM[content_path]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="209">$PARAM[content_path]</content>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
                 <content>
 					<item>
@@ -696,7 +457,7 @@
                         <poster>defaultfoldersquare.png</poster>
 						<onclick>ActivateWindow(Videos,$PARAM[content_path],return)</onclick>
                         <property name="SeeMore">true</property>
-                        <visible>!Container($PARAM[list_id]).IsUpdating+Integer.IsGreater(Container($PARAM[list_id]).NumItems,98)</visible>
+                        <visible>!Container($PARAM[list_id]).IsUpdating+Integer.IsGreater(Container($PARAM[list_id]).NumItems,208)</visible>
 					</item>
 				</content>
 			</control>
@@ -729,7 +490,7 @@
                 <texture>dialogs/spin.png</texture>
                 <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
                 <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
-                <visible>Container($PARAM[list_id]).IsUpdating+!Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)+$PARAM[visible_widget]</visible>
+                <visible>Container($PARAM[list_id]).IsUpdating+Control.IsVisible($PARAM[list_id])</visible>
             </control>
 		</definition>
 	</include>
@@ -752,7 +513,7 @@
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
                 <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
-                <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
+                <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
                 <onup>$PARAM[onup]</onup>
                 <ondown>noop</ondown>
                 <onright>$PARAM[list_id]6</onright>
@@ -762,19 +523,19 @@
                 <preloaditems>3</preloaditems>
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
-                <width>1700</width>
+                <width>1740</width>
                 <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                 <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                 <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
                 <include>Animation_WidgetInfo</include>
-				<itemlayout width="283" height="440">
+				<itemlayout width="290" height="440">
 					<include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
 					</include>
 				</itemlayout>
-				<focusedlayout width="283" height="440">
+				<focusedlayout width="290" height="440">
                     <include content="PosterLayout">
                         <param name="top" value="120"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
@@ -833,33 +594,224 @@
             </control>
 		</definition>
 	</include>
-    <include name="CategoryButton">
-        <param name="color">gray</param>
-        <param name="disabledcolor">disabled</param>
-        <param name="enable">true</param>
-        <definition>
-            <control type="togglebutton" id="$PARAM[list_id]">
+    <include name="GenrePanel">
+        <control type="panel" id="$PARAM[list_id]">
+            <left>120</left>
+            <scrolltime tween="sine" easing="out">150</scrolltime>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
+            <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
+            <onup>$PARAM[group_tab]</onup>
+            <ondown>noop</ondown>
+            <onright>noop</onright>
+            <preloaditems>3</preloaditems>
+            <height>100%</height>
+            <width>1740</width>
+            <animation effect="fade" tween="cubic" easing="out" time="1" delay="1" reversible="true">Hidden</animation>
+            <visible allowhiddenfocus="true">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
+            <visible>$PARAM[visible_widget]</visible>
+            <itemlayout width="290" height="290">
+                <include content="GenreLayout">
+                    <param name="top" value="120"/>
+                    <param name="list_id" value="$PARAM[list_id]"/>
+                </include>
+            </itemlayout>
+            <focusedlayout width="290" height="290">
+                <include content="GenreLayout">
+                    <param name="top" value="120"/>
+                    <param name="list_id" value="$PARAM[list_id]"/>
+                    <param name="focus" value="true"/>
+                </include>
+            </focusedlayout>
+            <content>
+                <item>
+                    <label>Acción</label>
+                    <icon>icons/genres/action.png</icon>
+                    <thumb>genres/action.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Acción.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Acción.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Aventuras</label>
+                    <icon>icons/genres/adventure.png</icon>
+                    <thumb>genres/adventure.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Aventuras.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Aventuras.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Ciencia Ficción</label>
+                    <icon>icons/genres/sci-fi.png</icon>
+                    <thumb>genres/sci-fi.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Ciencia Ficción.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Ciencia Ficción.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Clásicas</label>
+                    <icon>icons/genres/classic.png</icon>
+                    <thumb>genres/classic.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Clásicas.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Clásicas.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Comedia</label>
+                    <icon>icons/genres/comedy.png</icon>
+                    <thumb>genres/comedy.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Comedia.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Comedia.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Crimen</label>
+                    <icon>icons/genres/crime.png</icon>
+                    <thumb>genres/crime.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Crimen.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Crimen.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Drama</label>
+                    <icon>icons/genres/drama.png</icon>
+                    <thumb>genres/drama.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Drama.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Drama.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Familiar</label>
+                    <icon>icons/genres/family.png</icon>
+                    <thumb>genres/family.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Familiar.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Familiar.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Fantasía</label>
+                    <icon>icons/genres/fantasy.png</icon>
+                    <thumb>genres/fantasy.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Fantasía.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Fantasía.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Misterio</label>
+                    <icon>icons/genres/mistery.png</icon>
+                    <thumb>genres/mistery.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Misterio.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Misterio.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Musical</label>
+                    <icon>icons/genres/musical.png</icon>
+                    <thumb>genres/musical.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Musical.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Musical.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Romántica</label>
+                    <icon>icons/genres/romance.png</icon>
+                    <thumb>genres/romance.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Romántica.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Romántica.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Suspense</label>
+                    <icon>icons/genres/suspense.png</icon>
+                    <thumb>genres/suspense.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Suspense.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Suspense.xsp,return)</onclick>
+                </item>
+                <item>
+                    <label>Terror</label>
+                    <icon>icons/genres/horror.png</icon>
+                    <thumb>genres/horror.png</thumb>
+                    <onclick>SetProperty(VideoGenre,special://skin/playlists/$PARAM[type]/genre/Terror.xsp,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,special://skin/playlists/$PARAM[type]/genre/Terror.xsp,return)</onclick>
+                </item>
+            </content>
+        </control>
+    </include>
+    <include name="CategoryList">
+        <control type="label">
+            <top>80</top>
+            <left>120</left>
+            <right>120</right>
+            <height>70</height>
+            <font>56px_Medium</font>
+            <aligny>center</aligny>
+            <label>$PARAM[title]</label>
+            <textcolor>gainsboro</textcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+            <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="150" condition="$PARAM[fade]" reversible="true">Conditional</animation>
+        </control>
+        <control type="grouplist" id="$PARAM[list_id]1">
+            <top>80</top>
+            <left>120</left>
+            <right>100</right>
+            <itemgap>0</itemgap>
+            <height>70</height>
+            <align>right</align>
+            <orientation>horizontal</orientation>
+            <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="150" condition="$PARAM[fade]" reversible="true">Conditional</animation>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
+            <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
+            <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
+            <control type="togglebutton" id="$PARAM[list_id]2">
                 <width>auto</width>
-                <height>50</height>
-                <texturefocus border="20">buttons/button-category.png</texturefocus>
-                <texturenofocus></texturenofocus>
-                <alttexturefocus border="20">buttons/button-category.png</alttexturefocus>
-                <alttexturenofocus></alttexturenofocus>
-                <usealttexture>$PARAM[visible]</usealttexture>
-                <label>[LIGHT]$PARAM[label][/LIGHT]</label>
-                <altlabel>[COLOR white]$PARAM[label][/COLOR]</altlabel>
-                <font>20px_Medium</font>
-                <textcolor>gray</textcolor>
-                <disabledcolor>disabled</disabledcolor>
-                <shadowcolor>text_shadow</shadowcolor>
-                <textoffsetx>10</textoffsetx>
-                <align>center</align>
+                <texturefocus border="65,0,30,0">buttons/category/$PARAM[button_1]-fo.png</texturefocus>
+                <texturenofocus border="65,0,30,0" colordiffuse="gray">buttons/category/$PARAM[button_1]-nofo.png</texturenofocus>
+                <alttexturefocus border="65,0,30,0">buttons/category/$PARAM[button_1]-fo.png</alttexturefocus>
+                <alttexturenofocus border="65,0,30,0">buttons/category/$PARAM[button_1]-nofo2.png</alttexturenofocus>
+                <usealttexture>Control.IsVisible($PARAM[ondown_1])</usealttexture>
+                <label>      [COLOR gray][UPPERCASE]$PARAM[label_1][/UPPERCASE][/COLOR]</label>
+                <altlabel>      [UPPERCASE]$PARAM[label_1][/UPPERCASE]</altlabel>
+                <font>27px_Medium</font>
+                <textcolor>white</textcolor>
+                <focusedcolor>black</focusedcolor>
+                <disabledcolor>gray</disabledcolor>
+                <textoffsetx>25</textoffsetx>
+                <align>right</align>
                 <aligny>center</aligny>
-                <ondown>$PARAM[panel_id]</ondown>
-                <onclick>SetFocus($PARAM[panel_id])</onclick>
-                <enable>[Integer.IsGreater(Container($PARAM[panel_id]).NumItems,0)|Container($PARAM[panel_id]).IsUpdating]</enable>
+                <pulseonselect>true</pulseonselect>
+                <enable>Integer.IsGreater(Container($PARAM[ondown_1]).NumItems,0)|Container($PARAM[ondown_1]).IsUpdating</enable>
+                <altclick>SetFocus($PARAM[ondown_1])</altclick>
+                <ondown>$PARAM[ondown_1]</ondown>
+                <onclick>SetFocus($PARAM[ondown_1])</onclick>
+                <animation effect="fade" end="40" condition="!Control.IsEnabled($PARAM[list_id]2)">Conditional</animation>
             </control>
-        </definition>
+            <control type="togglebutton" id="$PARAM[list_id]3">
+                <width>auto</width>
+                <texturefocus border="65,0,30,0">buttons/category/$PARAM[button_2]-fo.png</texturefocus>
+                <texturenofocus border="65,0,30,0" colordiffuse="gray">buttons/category/$PARAM[button_2]-nofo.png</texturenofocus>
+                <alttexturefocus border="65,0,30,0">buttons/category/$PARAM[button_2]-fo.png</alttexturefocus>
+                <alttexturenofocus border="65,0,30,0">buttons/category/$PARAM[button_2]-nofo2.png</alttexturenofocus>
+                <usealttexture>Control.IsVisible($PARAM[ondown_2])</usealttexture>
+                <label>      [COLOR gray][UPPERCASE]$PARAM[label_2][/UPPERCASE][/COLOR]</label>
+                <altlabel>      [UPPERCASE]$PARAM[label_2][/UPPERCASE]</altlabel>
+                <font>27px_Medium</font>
+                <textcolor>white</textcolor>
+                <focusedcolor>black</focusedcolor>
+                <disabledcolor>gray</disabledcolor>
+                <textoffsetx>25</textoffsetx>
+                <align>right</align>
+                <aligny>center</aligny>
+                <pulseonselect>true</pulseonselect>
+                <enable>Integer.IsGreater(Container($PARAM[ondown_2]).NumItems,0)|Container($PARAM[ondown_2]).IsUpdating</enable>
+                <altclick>SetFocus($PARAM[ondown_2])</altclick>
+                <ondown>$PARAM[ondown_2]</ondown>
+                <onclick>SetFocus($PARAM[ondown_2])</onclick>
+                <animation effect="fade" end="40" condition="!Control.IsEnabled($PARAM[list_id]3)">Conditional</animation>
+            </control>
+        </control>
     </include>
 	<include name="WidgetListSpotlight">
 		<definition>

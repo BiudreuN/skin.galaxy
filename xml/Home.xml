@@ -172,23 +172,33 @@
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="3"/>
-                        <param name="title" value="Películas"/>
-                        <param name="sidebar" value="2"/>
-                        <param name="alt" value="false"/>
-                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/movies/movies.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="visible_widget" value="Container(3050).Position(0)"/>
+                        <param name="visible_widget" value="Container(301).Position(0)+Control.IsEnabled(302)"/>
                         <param name="list_id" value="3150"/>
                         <param name="onup" value="301"/>
-                        <param name="sortby" value="title"/>
-                        <param name="sortorder" value="ascending"/>
+                        <param name="sortby" value="rating"/>
+                        <param name="sortorder" value="descending"/>
                     </include>
-
+                    <include content="GenrePanel">
+                        <param name="list_id" value="3151"/>
+                        <param name="group_tab" value="301"/>
+                        <param name="type" value="movies"/>
+                        <param name="visible_widget" value="[Container(301).Position(1)+Control.IsEnabled(303)]|!Control.IsEnabled(302)"/>
+                    </include>
+                    <include content="CategoryList">
+                        <param name="list_id" value="30"/>
+                        <param name="title" value="Películas"/>
+                        <param name="fade" value="Container(3150).HasPrevious"/>
+                        <param name="ondown_1" value="3150"/>
+                        <param name="ondown_2" value="3151"/>
+                        <param name="label_1" value="Películas"/>
+                        <param name="label_2" value="Géneros"/>
+                        <param name="button_1" value="movie"/>
+                        <param name="button_2" value="genre"/>
+                    </include>
                 </control>
             </control>
             <control type="group" id="4000">
@@ -198,24 +208,33 @@
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="4"/>
-                        <param name="title" value="Series"/>
-                        <param name="sidebar" value="3"/>
-                        <param name="alt" value="false"/>
-                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/tvshows/tvshows.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="visible_widget" value="Container(4050).Position(0)"/>
+                        <param name="visible_widget" value="Container(401).Position(0)+Control.IsEnabled(402)"/>
                         <param name="list_id" value="4150"/>
                         <param name="onup" value="401"/>
-                        <param name="sortby" value="title"/>
-                        <param name="sortorder" value="ascending"/>
+                        <param name="sortby" value="rating"/>
+                        <param name="sortorder" value="descending"/>
                     </include>
-
-
+                    <include content="GenrePanel">
+                        <param name="list_id" value="4151"/>
+                        <param name="group_tab" value="401"/>
+                        <param name="type" value="tvshows"/>
+                        <param name="visible_widget" value="[Container(401).Position(1)+Control.IsEnabled(403)]|!Control.IsEnabled(402)"/>
+                    </include>
+                    <include content="CategoryList">
+                        <param name="list_id" value="40"/>
+                        <param name="title" value="Series"/>
+                        <param name="fade" value="Container(4150).HasPrevious"/>
+                        <param name="ondown_1" value="4150"/>
+                        <param name="ondown_2" value="4151"/>
+                        <param name="label_1" value="Series"/>
+                        <param name="label_2" value="Géneros"/>
+                        <param name="button_1" value="tv"/>
+                        <param name="button_2" value="genre"/>
+                    </include>
                 </control>
             </control>
             <control type="group" id="5000">
@@ -225,34 +244,37 @@
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="5"/>
-                        <param name="title" value="Dibujos"/>
-                        <param name="sidebar" value="4"/>
-                        <param name="alt" value="true"/>
-                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/kids/movies.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="visible_widget" value="Container(5050).Position(0)"/>
+                        <param name="visible_widget" value="Container(501).Position(0)+Control.IsEnabled(502)"/>
                         <param name="list_id" value="5150"/>
                         <param name="onup" value="501"/>
-                        <param name="sortby" value="title"/>
-                        <param name="sortorder" value="ascending"/>
+                        <param name="sortby" value="rating"/>
+                        <param name="sortorder" value="descending"/>
                     </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/kids/tvshows.xsp"/>
-                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_header" value="Series"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="visible_widget" value="Container(5050).Position(1)"/>
+                        <param name="visible_widget" value="[Container(501).Position(1)+Control.IsEnabled(503)]|!Control.IsEnabled(502)"/>
                         <param name="list_id" value="5151"/>
-                        <param name="onup" value="502"/>
-                        <param name="sortby" value="title"/>
-                        <param name="sortorder" value="ascending"/>
+                        <param name="onup" value="501"/>
+                        <param name="sortby" value="rating"/>
+                        <param name="sortorder" value="descending"/>
                     </include>
-
-
+                    <include content="CategoryList">
+                        <param name="list_id" value="50"/>
+                        <param name="title" value="Dibujos"/>
+                        <param name="fade" value="Container(5150).HasPrevious|Container(5151).HasPrevious"/>
+                        <param name="ondown_1" value="5150"/>
+                        <param name="ondown_2" value="5151"/>
+                        <param name="label_1" value="Películas"/>
+                        <param name="label_2" value="Series"/>
+                        <param name="button_1" value="movie"/>
+                        <param name="button_2" value="tv"/>
+                    </include>
                 </control>
             </control>
             <control type="group" id="6000">
@@ -262,34 +284,37 @@
                     <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <include content="WidgetCategory">
-                        <param name="id" value="6"/>
-                        <param name="title" value="Anime"/>
-                        <param name="sidebar" value="5"/>
-                        <param name="alt" value="true"/>
-                    </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/anime/movies.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="visible_widget" value="Container(6050).Position(0)"/>
+                        <param name="visible_widget" value="Container(601).Position(0)+Control.IsEnabled(602)"/>
                         <param name="list_id" value="6150"/>
                         <param name="onup" value="601"/>
-                        <param name="sortby" value="title"/>
-                        <param name="sortorder" value="ascending"/>
+                        <param name="sortby" value="rating"/>
+                        <param name="sortorder" value="descending"/>
                     </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/anime/tvshows.xsp"/>
                         <param name="widget_header" value="Películas"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="visible_widget" value="Container(6050).Position(1)"/>
+                        <param name="visible_widget" value="[Container(601).Position(1)+Control.IsEnabled(603)]|!Control.IsEnabled(602)"/>
                         <param name="list_id" value="6151"/>
-                        <param name="onup" value="602"/>
-                        <param name="sortby" value="title"/>
-                        <param name="sortorder" value="ascending"/>
+                        <param name="onup" value="601"/>
+                        <param name="sortby" value="rating"/>
+                        <param name="sortorder" value="descending"/>
                     </include>
-
-
+                    <include content="CategoryList">
+                        <param name="list_id" value="60"/>
+                        <param name="title" value="Dibujos"/>
+                        <param name="fade" value="Container(6150).HasPrevious|Container(6151).HasPrevious"/>
+                        <param name="ondown_1" value="6150"/>
+                        <param name="ondown_2" value="6151"/>
+                        <param name="label_1" value="Películas"/>
+                        <param name="label_2" value="Series"/>
+                        <param name="button_1" value="movie"/>
+                        <param name="button_2" value="tv"/>
+                    </include>
                 </control>
             </control>
             <control type="group" id="7000">
@@ -737,7 +762,7 @@
                     <onfocus>ClearProperty(SearchSets)</onfocus>
                     <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
                     <animation effect="slide" start="0" end="0,420" reversible="true" tween="sine" easing="out" time="150" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
-                    <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container(179).HasPrevious" reversible="true">Conditional</animation>
+                    <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(179).HasPrevious" reversible="true">Conditional</animation>
                     <onup>1200</onup>
                     <ondown>noop</ondown>
                     <onright>1796</onright>
@@ -747,23 +772,23 @@
                     <preloaditems>3</preloaditems>
                     <pagecontrol>1796</pagecontrol>
                     <height>100%</height>
-                    <width>1700</width>
+                    <width>1740</width>
                     <visible>Integer.IsGreater(Container(179).NumItems,0)|Container(179).IsUpdating</visible>
                     <visible allowhiddenfocus="true">String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))</visible>
-                    <itemlayout width="283" height="440">
+                    <itemlayout width="290" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="179"/>
                         </include>
                     </itemlayout>
-                    <focusedlayout width="283" height="440">
+                    <focusedlayout width="290" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="179"/>
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
-                    <content sortby="title" target="videos" limit="100">special://skin/playlists/home/sets.xsp</content>
+                    <content sortby="title" target="videos" limit="102">special://skin/playlists/home/sets.xsp</content>
                 </control>
                 <control type="scrollbar" id="1796">
                     <top>10</top>
@@ -794,7 +819,7 @@
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>179</onback>
                     <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
-                    <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container(178).HasPrevious" reversible="true">Conditional</animation>
+                    <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(178).HasPrevious" reversible="true">Conditional</animation>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                     <onright>1786</onright>
@@ -802,23 +827,23 @@
                     <preloaditems>3</preloaditems>
                     <pagecontrol>1786</pagecontrol>
                     <height>100%</height>
-                    <width>1700</width>
+                    <width>1740</width>
                     <visible>Integer.IsGreater(Container(178).NumItems,1)+!Container(178).IsUpdating</visible>
                     <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SearchSets))</visible>
-                    <itemlayout width="283" height="440">
+                    <itemlayout width="290" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="178"/>
                         </include>
                     </itemlayout>
-                    <focusedlayout width="283" height="440">
+                    <focusedlayout width="290" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="178"/>
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
-                    <content sortby="year" target="videos" limit="100">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content sortby="year" target="videos" limit="102">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
                 </control>
                 <control type="scrollbar" id="1786">
                     <top>10</top>
@@ -850,7 +875,7 @@
                     <onback>180</onback>
 
                     <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
-                    <animation effect="slide" end="0,60" time="150" tween="sine" easing="in" condition="!Container(177).HasPrevious" reversible="true">Conditional</animation>
+                    <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(177).HasPrevious" reversible="true">Conditional</animation>
                     <onup>noop</onup>
                     <ondown>noop</ondown>
                     <onright>1776</onright>
@@ -858,23 +883,23 @@
                     <preloaditems>3</preloaditems>
                     <pagecontrol>1776</pagecontrol>
                     <height>100%</height>
-                    <width>1700</width>
+                    <width>1740</width>
                     <visible>Integer.IsGreater(Container(177).NumItems,1)+!Container(177).IsUpdating</visible>
                     <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SeeMore))</visible>
-                    <itemlayout width="283" height="440">
+                    <itemlayout width="290" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="177"/>
                         </include>
                     </itemlayout>
-                    <focusedlayout width="283" height="440">
+                    <focusedlayout width="290" height="440">
                         <include content="PosterLayout">
                             <param name="top" value="120"/>
                             <param name="list_id" value="177"/>
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
-                    <content target="videos" limit="100">$INFO[Skin.String(CustomSearchMore)]</content>
+                    <content target="videos" limit="102">$INFO[Skin.String(CustomSearchMore)]</content>
                 </control>
                 <control type="scrollbar" id="1776">
                     <top>10</top>
@@ -1042,17 +1067,6 @@
                         <param name="list_id" value="191"/>
                     </include>
 
-                    <!-- By Country (Movies) -->
-                    <include content="WidgetListThumb" condition="Library.HasContent(movies)">
-                        <param name="content_path" value="$VAR[SearchWidgetVar]://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>
-                        <param name="item" value="SearchItem"/>
-                        <param name="widget_header" value="$INFO[Skin.String(CustomSearchTerm),Películas del país &quot;,&quot;]"/>
-                        <param name="visible_content" value="true"/>
-                        <param name="widget_target" value="videos"/>
-                        <param name="searchmore" value="true"/>
-                        <param name="widget_limit" value="50"/>
-                        <param name="list_id" value="192"/>
-                    </include>
                     <!-- By Tag (Movies & TV Shows) -->
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="$VAR[SearchWidgetVar]://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22tag%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D"/>

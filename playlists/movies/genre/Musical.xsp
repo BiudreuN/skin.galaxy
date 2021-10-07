@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <smartplaylist type="movies">
-    <name>Musical</name>
+    <name>Películas - Musical</name>
     <match>all</match>
     <rule field="genre" operator="contain">
         <value>sic</value>
@@ -8,5 +8,5 @@
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>
     <limit>all</limit>
-    <order>title</order>
+    <order direction="descending">rating</order>
 </smartplaylist>

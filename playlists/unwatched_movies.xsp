@@ -2,8 +2,7 @@
 <smartplaylist type="movies">
     <name>Unwatched movies</name>
     <match>all</match>
-    <rule field="playcount" operator="is">
-        <value>0</value>
-    </rule>
+    <rule field="inprogress" operator="false" />
+    <rule field="playcount" operator="is">0</rule>
     <order direction="descending">random</order>
 </smartplaylist>

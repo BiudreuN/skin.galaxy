@@ -8,6 +8,7 @@
     <!-- clear tvshowid property -->
     <onunload condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(KeepTVShowID))">ClearProperty(KeepTVShowID,Home)</onunload>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(VideoGenre))+Window.Next(Home)">ClearProperty(VideoGenre,Home)</onunload>
 	<onload>Action(Stop)</onload>
 	<controls>
         <control type="image">
@@ -21,6 +22,7 @@
             <width>100%</width>
             <texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
             <animation effect="fade" tween="sine" easing="out" time="150">WindowClose</animation>
+            <animation effect="fade" tween="sine" easing="out" time="150">Hidden</animation>
             <visible>Container.Content(episodes)|Container.Content(seasons)</visible>
         </control>
         <control type="image">
@@ -28,7 +30,6 @@
             <width>100%</width>
             <texture>colors/background50.png</texture>
             <colordiffuse>primary_background</colordiffuse>
-            <visible>Container.Content(episodes)|Container.Content(seasons)</visible>
         </control>
 		<control type="group">
 			<include>OpenClose_Fade</include>

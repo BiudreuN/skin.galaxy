@@ -125,7 +125,7 @@
         <control type="group">
 			<left>495</left>
             <height>266</height>
-            <width>570</width>
+            <width>630</width>
             <!-- item sublabel -->
             <control type="label">
                 <bottom>0</bottom>
@@ -166,15 +166,16 @@
             <!-- plot -->
             <control type="textbox">
                 <visible>Container(500).Content(episodes)</visible>
-                <width>600</width>
+                <left>0</left>
+                <right>0</right>
                 <top>40</top>
-                <height>160</height>
+                <height>190</height>
                 <align>left</align>
                 <font>22px_Medium</font>
                 <textcolor>silver</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <label>[LIGHT]$VAR[View500EpisodePlot][/LIGHT]</label>
-                <autoscroll delay="8000" time="6000" repeat="2000">!Skin.HasSetting(DisablePlotAutoScroll) + Control.HasFocus(505)</autoscroll>
+                <autoscroll delay="6000" time="3000" repeat="6000">!Skin.HasSetting(DisablePlotAutoScroll)+Control.HasFocus(500)+$PARAM[autoscroll]</autoscroll>
             </control>
             
         </control>
@@ -352,10 +353,10 @@
             <visible>false</visible>
         </control>
 		<control type="group">
+            <animation effect="fade" tween="sine" start="0" end="100" reversible="true" easing="out" time="300">Visible</animation>
 			<visible>Control.IsVisible(500)</visible>
 			<visible>Container.Content(episodes)|Container.Content(seasons)</visible>
 			<visible>!Window.IsActive(movieinformation)</visible>
-            <include>Animation_WidgetInfo</include>
            	<!-- seasons list -->
                 <control type="group">
                     <height>890</height>
@@ -454,7 +455,7 @@
                     </control>
                     <control type="scrollbar" id="5251">
                         <top>370</top>
-                        <left>100</left>
+                        <left>85</left>
                         <height>420</height>
                         <width>5</width>
                         <texturesliderbackground colordiffuse="90grey" border="0,5,0,5">lists/scrollbar.png</texturesliderbackground>
@@ -467,9 +468,29 @@
                         <enable>true</enable>
                         <pulseonselect>true</pulseonselect>
                         <visible>Integer.IsGreater(Container(5250).NumItems,0)|Container(5250).IsUpdating</visible>
+                        <visible>false</visible>
                         <animation effect="fade" tween="sine" easing="in" time="150">Visible</animation>
                         <animation effect="fade" tween="sine" easing="out" time="150">Hidden</animation>
                         <animation effect="fade" end="15" condition="!Control.HasFocus(5251)" reversible="true">Conditional</animation>
+                    </control>
+                    <control type="group">
+                        <visible>Container(5250).HasNext|Container(5250).HasPrevious</visible>
+                        <control type="image">
+                            <top>335</top>
+                            <left>90</left>
+                            <height>48</height>
+                            <width>48</width>
+                            <texture colordiffuse="gray">icons/arrow_up.png</texture>
+                            <animation effect="fade" start="90" end="30" time="150" condition="!Container(5250).HasPrevious" reversible="true">Conditional</animation>
+                        </control>
+                        <control type="image">
+                            <top>780</top>
+                            <left>90</left>
+                            <height>48</height>
+                            <width>48</width>
+                            <texture colordiffuse="gray">icons/arrow_down.png</texture>
+                            <animation effect="fade" start="90" end="30" time="150" condition="!Container(5250).HasNext" reversible="true">Conditional</animation>
+                        </control>
                     </control>
 					<!-- Seasons list -->
 					<control type="list" id="5250">
@@ -477,7 +498,7 @@
 						<visible>Integer.IsGreater(Container(5250).NumItems,0)+!Container(5250).IsUpdating</visible>
 						<pagecontrol>5251</pagecontrol>
 						<top>370</top>
-						<left>110</left>
+						<left>85</left>
 						<width>550</width>
 						<height>420</height>
 						<preloaditems>1</preloaditems>
@@ -518,8 +539,19 @@
                         <content sortby="label" sortorder="ascending" target="video">$INFO[Window(Home).Property(ListItem.TVShowID2),videodb://tvshows/titles/,/]</content>
                     </control>
                 </control>
+                <control type="image">
+                    <centertop>580</centertop>
+                    <centerleft>360</centerleft>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>dialogs/spin.png</texture>
+                    <visible>Container(5250).IsUpdating</visible>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <animation effect="fade" tween="cubic" easing="in" time="150" delay="200">Visible</animation>
+                </control>
 			<control type="list" id="500">
-                <left>730</left>
+                <left>700</left>
+                <right>80</right>
                 <height>100%</height>
                 <width>100%</width>
                 <orientation>vertical</orientation>
@@ -535,7 +567,7 @@
 				<pagecontrol>531</pagecontrol>
 				<scrolltime tween="sine" easing="out">200</scrolltime>
 				<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
-				<itemlayout width="1150" height="300">
+				<itemlayout height="300">
                     <control type="group">
                         <top>120</top>
                         <width>480</width>
@@ -551,12 +583,14 @@
                         <control type="image">
                             <texture background="true" diffuse="frame/episode.png" fallback="colors/color_transparent.png">$INFO[ListItem.Thumb]</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <bordersize>5</bordersize>
+                            <bordersize>6</bordersize>
                         </control>
                         <!-- landscape content -->
                         <include>View_525_Landscape_Defs</include>
                         <!-- details content -->
-                        <include>View_525_Details_Defs</include>
+                        <include content="View_525_Details_Defs">
+                            <param name="autoscroll" value="false"/>
+                        </include>
                         <!-- item title -->
                         <control type="label">
                             <top>5</top>
@@ -565,15 +599,14 @@
                             <aligny>center</aligny>
                             <height>35</height>
                             <align>left</align>
-                            <font>25px_Medium</font>
-                            <textcolor>FFEEEEEE</textcolor>
-                            <selectedcolor>FFEEEEEE</selectedcolor>
+                            <font>24px_Bold</font>
+                            <textcolor>gainsboro</textcolor>
                             <label>$VAR[View525MainLabel]</label>
                             <scroll>false</scroll>
                         </control>
                     </control>
 				</itemlayout>
-				<focusedlayout width="1150" height="300">
+				<focusedlayout height="300">
                     <control type="group">
                         <top>120</top>
                         <width>480</width>
@@ -592,12 +625,14 @@
                             <left>1</left>
                             <texture background="true" diffuse="frame/episode.png" fallback="colors/color_transparent.png">$INFO[ListItem.Thumb]</texture>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
-                            <bordersize>5</bordersize>
+                            <bordersize>6</bordersize>
                         </control>
                         <!-- landscape content -->
                         <include>View_525_Landscape_Defs</include>
                         <!-- details content -->
-                        <include>View_525_Details_Defs</include>
+                        <include content="View_525_Details_Defs">
+                            <param name="autoscroll" value="true"/>
+                        </include>
                         <!-- item title -->
                         <control type="label">
                             <top>5</top>
@@ -606,9 +641,8 @@
                             <aligny>center</aligny>
                             <height>35</height>
                             <align>left</align>
-                            <font>25px_Medium</font>
-                            <textcolor>FFEEEEEE</textcolor>
-                            <selectedcolor>FFEEEEEE</selectedcolor>
+                            <font>24px_Bold</font>
+                            <textcolor>gainsboro</textcolor>
                             <label>$VAR[View525MainLabel]</label>
                             <scrolltime>$PARAM[scrolltime]</scrolltime>
                             <autoscroll delay="$PARAM[delay]" time="$PARAM[time]" repeat="$PARAM[repeat]">$PARAM[autoscroll]</autoscroll>
@@ -633,7 +667,7 @@
             <visible>Control.IsVisible(500)</visible>
             		<orientation>vertical</orientation>
             		<usecontrolcoords>true</usecontrolcoords>
-                    <left>120</left>
+                    <left>90</left>
                     <bottom>50</bottom>
             		<width>500</width>
             		<height>300</height>

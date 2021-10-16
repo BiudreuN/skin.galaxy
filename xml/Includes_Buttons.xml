@@ -118,6 +118,21 @@
 			<visible>$PARAM[visible]</visible>
 		</control>
 	</include>
+    <include name="DefaultMyListButton">
+		<control type="radiobutton" id="$PARAM[id]">
+            <label>$PARAM[number] - $ESCINFO[Skin.String(MyList$PARAM[number])]</label>
+            <textureradioonfocus colordiffuse="black">icons/delete.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="black">icons/delete_empty.png</textureradioofffocus>
+            <textureradioonnofocus colordiffuse="gray">icons/delete.png</textureradioonnofocus>
+            <textureradiooffnofocus colordiffuse="gray">icons/delete_empty.png</textureradiooffnofocus>
+            <radiowidth>80</radiowidth>
+            <radioheight>42</radioheight>
+            <include>DefaultSettingButton</include>
+            <onclick>Skin.Reset(MyList$PARAM[number])</onclick>
+            <selected>!String.IsEmpty(Skin.String(MyList$PARAM[number]))</selected>
+            <animation effect="fade" start="100" end="50" condition="String.IsEmpty(Skin.String(MyList$PARAM[number]))+!Control.HasFocus($PARAM[id])" reversible="true">Conditional</animation>
+        </control>
+	</include>
 	<include name="DefaultSettingButton">
 		<param name="height">80</param>
 		<param name="textoffsetx">40</param>
@@ -131,6 +146,7 @@
             <focusedcolor>black</focusedcolor>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
+            <pulseonselect>true</pulseonselect>
 			<texturefocus border="20">buttons/button-focus.png</texturefocus>
 			<texturenofocus />
 		</definition>

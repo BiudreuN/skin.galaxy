@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <smartplaylist type="tvshows">
-    <name>Fantasía</name>
+    <name>Series - Fantasía</name>
     <match>all</match>
     <rule field="genre" operator="contain">
         <value>fantasía</value>
@@ -10,5 +10,5 @@
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>
     <limit>all</limit>
-    <order>Title</order>
+    <order direction="descending">rating</order>
 </smartplaylist>

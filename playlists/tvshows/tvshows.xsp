@@ -5,5 +5,5 @@
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>
     <limit>all</limit>
-    <order direction="ascending">title</order>
+    <order direction="descending">rating</order>
 </smartplaylist>

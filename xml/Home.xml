@@ -28,6 +28,7 @@
         <include>SidebarMenu</include>
         <control type="group" id="8000">
             <include>OpenClose_Fade</include>
+            <animation effect="fade" start="100" end="0" condition="Player.HasVideo">conditional</animation>
             <animation effect="slide" end="280" time="150" tween="sine" easing="out" condition="ControlGroup(9000).HasFocus">conditional</animation>
             <control type="image">
                 <left>100</left>
@@ -54,7 +55,7 @@
                         <param name="sortby" value="votes"/>
                         <param name="sortorder" value="descending"/>
                         <param name="widget_target" value="videos"/>
-                        <param name="widget_limit" value="5"/>
+                        <param name="widget_limit" value="3"/>
                     </include>
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="special://skin/playlists/recent_movies.xsp"/>
@@ -788,7 +789,7 @@
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
-                    <content sortby="title" target="videos" limit="102">special://skin/playlists/home/sets.xsp</content>
+                    <content sortby="title" target="videos" limit="all">special://skin/playlists/home/sets.xsp</content>
                 </control>
                 <control type="scrollbar" id="1796">
                     <top>10</top>
@@ -843,7 +844,7 @@
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
-                    <content sortby="year" target="videos" limit="102">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
+                    <content sortby="year" target="videos" limit="60">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
                 </control>
                 <control type="scrollbar" id="1786">
                     <top>10</top>
@@ -899,7 +900,7 @@
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
-                    <content target="videos" limit="102">$INFO[Skin.String(CustomSearchMore)]</content>
+                    <content target="videos" limit="60">$INFO[Skin.String(CustomSearchMore)]</content>
                 </control>
                 <control type="scrollbar" id="1776">
                     <top>10</top>
@@ -1511,44 +1512,28 @@
                 </control>
             </control>
         </control>
-        <control type="textbox">
-            <top>80</top>
-            <left>150</left>
-            <right>150</right>
-            <height>800</height>
-            <font>27px_Medium</font>
-            <label>1$ESCINFO[Skin.String(MyList1)] | 2$ESCINFO[Skin.String(MyList2)] | 3$ESCINFO[Skin.String(MyList3)] | 4$ESCINFO[Skin.String(MyList4)] | 5$ESCINFO[Skin.String(MyList5)] | 6$ESCINFO[Skin.String(MyList6)] | 7$ESCINFO[Skin.String(MyList7)] | 8$ESCINFO[Skin.String(MyList8)] | 9$ESCINFO[Skin.String(MyList9)] | 10$ESCINFO[Skin.String(MyList10)]  |11$ESCINFO[Skin.String(MyList11)] | 12$ESCINFO[Skin.String(MyList12)] | 13$ESCINFO[Skin.String(MyList13)] | 14$ESCINFO[Skin.String(MyList14)] | 15$ESCINFO[Skin.String(MyList15)] | 16$ESCINFO[Skin.String(MyList16)] | 17$ESCINFO[Skin.String(MyList17)] | 18$ESCINFO[Skin.String(MyList18)] | 19$ESCINFO[Skin.String(MyList19)] | 20$ESCINFO[Skin.String(MyList20)] | 21$ESCINFO[Skin.String(MyList21)] | 22$ESCINFO[Skin.String(MyList22)] | 23$ESCINFO[Skin.String(MyList23)] | 24$ESCINFO[Skin.String(MyList24)] | 25$ESCINFO[Skin.String(MyList25)] | 26$ESCINFO[Skin.String(MyList26)] | 27$ESCINFO[Skin.String(MyList27)] | 28$ESCINFO[Skin.String(MyList28)] | 29$ESCINFO[Skin.String(MyList29)] | 30$ESCINFO[Skin.String(MyList30)] | 31$ESCINFO[Skin.String(MyList31)] | 32$ESCINFO[Skin.String(MyList32)] | 33$ESCINFO[Skin.String(MyList33)] | 34$ESCINFO[Skin.String(MyList34)] | 35$ESCINFO[Skin.String(MyList35)] | 36$ESCINFO[Skin.String(MyList36)] | 37$ESCINFO[Skin.String(MyList37)] | 38$ESCINFO[Skin.String(MyList38)] | 39$ESCINFO[Skin.String(MyList39)] | 40$ESCINFO[Skin.String(MyList40)] | 41$ESCINFO[Skin.String(MyList41)] | 42$ESCINFO[Skin.String(MyList42)] | 43$ESCINFO[Skin.String(MyList43)] | 44$ESCINFO[Skin.String(MyList44)] | 45$ESCINFO[Skin.String(MyList45)] | 46$ESCINFO[Skin.String(MyList46)] | 47$ESCINFO[Skin.String(MyList47)] | 48$ESCINFO[Skin.String(MyList48)] | 49$ESCINFO[Skin.String(MyList49)] | 50$ESCINFO[Skin.String(MyList50)] | 51$ESCINFO[Skin.String(MyList51)] | 52$ESCINFO[Skin.String(MyList52)] | 53$ESCINFO[Skin.String(MyList53)] | 54$ESCINFO[Skin.String(MyList54)] | 55$ESCINFO[Skin.String(MyList55)] | 56$ESCINFO[Skin.String(MyList56)] | 57$ESCINFO[Skin.String(MyList57)] | 58$ESCINFO[Skin.String(MyList58)] | 59$ESCINFO[Skin.String(MyList59)] | 60$ESCINFO[Skin.String(MyList60)] | 61$ESCINFO[Skin.String(MyList61)] | 62$ESCINFO[Skin.String(MyList62)] | 63$ESCINFO[Skin.String(MyList63)] | 64$ESCINFO[Skin.String(MyList64)] | 65$ESCINFO[Skin.String(MyList65)] | 66$ESCINFO[Skin.String(MyList66)] | 67$ESCINFO[Skin.String(MyList67)] | 68$ESCINFO[Skin.String(MyList68)] | 69$ESCINFO[Skin.String(MyList69)] | 70$ESCINFO[Skin.String(MyList70)] | 71$ESCINFO[Skin.String(MyList71)] | 72$ESCINFO[Skin.String(MyList72)] | 73$ESCINFO[Skin.String(MyList73)] | 74$ESCINFO[Skin.String(MyList74)] | 75$ESCINFO[Skin.String(MyList75)] | 76$ESCINFO[Skin.String(MyList76)] | 77$ESCINFO[Skin.String(MyList77)] | 78$ESCINFO[Skin.String(MyList78)] | 79$ESCINFO[Skin.String(MyList79)] | 80$ESCINFO[Skin.String(MyList80)] | 81$ESCINFO[Skin.String(MyList81)] | 82$ESCINFO[Skin.String(MyList82)] | 83$ESCINFO[Skin.String(MyList83)] | 84$ESCINFO[Skin.String(MyList84)] | 85$ESCINFO[Skin.String(MyList85)] | 86$ESCINFO[Skin.String(MyList86)] | 87$ESCINFO[Skin.String(MyList87)] | 88$ESCINFO[Skin.String(MyList88)] | 89$ESCINFO[Skin.String(MyList89)] | 90$ESCINFO[Skin.String(MyList90)] | 91$ESCINFO[Skin.String(MyList91)] | 92$ESCINFO[Skin.String(MyList92)] | 93$ESCINFO[Skin.String(MyList93)] | 94$ESCINFO[Skin.String(MyList94)] | 95$ESCINFO[Skin.String(MyList95)] | 96$ESCINFO[Skin.String(MyList96)] | 97$ESCINFO[Skin.String(MyList97)] | 98$ESCINFO[Skin.String(MyList98)] | 99$ESCINFO[Skin.String(MyList99)] | 100$ESCINFO[Skin.String(MyList100)]</label>
-            <align>left</align>
-            <aligny>top</aligny>
-            <textcolor>FFEEEEEE</textcolor>
-            <shadowcolor>text_shadow</shadowcolor>
-            <visible>false</visible>
-        </control>
-        <control type="textbox">
-            <top>80</top>
-            <left>150</left>
-            <right>150</right>
-            <height>800</height>
-            <font>27px_Medium</font>
-            <label>1$ESCINFO[Skin.String(MyList1TV)] | 2$ESCINFO[Skin.String(MyList2TV)] | 3$ESCINFO[Skin.String(MyList3TV)] | 4$ESCINFO[Skin.String(MyList4TV)] | 5$ESCINFO[Skin.String(MyList5TV)] | 6$ESCINFO[Skin.String(MyList6TV)] | 7$ESCINFO[Skin.String(MyList7TV)] | 8$ESCINFO[Skin.String(MyList8TV)] | 9$ESCINFO[Skin.String(MyList9TV)] | 10$ESCINFO[Skin.String(MyList10TV)]  |11$ESCINFO[Skin.String(MyList11TV)] | 12$ESCINFO[Skin.String(MyList12TV)] | 13$ESCINFO[Skin.String(MyList13TV)] | 14$ESCINFO[Skin.String(MyList14TV)] | 15$ESCINFO[Skin.String(MyList15TV)] | 16$ESCINFO[Skin.String(MyList16TV)] | 17$ESCINFO[Skin.String(MyList17TV)] | 18$ESCINFO[Skin.String(MyList18TV)] | 19$ESCINFO[Skin.String(MyList19TV)] | 20$ESCINFO[Skin.String(MyList20TV)] | 21$ESCINFO[Skin.String(MyList21TV)] | 22$ESCINFO[Skin.String(MyList22TV)] | 23$ESCINFO[Skin.String(MyList23TV)] | 24$ESCINFO[Skin.String(MyList24TV)] | 25$ESCINFO[Skin.String(MyList25TV)] | 26$ESCINFO[Skin.String(MyList26TV)] | 27$ESCINFO[Skin.String(MyList27TV)] | 28$ESCINFO[Skin.String(MyList28TV)] | 29$ESCINFO[Skin.String(MyList29TV)] | 30$ESCINFO[Skin.String(MyList30TV)] | 31$ESCINFO[Skin.String(MyList31TV)] | 32$ESCINFO[Skin.String(MyList32TV)] | 33$ESCINFO[Skin.String(MyList33TV)] | 34$ESCINFO[Skin.String(MyList34TV)] | 35$ESCINFO[Skin.String(MyList35TV)] | 36$ESCINFO[Skin.String(MyList36TV)] | 37$ESCINFO[Skin.String(MyList37TV)] | 38$ESCINFO[Skin.String(MyList38TV)] | 39$ESCINFO[Skin.String(MyList39TV)] | 40$ESCINFO[Skin.String(MyList40TV)] | 41$ESCINFO[Skin.String(MyList41TV)] | 42$ESCINFO[Skin.String(MyList42TV)] | 43$ESCINFO[Skin.String(MyList43TV)] | 44$ESCINFO[Skin.String(MyList44TV)] | 45$ESCINFO[Skin.String(MyList45TV)] | 46$ESCINFO[Skin.String(MyList46TV)] | 47$ESCINFO[Skin.String(MyList47TV)] | 48$ESCINFO[Skin.String(MyList48TV)] | 49$ESCINFO[Skin.String(MyList49TV)] | 50$ESCINFO[Skin.String(MyList50TV)] | 51$ESCINFO[Skin.String(MyList51TV)] | 52$ESCINFO[Skin.String(MyList52TV)] | 53$ESCINFO[Skin.String(MyList53TV)] | 54$ESCINFO[Skin.String(MyList54TV)] | 55$ESCINFO[Skin.String(MyList55TV)] | 56$ESCINFO[Skin.String(MyList56TV)] | 57$ESCINFO[Skin.String(MyList57TV)] | 58$ESCINFO[Skin.String(MyList58TV)] | 59$ESCINFO[Skin.String(MyList59TV)] | 60$ESCINFO[Skin.String(MyList60TV)] | 61$ESCINFO[Skin.String(MyList61TV)] | 62$ESCINFO[Skin.String(MyList62TV)] | 63$ESCINFO[Skin.String(MyList63TV)] | 64$ESCINFO[Skin.String(MyList64TV)] | 65$ESCINFO[Skin.String(MyList65TV)] | 66$ESCINFO[Skin.String(MyList66TV)] | 67$ESCINFO[Skin.String(MyList67TV)] | 68$ESCINFO[Skin.String(MyList68TV)] | 69$ESCINFO[Skin.String(MyList69TV)] | 70$ESCINFO[Skin.String(MyList70TV)] | 71$ESCINFO[Skin.String(MyList71TV)] | 72$ESCINFO[Skin.String(MyList72TV)] | 73$ESCINFO[Skin.String(MyList73TV)] | 74$ESCINFO[Skin.String(MyList74TV)] | 75$ESCINFO[Skin.String(MyList75TV)] | 76$ESCINFO[Skin.String(MyList76TV)] | 77$ESCINFO[Skin.String(MyList77TV)] | 78$ESCINFO[Skin.String(MyList78TV)] | 79$ESCINFO[Skin.String(MyList79TV)] | 80$ESCINFO[Skin.String(MyList80TV)] | 81$ESCINFO[Skin.String(MyList81TV)] | 82$ESCINFO[Skin.String(MyList82TV)] | 83$ESCINFO[Skin.String(MyList83TV)] | 84$ESCINFO[Skin.String(MyList84TV)] | 85$ESCINFO[Skin.String(MyList85TV)] | 86$ESCINFO[Skin.String(MyList86TV)] | 87$ESCINFO[Skin.String(MyList87TV)] | 88$ESCINFO[Skin.String(MyList88TV)] | 89$ESCINFO[Skin.String(MyList89TV)] | 90$ESCINFO[Skin.String(MyList90TV)] | 91$ESCINFO[Skin.String(MyList91TV)] | 92$ESCINFO[Skin.String(MyList92TV)] | 93$ESCINFO[Skin.String(MyList93TV)] | 94$ESCINFO[Skin.String(MyList94TV)] | 95$ESCINFO[Skin.String(MyList95TV)] | 96$ESCINFO[Skin.String(MyList96TV)] | 97$ESCINFO[Skin.String(MyList97TV)] | 98$ESCINFO[Skin.String(MyList98TV)] | 99$ESCINFO[Skin.String(MyList99TV)] | 100$ESCINFO[Skin.String(MyList100TV)]</label>
-            <align>left</align>
-            <aligny>top</aligny>
-            <textcolor>FFEEEEEE</textcolor>
-            <shadowcolor>text_shadow</shadowcolor>
-            <visible>false</visible>
-        </control>
         <control type="image">
 				<height>100%</height>
 				<width>100%</width>
 				<texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
-                <visible>Window.Next(videos)|Window.IsVisible(videos)</visible>
+                <visible>[Window.Next(videos)|Window.IsVisible(videos)]+String.IsEmpty(Window(Home).Property(VideoGenre))</visible>
 			</control>
 			<control type="image">
 				<height>100%</height>
 				<width>100%</width>
 				<texture>colors/background50.png</texture>
 				<colordiffuse>primary_background</colordiffuse>
-                <visible>Window.Next(videos)|Window.IsVisible(videos)</visible>
+                <visible>[Window.Next(videos)|Window.IsVisible(videos)]+String.IsEmpty(Window(Home).Property(VideoGenre))</visible>
 			</control>
+        <control type="image">
+                <centertop>50%</centertop>
+                <centerright>50%</centerright>
+                <width>100</width>
+                <height>100</height>
+                <texture>dialogs/spin.png</texture>
+                <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                <animation effect="fade" tween="cubic" easing="in" time="150">Visible</animation>
+                <visible>Window.Next(videos)|Window.Next(videoosd)</visible>
+            </control>
 	</controls>
 </window>

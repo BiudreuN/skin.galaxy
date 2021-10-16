@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="View_54_InfoWall">
-
 		<control type="group">
-			<left>0</left>
-			<top>0</top>
 			<visible>!String.IsEmpty(Window(Home).Property(VideoGenre))+Control.IsVisible(54)</visible>
+            <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
+            <visible>!Window.IsActive(movieinformation)</visible>
 			<animation effect="fade" start="100" end="0" time="100" reversible="true" condition="Window.IsVisible(movieinformation)|!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">Conditional</animation>
-            <animation effect="fade" tween="sine" easing="out" time="150">Visible</animation>
+            <include>Animation_WidgetInfo</include>
+            <control type="button" id="540">
+                <texturefocus/>
+                <texturenofocus/>
+                <onfocus>ClearProperty(VideoJump,Home)</onfocus>
+                <onunfocus>SetFocus(54,149,absolute)</onunfocus>
+                <visible>Container(54).IsUpdating|[Control.HasFocus(54)+!Container(54).IsUpdating]</visible>
+            </control>
 			<control type="panel" id="54">
 				<left>80</left>
                 <width>100%</width>
 				<onleft>noop</onleft>
 				<onright>531</onright>
+
                 <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(54).HasPrevious" reversible="true">Conditional</animation>
 				<onup>noop</onup>
 				<ondown>noop</ondown>
@@ -22,6 +29,7 @@
 				<pagecontrol>531</pagecontrol>
 				<scrolltime tween="sine" easing="out">150</scrolltime>
                 <animation effect="fade" start="100" end="0" reversible="true" condition="Container(54).IsUpdating">Conditional</animation>
+                <visible>!String.IsEmpty(Window(Home).Property(VideoGenre))</visible>
 				<visible>Container.Content(actors)|Container.Content(artists)|Container.Content(albums)|Container.Content(sets)|Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)|Container.Content(images)|Container.Content(videos)</visible>
 				<itemlayout width="299" height="440">
 					<include content="PosterLayout">
@@ -35,6 +43,11 @@
                         <param name="list_id" value="$PARAM[list_id]"/>
                         <param name="focus" value="true"/>
                     </include>
+                    <control type="button">
+                        <texturefocus/>
+                        <texturenofocus/>
+                        <onfocus condition="!String.IsEmpty(Window(Home).Property(VideoJump))">SetFocus(540)</onfocus>
+                    </control>
 				</focusedlayout>
                 <content>$INFO[Window(Home).Property(VideoGenre)]</content>
 			</control>
@@ -45,8 +58,7 @@
                 <height>100</height>
                 <texture>dialogs/spin.png</texture>
                 <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
-                <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                <animation effect="fade" tween="cubic" easing="in" time="150" delay="200">Visible</animation>
                 <visible>Container(54).IsUpdating</visible>
             </control>
             <control type="button">
@@ -60,12 +72,32 @@
                 <label>Atrás</label>
                 <textwidth>200</textwidth>
                 <textoffsety>30</textoffsety>
-                <textcolor>white</textcolor>
-                <focusedcolor>white</focusedcolor>
+                <textcolor>gainsboro</textcolor>
                 <shadowcolor>text_shadow</shadowcolor>
                 <texturefocus>icons/go_back.png</texturefocus>
                 <texturenofocus>icons/go_back.png</texturenofocus>
                 <visible>false</visible>
+            </control>
+            <control type="button">
+                <centerleft>50%</centerleft>
+                <centertop>50%</centertop>
+                <width>150</width>
+                <height>150</height>
+                <texturefocus colordiffuse="gainsboro">icons/warning.png</texturefocus>
+                <texturenofocus colordiffuse="gainsboro">icons/warning.png</texturenofocus>
+                <label>Sin contenido</label>
+                <textwidth>500</textwidth>
+                <font>38px_Medium</font>
+                <textcolor>gainsboro</textcolor>
+                <focusedcolor>gainsboro</focusedcolor>
+                <disabledcolor>gainsboro</disabledcolor>
+                <invalidcolor>gainsboro</invalidcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <align>center</align>
+                <aligny>top</aligny>
+                <textoffsety>150</textoffsety>
+                <visible>!Integer.IsGreater(Container(54).NumItems,0)+!Container(54).IsUpdating</visible>
+                <include>Animation_WidgetInfo</include>
             </control>
             <control type="label">
                 <top>80</top>

@@ -5,23 +5,12 @@
 	<onload condition="String.IsEmpty(Skin.String(background_overlay))">Skin.SetString(background_overlay,1)</onload>
 	<controls>
 		<include>DefaultBackground</include>
-		<control type="multiimage">
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<fadetime>600</fadetime>
-			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="bg_overlay">$INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]</imagepath>
-			<visible>!Player.HasMedia + !String.IsEmpty(Skin.String(HomeFanart.path))</visible>
-		</control>
 		<control type="group" id="10000">
-			<left>470</left>
-			<include>OpenClose_Right</include>
+			<left>480</left>
+            <right>25</right>
+			<include>OpenClose_Fade</include>
 			<control type="grouplist" id="700">
-				<top>160</top>
+				<top>0</top>
 				<left>0</left>
 				<right>0</right>
 				<bottom>140</bottom>
@@ -30,6 +19,8 @@
 				<onup>700</onup>
 				<ondown>700</ondown>
 				<visible>Container(9000).HasFocus(1)</visible>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>-90</itemgap>
 				<control type="radiobutton" id="701">
 					<label>$LOCALIZE[31095]</label>
 					<include>DefaultSettingButton</include>
@@ -69,7 +60,7 @@
 				</control>
 			</control>
 			<control type="grouplist" id="600">
-				<top>160</top>
+				<top>0</top>
 				<left>0</left>
 				<right>0</right>
 				<bottom>140</bottom>
@@ -77,7 +68,9 @@
 				<onright>60</onright>
 				<onup>600</onup>
 				<ondown>600</ondown>
-				<visible>Container(9000).HasFocus(3)</visible>
+				<visible>Container(9000).HasFocus(2)</visible>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>-90</itemgap>
 				<control type="radiobutton" id="605">
 					<label>$LOCALIZE[31002]</label>
 					<include>DefaultSettingButton</include>
@@ -122,7 +115,7 @@
 				</control>
 			</control>
 			<control type="grouplist" id="610">
-				<top>160</top>
+				<top>0</top>
 				<left>0</left>
 				<right>0</right>
 				<bottom>140</bottom>
@@ -131,129 +124,896 @@
 				<onup>610</onup>
 				<pagecontrol>60</pagecontrol>
 				<ondown>610</ondown>
-				<visible>Container(9000).HasFocus(2)</visible>
-				<control type="radiobutton" id="621">
-					<label>$LOCALIZE[31008]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(home_no_categories_widget)</selected>
-					<onclick>Skin.ToggleSetting(home_no_categories_widget)</onclick>
-				</control>
-				<control type="radiobutton" id="611">
-					<label>$LOCALIZE[342]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoMovieButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoMovieButton)</onclick>
-				</control>
-				<control type="button" id="6110">
-					<label>- $LOCALIZE[31157]</label>
-					<include>DefaultSettingButton</include>
-					<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
-					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
-					<enable>!Skin.HasSetting(HomeMenuNoMovieButton)</enable>
-				</control>
-				<control type="radiobutton" id="612">
-					<label>$LOCALIZE[20343]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoTVShowButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoTVShowButton)</onclick>
-				</control>
-				<control type="button" id="6120">
-					<label>- $LOCALIZE[31157]</label>
-					<include>DefaultSettingButton</include>
-					<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
-					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
-					<enable>!Skin.HasSetting(HomeMenuNoTVShowButton)</enable>
-				</control>
-				<control type="radiobutton" id="613">
-					<label>$LOCALIZE[2]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoMusicButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
-				</control>
-				<control type="button" id="6130">
-					<label>- $LOCALIZE[31157]</label>
-					<include>DefaultSettingButton</include>
-					<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=music,return)</onclick>
-					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
-					<enable>!Skin.HasSetting(HomeMenuNoMusicButton)</enable>
-				</control>
-				<control type="radiobutton" id="6131">
-					<label>$LOCALIZE[20389]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoMusicVideoButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoMusicVideoButton)</onclick>
-				</control>
-				<control type="radiobutton" id="618">
-					<label>$LOCALIZE[19020]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoTVButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoTVButton)</onclick>
-				</control>
-				<control type="radiobutton" id="619">
-					<label>$LOCALIZE[19021]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoRadioButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoRadioButton)</onclick>
-				</control>
-				<control type="radiobutton" id="614">
-					<label>$LOCALIZE[24001]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoProgramsButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoProgramsButton)</onclick>
-				</control>
-				<control type="radiobutton" id="615">
-					<label>$LOCALIZE[1]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoPicturesButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoPicturesButton)</onclick>
-				</control>
-				<control type="radiobutton" id="616">
-					<label>$LOCALIZE[3]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoVideosButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoVideosButton)</onclick>
-				</control>
-				<control type="radiobutton" id="620">
-					<label>$LOCALIZE[15016]</label>
-					<visible>System.GetBool(gamesgeneral.enable)</visible>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoGamesButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoGamesButton)</onclick>
-				</control>
-				<control type="radiobutton" id="6160">
-					<label>$LOCALIZE[10134]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoFavButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoFavButton)</onclick>
-				</control>
-				<control type="radiobutton" id="617">
-					<label>$LOCALIZE[8]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
-				</control>
+				<visible>Container(9000).HasFocus(4)</visible>
+                <itemgap>-90</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                <scrolltime tween="sine" easing="out">200</scrolltime>
+                <control type="label">
+                    <description>Default Label</description>
+                    <width>1450</width>
+                    <textoffsetx>20</textoffsetx>
+                    <top>100</top>
+                    <height>80</height>
+                    <label>Películas</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>42px_Bold</font>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                </control>
+
+                <!--NUMERO [1-10] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6101"/>
+                    <param name="number" value="1"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6102"/>
+                    <param name="number" value="2"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6103"/>
+                    <param name="number" value="3"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6104"/>
+                    <param name="number" value="4"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6105"/>
+                    <param name="number" value="5"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6106"/>
+                    <param name="number" value="6"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6107"/>
+                    <param name="number" value="7"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6108"/>
+                    <param name="number" value="8"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6109"/>
+                    <param name="number" value="9"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6110"/>
+                    <param name="number" value="10"/>
+                </include>
+
+                <!--NUMERO [11-20] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6111"/>
+                    <param name="number" value="11"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6112"/>
+                    <param name="number" value="12"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6113"/>
+                    <param name="number" value="13"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6114"/>
+                    <param name="number" value="14"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6115"/>
+                    <param name="number" value="15"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6116"/>
+                    <param name="number" value="16"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6117"/>
+                    <param name="number" value="17"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6118"/>
+                    <param name="number" value="18"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6119"/>
+                    <param name="number" value="19"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6120"/>
+                    <param name="number" value="20"/>
+                </include>
+
+                <!--NUMERO [21-30] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6121"/>
+                    <param name="number" value="21"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6122"/>
+                    <param name="number" value="22"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6123"/>
+                    <param name="number" value="23"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6124"/>
+                    <param name="number" value="24"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6125"/>
+                    <param name="number" value="25"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6126"/>
+                    <param name="number" value="26"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6127"/>
+                    <param name="number" value="27"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6128"/>
+                    <param name="number" value="28"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6129"/>
+                    <param name="number" value="29"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6130"/>
+                    <param name="number" value="30"/>
+                </include>
+
+                <!--NUMERO [31-40] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6131"/>
+                    <param name="number" value="31"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6132"/>
+                    <param name="number" value="32"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6133"/>
+                    <param name="number" value="33"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6134"/>
+                    <param name="number" value="34"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6135"/>
+                    <param name="number" value="35"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6136"/>
+                    <param name="number" value="36"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6137"/>
+                    <param name="number" value="37"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6138"/>
+                    <param name="number" value="38"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6139"/>
+                    <param name="number" value="39"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6140"/>
+                    <param name="number" value="40"/>
+                </include>
+
+                <!--NUMERO [41-50] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6141"/>
+                    <param name="number" value="41"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6142"/>
+                    <param name="number" value="42"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6143"/>
+                    <param name="number" value="43"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6144"/>
+                    <param name="number" value="44"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6145"/>
+                    <param name="number" value="45"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6146"/>
+                    <param name="number" value="46"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6147"/>
+                    <param name="number" value="47"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6148"/>
+                    <param name="number" value="48"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6149"/>
+                    <param name="number" value="49"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6150"/>
+                    <param name="number" value="50"/>
+                </include>
+
+                <!--NUMERO [51-60] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6151"/>
+                    <param name="number" value="51"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6152"/>
+                    <param name="number" value="52"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6153"/>
+                    <param name="number" value="53"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6154"/>
+                    <param name="number" value="54"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6155"/>
+                    <param name="number" value="55"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6156"/>
+                    <param name="number" value="56"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6157"/>
+                    <param name="number" value="57"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6158"/>
+                    <param name="number" value="58"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6159"/>
+                    <param name="number" value="59"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6160"/>
+                    <param name="number" value="60"/>
+                </include>
+
+                <!--NUMERO [61-70] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6161"/>
+                    <param name="number" value="61"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6162"/>
+                    <param name="number" value="62"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6163"/>
+                    <param name="number" value="63"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6164"/>
+                    <param name="number" value="64"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6165"/>
+                    <param name="number" value="65"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6166"/>
+                    <param name="number" value="66"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6167"/>
+                    <param name="number" value="67"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6168"/>
+                    <param name="number" value="68"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6169"/>
+                    <param name="number" value="69"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6170"/>
+                    <param name="number" value="70"/>
+                </include>
+
+                <!--NUMERO [71-80] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6171"/>
+                    <param name="number" value="71"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6172"/>
+                    <param name="number" value="72"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6173"/>
+                    <param name="number" value="73"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6174"/>
+                    <param name="number" value="74"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6175"/>
+                    <param name="number" value="75"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6176"/>
+                    <param name="number" value="76"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6177"/>
+                    <param name="number" value="77"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6178"/>
+                    <param name="number" value="78"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6179"/>
+                    <param name="number" value="79"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6180"/>
+                    <param name="number" value="80"/>
+                </include>
+
+                <!--NUMERO [81-90] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6181"/>
+                    <param name="number" value="81"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6182"/>
+                    <param name="number" value="82"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6183"/>
+                    <param name="number" value="83"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6184"/>
+                    <param name="number" value="84"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6185"/>
+                    <param name="number" value="85"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6186"/>
+                    <param name="number" value="86"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6187"/>
+                    <param name="number" value="87"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6188"/>
+                    <param name="number" value="88"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6189"/>
+                    <param name="number" value="89"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6190"/>
+                    <param name="number" value="90"/>
+                </include>
+
+                <!--NUMERO [91-100] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6191"/>
+                    <param name="number" value="91"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6192"/>
+                    <param name="number" value="92"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6193"/>
+                    <param name="number" value="93"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6194"/>
+                    <param name="number" value="94"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6195"/>
+                    <param name="number" value="95"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6196"/>
+                    <param name="number" value="96"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6197"/>
+                    <param name="number" value="97"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6198"/>
+                    <param name="number" value="98"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6199"/>
+                    <param name="number" value="99"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6200"/>
+                    <param name="number" value="100"/>
+                </include>
+
+                <control type="image"  id="619">
+                    <description>separator image</description>
+                    <height>3</height>
+                    <top>90</top>
+                    <texture colordiffuse="AAAAAAAA" border="3">dialogs/separator-grey.png</texture>
+                </control>
+                <control type="label" id="620">
+                    <description>Default Label</description>
+                    <width>1450</width>
+                    <textoffsetx>20</textoffsetx>
+                    <top>100</top>
+                    <height>80</height>
+                    <label>Series</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>42px_Bold</font>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                </control>
+
+                <!--NUMERO [1-10] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6201"/>
+                    <param name="number" value="1TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6202"/>
+                    <param name="number" value="2TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6203"/>
+                    <param name="number" value="3TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6204"/>
+                    <param name="number" value="4TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6205"/>
+                    <param name="number" value="5TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6206"/>
+                    <param name="number" value="6TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6207"/>
+                    <param name="number" value="7TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6208"/>
+                    <param name="number" value="8TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6209"/>
+                    <param name="number" value="9TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6210"/>
+                    <param name="number" value="10TV"/>
+                </include>
+
+                <!--NUMERO [11-20] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6211"/>
+                    <param name="number" value="11TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6212"/>
+                    <param name="number" value="12TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6213"/>
+                    <param name="number" value="13TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6214"/>
+                    <param name="number" value="14TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6215"/>
+                    <param name="number" value="15TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6216"/>
+                    <param name="number" value="16TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6217"/>
+                    <param name="number" value="17TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6218"/>
+                    <param name="number" value="18TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6219"/>
+                    <param name="number" value="19TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6220"/>
+                    <param name="number" value="20TV"/>
+                </include>
+
+                <!--NUMERO [21-30] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6221"/>
+                    <param name="number" value="21TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6222"/>
+                    <param name="number" value="22TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6223"/>
+                    <param name="number" value="23TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6224"/>
+                    <param name="number" value="24TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6225"/>
+                    <param name="number" value="25TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6226"/>
+                    <param name="number" value="26TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6227"/>
+                    <param name="number" value="27TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6228"/>
+                    <param name="number" value="28TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6229"/>
+                    <param name="number" value="29TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6230"/>
+                    <param name="number" value="30TV"/>
+                </include>
+
+                <!--NUMERO [31-40] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6231"/>
+                    <param name="number" value="31TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6232"/>
+                    <param name="number" value="32TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6233"/>
+                    <param name="number" value="33TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6234"/>
+                    <param name="number" value="34TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6235"/>
+                    <param name="number" value="35TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6236"/>
+                    <param name="number" value="36TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6237"/>
+                    <param name="number" value="37TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6238"/>
+                    <param name="number" value="38TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6239"/>
+                    <param name="number" value="39TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6240"/>
+                    <param name="number" value="40TV"/>
+                </include>
+
+                <!--NUMERO [41-50] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6241"/>
+                    <param name="number" value="41TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6242"/>
+                    <param name="number" value="42TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6243"/>
+                    <param name="number" value="43TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6244"/>
+                    <param name="number" value="44TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6245"/>
+                    <param name="number" value="45TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6246"/>
+                    <param name="number" value="46TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6247"/>
+                    <param name="number" value="47TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6248"/>
+                    <param name="number" value="48TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6249"/>
+                    <param name="number" value="49TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6250"/>
+                    <param name="number" value="50TV"/>
+                </include>
+
+                <!--NUMERO [51-60] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6251"/>
+                    <param name="number" value="51TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6252"/>
+                    <param name="number" value="52TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6253"/>
+                    <param name="number" value="53TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6254"/>
+                    <param name="number" value="54TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6255"/>
+                    <param name="number" value="55TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6256"/>
+                    <param name="number" value="56TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6257"/>
+                    <param name="number" value="57TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6258"/>
+                    <param name="number" value="58TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6259"/>
+                    <param name="number" value="59TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6260"/>
+                    <param name="number" value="60TV"/>
+                </include>
+
+                <!--NUMERO [61-70] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6261"/>
+                    <param name="number" value="61TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6262"/>
+                    <param name="number" value="62TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6263"/>
+                    <param name="number" value="63TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6264"/>
+                    <param name="number" value="64TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6265"/>
+                    <param name="number" value="65TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6266"/>
+                    <param name="number" value="66TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6267"/>
+                    <param name="number" value="67TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6268"/>
+                    <param name="number" value="68TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6269"/>
+                    <param name="number" value="69TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6270"/>
+                    <param name="number" value="70TV"/>
+                </include>
+
+                <!--NUMERO [71-80] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6271"/>
+                    <param name="number" value="71TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6272"/>
+                    <param name="number" value="72TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6273"/>
+                    <param name="number" value="73TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6274"/>
+                    <param name="number" value="74TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6275"/>
+                    <param name="number" value="75TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6276"/>
+                    <param name="number" value="76TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6277"/>
+                    <param name="number" value="77TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6278"/>
+                    <param name="number" value="78TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6279"/>
+                    <param name="number" value="79TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6280"/>
+                    <param name="number" value="80TV"/>
+                </include>
+
+                <!--NUMERO [81-90] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6281"/>
+                    <param name="number" value="81TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6282"/>
+                    <param name="number" value="82TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6283"/>
+                    <param name="number" value="83TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6284"/>
+                    <param name="number" value="84TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6285"/>
+                    <param name="number" value="85TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6286"/>
+                    <param name="number" value="86TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6287"/>
+                    <param name="number" value="87TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6288"/>
+                    <param name="number" value="88TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6289"/>
+                    <param name="number" value="89TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6290"/>
+                    <param name="number" value="90TV"/>
+                </include>
+
+                <!--NUMERO [91-100] -->
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6291"/>
+                    <param name="number" value="91TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6292"/>
+                    <param name="number" value="92TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6293"/>
+                    <param name="number" value="93TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6294"/>
+                    <param name="number" value="94TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6295"/>
+                    <param name="number" value="95TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6296"/>
+                    <param name="number" value="96TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6297"/>
+                    <param name="number" value="97TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6298"/>
+                    <param name="number" value="98TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6299"/>
+                    <param name="number" value="99TV"/>
+                </include>
+                <include content="DefaultMyListButton">
+                    <param name="id" value="6300"/>
+                    <param name="number" value="100TV"/>
+                </include>
 			</control>
-			<control type="image">
-				<description>Dialog Header image</description>
-				<left>0</left>
-				<top>160</top>
-				<right>0</right>
-				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
-			</control>
-			<control type="image">
-				<description>Dialog Header image</description>
-				<left>0</left>
-				<bottom>134</bottom>
-				<right>0</right>
-				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+            <control type="image">
+				<left>-10</left>
+				<bottom>135</bottom>
+				<right>-25</right>
+				<height>2</height>
+				<texture colordiffuse="primary_background" border="2">dialogs/separator-grey.png</texture>
 			</control>
 		</control>
 		<control type="group">
 			<depth>DepthContentPanel</depth>
 			<left>0</left>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_Fade</include>
 			<include content="ContentPanel">
 				<param name="width" value="530" />
 			</include>
@@ -267,29 +1027,32 @@
 				<onright>10000</onright>
 				<onup>9000</onup>
 				<ondown>9000</ondown>
-				<itemlayout height="90" width="470">
+				<itemlayout height="80" width="470">
 					<control type="label">
-						<textoffsetx>30</textoffsetx>
+						<textoffsetx>40</textoffsetx>
 						<width>470</width>
-						<height>90</height>
+						<height>70</height>
 						<label>$INFO[ListItem.Label]</label>
-						<font>font37</font>
+						<font>38px_Medium</font>
 						<aligny>center</aligny>
+                        <textcolor>silver</textcolor>
 					</control>
 				</itemlayout>
-				<focusedlayout height="90" width="470">
-					<control type="image">
-						<width>470</width>
-						<height>90</height>
-						<texture colordiffuse="button_focus">lists/focus.png</texture>
-						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
-					</control>
+				<focusedlayout height="80" width="470">
+                    <control type="button">
+                        <width>470</width>
+						<height>70</height>
+                        <texturefocus>colors/white.png</texturefocus>
+                        <texturenofocus>colors/white50.png</texturenofocus>
+                        <pulseonselect>true</pulseonselect>
+                    </control>
 					<control type="label">
-						<textoffsetx>30</textoffsetx>
+						<textoffsetx>40</textoffsetx>
 						<width>470</width>
-						<height>90</height>
-						<font>font37</font>
+						<height>70</height>
+						<font>38px_Medium</font>
 						<aligny>center</aligny>
+                        <textcolor>black</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</focusedlayout>
@@ -299,55 +1062,60 @@
 						<onclick>noop</onclick>
 					</item>
 					<item id="2">
-						<label>$LOCALIZE[31061]</label>
+						<label>Búsqueda</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="3">
-						<label>$LOCALIZE[31159]</label>
+						<label>Inicio</label>
+						<onclick>noop</onclick>
+					</item>
+                    <item id="4">
+						<label>Mi Lista</label>
 						<onclick>noop</onclick>
 					</item>
 				</content>
 			</control>
 		</control>
-		<control type="group">
+        <control type="group">
 			<right>0</right>
-			<top>163</top>
+			<top>0</top>
 			<bottom>137</bottom>
 			<width>60</width>
 			<control type="scrollbar" id="60">
-				<right>0</right>
-				<top>0</top>
-				<bottom>0</bottom>
-				<width>12</width>
+				<right>10</right>
+				<top>10</top>
+				<bottom>10</bottom>
+				<width>5</width>
 				<orientation>vertical</orientation>
 				<texturesliderbackground />
-				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
-				<onleft>5</onleft>
-				<onright>5</onright>
-				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+                <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
+                <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
+				<onleft>610</onleft>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus(60)" reversible="true">Conditional</animation>
+                <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="Control.HasFocus(60)" reversible="true">Conditional</animation>
 				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
 				<hitrect x="0" y="0" w="60" h="100%" />
-				<visible>Control.IsVisible(610)</visible>
+                <visible>Control.IsVisible(610)</visible>
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[5] / $LOCALIZE[20077]" />
+			<param name="breadcrumbs_label" value="$LOCALIZE[20077]" />
 		</include>
 		<include>BottomBar</include>
-		<control type="textbox" id="6">
-			<include>OpenClose_Right</include>
-			<description>description area</description>
-			<left>510</left>
-			<bottom>27</bottom>
-			<width>1350</width>
-			<height>100</height>
-			<font>font12</font>
-			<align>justify</align>
-			<textcolor>button_focus</textcolor>
-			<label>$VAR[SkinSettingsHelpTextVar]</label>
-			<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
-		</control>
+        <control type="textbox" id="6">
+            <include>OpenClose_Fade</include>
+            <description>description area</description>
+            <left>510</left>
+            <bottom>35</bottom>
+            <right>60</right>
+            <height>90</height>
+            <font>24px_Medium_Lighten</font>
+            <align>justify</align>
+            <textcolor>silver</textcolor>
+            <shadowcolor>text_shadow</shadowcolor>
+            <label>$VAR[SkinSettingsHelpTextVar]</label>
+            <autoscroll time="2000" delay="5000" repeat="5000">true</autoscroll>
+        </control>
 	</controls>
 </window>

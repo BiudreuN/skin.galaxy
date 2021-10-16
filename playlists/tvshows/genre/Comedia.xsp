@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <smartplaylist type="tvshows">
-    <name>Comedia</name>
+    <name>Series - Comedia</name>
     <match>all</match>
     <rule field="genre" operator="contain">
         <value>comedia</value>
@@ -9,5 +9,5 @@
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>
     <limit>all</limit>
-    <order>title</order>
+    <order direction="descending">rating</order>
 </smartplaylist>

@@ -49,7 +49,7 @@
                         </control>
                         <control type="image">
                             <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-                            <bordersize>5</bordersize>
+                            <bordersize>6</bordersize>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
                     </control>
@@ -72,7 +72,7 @@
                         </control>
                         <control type="image">
                             <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-                            <bordersize>5</bordersize>
+                            <bordersize>6</bordersize>
                             <aspectratio scalediffuse="false">stretch</aspectratio>
                         </control>
                     </control>
@@ -102,31 +102,30 @@
                     <aspectratio scalediffuse="false">stretch</aspectratio>
                 </control>
                 <control type="image">
-                    <top>5</top>
-                    <left>5</left>
-                    <bottom>5</bottom>
-                    <right>5</right>
+                    <top>6</top>
+                    <left>6</left>
+                    <bottom>6</bottom>
+                    <right>6</right>
                     <fadetime>300</fadetime>
                     <texture diffuse="frame/spotlight.png">colors/black.png</texture>
                     <bordersize>5</bordersize>
                     <aspectratio scalediffuse="false">scale</aspectratio>
                 </control>
                 <control type="multiimage">
-                    <top>5</top>
-                    <left>5</left>
-                    <bottom>5</bottom>
-                    <right>5</right>
+                    <top>6</top>
+                    <left>6</left>
+                    <bottom>6</bottom>
+                    <right>6</right>
                     <fadetime tween="sine" easing="out">150</fadetime>
                     <imagepath fallback="defaultvideocover.png" diffuse="frame/spotlight.png" background="true">$VAR[SpotlightVar]</imagepath>
                     <aspectratio scalediffuse="false">scale</aspectratio>
                 </control>
                 <control type="image">
                     <bottom>0</bottom>
-                    <left>5</left>
-                    <right>5</right>
+                    <left>6</left>
+                    <right>6</right>
                     <height>80</height>
                     <fadetime>300</fadetime>
-                    <left>5</left>
                     <texture diffuse="frame/spotlight.png">colors/black80.png</texture>
                     <aspectratio scalediffuse="true">scale</aspectratio>
                     <visible>String.IsEmpty(Container(2001).ListItem.Art(landscape))</visible>
@@ -145,6 +144,17 @@
                     <visible>String.IsEmpty(Container(2001).ListItem.Art(landscape))</visible>
                     <animation effect="fade" tween="cubic" easing="out" time="150" reversible="true">VisibleChange</animation>
                 </control>
+                <control type="image">
+                    <centertop>50%</centertop>
+                    <centerright>50%</centerright>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>dialogs/spin.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
+                    <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                    <visible>Container(2001).IsUpdating</visible>
+                </control>
                 <control type="button">
                     <top>-1</top>
                     <left>-1</left>
@@ -153,7 +163,7 @@
                     <texturenofocus border="20">frame/focus.png</texturenofocus>
                     <pulseonselect>true</pulseonselect>
                     <visible>Control.HasFocus(2001)</visible>
-                    <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="true" reversible="true">Conditional</animation>
+                    <animation effect="fade" start="100" end="70" pulse="true" time="1000" condition="true" reversible="true">Conditional</animation>
                 </control>
                 </control>
             </control>
@@ -267,11 +277,11 @@
 			<control type="group" id="$PARAM[list_id]599">
 				<left>120</left>
                 <height>230</height>
-				<visible>Container($PARAM[list_id]).IsUpdating + !Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
+				<visible>Container($PARAM[list_id]).IsUpdating</visible>
 				<visible>$PARAM[visible]</visible>
-                <animation effect="fade" start="0" end="100" time="250" delay="250" easing="InOut" reversible="false" condition="Integer.IsEqual(Window.Property(Category),0)">Conditional</animation>
+                <animation effect="fade" start="0" end="100" time="150" delay="200" easing="InOut" reversible="false" condition="Integer.IsEqual(Window.Property(Category),0)">Conditional</animation>
                 <animation effect="fade" end="0" time="0" reversible="false" condition="String.IsEqual(Window.Property(Visible),false)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="out" reversible="true"
+				<animation effect="fade" start="100" end="0" time="150" tween="sine" easing="out" reversible="true"
                 	condition="Integer.IsGreater(Window.Property(FixedListFade),$PARAM[list_id])">Conditional</animation>
                 <control type="image">
                     <centertop>$PARAM[posy]</centertop>
@@ -359,6 +369,7 @@
 			<control type="list" id="$PARAM[list_id]">
                 <top>200</top>
                 <left>120</left>
+                <animation effect="fade" start="100" end="0" reversible="true" condition="Container($PARAM[list_id]).IsUpdating">Conditional</animation>
                 <onfocus condition="String.IsEqual(Window.Property(ItemHub),Search)">SetProperty(SearchWidgets,1,home)</onfocus>
                 <onfocus>SetProperty($PARAM[item],$INFO[Container($PARAM[group_id]).CurrentItem],Home)</onfocus>
                 <onunfocus>SetProperty($PARAM[item]2,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
@@ -389,8 +400,8 @@
                         <param name="focus" value="true"/>
 					</include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="25">$PARAM[content_path]</content>
-                <content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="25">$PARAM[content_path2]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="15">$PARAM[content_path]</content>
+                <content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="15">$PARAM[content_path2]</content>
                 <content>
 					<item>
 						<label>Ver más</label>
@@ -398,9 +409,9 @@
 						<onclick>Skin.SetString(CustomSearchMore,$PARAM[content_path])</onclick>
                         <onclick>Skin.SetString(SearchMoreLabel,$PARAM[widget_header])</onclick>
                         <onclick>SetProperty(SeeMore,true,home)</onclick>
-                        <onclick>SetFocus(177,25,absolute)</onclick>
+                        <onclick>SetFocus(177,15,absolute)</onclick>
                         <property name="SeeMore">true</property>
-                        <visible>!Container($PARAM[list_id]).IsUpdating+Integer.IsGreater(Container($PARAM[list_id]).NumItems,24)+$PARAM[searchmore]</visible>
+                        <visible>!Container($PARAM[list_id]).IsUpdating+Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,15)+$PARAM[searchmore]</visible>
 					</item>
 				</content>
 			</control>
@@ -423,6 +434,7 @@
                 <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
                 <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
+                <animation effect="fade" start="100" end="0" reversible="true" condition="Container($PARAM[list_id]).IsUpdating">Conditional</animation>
                 <onup>$PARAM[onup]</onup>
                 <ondown>noop</ondown>
                 <onright>$PARAM[list_id]6</onright>
@@ -449,15 +461,17 @@
                         <param name="focus" value="true"/>
                     </include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="209">$PARAM[content_path]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="149">$PARAM[content_path]</content>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
                 <content>
 					<item>
 						<label>Ver más</label>
                         <poster>defaultfoldersquare.png</poster>
+                        <onclick>SetProperty(VideoGenre,$PARAM[content_path],Home)</onclick>
+                        <onclick>SetProperty(VideoJump,true,Home)</onclick>
 						<onclick>ActivateWindow(Videos,$PARAM[content_path],return)</onclick>
                         <property name="SeeMore">true</property>
-                        <visible>!Container($PARAM[list_id]).IsUpdating+Integer.IsGreater(Container($PARAM[list_id]).NumItems,208)</visible>
+                        <visible>Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,149)</visible>
 					</item>
 				</content>
 			</control>
@@ -479,12 +493,12 @@
                 <pulseonselect>true</pulseonselect>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
-                <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
-                <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="25" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                <animation effect="fade" start="100" end="70" pulse="true" time="1000" condition="Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
             </control>
             <control type="image">
                 <centertop>50%</centertop>
-                <centerright>764</centerright>
+                <centerright>50%</centerright>
                 <width>100</width>
                 <height>100</height>
                 <texture>dialogs/spin.png</texture>

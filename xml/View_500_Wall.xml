@@ -514,7 +514,7 @@
                         <onclick>SetProperty(SeasonEpisode,$INFO[ListItem.Season],Home)</onclick>
                         <onclick condition="!String.IsEqual(Container(5250).ListItem.Season,Container(500).ListItem.Season)">SetFocus(52622)</onclick>
                         <onclick condition="String.IsEqual(Container(5250).ListItem.Season,Container(500).ListItem.Season)">SetFocus(500)</onclick>
-						<scrolltime tween="sine" easing="out">200</scrolltime>
+						<scrolltime tween="sine" easing="out">150</scrolltime>
 						<itemlayout height="60" width="550">
 							<!-- Season x label -->
 							<control type="label">
@@ -565,7 +565,7 @@
 				<viewtype label="31101">icon</viewtype>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>531</pagecontrol>
-				<scrolltime tween="sine" easing="out">200</scrolltime>
+				<scrolltime tween="sine" easing="out">150</scrolltime>
 				<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
 				<itemlayout height="300">
                     <control type="group">

@@ -2577,7 +2577,7 @@
                             <width>200</width>
                             <height>40</height>
                             <font>27px_Medium</font>
-                            <textcolor>gray</textcolor>
+                            <textcolor>unfocus</textcolor>
                             <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
                             <align>left</align>
                             <aligny>center</aligny>
@@ -2595,7 +2595,7 @@
                             <width>200</width>
                             <height>40</height>
                             <font>27px_Medium</font>
-                            <textcolor>gray</textcolor>>
+                            <textcolor>unfocus</textcolor>>
                             <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
                             <align>left</align>
                             <aligny>center</aligny>
@@ -2629,7 +2629,7 @@
                     <radioheight>40</radioheight>
                     <label>[UPPERCASE]$VAR[SettingsFocus][/UPPERCASE]</label>
                     <textoffsetx>130</textoffsetx>
-                    <textcolor>gray</textcolor>
+                    <textcolor>unfocus</textcolor>
                     <focusedcolor>black</focusedcolor>
                     <textureradioonfocus/>
                     <textureradioofffocus colordiffuse="black">icons/sidemenu/settings.png</textureradioofffocus>
@@ -2667,7 +2667,7 @@
                     <label>$VAR[PowerMenuFocus]</label>
                     <textoffsetx>130</textoffsetx>
                     <textwidth>300</textwidth>
-                    <textcolor>gray</textcolor>
+                    <textcolor>unfocus</textcolor>
                     <focusedcolor>black</focusedcolor>
                     <textureradioonfocus/>
                     <textureradioofffocus diffuse="lists/profile.png">$INFO[System.ProfileThumb]</textureradioofffocus>
@@ -2730,8 +2730,8 @@
                 <radioposx>5</radioposx>
                 <textureradioonfocus>$PARAM[icon]</textureradioonfocus>
                 <textureradioonnofocus>$PARAM[icon]</textureradioonnofocus>
-                <textureradioofffocus colordiffuse="gray">$PARAM[icon]</textureradioofffocus>
-                <textureradiooffnofocus colordiffuse="gray">$PARAM[icon]</textureradiooffnofocus>
+                <textureradioofffocus colordiffuse="unfocus">$PARAM[icon]</textureradioofffocus>
+                <textureradiooffnofocus colordiffuse="unfocus">$PARAM[icon]</textureradiooffnofocus>
                 <selected>$PARAM[focus]</selected>
             </control>
             </control>
@@ -3109,8 +3109,8 @@
 	<include name="DefaultSimpleListLayout">
 		<param name="align">left</param>
 		<param name="height">70</param>
-		<param name="font">font13</param>
-		<param name="fontcolor">grey</param>
+		<param name="font">27px_Medium</param>
+		<param name="fontcolor">gray</param>
 		<definition>
 			<itemlayout width="$PARAM[width]" height="$PARAM[height]">
 				<control type="label">
@@ -3131,7 +3131,7 @@
 					<top>0</top>
 					<right>0</right>
 					<bottom>0</bottom>
-					<texture colordiffuse="button_focus">lists/focus.png</texture>
+					<texture>colors/white.png</texture>
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="label">
@@ -3141,6 +3141,7 @@
 					<bottom>0</bottom>
 					<align>$PARAM[align]</align>
 					<font>$PARAM[font]</font>
+                    <textcolor>black</textcolor>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>true</scroll>

@@ -4,34 +4,27 @@
     <backgroundcolor>0</backgroundcolor>
     <onunload condition="Window.IsVisible(videos)">SetFocus(500)</onunload>
 	<controls>
-        <control type="button" id="100">
-            <texturefocus/>
-            <texturenofocus/>
-            <onfocus>SetFocus(993)</onfocus>
-            <visible allowhiddenfocus="true">Control.HasFocus(100)</visible>
-            <animation effect="fade" tween="sine" easing="out" time="150">hidden</animation>
-        </control>
-        <control type="multiimage">
+        <control type="image" id="8877">
             <depth>DepthBackground</depth>
             <right>0</right>
             <top>0</top>
             <width>100%</width>
             <height>100%</height>
             <aspectratio scalediffuse="false">scale</aspectratio>
-            <fadetime>300</fadetime>
             <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-            <imagepath diffuse="overlays/corner.png" background="true">$VAR[FanartVar]</imagepath>
+            <texture diffuse="overlays/corner.png" fallback="colors/white.png" background="true">$VAR[FanartVar]</texture>
             <animation type="WindowOpen" reversible="false">
-                <effect type="zoom" center="100%,0" start="104" end="100" tween="sine" easing="in" time="200" />
-                <effect type="fade" tween="sine" easing="in" time="200" />
+                <effect type="zoom" center="100%,0" start="105" end="100" tween="sine" easing="in" delay="100" time="300" />
+                <effect type="fade" tween="sine" easing="in" delay="100" time="300" />
             </animation>
             <animation type="WindowClose" reversible="false">
-                <effect type="fade" tween="sine" easing="out" time="150" />
+                <effect type="fade" tween="sine" easing="out" time="200" />
             </animation>
         </control>
+
         <control type="group">
-            <animation effect="fade" tween="sine" easing="in" time="200">WindowOpen</animation>
-            <animation effect="fade" tween="sine" easing="out" time="150">WindowClose</animation>
+            <animation effect="fade" tween="sine" easing="in" time="300" delay="100">WindowOpen</animation>
+            <animation effect="fade" tween="sine" easing="out" time="200">WindowClose</animation>
             <control type="list" id="5050">
                 <visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
                 <visible>Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating</visible>
@@ -40,7 +33,7 @@
                 <preloaditems>1</preloaditems>
                 <itemlayout/>
                 <focusedlayout/>
-                <content sortorder="ascending" sortby="playcount" limit="1">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
+                <content sortorder="ascending" sortby="playcount" limit="10000">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
             </control>
             <control type="grouplist">
                 <orientation>vertical</orientation>
@@ -214,7 +207,7 @@
                 </control>
             </control>
             <control type="radiobutton">
-                <left>115</left>
+                <left>95</left>
                 <top>375</top>
                 <width>74</width>
                 <height>74</height>
@@ -238,11 +231,8 @@
                 <selected>Control.HasFocus(990)</selected>
                 <visible>String.IsEqual(ListItem.DBTYPE,tvshow)+Container(5050).IsUpdating+!VideoPlayer.Content(episodes)</visible>
                 <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="250" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
-                <animation effect="rotate" center="auto" start="360" end="0" time="800" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                <include>Animation_Spinner</include>
             </control>
-            <include content="ProgressBarButton">
-                <param name="percent" value="50" />
-            </include>
             <include>DialogVideoInfoProgressBar</include>
             <include>CastInfo</include>
             <control type="image">

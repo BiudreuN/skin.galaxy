@@ -137,6 +137,11 @@
 			<filename>Roboto-Medium.ttf</filename>
 			<size>27</size>
 		</font>
+        <font>
+			<name>27px_Medium_Lighten</name>
+			<filename>Roboto-Regular.ttf</filename>
+			<size>25</size>
+		</font>
 		<font>
 			<name>26px_Bold</name>
 			<filename>Roboto-Bold.ttf</filename>

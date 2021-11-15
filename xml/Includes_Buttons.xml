@@ -13,7 +13,7 @@
 		<radiowidth>74</radiowidth>
 		<radioheight>74</radioheight>
 		<label>[B]$PARAM[label][/B]</label>
-		<textcolor>grey</textcolor>
+		<textcolor>unfocus</textcolor>
 		<onclick>$PARAM[focus]</onclick>
 		<onright>$PARAM[focus]</onright>
 		<disabledcolor>disabled</disabledcolor>
@@ -25,6 +25,20 @@
 		<texturenofocus />
 		<visible>String.IsEmpty($PARAM[label])</visible>
 	</include>
+    <include name="SearchButton">
+		<width max="540">auto</width>
+        <height>70</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>27px_Medium</font>
+        <textcolor>darkgray</textcolor>
+        <focusedcolor>black</focusedcolor>
+        <textoffsetx>35</textoffsetx>
+        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
+        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
+        <onfocus>ClearProperty(SearchWidgets)</onfocus>
+        <pulseonselect>true</pulseonselect>
+	</include>
     <include name="GenreButton">
 		<control type="togglebutton" id="$PARAM[button_id]">
             <width>300</width>
@@ -34,7 +48,7 @@
             <alttexturefocus border="20">dialogs/keyboard/key.png</alttexturefocus>
             <alttexturenofocus border="20" colordiffuse="button_selected">dialogs/keyboard/key-nf.png</alttexturenofocus>
             <usealttexture>Container($PARAM[id]050).Position($PARAM[position])</usealttexture>
-            <label>[COLOR gray]$PARAM[label][/COLOR]</label>
+            <label>[COLOR unfocus]$PARAM[label][/COLOR]</label>
             <altlabel>$PARAM[label]</altlabel>
             <font>27px_Medium</font>
             <textcolor>FFEEEEEE</textcolor>

@@ -4,14 +4,13 @@
 		<control type="group">
 			<visible>!String.IsEmpty(Window(Home).Property(VideoGenre))+Control.IsVisible(54)</visible>
             <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
-            <visible>!Window.IsActive(movieinformation)</visible>
-			<animation effect="fade" start="100" end="0" time="100" reversible="true" condition="Window.IsVisible(movieinformation)|!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Window.IsActive(movieinformation)|!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">Conditional</animation>
             <include>Animation_WidgetInfo</include>
             <control type="button" id="540">
                 <texturefocus/>
                 <texturenofocus/>
                 <onfocus>ClearProperty(VideoJump,Home)</onfocus>
-                <onunfocus>SetFocus(54,149,absolute)</onunfocus>
+                <onunfocus>SetFocus(54,59,absolute)</onunfocus>
                 <visible>Container(54).IsUpdating|[Control.HasFocus(54)+!Container(54).IsUpdating]</visible>
             </control>
 			<control type="panel" id="54">
@@ -49,7 +48,7 @@
                         <onfocus condition="!String.IsEmpty(Window(Home).Property(VideoJump))">SetFocus(540)</onfocus>
                     </control>
 				</focusedlayout>
-                <content>$INFO[Window(Home).Property(VideoGenre)]</content>
+                <content sortby="rating" sortorder="descending" limit="300">$INFO[Window(Home).Property(VideoGenre)]</content>
 			</control>
             <control type="image">
                 <centertop>50%</centertop>

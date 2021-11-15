@@ -25,7 +25,7 @@
                 <height>480</height>
                 <width>1268</width>
 				<onclick>Action(Info)</onclick>
-				<preloaditems>3</preloaditems>
+				<preloaditems>2</preloaditems>
                 <orientation>horizontal</orientation>
 				<scrolltime tween="sine" easing="out">150</scrolltime>
 				<onup>noop</onup>
@@ -150,9 +150,7 @@
                     <width>100</width>
                     <height>100</height>
                     <texture>dialogs/spin.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
-                    <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                    <include>Animation_Spinner</include>
                     <visible>Container(2001).IsUpdating</visible>
                 </control>
                 <control type="button">
@@ -268,7 +266,7 @@
         <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
         <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
 		<onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">Action(Info)</onclick>
-		<preloaditems>3</preloaditems>
+		<preloaditems>2</preloaditems>
 	</include>
 	<include name="BusyListSpinner">
 		<param name="posy">0</param>
@@ -289,14 +287,11 @@
 					<height>120</height>
                     <aspectratio aligny="center" align="center">keep</aspectratio>
                     <texture>dialogs/spin.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="800" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <include>Animation_Spinner</include>
                 </control>
-
 			</control>
 		</definition>
 	</include>
-
-
     <include name="WidgetListThumb">
         <param name="visible_content">false</param>
         <param name="visible_widget">true</param>
@@ -369,7 +364,7 @@
 			<control type="list" id="$PARAM[list_id]">
                 <top>200</top>
                 <left>120</left>
-                <animation effect="fade" start="100" end="0" reversible="true" condition="Container($PARAM[list_id]).IsUpdating">Conditional</animation>
+                <animation effect="fade" start="100" end="0" reversible="true" condition="Container($PARAM[list_id]).IsUpdating+$PARAM[searchmore]">Conditional</animation>
                 <onfocus condition="String.IsEqual(Window.Property(ItemHub),Search)">SetProperty(SearchWidgets,1,home)</onfocus>
                 <onfocus>SetProperty($PARAM[item],$INFO[Container($PARAM[group_id]).CurrentItem],Home)</onfocus>
                 <onunfocus>SetProperty($PARAM[item]2,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
@@ -434,18 +429,17 @@
                 <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
                 <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
-                <animation effect="fade" start="100" end="0" reversible="true" condition="Container($PARAM[list_id]).IsUpdating">Conditional</animation>
                 <onup>$PARAM[onup]</onup>
                 <ondown>noop</ondown>
                 <onright>$PARAM[list_id]6</onright>
                 <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
                 <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
                 <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">Action(Info)</onclick>
-                <preloaditems>3</preloaditems>
+                <preloaditems>2</preloaditems>
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
                 <width>1740</width>
-                <visible allowhiddenfocus="true">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
+                <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
                 <enable>$PARAM[visible_widget]</enable>
 				<itemlayout width="290" height="440">
@@ -461,7 +455,7 @@
                         <param name="focus" value="true"/>
                     </include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="149">$PARAM[content_path]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="59">$PARAM[content_path]</content>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
                 <content>
 					<item>
@@ -471,7 +465,7 @@
                         <onclick>SetProperty(VideoJump,true,Home)</onclick>
 						<onclick>ActivateWindow(Videos,$PARAM[content_path],return)</onclick>
                         <property name="SeeMore">true</property>
-                        <visible>Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,149)</visible>
+                        <visible>Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,59)</visible>
 					</item>
 				</content>
 			</control>
@@ -493,6 +487,7 @@
                 <pulseonselect>true</pulseonselect>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
+                <animation effect="fade" start="100" end="40" condition="!Container($PARAM[list_id]).HasPrevious+!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
                 <animation effect="fade" tween="sine" easing="out" start="100" end="25" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
                 <animation effect="fade" start="100" end="70" pulse="true" time="1000" condition="Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
             </control>
@@ -502,9 +497,8 @@
                 <width>100</width>
                 <height>100</height>
                 <texture>dialogs/spin.png</texture>
-                <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
-                <visible>Container($PARAM[list_id]).IsUpdating+Control.IsVisible($PARAM[list_id])</visible>
+                <include>Animation_Spinner</include>
+                <visible>Container($PARAM[list_id]).IsUpdating+Control.IsVisible($PARAM[list_id])+!Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
             </control>
 		</definition>
 	</include>
@@ -534,7 +528,7 @@
                 <onclick>SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
                 <onclick>SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
                 <onclick>Action(Info)</onclick>
-                <preloaditems>3</preloaditems>
+                <preloaditems>2</preloaditems>
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
                 <width>1740</width>
@@ -586,7 +580,8 @@
                 <visible>!Window.IsActive(movieinformation)</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
-                <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                <animation effect="fade" start="100" end="40" condition="!Container($PARAM[list_id]).HasPrevious+!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="25" time="100" condition="!Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
                 <animation effect="fade" start="100" end="85" tween="cubic" easing="inout" pulse="true" time="1000" condition="Control.HasFocus($PARAM[list_id]6)" reversible="true">Conditional</animation>
             </control>
             <control type="image">
@@ -595,9 +590,7 @@
                 <width>100</width>
                 <height>100</height>
                 <texture>dialogs/spin.png</texture>
-                <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                <animation effect="fade" tween="cubic" easing="in" time="250" delay="170">Visible</animation>
-                <animation effect="fade" tween="cubic" easing="out" time="200">Hidden</animation>
+                <include>Animation_Spinner</include>
                 <visible>Container($PARAM[list_id]).IsUpdating+!Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)+$PARAM[visible_widget]</visible>
             </control>
             <control type="button" id="$PARAM[onup]0">
@@ -630,7 +623,7 @@
             <height>100%</height>
             <width>1740</width>
             <animation effect="fade" tween="cubic" easing="out" time="1" delay="1" reversible="true">Hidden</animation>
-            <visible allowhiddenfocus="true">Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
+            <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
             <visible>$PARAM[visible_widget]</visible>
             <itemlayout width="290" height="290">
                 <include content="GenreLayout">
@@ -782,16 +775,16 @@
             <control type="togglebutton" id="$PARAM[list_id]2">
                 <width>auto</width>
                 <texturefocus border="65,0,30,0">buttons/category/$PARAM[button_1]-fo.png</texturefocus>
-                <texturenofocus border="65,0,30,0" colordiffuse="gray">buttons/category/$PARAM[button_1]-nofo.png</texturenofocus>
+                <texturenofocus border="65,0,30,0" colordiffuse="unfocus">buttons/category/$PARAM[button_1]-nofo.png</texturenofocus>
                 <alttexturefocus border="65,0,30,0">buttons/category/$PARAM[button_1]-fo.png</alttexturefocus>
                 <alttexturenofocus border="65,0,30,0">buttons/category/$PARAM[button_1]-nofo2.png</alttexturenofocus>
                 <usealttexture>Control.IsVisible($PARAM[ondown_1])</usealttexture>
-                <label>      [COLOR gray][UPPERCASE]$PARAM[label_1][/UPPERCASE][/COLOR]</label>
+                <label>      [COLOR unfocus][UPPERCASE]$PARAM[label_1][/UPPERCASE][/COLOR]</label>
                 <altlabel>      [UPPERCASE]$PARAM[label_1][/UPPERCASE]</altlabel>
                 <font>27px_Medium</font>
                 <textcolor>white</textcolor>
                 <focusedcolor>black</focusedcolor>
-                <disabledcolor>gray</disabledcolor>
+                <disabledcolor>disabled</disabledcolor>
                 <textoffsetx>25</textoffsetx>
                 <align>right</align>
                 <aligny>center</aligny>
@@ -805,16 +798,16 @@
             <control type="togglebutton" id="$PARAM[list_id]3">
                 <width>auto</width>
                 <texturefocus border="65,0,30,0">buttons/category/$PARAM[button_2]-fo.png</texturefocus>
-                <texturenofocus border="65,0,30,0" colordiffuse="gray">buttons/category/$PARAM[button_2]-nofo.png</texturenofocus>
+                <texturenofocus border="65,0,30,0" colordiffuse="unfocus">buttons/category/$PARAM[button_2]-nofo.png</texturenofocus>
                 <alttexturefocus border="65,0,30,0">buttons/category/$PARAM[button_2]-fo.png</alttexturefocus>
                 <alttexturenofocus border="65,0,30,0">buttons/category/$PARAM[button_2]-nofo2.png</alttexturenofocus>
                 <usealttexture>Control.IsVisible($PARAM[ondown_2])</usealttexture>
-                <label>      [COLOR gray][UPPERCASE]$PARAM[label_2][/UPPERCASE][/COLOR]</label>
+                <label>      [COLOR unfocus][UPPERCASE]$PARAM[label_2][/UPPERCASE][/COLOR]</label>
                 <altlabel>      [UPPERCASE]$PARAM[label_2][/UPPERCASE]</altlabel>
                 <font>27px_Medium</font>
                 <textcolor>white</textcolor>
                 <focusedcolor>black</focusedcolor>
-                <disabledcolor>gray</disabledcolor>
+                <disabledcolor>disabled</disabledcolor>
                 <textoffsetx>25</textoffsetx>
                 <align>right</align>
                 <aligny>center</aligny>

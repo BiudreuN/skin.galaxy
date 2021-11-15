@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1110">
+	<visible>String.IsEqual(Window(Home).Property(ItemHub),Movies)</visible>
+    <visible>false</visible>
+    <animation effect="slide" end="280" time="150" tween="sine" easing="out" condition="ControlGroup(3001).HasFocus">conditional</animation>
+    <defaultcontrol always="true">3000</defaultcontrol>
+	<controls>
+        <control type="button" id="3000">
+            <width>0</width>
+            <height>0</height>
+            <top>-100</top>
+            <left>-100</left>
+            <visible>!Control.HasFocus(3000)</visible>
+            <onunfocus>SetFocus(3150)</onunfocus>
+        </control>
+		 <control type="group" id="3001">
+                    <visible>!Window.IsActive(movieinformation)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
+                    <include>Animation_WidgetInfo</include>
+                    <include content="WidgetListThumb2">
+                        <param name="content_path" value="special://skin/playlists/movies/movies.xsp"/>
+                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_target" value="videos"/>
+                        <param name="visible_widget" value="Container(301).Position(0)+Control.IsEnabled(302)"/>
+                        <param name="list_id" value="3150"/>
+                        <param name="onup" value="301"/>
+                        <param name="sortby" value="rating"/>
+                        <param name="sortorder" value="descending"/>
+                    </include>
+                    <include content="GenrePanel">
+                        <param name="list_id" value="3151"/>
+                        <param name="group_tab" value="301"/>
+                        <param name="type" value="movies"/>
+                        <param name="visible_widget" value="[Container(301).Position(1)+Control.IsEnabled(303)]|!Control.IsEnabled(302)"/>
+                    </include>
+                    <include content="CategoryList">
+                        <param name="list_id" value="30"/>
+                        <param name="title" value="Películas"/>
+                        <param name="fade" value="Container(3150).HasPrevious"/>
+                        <param name="ondown_1" value="3150"/>
+                        <param name="ondown_2" value="3151"/>
+                        <param name="label_1" value="Películas"/>
+                        <param name="label_2" value="Géneros"/>
+                        <param name="button_1" value="movie"/>
+                        <param name="button_2" value="genre"/>
+                    </include>
+                </control>
+
+	</controls>
+</window>

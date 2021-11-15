@@ -25,7 +25,7 @@
                     <width>100</width>
                     <height>100</height>
                     <texture>dialogs/spin.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                    <include>Animation_Spinner</include>
                 </control>
 				<control type="progress" id="10">
 					<include>HiddenObject</include>

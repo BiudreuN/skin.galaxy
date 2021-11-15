@@ -28,6 +28,8 @@
 				<ondown>3</ondown>
 				<onleft>9001</onleft>
 				<onright>61</onright>
+                <onfocus>Control.Move(3,-1)</onfocus>
+                <onfocus>SendClick(3)</onfocus>
 				<pagecontrol>61</pagecontrol>
 				<scrolltime>200</scrolltime>
 				<include content="DefaultSimpleListLayout">

@@ -9,15 +9,17 @@
     <include>CustomWinProps</include>
 	<controls>
         <control type="list" id="2147">
-            <visible allowhiddenfocus="true">Integer.IsGreater(Container(2147).NumItems,0)+!Container(2147).IsUpdating</visible>
+            <visible>Integer.IsGreater(Container(2147).NumItems,0)+!Container(2147).IsUpdating</visible>
             <visible>String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)</visible>
-            <visible>Container.Content(movies)</visible>
+            <visible allowhiddenfocus="true">Container.Content(movies)</visible>
             <left>-100</left>
             <top>-100</top>
+            <height>0</height>
+            <width>0</width>
             <preloaditems>1</preloaditems>
             <itemlayout/>
             <focusedlayout/>
-            <content limit="1" sortby="random" target="videos">special://skin/playlists/home/director.xsp</content>
+            <content limit="1" sortby="random" target="videos">special://skin/playlists/director.xsp</content>
         </control>
         <control type="image">
             <height>100%</height>
@@ -41,7 +43,7 @@
                 <visible>String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="grouplist" id="2100">
-                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>WidgetGroupListCommon</include>
                     <onleft>Control.SetFocus(9100,1)</onleft>
@@ -58,7 +60,7 @@
                         <param name="widget_limit" value="3"/>
                     </include>
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
-                        <param name="content_path" value="special://skin/playlists/recent_movies.xsp"/>
+                        <param name="content_path" value="videodb://recentlyaddedmovies/"/>
                         <param name="item" value="HomeItem"/>
                         <param name="widget_header" value="Novedades"/>
                         <param name="widget_target" value="videos"/>
@@ -66,8 +68,10 @@
                         <param name="list_id" value="2102"/>
                     </include>
                     <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
-                        <param name="content_path" value="special://skin/playlists/recent_tvshows.xsp"/>
+                        <param name="content_path" value="videodb://tvshows/titles/"/>
                         <param name="item" value="HomeItem"/>
+                        <param name="sortby" value="dateadded"/>
+                        <param name="sortorder" value="descending"/>
                         <param name="widget_header" value="Novedades TV"/>
                         <param name="widget_target" value="videos"/>
                         <param name="widget_limit" value="50"/>
@@ -83,7 +87,7 @@
                         <param name="list_id" value="2104"/>
                     </include>
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
-                        <param name="content_path" value="special://skin/playlists/home/watched.xsp"/>
+                        <param name="content_path" value="special://skin/playlists/watched_movies.xsp"/>
                         <param name="item" value="HomeItem"/>
                         <param name="widget_header" value="Películas vistas recientemente"/>
                         <param name="widget_target" value="videos"/>
@@ -91,7 +95,7 @@
                         <param name="list_id" value="2105"/>
                     </include>
                     <include content="WidgetListThumb" condition="Library.HasContent(tvshows)">
-                        <param name="content_path" value="special://skin/playlists/home/watchedTV.xsp"/>
+                        <param name="content_path" value="special://skin/playlists/watched_tvshows.xsp"/>
                         <param name="item" value="HomeItem"/>
                         <param name="widget_header" value="Series vistas recientemente"/>
                         <param name="widget_target" value="videos"/>
@@ -170,7 +174,7 @@
                 <visible>String.IsEqual(Window.Property(ItemHub),Movies)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
-                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
                     <include content="WidgetListThumb2">
@@ -206,7 +210,7 @@
                 <visible>String.IsEqual(Window.Property(ItemHub),TvShows)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
-                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
                     <include content="WidgetListThumb2">
@@ -242,7 +246,7 @@
                 <visible>String.IsEqual(Window.Property(ItemHub),Kids)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
-                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
                     <include content="WidgetListThumb2">
@@ -282,7 +286,7 @@
                 <visible>String.IsEqual(Window.Property(ItemHub),Anime)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="group">
-                    <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
+                    <visible>!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>Animation_WidgetInfo</include>
                     <include content="WidgetListThumb2">
@@ -307,7 +311,7 @@
                     </include>
                     <include content="CategoryList">
                         <param name="list_id" value="60"/>
-                        <param name="title" value="Dibujos"/>
+                        <param name="title" value="Anime"/>
                         <param name="fade" value="Container(6150).HasPrevious|Container(6151).HasPrevious"/>
                         <param name="ondown_1" value="6150"/>
                         <param name="ondown_2" value="6151"/>
@@ -357,6 +361,7 @@
                     <param name="visible_widget" value="!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)"/>
                     <param name="list_id" value="7150"/>
                     <param name="onup" value="7001"/>
+                    <param name="widget_limit" value="100"/>
                     <param name="sortby" value="title"/>
                     <param name="sortorder" value="ascending"/>
                 </include>
@@ -373,7 +378,7 @@
                     <include>Animation_WidgetInfo</include>
                     <visible>!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
-                    <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="200" condition="Control.IsVisible(70010)" reversible="true">Conditional</animation>
+                    <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="150" condition="Control.IsVisible(70010)" reversible="true">Conditional</animation>
                 </control>
             </control>
             <control type="group" id="1000">
@@ -384,7 +389,7 @@
                 <control type="group">
                     <visible>!Window.IsActive(movieinformation)</visible>
                     <include>Animation_WidgetInfo</include>
-                    <visible allowhiddenfocus="true">!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                 <!-- Pseudo-Keyboard Layout -->
 
                 <control type="group" id="1200">
@@ -465,8 +470,8 @@
                     <radioheight>80</radioheight>
                     <textureradioonfocus colordiffuse="black">icons/keyboard/keyboard.png</textureradioonfocus>
                     <textureradioofffocus colordiffuse="black">icons/keyboard/keyboard.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="gray">icons/keyboard/keyboard.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="gray">icons/keyboard/keyboard.png</textureradiooffnofocus>
+                    <textureradioonnofocus colordiffuse="unfocus">icons/keyboard/keyboard.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="unfocus">icons/keyboard/keyboard.png</textureradiooffnofocus>
                     <texturefocus>dialogs/keyboard/key3.png</texturefocus>
                     <texturenofocus colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                     <onfocus>ClearProperty(SearchWidgets)</onfocus>
@@ -480,9 +485,9 @@
                     <pulseonselect>true</pulseonselect>
                 </control>
                 <control type="grouplist" id="1016">
-                    <top>200</top>
+                    <centertop>35%</centertop>
                     <left>110</left>
-                    <height>590</height>
+                    <height>330</height>
                     <width>540</width>
                     <orientation>vertical</orientation>
                     <itemgap>-5</itemgap>
@@ -496,157 +501,34 @@
                     <visible>Integer.IsGreater(Container(1017).NumItems,0)+!Container(1017).IsUpdating</visible>
                     <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
                     <control type="button" id="150">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
+                        <include>SearchButton</include>
                         <label>$INFO[Container(1017).ListItem(0).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(0).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,1)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="151">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
+                        <include>SearchButton</include>
                         <label>$INFO[Container(1017).ListItem(1).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(1).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,2)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="152">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
+                       <include>SearchButton</include>
                         <label>$INFO[Container(1017).ListItem(2).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(2).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,3)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="153">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
+                       <include>SearchButton</include>
                         <label>$INFO[Container(1017).ListItem(3).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(3).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,4)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
                     </control>
                     <control type="button" id="154">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
+                       <include>SearchButton</include>
                         <label>$INFO[Container(1017).ListItem(4).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
                         <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(4).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
                         <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,5)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
-                    </control>
-                    <control type="button" id="155">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
-                        <label>$INFO[Container(1017).ListItem(5).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
-                        <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(5).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
-                        <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,6)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
-                    </control>
-                    <control type="button" id="156">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
-                        <label>$INFO[Container(1017).ListItem(6).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
-                        <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(6).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
-                        <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,7)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
-                    </control>
-                    <control type="button" id="157">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
-                        <label>$INFO[Container(1017).ListItem(7).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
-                        <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(7).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
-                        <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,8)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
-                    </control>
-                    <control type="button" id="158">
-                        <width max="540">auto</width>
-                        <height>70</height>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <font>27px_Medium</font>
-                        <label>$INFO[Container(1017).ListItem(8).Label]</label>
-                        <textcolor>darkgray</textcolor>
-                        <focusedcolor>black</focusedcolor>
-                        <textoffsetx>30</textoffsetx>
-                        <texturefocus border="38,0,38,0">dialogs/keyboard/key3.png</texturefocus>
-                        <texturenofocus border="38,0,38,0" colordiffuse="bg_overlay">dialogs/keyboard/key-nf3.png</texturenofocus>
-                        <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1017).ListItem(8).Label])</onclick>
-                        <onfocus>ClearProperty(SearchWidgets)</onfocus>
-                        <visible>Integer.IsGreaterOrEqual(Container(1017).NumItems,9)+!Container(1017).IsUpdating</visible>
-                        <pulseonselect>true</pulseonselect>
                     </control>
                 </control>
                 </control>
@@ -658,17 +540,25 @@
                     <param name="height" value="840" />
                     <param name="onitemfocus" value="SetProperty(SuggestionPath,$ESCINFO[ListItem.label])" />
                     <param name="onitemfocus2" value="SetProperty(CustomSearch,1,home)" />
-                    <content limit="9">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
+                    <content limit="5">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
                 </include>
                 <control type="image">
-                    <centertop>495</centertop>
-                    <centerleft>270</centerleft>
+                    <top>205</top>
+                    <left>125</left>
+                    <width>60</width>
+                    <height>60</height>
+                    <texture>dialogs/spin.png</texture>
+                    <include>Animation_Spinner</include>
+                    <visible>Container(1017).IsUpdating+!String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchWidgets))</visible>
+                </control>
+                <control type="image">
+                    <centertop>500</centertop>
+                    <centerleft>370</centerleft>
                     <width>100</width>
                     <height>100</height>
-                    <texture>dialogs/spin.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="sine" easing="out" time="200" start="0" end="100" delay="100">VisibleChange</animation>
-                    <visible>Container(1017).IsUpdating+!String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchWidgets))</visible>
+                    <texture colordiffuse="unfocus">icons/warning.png</texture>
+                    <animation effect="fade" tween="sine" easing="in" time="200">Visible</animation>
+                    <visible>!Integer.IsGreater(Container(1017).NumItems,0)+!Container(1017).IsUpdating+!String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchWidgets))</visible>
                 </control>
                 <!--- ########## Right Layout ########## -->
                 <!-- Results -->
@@ -685,7 +575,7 @@
                         <textureradioonfocus/>
                         <textureradioonnofocus/>
                         <textureradioofffocus/>
-                        <textureradiooffnofocus colordiffuse="silver">icons/round_movie_white_48dp.png</textureradiooffnofocus>
+                        <textureradiooffnofocus colordiffuse="silver">icons/movies.png</textureradiooffnofocus>
                         <texturefocus></texturefocus>
                         <width>80</width>
                         <height>80</height>
@@ -731,7 +621,7 @@
                         <textureradioonfocus/>
                         <textureradioonnofocus/>
                         <textureradioofffocus/>
-                        <textureradiooffnofocus colordiffuse="silver">icons/round_subscriptions_white_48dp.png</textureradiooffnofocus>
+                        <textureradiooffnofocus colordiffuse="silver">icons/episodes.png</textureradiooffnofocus>
                         <texturefocus></texturefocus>
                         <width>80</width>
                         <height>80</height>
@@ -789,7 +679,7 @@
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
-                    <content sortby="title" target="videos" limit="all">special://skin/playlists/home/sets.xsp</content>
+                    <content sortby="rating" sortorder="descending" target="videos" limit="60">special://skin/playlists/sets.xsp</content>
                 </control>
                 <control type="scrollbar" id="1796">
                     <top>10</top>
@@ -929,8 +819,7 @@
                     <width>100</width>
                     <height>100</height>
                     <texture>dialogs/spin.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
+                    <include>Animation_Spinner</include>
                     <visible>Container(177).IsUpdating+!String.IsEmpty(Window(home).Property(SeeMore))</visible>
                 </control>
                 <control type="image">
@@ -939,8 +828,7 @@
                     <width>100</width>
                     <height>100</height>
                     <texture>dialogs/spin.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
+                    <include>Animation_Spinner</include>
                     <visible>Container(178).IsUpdating+!String.IsEmpty(Window(home).Property(SearchSets))</visible>
                 </control>
                 <control type="image">
@@ -950,13 +838,12 @@
                     <height>100</height>
                     <texture>dialogs/spin.png</texture>
                     <animation effect="slide" start="0" end="0,350" reversible="true" tween="cubic" easing="out" time="350" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                    <animation effect="fade" tween="sine" easing="out" time="200">VisibleChange</animation>
+                    <include>Animation_Spinner</include>
                     <visible>Container(179).IsUpdating+String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))</visible>
                 </control>
 
                 <control type="grouplist" id="180">
-                    <top>650</top>
+                    <top>450</top>
                     <include>WidgetGroupListCommon</include>
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>Control.SetFocus(9100,0)</onback>
@@ -967,7 +854,7 @@
                     <orientation>vertical</orientation>
                     <visible allowhiddenfocus="true">String.IsEmpty(Window(home).Property(SeeMore))</visible>
                     <visible  allowhiddenfocus="true">!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
-                    <animation effect="slide" start="0" end="0,-650" reversible="true" tween="sine" easing="out" time="150" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,-450" reversible="true" tween="sine" easing="out" time="150" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
 
                     <!-- By Title (Movies & TV Shows) -->
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
@@ -1225,7 +1112,7 @@
                             <label>[UPPERCASE]Actualizar biblioteca[/UPPERCASE]</label>
                             <altlabel>[UPPERCASE]Actualizando biblioteca...[/UPPERCASE]</altlabel>
                             <font>27px_Medium</font>
-                            <textcolor>gray</textcolor>
+                            <textcolor>unfocus</textcolor>
                             <focusedcolor>black</focusedcolor>
                             <disabledcolor>disabled</disabledcolor>
                             <textoffsetx>20</textoffsetx>
@@ -1244,7 +1131,7 @@
                             <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
                             <label>[UPPERCASE]Recargar skin[/UPPERCASE]</label>
                             <font>27px_Medium</font>
-                            <textcolor>gray</textcolor>
+                            <textcolor>unfocus</textcolor>
                             <focusedcolor>black</focusedcolor>
                             <disabledcolor>disabled</disabledcolor>
                             <textoffsetx>20</textoffsetx>
@@ -1262,7 +1149,7 @@
                             <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
                             <label>[UPPERCASE]Salir[/UPPERCASE]</label>
                             <font>27px_Medium</font>
-                            <textcolor>gray</textcolor>
+                            <textcolor>unfocus</textcolor>
                             <focusedcolor>black</focusedcolor>
                             <disabledcolor>disabled</disabledcolor>
                             <textoffsetx>20</textoffsetx>
@@ -1316,7 +1203,7 @@
                             <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
                             <label>[UPPERCASE]Cambiar usuario[/UPPERCASE]</label>
                             <font>27px_Medium</font>
-                            <textcolor>gray</textcolor>
+                            <textcolor>unfocus</textcolor>
                             <focusedcolor>black</focusedcolor>
                             <disabledcolor>disabled</disabledcolor>
                             <textoffsetx>20</textoffsetx>
@@ -1438,8 +1325,8 @@
 
         </control>
         <control type="group" id="8800">
-            <visible allowhiddenfocus="true">ControlGroup(8800).HasFocus</visible>
-            <animation effect="fade" tween="cubic" easing="out" time="300">Visible</animation>
+            <visible>ControlGroup(8800).HasFocus</visible>
+            <animation effect="fade" tween="sine" easing="out" time="200">Visible</animation>
             <control type="image">
                 <height>100%</height>
                 <width>100%</width>
@@ -1470,7 +1357,7 @@
                     <aligny>top</aligny>
                     <align>center</align>
                     <font>27px_Regular</font>
-                    <textcolor>gray</textcolor>
+                    <textcolor>unfocus</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
                     <label>¿Seguro que quieres salir de Kodi?</label>
                 </control>
@@ -1482,7 +1369,7 @@
                     <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
                     <label>[UPPERCASE]Cancelar[/UPPERCASE]</label>
                     <font>27px_Medium</font>
-                    <textcolor>gray</textcolor>
+                    <textcolor>unfocus</textcolor>
                     <focusedcolor>black</focusedcolor>
                     <disabledcolor>disabled</disabledcolor>
                     <textoffsetx>20</textoffsetx>
@@ -1500,7 +1387,7 @@
                     <texturenofocus border="20" colordiffuse="bg_overlay">buttons/button-nofo2.png</texturenofocus>
                     <label>[UPPERCASE]Salir[/UPPERCASE]</label>
                     <font>27px_Medium</font>
-                    <textcolor>gray</textcolor>
+                    <textcolor>unfocus</textcolor>
                     <focusedcolor>black</focusedcolor>
                     <disabledcolor>disabled</disabledcolor>
                     <textoffsetx>20</textoffsetx>
@@ -1531,8 +1418,7 @@
                 <width>100</width>
                 <height>100</height>
                 <texture>dialogs/spin.png</texture>
-                <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
-                <animation effect="fade" tween="cubic" easing="in" time="150">Visible</animation>
+                <include>Animation_Spinner</include>
                 <visible>Window.Next(videos)|Window.Next(videoosd)</visible>
             </control>
 	</controls>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<smartplaylist type="movies">
-    <name>Estiquetas</name>
-    <match>all</match>
-    <rule field="genre" operator="contain">anime</rule>
-	<group>sets</group>
-    <limit>all</limit>
-    <order>random</order>
-</smartplaylist>

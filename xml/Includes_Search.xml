@@ -101,8 +101,8 @@
                 <radioheight>$PARAM[radioheight]</radioheight>
                 <textureradioonfocus colordiffuse="black">$PARAM[texture]</textureradioonfocus>
                 <textureradioofffocus colordiffuse="black">$PARAM[texture]</textureradioofffocus>
-                <textureradioonnofocus colordiffuse="gray">$PARAM[texture]</textureradioonnofocus>
-                <textureradiooffnofocus colordiffuse="gray">$PARAM[texture]</textureradiooffnofocus>
+                <textureradioonnofocus colordiffuse="unfocus">$PARAM[texture]</textureradioonnofocus>
+                <textureradiooffnofocus colordiffuse="unfocus">$PARAM[texture]</textureradiooffnofocus>
                 <onup>$PARAM[onup]</onup>
                 <ondown>$PARAM[ondown]</ondown>
                 <pulseonselect>true</pulseonselect>
@@ -173,7 +173,7 @@
         <font>27px_Medium</font>
         <textoffsetx>0</textoffsetx>
         <selectedcolor>black</selectedcolor>
-        <textcolor>gray</textcolor>
+        <textcolor>unfocus</textcolor>
         <focusedcolor>black</focusedcolor>
         <disabledcolor>dimgray</disabledcolor>
         <onfocus>ClearProperty(SearchSets)</onfocus>
@@ -234,8 +234,8 @@
                     <radioheight>70</radioheight>
                     <textureradioonfocus >icons/keyboard/clear.png</textureradioonfocus>
                     <textureradioofffocus >icons/keyboard/clear.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="dimgray">icons/keyboard/clear.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="dimgray">icons/keyboard/clear.png</textureradiooffnofocus>
+                    <textureradioonnofocus colordiffuse="unfocus">icons/keyboard/clear.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="unfocus">icons/keyboard/clear.png</textureradiooffnofocus>
                     <onup>noop</onup>
                     <ondown>1011</ondown>
                     <onleft>9100</onleft>
@@ -262,8 +262,8 @@
                     <radioheight>70</radioheight>
                     <textureradioonfocus>icons/keyboard/keyboard.png</textureradioonfocus>
                     <textureradioofffocus>icons/keyboard/keyboard.png</textureradioofffocus>
-                    <textureradioonnofocus colordiffuse="dimgray">icons/keyboard/keyboard.png</textureradioonnofocus>
-                    <textureradiooffnofocus colordiffuse="dimgray">icons/keyboard/keyboard.png</textureradiooffnofocus>
+                    <textureradioonnofocus colordiffuse="unfocus">icons/keyboard/keyboard.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="unfocus">icons/keyboard/keyboard.png</textureradiooffnofocus>
                     <onup>noop</onup>
                     <ondown>1011</ondown>
                     <onleft>9100</onleft>
@@ -440,7 +440,7 @@
             <label>ABC</label>
             <altlabel>#123</altlabel>
             <font>25px_Bold</font>
-            <textcolor>gray</textcolor>
+            <textcolor>unfocus</textcolor>
             <focusedcolor>black</focusedcolor>
             <disabledcolor>dimgray</disabledcolor>
             <align>center</align>
@@ -581,7 +581,7 @@
             <aligny>center</aligny>
             <font>27px_Medium</font>
             <label>[UPPERCASE]Espacio[/UPPERCASE]</label>
-            <textcolor>gray</textcolor>
+            <textcolor>unfocus</textcolor>
             <focusedcolor>black</focusedcolor>
             <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
             <texturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key-nf.png</texturenofocus>
@@ -598,7 +598,7 @@
             <aligny>center</aligny>
             <font>27px_Medium</font>
             <label>[UPPERCASE]Borrar[/UPPERCASE]</label>
-            <textcolor>gray</textcolor>
+            <textcolor>unfocus</textcolor>
             <focusedcolor>black</focusedcolor>
             <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
             <texturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key-nf.png</texturenofocus>

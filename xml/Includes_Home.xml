@@ -430,7 +430,7 @@
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
                 <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
                 <onup>$PARAM[onup]</onup>
-                <ondown>noop</ondown>
+                <ondown>$PARAM[list_id]1</ondown>
                 <onright>$PARAM[list_id]6</onright>
                 <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
                 <onclick condition="String.IsEmpty(ListItem.Property(SeeMore))">SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
@@ -455,7 +455,7 @@
                         <param name="focus" value="true"/>
                     </include>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="59">$PARAM[content_path]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="30">$PARAM[content_path]</content>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path2]</content>
                 <content>
 					<item>
@@ -465,10 +465,60 @@
                         <onclick>SetProperty(VideoJump,true,Home)</onclick>
 						<onclick>ActivateWindow(Videos,$PARAM[content_path],return)</onclick>
                         <property name="SeeMore">true</property>
-                        <visible>Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,59)</visible>
+                        <visible>Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,29)+false</visible>
 					</item>
 				</content>
 			</control>
+            <control type="group">
+                <left>126</left>
+                <right>93</right>
+                <visible>Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,30)+!Container($PARAM[list_id]).HasNext</visible>
+
+                <animation effect="slide" start="0,440" end="0" tween="sine" easing="out" time="150" reversible="true">VisibleChange</animation>
+                <control type="button" id="$PARAM[list_id]1">
+                    <centerbottom>80</centerbottom>
+                    <centerleft>50%</centerleft>
+                    <height>70</height>
+                    <width>180</width>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <label>[UPPERCASE]Ver más[/UPPERCASE]</label>
+                    <textcolor>unfocus</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
+                    <texturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key-nf.png</texturenofocus>
+                    <onup>$PARAM[list_id]</onup>
+                    <onclick>SetProperty(VideoGenre,$PARAM[content_path],Home)</onclick>
+                    <onclick>SetProperty(VideoJump,true,Home)</onclick>
+                    <onclick>ActivateWindow(Videos,$PARAM[content_path],return)</onclick>
+                    <pulseonselect>true</pulseonselect>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
+                </control>
+                <control type="image">
+                    <centerbottom>80</centerbottom>
+                    <left>0</left>
+                    <right>56%</right>
+                    <height>2</height>
+                    <texture>dialogs/separator-grey.png</texture>
+                </control>
+                <control type="image">
+                    <centerbottom>80</centerbottom>
+                    <right>0</right>
+                    <left>56%</left>
+                    <height>2</height>
+                    <texture flipx="true">dialogs/separator-grey.png</texture>
+                </control>
+            </control>
             <control type="scrollbar" id="$PARAM[list_id]6">
                 <top>10</top>
                 <bottom>10</bottom>
@@ -523,7 +573,7 @@
                 <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
                 <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container($PARAM[list_id]).HasPrevious" reversible="true">Conditional</animation>
                 <onup>$PARAM[onup]</onup>
-                <ondown>noop</ondown>
+                <ondown>$PARAM[list_id]1</ondown>
                 <onright>$PARAM[list_id]6</onright>
                 <onclick>SetProperty(NameEpisodeInfo,$INFO[Container(5040).ListItem.Season,Temporada ,: ]$INFO[Container(5040).ListItem.Episode,Episodio ],Home)</onclick>
                 <onclick>SetProperty(PlayEpisodeInfo,PlayMedia($ESCINFO[Container(5040).ListItem.FileNameAndPath],resume),Home)</onclick>
@@ -532,11 +582,8 @@
                 <pagecontrol>$PARAM[list_id]6</pagecontrol>
 				<height>100%</height>
                 <width>1740</width>
-                <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
-                <visible allowhiddenfocus="true">!Window.IsActive(movieinformation)</visible>
                 <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
                 <visible>$PARAM[visible_widget]</visible>
-                <include>Animation_WidgetInfo</include>
 				<itemlayout width="290" height="440">
 					<include content="PosterLayout">
                         <param name="top" value="120"/>
@@ -560,6 +607,53 @@
 					</item>
 				</content>
 			</control>
+            <control type="group">
+                <visible>Integer.IsGreaterOrEqual(Container($PARAM[list_id]).NumItems,30)+!Container($PARAM[list_id]).HasNext</visible>
+                <animation effect="fade" tween="sine" easing="out" time="150" reversible="true">VisibleChange</animation>
+                <control type="button" id="$PARAM[list_id]1">
+                    <centerbottom>80</centerbottom>
+                    <centerleft>50%</centerleft>
+                    <height>70</height>
+                    <width>180</width>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>27px_Medium</font>
+                    <label>[UPPERCASE]Ver más[/UPPERCASE]</label>
+                    <textcolor>unfocus</textcolor>
+                    <focusedcolor>black</focusedcolor>
+                    <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
+                    <texturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key-nf.png</texturenofocus>
+                    <onup>$PARAM[list_id]</onup>
+                    <onclick>SetProperty(VideoGenre,$PARAM[widget_header],Home)</onclick>
+                    <onclick>SetProperty(VideoJump,true,Home)</onclick>
+                    <onclick>ActivateWindow(1110,return)</onclick>
+                    <pulseonselect>true</pulseonselect>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Movies)">Control.SetFocus(9100,2)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),TvShows)">Control.SetFocus(9100,3)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Kids)">Control.SetFocus(9100,4)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Anime)">Control.SetFocus(9100,5)</onback>
+                    <onleft condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onleft>
+                    <onback condition="String.IsEqual(Window.Property(ItemHub),Mylist)">Control.SetFocus(9100,6)</onback>
+                </control>
+                <control type="image">
+                    <centerbottom>80</centerbottom>
+                    <left>120</left>
+                    <right>55%</right>
+                    <height>2</height>
+                    <texture>dialogs/separator-grey.png</texture>
+                </control>
+                <control type="image">
+                    <centerbottom>80</centerbottom>
+                    <right>120</right>
+                    <left>55%</left>
+                    <height>2</height>
+                    <texture flipx="true">dialogs/separator-grey.png</texture>
+                </control>
+            </control>
             <control type="scrollbar" id="$PARAM[list_id]6">
                 <top>10</top>
                 <bottom>10</bottom>
@@ -575,7 +669,6 @@
                 <showonepage>false</showonepage>
                 <orientation>vertical</orientation>
                 <enable>true</enable>
-                <include>Animation_WidgetInfo</include>
                 <pulseonselect>true</pulseonselect>
                 <visible>!Window.IsActive(movieinformation)</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)|Container($PARAM[list_id]).IsUpdating</visible>
@@ -756,7 +849,7 @@
         <control type="grouplist" id="$PARAM[list_id]1">
             <top>80</top>
             <left>120</left>
-            <right>100</right>
+            <right>90</right>
             <itemgap>0</itemgap>
             <height>70</height>
             <align>right</align>

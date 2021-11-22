@@ -10,12 +10,13 @@
             <top>0</top>
             <width>100%</width>
             <height>100%</height>
+            <colordiffuse>E6FFFFFF</colordiffuse>
             <aspectratio scalediffuse="false">scale</aspectratio>
             <animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
             <texture diffuse="overlays/corner.png" fallback="colors/white.png" background="true">$VAR[FanartVar]</texture>
             <animation type="WindowOpen" reversible="false">
-                <effect type="zoom" center="100%,0" start="105" end="100" tween="sine" easing="in" delay="100" time="300" />
-                <effect type="fade" tween="sine" easing="in" delay="100" time="300" />
+                <effect type="zoom" center="100%,0" start="105" end="100" tween="sine" easing="in" delay="100" time="200" />
+                <effect type="fade" tween="sine" easing="in" delay="100" time="200" />
             </animation>
             <animation type="WindowClose" reversible="false">
                 <effect type="fade" tween="sine" easing="out" time="200" />
@@ -23,7 +24,7 @@
         </control>
 
         <control type="group">
-            <animation effect="fade" tween="sine" easing="in" time="300" delay="100">WindowOpen</animation>
+            <animation effect="fade" tween="sine" easing="in" time="200" delay="100">WindowOpen</animation>
             <animation effect="fade" tween="sine" easing="out" time="200">WindowClose</animation>
             <control type="list" id="5050">
                 <visible allowhiddenfocus="true">!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>

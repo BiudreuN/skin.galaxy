@@ -1,50 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<window type="dialog" id="1110">
-	<visible>String.IsEqual(Window(Home).Property(ItemHub),Movies)</visible>
-    <visible>false</visible>
-    <animation effect="slide" end="280" time="150" tween="sine" easing="out" condition="ControlGroup(3001).HasFocus">conditional</animation>
-    <defaultcontrol always="true">3000</defaultcontrol>
+<window type="window" id="1110">
+    <defaultcontrol always="true">54</defaultcontrol>
+	<backgroundcolor>0</backgroundcolor>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(VideoGenre))+Window.Next(Home)">ClearProperty(VideoGenre,Home)</onunload>
+    <onload>Action(Stop)</onload>
 	<controls>
-        <control type="button" id="3000">
-            <width>0</width>
-            <height>0</height>
-            <top>-100</top>
-            <left>-100</left>
-            <visible>!Control.HasFocus(3000)</visible>
-            <onunfocus>SetFocus(3150)</onunfocus>
+        <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture>colors/background.png</texture>
+            <colordiffuse>primary_background</colordiffuse>
         </control>
-		 <control type="group" id="3001">
-                    <visible>!Window.IsActive(movieinformation)</visible>
-                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
-                    <include>Animation_WidgetInfo</include>
-                    <include content="WidgetListThumb2">
-                        <param name="content_path" value="special://skin/playlists/movies/movies.xsp"/>
-                        <param name="widget_header" value="Películas"/>
-                        <param name="widget_target" value="videos"/>
-                        <param name="visible_widget" value="Container(301).Position(0)+Control.IsEnabled(302)"/>
-                        <param name="list_id" value="3150"/>
-                        <param name="onup" value="301"/>
-                        <param name="sortby" value="rating"/>
-                        <param name="sortorder" value="descending"/>
-                    </include>
-                    <include content="GenrePanel">
-                        <param name="list_id" value="3151"/>
-                        <param name="group_tab" value="301"/>
-                        <param name="type" value="movies"/>
-                        <param name="visible_widget" value="[Container(301).Position(1)+Control.IsEnabled(303)]|!Control.IsEnabled(302)"/>
-                    </include>
-                    <include content="CategoryList">
-                        <param name="list_id" value="30"/>
-                        <param name="title" value="Películas"/>
-                        <param name="fade" value="Container(3150).HasPrevious"/>
-                        <param name="ondown_1" value="3150"/>
-                        <param name="ondown_2" value="3151"/>
-                        <param name="label_1" value="Películas"/>
-                        <param name="label_2" value="Géneros"/>
-                        <param name="button_1" value="movie"/>
-                        <param name="button_2" value="genre"/>
-                    </include>
-                </control>
+        <control type="group">
+            <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
+			<include>OpenClose_Fade</include>
+			<control type="group">
+			<animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Window.IsActive(movieinformation)|!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">Conditional</animation>
+            <include>Animation_WidgetInfo</include>
+            <control type="button" id="540">
+                <texturefocus/>
+                <texturenofocus/>
+                <onfocus>ClearProperty(VideoJump,Home)</onfocus>
+                <onunfocus>SetFocus(54,30,absolute)</onunfocus>
+                <visible>Container(54).IsUpdating|[Control.HasFocus(54)+!Container(54).IsUpdating]</visible>
+            </control>
+			<control type="panel" id="54">
+				<left>80</left>
+                <width>100%</width>
+				<onleft>noop</onleft>
+				<onright>531</onright>
 
+                <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(54).HasPrevious" reversible="true">Conditional</animation>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+                <onclick>Action(Info)</onclick>
+				<viewtype label="31101">icon</viewtype>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>531</pagecontrol>
+				<scrolltime tween="sine" easing="out">150</scrolltime>
+                <animation effect="fade" start="100" end="0" reversible="true" condition="Container(54).IsUpdating">Conditional</animation>
+				<itemlayout width="299" height="440">
+					<include content="PosterLayout">
+                        <param name="top" value="120"/>
+                        <param name="list_id" value="$PARAM[list_id]"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="299" height="440">
+                    <include content="PosterLayout">
+                        <param name="top" value="120"/>
+                        <param name="list_id" value="$PARAM[list_id]"/>
+                        <param name="focus" value="true"/>
+                    </include>
+                    <control type="button">
+                        <texturefocus/>
+                        <texturenofocus/>
+                        <onfocus condition="!String.IsEmpty(Window(Home).Property(VideoJump))">SetFocus(540)</onfocus>
+                    </control>
+				</focusedlayout>
+                <content sortby="title" sortorder="ascending" limit="100">$VAR[MyListMoreVar]</content>
+			</control>
+            <control type="image">
+                <centertop>50%</centertop>
+                <centerright>50%</centerright>
+                <width>100</width>
+                <height>100</height>
+                <texture>dialogs/spin.png</texture>
+                <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" tween="Quadratic" easing="inout" condition="true">Conditional</animation>
+                <animation effect="fade" tween="cubic" easing="in" time="150" delay="200">Visible</animation>
+                <visible>Container(54).IsUpdating</visible>
+            </control>
+            <control type="button">
+                <right>100</right>
+                <bottom>100</bottom>
+                <width>34</width>
+                <height>34</height>
+                <align>center</align>
+                <aligny>top</aligny>
+                <font>24px_Regular</font>
+                <label>Atrás</label>
+                <textwidth>200</textwidth>
+                <textoffsety>30</textoffsety>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <texturefocus>icons/go_back.png</texturefocus>
+                <texturenofocus>icons/go_back.png</texturenofocus>
+                <visible>false</visible>
+            </control>
+            <control type="button">
+                <centerleft>50%</centerleft>
+                <centertop>50%</centertop>
+                <width>150</width>
+                <height>150</height>
+                <texturefocus colordiffuse="gainsboro">icons/warning.png</texturefocus>
+                <texturenofocus colordiffuse="gainsboro">icons/warning.png</texturenofocus>
+                <label>Sin contenido</label>
+                <textwidth>500</textwidth>
+                <font>38px_Medium</font>
+                <textcolor>gainsboro</textcolor>
+                <focusedcolor>gainsboro</focusedcolor>
+                <disabledcolor>gainsboro</disabledcolor>
+                <invalidcolor>gainsboro</invalidcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <align>center</align>
+                <aligny>top</aligny>
+                <textoffsety>150</textoffsety>
+                <visible>!Integer.IsGreater(Container(54).NumItems,0)+!Container(54).IsUpdating</visible>
+                <include>Animation_WidgetInfo</include>
+            </control>
+            <control type="label">
+                <top>80</top>
+                <left>80</left>
+                <right>120</right>
+                <height>70</height>
+                <font>56px_Medium</font>
+                <aligny>center</aligny>
+                <label>$INFO[Window(Home).Property(VideoGenre)]</label>
+                <textcolor>gainsboro</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <include>Animation_WidgetInfo</include>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="100" condition="Container(54).HasPrevious" reversible="true">Conditional</animation>
+            </control>
+		</control>
+        <include>CommonScrollbars</include>
+        </control>
+        <control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture background="true" diffuse="overlays/corner.png" fallback="colors/color_transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+                <visible>Window.Next(videos)|Window.IsVisible(videos)</visible>
+			</control>
+			<control type="image">
+				<height>100%</height>
+				<width>100%</width>
+				<texture>colors/background50.png</texture>
+				<colordiffuse>primary_background</colordiffuse>
+                <visible>Window.Next(videos)|Window.IsVisible(videos)</visible>
+			</control>
 	</controls>
 </window>

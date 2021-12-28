@@ -31,7 +31,7 @@
         <control type="group" id="8000">
             <include>OpenClose_Fade</include>
             <animation effect="fade" start="100" end="0" condition="Player.HasVideo">conditional</animation>
-            <animation effect="slide" end="280" time="150" tween="sine" easing="out" condition="ControlGroup(9000).HasFocus">conditional</animation>
+            <animation effect="slide" end="320" time="150" tween="sine" easing="out" condition="ControlGroup(9000).HasFocus">conditional</animation>
             <control type="image">
                 <left>100</left>
                 <height>100%</height>
@@ -39,10 +39,52 @@
                 <texture>colors/background.png</texture>
                 <colordiffuse>primary_background</colordiffuse>
             </control>
+            <control type="multiimage">
+				<right>-10</right>
+				<width>1244</width>
+				<height>700</height>
+                <fadetime tween="sine" easing="out">150</fadetime>
+				<aspectratio scalediffuse="true" aligny="top" align="right">keep</aspectratio>
+				<imagepath background="true" diffuse="overlays/wallpaper.png">$VAR[FanartHomeVar]</imagepath>
+                <animation effect="slide" end="-320" time="150" tween="sine" easing="out" condition="ControlGroup(9000).HasFocus">conditional</animation>
+                <animation effect="zoom" center="155%,0" end="110" tween="sine" easing="out" time="200" condition="Window.IsActive(movieinformation)">conditional</animation>
+			</control>
+            <control type="label">
+                <centertop>65</centertop>
+                <left>110</left>
+                <right>80</right>
+                <height>50</height>
+                <font>27px_Regular</font>
+                <aligny>center</aligny>
+                <align>right</align>
+                <label>$INFO[System.Time]</label>
+                <textcolor>white</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <animation effect="slide" end="-320" time="150" tween="sine" easing="out" condition="ControlGroup(9000).HasFocus">conditional</animation>
+                <animation effect="fade" tween="sine" easing="out" start="100" end="0" time="150" condition="$PARAM[fade]" reversible="true">Conditional</animation>
+            </control>
+
+            <!--<control type="label">
+                <top>400</top>
+                <left>120</left>
+                <width>900</width>
+                <height>30</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>[LIGHT]$INFO[Listitem.Studio][/LIGHT]</label>
+                <font>22px_Medium</font>
+                <textcolor>silver</textcolor>
+                <shadowcolor>text_shadow</shadowcolor>
+                <visible>!Window.IsActive(movieinformation)</visible>
+                <include>Animation_WidgetInfo</include>
+            </control>-->
+
             <control type="group" id="2000">
                 <visible>String.IsEmpty(Window.Property(ItemHub))|String.IsEqual(Window.Property(ItemHub),Home)</visible>
                 <include>Animation_WidgetFade</include>
                 <control type="grouplist" id="2100">
+                    <top>420</top>
+                    <height>9000</height>
                     <visible>!Window.IsActive(movieinformation)</visible>
                     <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
                     <include>WidgetGroupListCommon</include>
@@ -50,7 +92,19 @@
                     <onback>Control.SetFocus(9100,1)</onback>
                     <include>Animation_WidgetInfo</include>
                     <pagecontrol>2010</pagecontrol>
-                    <include content="WidgetSpotlight" condition="Library.HasContent(movies)|Library.HasContent(tvshows)">
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),1)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),2)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),3)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),4)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),5)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),6)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),7)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),8)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),9)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),10)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),11)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedHomePosition),12)">Conditional</animation>
+<!--                    <include content="WidgetSpotlight" condition="Library.HasContent(movies)|Library.HasContent(tvshows)">
                         <param name="content_path" value="videodb://movies/titles/"/>
                         <param name="content_path2" value="videodb://tvshows/titles/"/>
                         <param name="item" value="HomeItem"/>
@@ -58,7 +112,7 @@
                         <param name="sortorder" value="descending"/>
                         <param name="widget_target" value="videos"/>
                         <param name="widget_limit" value="3"/>
-                    </include>
+                    </include>-->
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
                         <param name="content_path" value="videodb://recentlyaddedmovies/"/>
                         <param name="item" value="HomeItem"/>
@@ -168,6 +222,60 @@
                         <param name="widget_limit" value="50"/>
                         <param name="list_id" value="2113"/>
                     </include>
+                    <control type="grouplist" id="2114">
+                        <top>15</top>
+                        <left>106</left>
+                        <right>113</right>
+                        <height>70</height>
+                        <orientation>horizontal</orientation>
+                        <align>center</align>
+                        <itemgap>10</itemgap>
+                        <usecontrolcoords>true</usecontrolcoords>
+                        <control type="image">
+                            <width>650</width>
+                            <centertop>50%</centertop>
+                            <height>2</height>
+                            <texture colordiffuse="bg_overlay">dialogs/separator-grey.png</texture>
+                            <enable>false</enable>
+                        </control>
+                        <control type="button" id="2115">
+                            <centertop>50%</centertop>
+                            <height>70</height>
+                            <width>auto</width>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <textoffsetx>30</textoffsetx>
+                            <font>27px_Medium</font>
+                            <label>[UPPERCASE]Volver al principio[/UPPERCASE]</label>
+                            <textcolor>gray</textcolor>
+                            <focusedcolor>black</focusedcolor>
+                            <texturefocus border="20">dialogs/keyboard/key.png</texturefocus>
+                            <texturenofocus border="20" colordiffuse="bg_overlay">dialogs/keyboard/key-nf.png</texturenofocus>
+                            <onclick condition="Integer.IsGreater(Container(2102).NumItems,0)|Container(2102).IsUpdating">Control.SetFocus(2102)</onclick>
+                            <onclick condition="!Integer.IsGreater(Container(2102).NumItems,0)+!Container(2102).IsUpdating">Control.SetFocus(2103)</onclick>
+                            <pulseonselect>true</pulseonselect>
+                        </control>
+                        <control type="image">
+                            <width>650</width>
+                            <centertop>50%</centertop>
+                            <height>2</height>
+                            <texture colordiffuse="bg_overlay" flipx="true">dialogs/separator-grey.png</texture>
+                            <enable>false</enable>
+                        </control>
+                    </control>
+                </control>
+                <control type="image">
+                    <centertop>440</centertop>
+                    <left>106</left>
+                    <right>113</right>
+                    <height>80</height>
+                    <texture>icons/arrow_up.png</texture>
+                    <colordiffuse>gainsboro</colordiffuse>
+                    <aspectratio>keep</aspectratio>
+                    <visible>Integer.IsGreater(Window(home).Property(FixedHomePosition),1)</visible>
+                    <visible>!Window.IsActive(movieinformation)</visible>
+                    <visible>!VideoPlayer.Content(episodes)+!VideoPlayer.Content(movies)</visible>
+                    <animation effect="fade" tween="sine" easing="out" time="150">VisibleChange</animation>
                 </control>
 
             </control>
@@ -217,7 +325,7 @@
                     <include>Animation_WidgetInfo</include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/tvshows/tvshows.xsp"/>
-                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_header" value="Series"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(401).Position(0)+Control.IsEnabled(402)"/>
                         <param name="list_id" value="4150"/>
@@ -253,7 +361,7 @@
                     <include>Animation_WidgetInfo</include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/kids/movies.xsp"/>
-                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_header" value="Dibujos - Películas"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(501).Position(0)+Control.IsEnabled(502)"/>
                         <param name="list_id" value="5150"/>
@@ -263,7 +371,7 @@
                     </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/kids/tvshows.xsp"/>
-                        <param name="widget_header" value="Series"/>
+                        <param name="widget_header" value="Dibujos - Series"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="[Container(501).Position(1)+Control.IsEnabled(503)]|!Control.IsEnabled(502)"/>
                         <param name="list_id" value="5151"/>
@@ -293,7 +401,7 @@
                     <include>Animation_WidgetInfo</include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/anime/movies.xsp"/>
-                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_header" value="Anime - Películas"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="Container(601).Position(0)+Control.IsEnabled(602)"/>
                         <param name="list_id" value="6150"/>
@@ -303,7 +411,7 @@
                     </include>
                     <include content="WidgetListThumb2">
                         <param name="content_path" value="special://skin/playlists/anime/tvshows.xsp"/>
-                        <param name="widget_header" value="Películas"/>
+                        <param name="widget_header" value="Anime - Series"/>
                         <param name="widget_target" value="videos"/>
                         <param name="visible_widget" value="[Container(601).Position(1)+Control.IsEnabled(603)]|!Control.IsEnabled(602)"/>
                         <param name="list_id" value="6151"/>
@@ -656,119 +764,41 @@
                     </control>
                 </control>
                 <control type="panel" id="179">
-                    <left>120</left>
-                    <right>120</right>
-                    <top>0</top>
+                    <left>90</left>
+                    <top>480</top>
+                    <bottom>0</bottom>
                     <scrolltime tween="sine" easing="out">150</scrolltime>
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>Control.SetFocus(9100,0)</onback>
                     <onfocus>SetProperty(SearchWidgets,1,home)</onfocus>
                     <onfocus>ClearProperty(SearchSets)</onfocus>
                     <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
-                    <animation effect="slide" start="0" end="0,420" reversible="true" tween="sine" easing="out" time="150" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,80" reversible="true" tween="sine" easing="out" time="150" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
                     <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(179).HasPrevious" reversible="true">Conditional</animation>
                     <onup>1200</onup>
                     <ondown>noop</ondown>
                     <onright>1796</onright>
-                    <onclick>Skin.SetString(CustomSearchSet,$ESCINFO[ListItem.Label])</onclick>
-                    <onclick>SetProperty(SearchSets,1,home)</onclick>
-                    <onclick>SetFocus(178,0)</onclick>
                     <preloaditems>3</preloaditems>
                     <pagecontrol>1796</pagecontrol>
-                    <height>100%</height>
                     <width>1740</width>
                     <visible>Integer.IsGreater(Container(179).NumItems,0)|Container(179).IsUpdating</visible>
                     <visible allowhiddenfocus="true">String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))</visible>
-                    <itemlayout width="290" height="440">
+                    <itemlayout width="290" height="420">
                         <include content="PosterLayout">
-                            <param name="top" value="120"/>
-                            <param name="list_id" value="179"/>
+                            <param name="top" value="0"/>
+                            <param name="left" value="10"/>
+                            <param name="list_id" value="$PARAM[list_id]"/>
                         </include>
                     </itemlayout>
-                    <focusedlayout width="290" height="440">
+                    <focusedlayout width="290" height="420">
                         <include content="PosterLayout">
-                            <param name="top" value="120"/>
-                            <param name="list_id" value="179"/>
+                            <param name="top" value="0"/>
+                            <param name="left" value="10"/>
+                            <param name="list_id" value="$PARAM[list_id]"/>
                             <param name="focus" value="true"/>
                         </include>
                     </focusedlayout>
                     <content sortby="rating" sortorder="descending" target="videos" limit="30">special://skin/playlists/sets.xsp</content>
-                </control>
-                <control type="scrollbar" id="1796">
-                    <top>10</top>
-                    <bottom>10</bottom>
-                    <right>10</right>
-                    <width>5</width>
-                    <onleft>179</onleft>
-                    <onback>179</onback>
-                    <texturesliderbackground/>
-                    <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
-                    <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
-                    <textureslidernib/>
-                    <textureslidernibfocus/>
-                    <showonepage>false</showonepage>
-                    <orientation>vertical</orientation>
-                    <enable>true</enable>
-                    <pulseonselect>true</pulseonselect>
-                    <visible allowhiddenfocus="true">String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))+!String.IsEmpty(Window(home).Property(SearchWidgets))</visible>
-                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
-                    <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus(1796)" reversible="true">Conditional</animation>
-                    <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="Control.HasFocus(1796)" reversible="true">Conditional</animation>
-                </control>
-                <control type="panel" id="178">
-                    <left>120</left>
-                    <right>120</right>
-                    <top>0</top>
-                    <scrolltime tween="sine" easing="out">150</scrolltime>
-                    <onleft>Control.SetFocus(9100,0)</onleft>
-                    <onback>179</onback>
-                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
-                    <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(178).HasPrevious" reversible="true">Conditional</animation>
-                    <onup>noop</onup>
-                    <ondown>noop</ondown>
-                    <onright>1786</onright>
-                    <onclick>Action(Info)</onclick>
-                    <preloaditems>3</preloaditems>
-                    <pagecontrol>1786</pagecontrol>
-                    <height>100%</height>
-                    <width>1740</width>
-                    <visible>Integer.IsGreater(Container(178).NumItems,1)+!Container(178).IsUpdating</visible>
-                    <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SearchSets))</visible>
-                    <itemlayout width="290" height="440">
-                        <include content="PosterLayout">
-                            <param name="top" value="120"/>
-                            <param name="list_id" value="178"/>
-                        </include>
-                    </itemlayout>
-                    <focusedlayout width="290" height="440">
-                        <include content="PosterLayout">
-                            <param name="top" value="120"/>
-                            <param name="list_id" value="178"/>
-                            <param name="focus" value="true"/>
-                        </include>
-                    </focusedlayout>
-                    <content sortby="year" target="videos" limit="30">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sortyear%22%7D%2C%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22set%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchSet)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</content>
-                </control>
-                <control type="scrollbar" id="1786">
-                    <top>10</top>
-                    <bottom>10</bottom>
-                    <right>10</right>
-                    <width>5</width>
-                    <onleft>178</onleft>
-                    <onback>178</onback>
-                    <texturesliderbackground/>
-                    <texturesliderbar border="0,5,0,5">lists/scrollbar.png</texturesliderbar>
-                    <texturesliderbarfocus border="0,5,0,5">lists/scrollbar.png</texturesliderbarfocus>
-                    <textureslidernib/>
-                    <textureslidernibfocus/>
-                    <showonepage>false</showonepage>
-                    <orientation>vertical</orientation>
-                    <enable>true</enable>
-                    <pulseonselect>true</pulseonselect>
-                    <visible allowhiddenfocus="true">!String.IsEmpty(Window(home).Property(SearchSets))+!Container(178).IsUpdating</visible>
-                    <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
-                    <animation effect="fade" tween="sine" easing="out" start="100" end="15" time="100" condition="!Control.HasFocus(1786)" reversible="true">Conditional</animation>
-                    <animation effect="fade" start="100" end="80" pulse="true" time="1000" condition="Control.HasFocus(1786)" reversible="true">Conditional</animation>
                 </control>
                 <control type="panel" id="177">
                     <left>120</left>
@@ -855,19 +885,32 @@
                     <visible>Container(179).IsUpdating+String.IsEmpty(Skin.String(CustomSearchTerm))+String.IsEmpty(Window(home).Property(SearchSets))</visible>
                 </control>
 
+
+
                 <control type="grouplist" id="180">
-                    <top>450</top>
+                    <top>420</top>
+                    <height>9000</height>
                     <include>WidgetGroupListCommon</include>
                     <onleft>Control.SetFocus(9100,0)</onleft>
                     <onback>Control.SetFocus(9100,0)</onback>
                     <onfocus>SetProperty(SearchWidgets,1,home)</onfocus>
                     <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
-                    <width>1920</width>
-                    <height>1080</height>
                     <orientation>vertical</orientation>
                     <visible allowhiddenfocus="true">String.IsEmpty(Window(home).Property(SeeMore))</visible>
                     <visible  allowhiddenfocus="true">!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
-                    <animation effect="slide" start="0" end="0,-450" reversible="true" tween="sine" easing="out" time="150" condition="!String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,180" reversible="true" tween="sine" easing="out" time="150" condition="String.IsEmpty(Window(home).Property(SearchWidgets))">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),1)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),2)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),3)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),4)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),5)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),6)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),7)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),8)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),9)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),10)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),11)">Conditional</animation>
+                    <animation effect="slide" end="0,-470" time="150" tween="sine" easing="out" reversible="true" condition="Integer.IsGreater(Window(home).Property(FixedSearchPosition),12)">Conditional</animation>
 
                     <!-- By Title (Movies & TV Shows) -->
                     <include content="WidgetListThumb" condition="Library.HasContent(movies)">
@@ -1018,7 +1061,7 @@
                         <right>120</right>
                         <height>70</height>
                         <font>56px_Medium</font>
-                        <label>[CAPITALIZE]$INFO[Skin.String(SearchMoreLabel)][/CAPITALIZE]</label>
+                        <label>[LIGHT][CAPITALIZE]$INFO[Skin.String(SearchMoreLabel)][/CAPITALIZE][/LIGHT]</label>
                         <align>left</align>
                         <aligny>center</aligny>
                         <textcolor>FFEEEEEE</textcolor>
@@ -1035,7 +1078,7 @@
                         <right>120</right>
                         <height>70</height>
                         <font>56px_Medium</font>
-                        <label>[CAPITALIZE]$INFO[Skin.String(CustomSearchSet)][/CAPITALIZE]</label>
+                        <label>[LIGHT][CAPITALIZE]$INFO[Skin.String(CustomSearchSet)][/CAPITALIZE][/LIGHT]</label>
                         <align>left</align>
                         <aligny>center</aligny>
                         <textcolor>FFEEEEEE</textcolor>
@@ -1053,7 +1096,7 @@
                         <right>120</right>
                         <height>70</height>
                         <font>56px_Medium</font>
-                        <label>[CAPITALIZE]$VAR[SearchString][/CAPITALIZE]</label>
+                        <label>[LIGHT][CAPITALIZE]$VAR[SearchString][/CAPITALIZE][/LIGHT]</label>
                         <align>left</align>
                         <aligny>center</aligny>
                         <textcolor>FFEEEEEE</textcolor>
@@ -1061,6 +1104,102 @@
                         <animation effect="fade" tween="sine" easing="out" reversible="false" time="200">Visible</animation>
                     </control>
                 </control>
+                </control>
+            </control>
+            <control type="label" id="91112">
+                <left>-10000</left>
+                <label>$VAR[MpaaLabelVar]</label>
+                <textcolor>00000000</textcolor>
+            </control>
+            <control type="label" id="91113">
+                <left>-10000</left>
+                <label>$VAR[TimeLabelVar]</label>
+                <textcolor>00000000</textcolor>
+            </control>
+            <control type="label" id="91114">
+                <left>-10000</left>
+                <label>$VAR[GenreLabelVar]</label>
+                <textcolor>00000000</textcolor>
+            </control>
+            <control type="grouplist">
+                <orientation>vertical</orientation>
+                <usecontrolcoords>true</usecontrolcoords>
+                <top>130</top>
+                <left>90</left>
+                <width>100%</width>
+                <height>100%</height>
+                <itemgap>10</itemgap>
+                <align>left</align>
+                <onleft>noop</onleft>
+                <onright>801</onright>
+                <ondown>50</ondown>
+                <enable>false</enable>
+                <animation effect="fade" start="100" end="0" tween="sine" easing="out" time="150" reversible="true" condition="ControlGroup(11).HasFocus|Control.HasFocus(51)">Conditional</animation>
+                <control type="label">
+                    <left>10</left>
+                    <width>950</width>
+                    <height>50</height>
+                    <label>$VAR[TitleHomeVar]</label>
+                    <font>38px_Medium</font>
+                    <aligny>top</aligny>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                </control>
+               <!-- <control type="group">
+                    <left>10</left>
+                    <width>1000</width>
+                    <height>105</height>
+                    <control type="grouplist">
+                        <height>105</height>
+                        <align>right</align>
+                        <orientation>vertical</orientation>
+                        <control type="textbox">
+                            <height max="105">auto</height>
+                            <width>900</width>
+                            <font>42px_Medium</font>
+                            <label>[LIGHT]$VAR[TitleHomeVar][/LIGHT]</label>
+                            <textcolor>white</textcolor>
+                            <shadowcolor>text_shadow</shadowcolor>
+                            <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
+                        </control>
+                    </control>
+                </control>-->
+
+                <!--$VAR[Genre1Var]$VAR[Genre2Var]$VAR[Genre3Var]$VAR[Genre4Var]$VAR[Genre5Var]$VAR[Genre6Var]$VAR[Genre7Var]$VAR[Genre8Var]$VAR[Genre9Var]$VAR[Genre10Var]$VAR[Genre11Var]$VAR[Genre12Var]$VAR[Genre13Var]-->
+                <control type="label">
+                    <left>10</left>
+                    <width>900</width>
+                    <height>30</height>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>[LIGHT]$VAR[YearHomeVar][/LIGHT]   [B][COLOR $VAR[MpaaColorHomeVar]]|[/COLOR][/B][LIGHT]$VAR[MpaaHomeVar][/LIGHT]   [LIGHT]$VAR[TimeHomeVar][/LIGHT]   [LIGHT]$VAR[GenreHomeVar]$VAR[Genre2HomeVar][/LIGHT]</label>
+                    <font>22px_Bold</font>
+                    <textcolor>silver</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <visible>true</visible>
+                </control>
+                <control type="textbox" id="91111">
+                    <left>10</left>
+                    <width>950</width>
+                    <height>100</height>
+                    <font>Plot_Font</font>
+                    <label>$VAR[PlotHomeVar]</label>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <autoscroll>false</autoscroll>
+                </control>
+                <control type="label">
+                    <top>-15</top>
+                    <left>10</left>
+                    <width>900</width>
+                    <height>24</height>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <label>[B]...[/B]</label>
+                    <font>25px_Bold</font>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <visible>Container(91111).HasNext</visible>
                 </control>
             </control>
             <control type="group" id="8001">
@@ -1074,7 +1213,7 @@
                     <height>70</height>
                     <font>56px_Medium</font>
                     <aligny>center</aligny>
-                    <label>Cuenta</label>
+                    <label>[LIGHT]Cuenta[/LIGHT]</label>
                     <textcolor>gainsboro</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
                     <include>Animation_WidgetInfo</include>
@@ -1244,7 +1383,7 @@
                     <height>70</height>
                     <font>56px_Medium</font>
                     <aligny>center</aligny>
-                    <label>Ajustes</label>
+                    <label>[LIGHT]Ajustes[/LIGHT]</label>
                     <textcolor>gainsboro</textcolor>
                     <shadowcolor>text_shadow</shadowcolor>
                     <include>Animation_WidgetInfo</include>

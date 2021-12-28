@@ -14,11 +14,10 @@
                 <visible>Container(54).IsUpdating|[Control.HasFocus(54)+!Container(54).IsUpdating]</visible>
             </control>
 			<control type="panel" id="54">
-				<left>80</left>
+				<left>70</left>
                 <width>100%</width>
 				<onleft>noop</onleft>
 				<onright>531</onright>
-
                 <animation effect="slide" end="0,50" time="150" tween="sine" easing="in" condition="!Container(54).HasPrevious" reversible="true">Conditional</animation>
 				<onup>noop</onup>
 				<ondown>noop</ondown>
@@ -33,12 +32,14 @@
 				<itemlayout width="299" height="440">
 					<include content="PosterLayout">
                         <param name="top" value="120"/>
+                        <param name="left" value="10"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
 					</include>
 				</itemlayout>
 				<focusedlayout width="299" height="440">
                     <include content="PosterLayout">
                         <param name="top" value="120"/>
+                        <param name="left" value="10"/>
                         <param name="list_id" value="$PARAM[list_id]"/>
                         <param name="focus" value="true"/>
                     </include>

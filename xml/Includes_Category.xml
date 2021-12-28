@@ -5,89 +5,99 @@
         <param name="top">0</param>
         <param name="left">0</param>
         <definition>
-
-		<control type="group">
-			<width>263</width>
-			<height>375</height>
-            <top>$PARAM[top]</top>
-            <left>$PARAM[left]</left>
-            <visible>!String.IsEqual(ListItem.Label,empty)</visible>
-            <animation effect="zoom" start="100" end="105" center="auto" tween="sine" easing="in" time="100" reversible="true">Focus</animation>
-            <animation effect="zoom" start="105" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
-            <control type="image">
-                <top>0</top>
-                <left>0</left>
-                <bottom>-10</bottom>
-                <right>-10</right>
-                <texture border="20">frame/shadow.png</texture>
-                <aspectratio scalediffuse="false">stretch</aspectratio>
+            <control type="group">
+                <width>263</width>
+                <height>375</height>
+                <top>$PARAM[top]</top>
+                <left>$PARAM[left]</left>
+                <visible>!String.IsEqual(ListItem.Label,empty)</visible>
+                <animation effect="zoom" start="100" end="105" center="auto" tween="sine" easing="out" time="100" reversible="true">Focus</animation>
+                <animation effect="zoom" start="105" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
+                <control type="image">
+                    <top>0</top>
+                    <left>0</left>
+                    <bottom>-10</bottom>
+                    <right>-10</right>
+                    <texture border="20">frame/shadow.png</texture>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                </control>
+                <control type="image">
+                    <top>1</top>
+                    <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+                    <bordersize>6</bordersize>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <visible>String.IsEmpty(ListItem.Property(SeeMore))</visible>
+                </control>
+                <control type="image">
+                    <top>1</top>
+                    <texture diffuse="frame/panel.png" background="true">defaultseemorecover.png</texture>
+                    <bordersize>6</bordersize>
+                    <aspectratio scalediffuse="false">stretch</aspectratio>
+                    <visible>!String.IsEmpty(ListItem.Property(SeeMore))</visible>
+                </control>
+                <control type="textbox">
+                    <bottom>10</bottom>
+                    <left>15</left>
+                    <right>15</right>
+                    <height>50</height>
+                    <font>20px_Medium</font>
+                    <aligny>center</aligny>
+                    <label>[UPPERCASE]$INFO[ListItem.label][/UPPERCASE]</label>
+                    <textcolor>gainsboro</textcolor>
+                    <shadowcolor>text_shadow</shadowcolor>
+                    <autoscroll delay="1000" time="1000" repeat="1000">$PARAM[focus]</autoscroll>
+                    <visible>String.IsEmpty(ListItem.Art(poster))</visible>
+                </control>
+                <control type="progress">
+                    <bottom>-10</bottom>
+                    <left>20</left>
+                    <right>20</right>
+                    <height>4</height>
+                    <texturebg border="5,0,5,0" colordiffuse="bg_overlay">dialogs/progress.png</texturebg>
+                    <lefttexture></lefttexture>
+                    <midtexture border="5,0,5,0" colordiffuse="button_focus">dialogs/progress.png</midtexture>
+                    <righttexture></righttexture>
+                    <overlaytexture></overlaytexture>
+                    <info>ListItem.PercentPlayed</info>
+                    <visible>ListItem.IsResumable</visible>
+                </control>
+                <control type="button">
+                    <top>0</top>
+                    <left>-1</left>
+                    <bottom>-1</bottom>
+                    <right>-1</right>
+                    <texturefocus border="10">frame/focus.png</texturefocus>
+                    <texturenofocus/>
+                    <pulseonselect>true</pulseonselect>
+                    <animation effect="fade" end="100" time="1" reversible="true">Focus</animation>
+                    <animation effect="fade" end="0" time="1" reversible="true">Unfocus</animation>
+                </control>
+                <control type="group">
+                    <bottom>-42</bottom>
+                    <left>10</left>
+                    <right>10</right>
+                    <height>42</height>
+                    <visible>!String.IsEqual(ListItem.DBTYPE,set)</visible>
+                    <visible>false</visible>
+                    <control type="label">
+                        <label>$INFO[ListItem.label]</label>
+                        <font>20px_Medium</font>
+                        <textcolor>gainsboro</textcolor>
+                        <shadowcolor>text_shadow</shadowcolor>
+                        <visible>$PARAM[focus]</visible>
+                        <animation effect="fade" start="50" end="100" time="1" reversible="true">Focus</animation>
+                        <animation effect="fade" start="100" end="50" time="1" reversible="true">Unfocus</animation>
+                    </control>
+                    <control type="label">
+                        <label>$INFO[ListItem.label]</label>
+                        <font>20px_Medium</font>
+                        <textcolor>gainsboro</textcolor>
+                        <shadowcolor>text_shadow</shadowcolor>
+                        <visible>!$PARAM[focus]</visible>
+                        <animation effect="fade" end="50" time="1" condition="true" reversible="true">Conditional</animation>
+                    </control>
+                </control>
             </control>
-            <control type="image">
-                <top>1</top>
-                <texture fallback="defaultvideocover.png" diffuse="frame/panel.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-                <bordersize>6</bordersize>
-                <aspectratio scalediffuse="false">stretch</aspectratio>
-                <visible>String.IsEmpty(ListItem.Property(SeeMore))</visible>
-            </control>
-            <control type="image">
-                <top>1</top>
-                <texture diffuse="frame/panel.png" background="true">defaultseemorecover.png</texture>
-                <bordersize>6</bordersize>
-                <aspectratio scalediffuse="false">stretch</aspectratio>
-                <visible>!String.IsEmpty(ListItem.Property(SeeMore))</visible>
-            </control>
-            <control type="textbox">
-                <bottom>10</bottom>
-                <left>15</left>
-                <right>15</right>
-                <height>50</height>
-                <font>20px_Medium</font>
-                <aligny>center</aligny>
-                <label>[UPPERCASE]$INFO[ListItem.label][/UPPERCASE]</label>
-                <textcolor>gainsboro</textcolor>
-                <shadowcolor>text_shadow</shadowcolor>
-                <autoscroll delay="3000" time="1000" repeat="3000">true</autoscroll>
-                <visible>String.IsEmpty(ListItem.Art(poster))</visible>
-            </control>
-            <control type="label">
-                <bottom>0</bottom>
-                <left>15</left>
-                <right>15</right>
-                <height>42</height>
-                <label>[UPPERCASE]$INFO[ListItem.label][/UPPERCASE]</label>
-                <font>20px_Medium</font>
-                <textcolor>gainsboro</textcolor>
-                <shadowcolor>text_shadow</shadowcolor>
-                <visible>String.IsEmpty(ListItem.Art(poster))</visible>
-                <visible>false</visible>
-            </control>
-			<control type="progress">
-				<bottom>-10</bottom>
-				<left>25</left>
-				<right>25</right>
-				<height>4</height>
-				<texturebg border="5,0,5,0" colordiffuse="bg_overlay">dialogs/progress.png</texturebg>
-				<lefttexture></lefttexture>
-				<midtexture border="5,0,5,0" colordiffuse="button_focus">dialogs/progress.png</midtexture>
-				<righttexture></righttexture>
-				<overlaytexture></overlaytexture>
-				<info>ListItem.PercentPlayed</info>
-                <visible>ListItem.IsResumable</visible>
-			</control>
-            <control type="button">
-                <top>0</top>
-                <left>0</left>
-                <bottom>-1</bottom>
-                <right>0</right>
-                <texturefocus border="20">frame/focus.png</texturefocus>
-                <texturenofocus/>
-                <pulseonselect>true</pulseonselect>
-                <animation effect="fade" end="100" time="1" reversible="true">Focus</animation>
-                <animation effect="fade" end="0" time="1" reversible="true">Unfocus</animation>
-            </control>
-		</control>
-
-
         </definition>
 	</include>
     <include name="GenreLayout">
@@ -100,8 +110,8 @@
 			<height>263</height>
             <top>$PARAM[top]</top>
             <left>$PARAM[left]</left>
-            <animation effect="zoom" start="100" end="105" center="auto" tween="sine" easing="in" time="100" reversible="true">Focus</animation>
-            <animation effect="zoom" start="105" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
+            <animation effect="zoom" start="100" end="110" center="auto" tween="sine" easing="out" time="100" reversible="true">Focus</animation>
+            <animation effect="zoom" start="110" end="100" center="auto" tween="sine" easing="out" time="100" reversible="true">Unfocus</animation>
             <control type="image">
                 <top>0</top>
                 <left>0</left>

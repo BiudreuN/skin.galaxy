@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <smartplaylist type="movies">
     <name>Películas - Dibujos</name>
-    <match>one</match>
+    <match>all</match>
     <rule field="genre" operator="contains">anima</rule>
-    <rule field="path" operator="contains">anima</rule>
+    <rule field="genre" operator="doesnotcontain">anime</rule>
+    <rule field="tag" operator="doesnotcontain">anime</rule>
+    <rule field="path" operator="doesnotcontain">anime</rule>
     <limit>all</limit>
     <order direction="descending">rating</order>
 </smartplaylist>

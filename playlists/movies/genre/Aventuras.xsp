@@ -5,7 +5,6 @@
     <rule field="genre" operator="contain">
         <value>adventure</value>
         <value>aventura</value>
-        <value>aventuras</value>
     </rule>
     <rule field="genre" operator="doesnotcontain">anime</rule>
     <rule field="genre" operator="doesnotcontain">anima</rule>

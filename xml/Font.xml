@@ -34,13 +34,13 @@
 		</font>
         <font>
 			<name>42px_Medium</name>
-			<filename>Roboto-Medium.ttf</filename>
+			<filename>OpenSans-Medium.ttf</filename>
 			<size>42</size>
 		</font>
         <font>
 			<name>42px_Regular</name>
 			<filename>Roboto-Regular.ttf</filename>
-			<size>45</size>
+			<size>42</size>
 		</font>
         <font>
 			<name>38px_Bold</name>
@@ -49,7 +49,7 @@
 		</font>
         <font>
 			<name>38px_Medium</name>
-			<filename>Roboto-Medium.ttf</filename>
+			<filename>OpenSans-Medium.ttf</filename>
 			<size>38</size>
 		</font>
 		<font>
@@ -94,7 +94,7 @@
 		</font>
         <font>
 			<name>30px_Medium</name>
-			<filename>Roboto-Medium.ttf</filename>
+			<filename>OpenSans-Medium.ttf</filename>
 			<size>30</size>
 		</font>
         <font>
@@ -134,7 +134,7 @@
 		</font>
         <font>
 			<name>27px_Medium</name>
-			<filename>Roboto-Medium.ttf</filename>
+			<filename>OpenSans-SemiBold.ttf</filename>
 			<size>27</size>
 		</font>
         <font>
@@ -149,7 +149,7 @@
 		</font>
         <font>
 			<name>27px_Regular</name>
-			<filename>Roboto-Regular.ttf</filename>
+			<filename>OpenSans-Medium.ttf</filename>
 			<size>27</size>
 		</font>
 		<font>
@@ -169,7 +169,7 @@
 		</font>
 		<font>
 			<name>25px_Bold</name>
-			<filename>Roboto-Bold.ttf</filename>
+			<filename>OpenSans-SemiBold.ttf</filename>
 			<size>25</size>
 		</font>
 		<font>
@@ -182,6 +182,11 @@
 			<filename>Roboto-Medium.ttf</filename>
             <style>lighten</style>
 			<size>25</size>
+		</font>
+        <font>
+			<name>Plot_Font</name>
+			<filename>OpenSans-Medium.ttf</filename>
+			<size>24</size>
 		</font>
 		<font>
 			<name>25px_Regular</name>
@@ -200,7 +205,7 @@
 		</font>
         <font>
 			<name>24px_Medium</name>
-			<filename>Roboto-Medium.ttf</filename>
+			<filename>OpenSans-SemiBold.ttf</filename>
 			<size>24</size>
 		</font>
         <font>
@@ -232,17 +237,17 @@
 
 		<font>
 			<name>22px_Bold</name>
-			<filename>Roboto-Bold.ttf</filename>
-			<size>22</size>
+			<filename>OpenSans-SemiBold.ttf</filename>
+			<size>24</size>
 		</font>
         <font>
 			<name>22px_Medium</name>
-			<filename>Roboto-Medium.ttf</filename>
+			<filename>OpenSans-Medium.ttf</filename>
 			<size>22</size>
 		</font>
         <font>
 			<name>22px_Regular</name>
-			<filename>Roboto-Regular.ttf</filename>
+			<filename>OpenSans-Regular.ttf</filename>
 			<size>22</size>
 		</font>
         <font>
@@ -257,12 +262,12 @@
 		</font>
         <font>
 			<name>20px_Medium</name>
-			<filename>Roboto-Medium.ttf</filename>
+			<filename>OpenSans-Medium.ttf</filename>
 			<size>20</size>
 		</font>
         <font>
 			<name>20px_Regular</name>
-			<filename>Roboto-Regular.ttf</filename>
+			<filename>OpenSans-Regular.ttf</filename>
 			<size>20</size>
 		</font>
 		<font>
@@ -297,7 +302,7 @@
 		</font>
         <font>
 			<name>16px_Regular</name>
-			<filename>Roboto-Regular.ttf</filename>
+			<filename>OpenSans-Medium.ttf</filename>
 			<size>16</size>
 		</font>
         <font>

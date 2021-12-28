@@ -4,6 +4,7 @@
 	<backgroundcolor>0</backgroundcolor>
     <onunload condition="!String.IsEmpty(Window(Home).Property(VideoGenre))+Window.Next(Home)">ClearProperty(VideoGenre,Home)</onunload>
     <onload>Action(Stop)</onload>
+    <previouswindow>1106</previouswindow>
 	<controls>
         <control type="image">
             <height>100%</height>
